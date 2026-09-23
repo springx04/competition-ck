@@ -1,0 +1,30 @@
+# Downloaded models, source checkouts and compiled native artifacts.
+models/
+third_party/
+env/python/
+env/openface/
+env/mamba-root/
+tools/
+
+# Runtime output and local data.
+runs/
+*.mp4
+*.wav
+*.png
+*.bmp
+*.npy
+*.npz
+
+# Python/build/test by-products.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Local editor and OS files.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
