@@ -25,6 +25,14 @@ class PipelineError(RuntimeError):
     pass
 
 
+def _is_cuda_runtime_failure(exc: BaseException) -> bool:
+    text = str(exc).lower()
+    return any(token in text for token in (
+        "cuda", "cudnn", "out of memory", "no kernel image", "driver version",
+        "device-side", "invalid device function",
+    ))
+
+
 def _code_state(project_root: str | Path) -> dict[str, Any]:
     root = Path(project_root)
     try:
@@ -243,16 +251,40 @@ def stage_media(cfg: dict[str, Any], run: Path, samples: list[Sample], *, resume
 
 
 def stage_text(cfg: dict[str, Any], run: Path, samples: list[Sample], *, resume: bool) -> None:
-    from .extractors.bert import encode_words
+    from .extractors.bert import BertWordEncoder
     from .text_map import build_words
     device, device_info = choose_device(cfg["runtime"]["device"], cfg["runtime"].get("allow_same_model_cpu_fallback", True))
+    allow_cpu = bool(cfg["runtime"].get("allow_same_model_cpu_fallback", True))
+    try:
+        encoder = BertWordEncoder(cfg["paths"]["bert_dir"], device)
+    except Exception as exc:
+        if not (allow_cpu and device.startswith("cuda") and _is_cuda_runtime_failure(exc)):
+            raise
+        device_info["model_load_cuda_error"] = repr(exc)
+        device = "cpu"
+        device_info["actual"] = "cpu"
+        encoder = BertWordEncoder(cfg["paths"]["bert_dir"], device)
     def action(sample: Sample, sample_dir: Path) -> dict[str, Any]:
+        nonlocal device, encoder
         words = build_words(sample.raw_text)
-        features, tokens, chunks, statuses = encode_words(
-            words, cfg["paths"]["bert_dir"], device,
-            content_tokens_per_chunk=int(cfg["text"]["content_tokens_per_chunk"]),
-            chunk_stride=int(cfg["text"]["chunk_stride"]),
-        )
+        try:
+            encoded = encoder.encode(
+                words, content_tokens_per_chunk=int(cfg["text"]["content_tokens_per_chunk"]),
+                chunk_stride=int(cfg["text"]["chunk_stride"]),
+            )
+        except Exception as exc:
+            if not (allow_cpu and device.startswith("cuda") and _is_cuda_runtime_failure(exc)):
+                raise
+            device_info["forward_cuda_error"] = repr(exc)
+            encoder.close()
+            device = "cpu"
+            device_info["actual"] = "cpu"
+            encoder = BertWordEncoder(cfg["paths"]["bert_dir"], device)
+            encoded = encoder.encode(
+                words, content_tokens_per_chunk=int(cfg["text"]["content_tokens_per_chunk"]),
+                chunk_stride=int(cfg["text"]["chunk_stride"]),
+            )
+        features, tokens, chunks, statuses = encoded
         word_rows = [asdict(w) if is_dataclass(w) else dict(w) for w in words]
         for row, info in zip(word_rows, statuses):
             row.update(info)
@@ -264,7 +296,10 @@ def stage_text(cfg: dict[str, Any], run: Path, samples: list[Sample], *, resume:
         write_jsonl(sample_dir / "bert_chunks.jsonl", chunks)
         write_npz(sample_dir / "bert_words.npz", word_features=features, word_ids=np.arange(len(words), dtype=np.int64))
         return {"device": device, "word_count": len(words), "token_count": len(tokens)}
-    _run_per_sample(cfg, run, samples, "text", action, resume=resume)
+    try:
+        _run_per_sample(cfg, run, samples, "text", action, resume=resume)
+    finally:
+        encoder.close()
     env = read_json(run / "environment.json", {})
     env["bert_device"] = device_info
     write_json(run / "environment.json", env)
@@ -276,12 +311,22 @@ def stage_align(cfg: dict[str, Any], run: Path, samples: list[Sample], *, resume
     from .alignment import find_ctc_files
     from .text_map import normalize_ctc_text
     device, device_info = choose_device(cfg["runtime"]["device"], cfg["runtime"].get("allow_same_model_cpu_fallback", True))
-    model, _args = load_ctc_model(cfg["paths"]["ctc_dir"], device)
+    allow_cpu = bool(cfg["runtime"].get("allow_same_model_cpu_fallback", True))
+    try:
+        model, _args = load_ctc_model(cfg["paths"]["ctc_dir"], device)
+    except Exception as exc:
+        if not (allow_cpu and device.startswith("cuda") and _is_cuda_runtime_failure(exc)):
+            raise
+        device_info["model_load_cuda_error"] = repr(exc)
+        device = "cpu"
+        device_info["actual"] = "cpu"
+        model, _args = load_ctc_model(cfg["paths"]["ctc_dir"], device)
     _config, _weight, bpe_path = find_ctc_files(cfg["paths"]["ctc_dir"])
     sp = spm.SentencePieceProcessor(model_file=str(bpe_path))
     token_to_id = {token: i for i, token in enumerate(model.token_list)}
     unk_id = token_to_id.get("<unk>")
     def action(sample: Sample, sample_dir: Path) -> dict[str, Any]:
+        nonlocal device, model
         words = read_jsonl(sample_dir / "words.jsonl")
         media = read_json(sample_dir / "media.json", {})
         if media.get("audio_discontinuous"):
@@ -289,7 +334,23 @@ def stage_align(cfg: dict[str, Any], run: Path, samples: list[Sample], *, resume
         wav, sr = sf.read(sample_dir / "audio_16k.wav", dtype="float32", always_2d=False)
         if sr != 16000 or np.asarray(wav).ndim != 1:
             raise PipelineError("derived WAV is not 16k mono")
-        lpz, index_duration = ctc_forward(model, np.asarray(wav, np.float32), device)
+        try:
+            lpz, index_duration = ctc_forward(model, np.asarray(wav, np.float32), device)
+        except Exception as exc:
+            if not (allow_cpu and device.startswith("cuda") and _is_cuda_runtime_failure(exc)):
+                raise
+            device_info["forward_cuda_error"] = repr(exc)
+            try:
+                import torch
+                model.to("cpu")
+                torch.cuda.empty_cache()
+            except Exception:
+                pass
+            del model
+            device = "cpu"
+            device_info["actual"] = "cpu"
+            model, _ = load_ctc_model(cfg["paths"]["ctc_dir"], device)
+            lpz, index_duration = ctc_forward(model, np.asarray(wav, np.float32), device)
         ctc_texts: list[str] = []
         token_arrays: list[np.ndarray] = []
         row_to_word: list[int] = []
@@ -362,12 +423,13 @@ def stage_align(cfg: dict[str, Any], run: Path, samples: list[Sample], *, resume
         diagnostic = greedy_diagnostic(lpz, list(model.token_list))
         reference = " ".join(row["ctc_text"] for row in words if row.get("ctc_text"))
         s, d, i, wer = word_error_counts(reference, diagnostic)
+        diagnostic_wer = wer if reference.split() else None
         write_jsonl(sample_dir / "words.jsonl", words)
         write_npz(sample_dir / "ctc_segmentation.npz", timings=segmentation["timings"], char_probs=segmentation["char_probs"])
         write_json(sample_dir / "ctc_state.json", {"state_list": segmentation["state_list"]})
         write_json(sample_dir / "diagnostic.json", {
             "diagnostic_transcript": diagnostic, "normalized_reference": reference,
-            "substitutions": s, "deletions": d, "insertions": i, "diagnostic_wer": wer,
+            "substitutions": s, "deletions": d, "insertions": i, "diagnostic_wer": diagnostic_wer,
             "frame_count": int(lpz.shape[0]), "index_duration": index_duration,
             "ctc_row_to_word_id": row_to_word, "initially_accepted_words": accepted,
         })
@@ -462,7 +524,11 @@ def stage_audit(cfg: dict[str, Any], run: Path, samples: list[Sample]) -> None:
         )
         status_path = sample_dir / "status.json"
         status = _status(status_path, sample)
-        status.update({"pairing_status": result["pairing_status"], "paired_use": result["paired_use"], "review_scope": result["review_scope"]})
+        status.update({
+            "pairing_status": result["pairing_status"], "paired_use": result["paired_use"],
+            "review_scope": result["review_scope"], "text_time_policy": result["text_time_policy"],
+            "text_quarantine_intervals": result["text_quarantine_intervals"],
+        })
         status["stages"]["audit"] = {"status": "ok"}
         write_json(status_path, status)
         for issue in result["issues"]:
@@ -511,7 +577,13 @@ def stage_pool(cfg: dict[str, Any], run: Path, samples: list[Sample]) -> None:
             interval = word.get("accepted_interval") or [0.0, 0.0]
             text_intervals.append(interval); text_ids.append(wid)
             text_values.append(bert["word_features"][wid] if wid < len(bert["word_features"]) else np.zeros(768, np.float32))
-            text_eligible.append(bool(word.get("accepted_interval")) and bool(status.get("paired_use")))
+            accepted_interval = word.get("accepted_interval")
+            text_policy = status.get("text_time_policy", "accept" if status.get("paired_use") else "quarantine_all")
+            allowed = bool(accepted_interval) and text_policy != "quarantine_all"
+            if allowed and text_policy == "quarantine_intervals":
+                start, end = map(float, accepted_interval)
+                allowed = not any(min(end, float(qe)) > max(start, float(qs)) for qs, qe in status.get("text_quarantine_intervals", []))
+            text_eligible.append(allowed)
         text_series = NativeSeries(np.asarray(text_values, np.float32).reshape((-1, 768)), np.asarray(text_intervals, np.float64).reshape((-1, 2)), np.asarray(text_eligible, bool), np.asarray(text_ids, np.int64)) if words else _empty_series(768)
         def native(name: str, dim: int):
             path = sample_dir / f"{name}_native.npz"
@@ -555,7 +627,7 @@ def stage_pool(cfg: dict[str, Any], run: Path, samples: list[Sample]) -> None:
             row: dict[str, Any] = {"bin_index": k, "start": float(intervals[k, 0]), "end": float(intervals[k, 1])}
             for m, name in enumerate(kinds):
                 reasons = [] if observed[k, m] else (["no_word"] if name == "text" else ["outside_audio"] if name == "audio" else ["unsampled_interval"])
-                if name == "text" and not status.get("paired_use", False): reasons = ["pairing_mismatch" if status.get("pairing_status") == "confirmed_mismatch" else "pairing_suspected"]
+                if name == "text" and not observed[k, m] and status.get("text_time_policy") == "quarantine_all": reasons = ["pairing_mismatch" if status.get("pairing_status") == "confirmed_mismatch" else "pairing_suspected"]
                 row[name] = {"observed": int(observed[k, m]), "coverage": float(coverage[k, m]), "source_count": int(pooled[m].indptr[k + 1] - pooled[m].indptr[k]), "reasons": reasons}
             bin_rows.append(row)
         write_jsonl(sample_dir / "bin_quality.jsonl", bin_rows)

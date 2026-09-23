@@ -50,13 +50,24 @@ def audit_pairing(
 ) -> dict[str, Any]:
     issues = list(automatic_issues)
     triggered = bool(issues)
+    text_alignment_triggered = False
     if diagnostic_wer is not None and diagnostic_wer > wer_warn:
         triggered = True
+        text_alignment_triggered = True
         issues.append({"issue_type": "suspected_text_audio_mismatch", "evidence": f"diagnostic_wer={diagnostic_wer:.6f}"})
     if aligned_word_fraction is not None and aligned_word_fraction < aligned_fraction_warn:
         triggered = True
+        text_alignment_triggered = True
         issues.append({"issue_type": "low_aligned_word_fraction", "evidence": f"aligned_word_fraction={aligned_word_fraction:.6f}"})
     review_rows = list(reviews)
+    for row in review_rows:
+        if row.get("review_status") in {"confirmed_mismatch", "unresolved"}:
+            issues.append({
+                "issue_type": row.get("issue_type") or "manual_alignment_review",
+                "start": row.get("start", ""), "end": row.get("end", ""),
+                "evidence": row.get("evidence", ""),
+                "review_status": row.get("review_status"), "action": row.get("action"),
+            })
     mismatch = any(r.get("review_status") == "confirmed_mismatch" or r.get("action") == "quarantine_pairing" for r in review_rows)
     release = bool(review_rows) and all(r.get("review_status") == "confirmed_match" and r.get("action") == "release_pairing" for r in review_rows)
     unresolved = any(r.get("review_status") == "unresolved" or r.get("action") == "keep_unresolved" for r in review_rows)
@@ -70,5 +81,32 @@ def audit_pairing(
         status, paired = "suspected", False
     else:
         status, paired = "no_issue_detected", True
-    return {"pairing_status": status, "paired_use": paired, "issues": issues, "review_scope": review_rows}
-
+    text_issue_rows = []
+    for issue in issues:
+        issue_type = str(issue.get("issue_type", "")).lower()
+        if any(token in issue_type for token in ("text", "transcript", "word", "ctc", "alignment")):
+            text_issue_rows.append(issue)
+    if text_alignment_triggered and not text_issue_rows:
+        text_issue_rows = list(issues)
+    quarantine_intervals: list[list[float]] = []
+    all_local = bool(text_issue_rows)
+    for issue in text_issue_rows:
+        try:
+            start, end = float(issue.get("start")), float(issue.get("end"))
+            if not (end > start):
+                raise ValueError
+            quarantine_intervals.append([start, end])
+        except (TypeError, ValueError):
+            all_local = False
+    if not text_issue_rows:
+        text_time_policy = "accept"
+    elif all_local:
+        text_time_policy = "quarantine_intervals"
+    else:
+        text_time_policy = "quarantine_all"
+        quarantine_intervals = []
+    return {
+        "pairing_status": status, "paired_use": paired, "issues": issues,
+        "review_scope": review_rows, "text_time_policy": text_time_policy,
+        "text_quarantine_intervals": quarantine_intervals,
+    }

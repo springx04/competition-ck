@@ -78,4 +78,30 @@ def test_automatic_mismatch_alarm_is_quarantined_until_review() -> None:
     assert {issue["issue_type"] for issue in result["issues"]} == {
         "suspected_text_audio_mismatch", "low_aligned_word_fraction"
     }
+    assert result["text_time_policy"] == "quarantine_all"
 
+
+def test_audio_video_mismatch_does_not_destroy_accepted_text_times() -> None:
+    result = audit_pairing(
+        diagnostic_wer=0.1, aligned_word_fraction=1.0, automatic_issues=[],
+        reviews=[{
+            "issue_type": "audio_video_mismatch", "start": "", "end": "",
+            "review_status": "confirmed_mismatch", "action": "quarantine_pairing",
+            "evidence": "different scene",
+        }],
+    )
+    assert result["paired_use"] is False
+    assert result["text_time_policy"] == "accept"
+
+
+def test_local_text_mismatch_yields_explicit_quarantine_interval() -> None:
+    result = audit_pairing(
+        diagnostic_wer=0.1, aligned_word_fraction=1.0, automatic_issues=[],
+        reviews=[{
+            "issue_type": "text_audio_mismatch", "start": "1.25", "end": "2.0",
+            "review_status": "confirmed_mismatch", "action": "quarantine_pairing",
+            "evidence": "one substituted segment",
+        }],
+    )
+    assert result["text_time_policy"] == "quarantine_intervals"
+    assert result["text_quarantine_intervals"] == [[1.25, 2.0]]
