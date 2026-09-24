@@ -1522,6 +1522,7 @@ def probe_and_decode(
     audio_path = work / "audio_16k.wav"
     audio_offset = 0.0
     derived_samples = 0
+    source_audio_duration = 0.0
     if audio_records and clock.audio_continuity.continuous:
         if audio_path.exists():
             audio_path.unlink()
@@ -1533,18 +1534,24 @@ def probe_and_decode(
             raise ValueError("derived WAV contains non-finite PCM")
         audio_offset = float(clock.audio_frame_intervals[0].start or 0.0)
         derived_samples = int(len(wav))
-        source_duration = sum(row.nb_samples / row.sample_rate for row in clock.audio_frame_intervals if row.sample_rate)
-        if abs(derived_samples / int(rate) - source_duration) > float(cfg["media"]["audio_duration_tolerance_s"]):
+        source_audio_duration = sum(row.nb_samples / row.sample_rate for row in clock.audio_frame_intervals if row.sample_rate)
+        if abs(derived_samples / int(rate) - source_audio_duration) > float(cfg["media"]["audio_duration_tolerance_s"]):
             issues.append({
                 "type": "audio_duration_mismatch", "start": audio_offset,
                 "end": audio_offset + derived_samples / int(rate),
-                "evidence": f"derived={derived_samples / int(rate):.6f}s source={source_duration:.6f}s",
+                "evidence": f"derived={derived_samples / int(rate):.6f}s source={source_audio_duration:.6f}s",
             })
     elif audio_records:
         issues.append({"type": "audio_discontinuous", "evidence": "WAV/CTC/openSMILE intentionally disabled"})
     else:
         issues.append({"type": "audio_missing", "evidence": "no selected audio stream"})
 
+    audio_starts = [float(row.start) for row in clock.audio_frame_intervals if row.eligible and row.start is not None]
+    audio_ends = [float(row.end) for row in clock.audio_frame_intervals if row.eligible and row.end is not None]
+    video_starts = [float(row.start) for row in clock.video_frame_intervals if row.eligible and row.start is not None]
+    video_ends = [float(row.end) for row in clock.video_frame_intervals if row.eligible and row.end is not None]
+    first_audio, first_video = (min(audio_starts) if audio_starts else None), (min(video_starts) if video_starts else None)
+    last_audio, last_video = (max(audio_ends) if audio_ends else None), (max(video_ends) if video_ends else None)
     media = {
         "sample_id": sample.sample_id, "source_path": str(media_path),
         "video_stream_index": video_stream_index, "audio_stream_index": audio_stream_index,
@@ -1552,7 +1559,16 @@ def probe_and_decode(
         "t0": clock.t0, "duration": clock.duration, "bin_edges": clock.bin_edges.tolist(),
         "audio_offset": audio_offset, "audio_discontinuous": not clock.audio_continuity.continuous,
         "audio_frame_count": len(audio_records), "video_frame_count": len(video_records),
+        "bad_audio_frame_count": sum(not row.eligible for row in clock.audio_frame_intervals),
+        "bad_video_frame_count": sum(not row.eligible for row in clock.video_frame_intervals),
+        "audio_start_common": first_audio, "video_start_common": first_video,
+        "audio_end_common": last_audio, "video_end_common": last_video,
+        "first_pts_difference_s": (first_audio - first_video) if first_audio is not None and first_video is not None else None,
+        "terminal_difference_s": (last_audio - last_video) if last_audio is not None and last_video is not None else None,
         "derived_audio_samples": derived_samples,
+        "derived_audio_duration_s": derived_samples / int(cfg["media"]["sample_rate"]),
+        "source_audio_duration_s": source_audio_duration,
+        "resample_duration_difference_s": derived_samples / int(cfg["media"]["sample_rate"]) - source_audio_duration if audio_records else None,
         "selected_video_frames": len(selection.selected_frames),
         "missing_grid_indices": list(selection.missing_grid_indices),
         "source_width": source_width, "source_height": source_height,

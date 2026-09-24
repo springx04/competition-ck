@@ -146,6 +146,21 @@ def select_vision_rows(
             previous_row = row
     automatic_single = episode_count == 1 and bool(successful)
     review_rows = reviews or []
+    review_intervals = []
+    for review in review_rows:
+        try:
+            review_start, review_end = float(review["start"]), float(review["end"])
+            if not review_end > review_start:
+                raise ValueError
+            int(review["face_id"])
+            if str(review.get("episode_id", "")).strip(): int(review["episode_id"])
+        except (KeyError, TypeError, ValueError) as exc:
+            raise VisionExtractionError(f"invalid target-face review row: {review}") from exc
+        review_intervals.append((review_start, review_end))
+    review_intervals.sort()
+    for previous, current in zip(review_intervals, review_intervals[1:]):
+        if current[0] < previous[1]:
+            raise VisionExtractionError("target-face review rows overlap in common time")
     values = np.zeros((len(frame_map), 22), dtype=np.float32)
     intervals = np.zeros((len(frame_map), 2), dtype=np.float64)
     eligible = np.zeros(len(frame_map), dtype=bool)

@@ -4,10 +4,11 @@ import json
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 from q1_features.manifest import Sample
 from q1_features.quality import audit_pairing
-from q1_features.runner import collect_run, stage_pool
+from q1_features.runner import collect_run, stage_pool, validate_run
 from q1_features.storage import load_npz, write_json, write_jsonl, write_npz
 
 
@@ -68,6 +69,29 @@ def test_suspected_whole_segment_pairing_keeps_native_bert_but_hides_text_bins(t
     assert native["word_eligible"].tolist() == [0]
 
 
+def test_validator_recomputes_native_csr_and_union_coverage(tmp_path: Path) -> None:
+    item = sample(0)
+    sample_dir = tmp_path / "samples" / "000000"
+    write_json(sample_dir / "status.json", {
+        "sample_id": item.sample_id, "sample_index": 0, "stages": {},
+        "processing_status": "partial", "pairing_status": "no_issue_detected",
+        "paired_use": True, "text_time_policy": "accept",
+    })
+    write_json(sample_dir / "media.json", {"duration": 1.0})
+    write_jsonl(sample_dir / "words.jsonl", [{
+        "word_id": 0, "raw_word": "hello", "accepted_interval": [0.0, 0.03],
+        "alignment_reasons": [],
+    }])
+    write_npz(sample_dir / "bert_words.npz", word_features=np.full((1, 768), 2.0, np.float32), word_ids=np.array([0], np.int64))
+    cfg = {"pool": {"angle_resultant_min": 1e-6, "bins": 50}}
+    stage_pool(cfg, tmp_path, [item])
+    collect_run(tmp_path, [item])
+    assert validate_run(tmp_path, [item], {item.sample_id}) == []
+    report = json.loads((tmp_path / "reports" / "validation.json").read_text(encoding="utf-8"))
+    assert report["recomputed_observed_window_count"] == 2
+    assert report["seed_2026_recomputed_examples"]
+
+
 def test_automatic_mismatch_alarm_is_quarantined_until_review() -> None:
     result = audit_pairing(
         diagnostic_wer=0.9, aligned_word_fraction=0.4,
@@ -105,3 +129,43 @@ def test_local_text_mismatch_yields_explicit_quarantine_interval() -> None:
     )
     assert result["text_time_policy"] == "quarantine_intervals"
     assert result["text_quarantine_intervals"] == [[1.25, 2.0]]
+
+
+def test_review_must_release_every_automatic_issue_before_pairing_is_restored() -> None:
+    result = audit_pairing(
+        diagnostic_wer=0.9, aligned_word_fraction=0.4, automatic_issues=[],
+        reviews=[{
+            "issue_type": "suspected_text_audio_mismatch", "start": "", "end": "",
+            "review_status": "confirmed_match", "action": "release_pairing",
+            "evidence": "full clip checked",
+        }],
+    )
+    assert result["pairing_status"] == "suspected"
+    assert result["paired_use"] is False
+    assert result["text_time_policy"] == "quarantine_all"
+
+
+def test_complete_matching_review_releases_automatic_text_alarm() -> None:
+    result = audit_pairing(
+        diagnostic_wer=0.9, aligned_word_fraction=1.0, automatic_issues=[],
+        reviews=[{
+            "issue_type": "suspected_text_audio_mismatch", "start": "", "end": "",
+            "review_status": "confirmed_match", "action": "release_pairing",
+            "evidence": "full clip checked",
+        }],
+    )
+    assert result["pairing_status"] == "reviewed_match"
+    assert result["paired_use"] is True
+    assert result["text_time_policy"] == "accept"
+
+
+def test_invalid_review_status_action_pair_is_rejected() -> None:
+    with pytest.raises(ValueError, match="status/action"):
+        audit_pairing(
+            diagnostic_wer=0.1, aligned_word_fraction=1.0, automatic_issues=[],
+            reviews=[{
+                "issue_type": "text_audio_mismatch", "start": "", "end": "",
+                "review_status": "confirmed_match", "action": "quarantine_pairing",
+                "evidence": "contradictory row",
+            }],
+        )

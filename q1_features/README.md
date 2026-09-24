@@ -4,6 +4,8 @@
 
 仓库已包含执行版要求的 `src/q1_features/` 命令行实现与无模型实质测试；`models/`、`third_party/` 和 `runs/` 由服务器安装与运行步骤产生。本 README 不把源码或本地纯函数测试描述成已经完成服务器真实模型验证或100条全量提取。
 
+通过 `git archive` 发布时，`SOURCE_REVISION` 会被替换成对应的40位提交号；因此无 `.git` 目录的服务器归档仍能记录代码版本，并允许同一干净归档内按规范续跑。工作树直接复制且该占位符未展开时，`--resume` 会保守拒绝。
+
 ## 固定选择
 
 - Python 3.10.14；pip 24.0；ffmpeg 6.1.1；libsndfile 1.2.2；依赖精确版本见 env/requirements-q1.txt。

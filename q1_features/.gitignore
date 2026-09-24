@@ -4,6 +4,10 @@ third_party/
 env/python/
 env/openface/
 env/mamba-root/
+env/installed-*.txt
+env/installed-*.json
+env/ffmpeg-version.txt
+env/*-revision.txt
 tools/
 
 # Runtime output and local data.

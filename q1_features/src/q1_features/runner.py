@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 import os
 import platform
+import re
+import shutil
 import subprocess
 import sys
 import time
@@ -40,6 +42,13 @@ def _code_state(project_root: str | Path) -> dict[str, Any]:
         dirty = subprocess.run(["git", "-C", str(root), "status", "--porcelain", "--", str(root)], check=True, capture_output=True, text=True).stdout.splitlines()
         return {"git_head": head, "dirty": bool(dirty), "dirty_paths": dirty}
     except Exception as exc:
+        revision_path = root / "SOURCE_REVISION"
+        revision = revision_path.read_text(encoding="ascii").strip() if revision_path.is_file() else ""
+        if re.fullmatch(r"[0-9a-fA-F]{40}", revision):
+            return {
+                "git_head": revision.lower(), "dirty": False,
+                "source": "git-archive-export", "git_probe_error": repr(exc),
+            }
         return {"git_head": None, "dirty": True, "error": repr(exc)}
 
 
@@ -467,6 +476,15 @@ def stage_audio(cfg: dict[str, Any], run: Path, samples: list[Sample], *, resume
 
 def stage_vision(cfg: dict[str, Any], run: Path, samples: list[Sample], *, resume: bool, reuse_raw_csv: bool = False) -> None:
     from .extractors.vision import VISION_COLUMNS, read_openface_csv, run_openface, select_vision_rows
+    if not reuse_raw_csv:
+        openface_bin = Path(cfg["paths"]["openface_bin"])
+        openface_env = Path(cfg["paths"]["openface_env"])
+        if not openface_bin.is_file():
+            raise PipelineError(f"OpenFace executable is missing: {openface_bin}")
+        if not openface_env.is_dir():
+            raise PipelineError(f"OpenFace environment is missing: {openface_env}")
+        if shutil.which("micromamba") is None:
+            raise PipelineError("micromamba is not available for the OpenFace runtime")
     review_all = load_reviews(cfg["paths"]["face_review"])
     def action(sample: Sample, sample_dir: Path) -> dict[str, Any]:
         media = read_json(sample_dir / "media.json", {})
@@ -475,11 +493,15 @@ def stage_vision(cfg: dict[str, Any], run: Path, samples: list[Sample], *, resum
             raise PipelineError("no selected video frames")
         csv_path = sample_dir / "openface" / "features.csv"
         if not reuse_raw_csv or not csv_path.is_file():
-            run_openface(
+            process = run_openface(
                 cfg["paths"]["openface_bin"], cfg["paths"]["openface_env"], sample_dir / "frames",
                 sample_dir / "openface", int(media["display_width"]), int(media["display_height"]),
                 int(cfg["runtime"]["external_command_timeout_s"]),
             )
+            write_json(sample_dir / "openface" / "process.json", {
+                "args": [str(value) for value in process.args], "returncode": process.returncode,
+                "stdout": process.stdout, "stderr": process.stderr,
+            })
         candidates = read_openface_csv(csv_path)
         reviews = [r for r in review_all if r.get("sample_id") == sample.sample_id]
         series, rows, diagnostics = select_vision_rows(
@@ -489,6 +511,11 @@ def stage_vision(cfg: dict[str, Any], run: Path, samples: list[Sample], *, resum
             bbox_center_jump_fraction=float(cfg["vision"]["bbox_center_jump_fraction"]),
             scene_hist_l1_split=float(cfg["vision"]["scene_hist_l1_split"]),
         )
+        width, height = int(media["display_width"]), int(media["display_height"])
+        diagnostics["camera_intrinsics"] = {
+            "basis": "estimated", "fx": 500.0 * width / 640.0,
+            "fy": 500.0 * height / 480.0, "cx": width / 2.0, "cy": height / 2.0,
+        }
         write_npz(sample_dir / "vision_native.npz", values=series.values, intervals=series.intervals, eligible=series.eligible.astype(np.uint8), source_ids=series.source_ids)
         write_jsonl(sample_dir / "vision_rows.jsonl", rows)
         write_json(sample_dir / "vision_diagnostic.json", diagnostics)
@@ -507,6 +534,11 @@ def stage_audit(cfg: dict[str, Any], run: Path, samples: list[Sample]) -> None:
         words = read_jsonl(sample_dir / "words.jsonl")
         spoken = [w for w in words if w.get("ctc_text")]
         accepted = [w for w in spoken if w.get("accepted_interval")]
+        low_score = [w for w in spoken if "low_ctc_score" in w.get("alignment_reasons", [])]
+        unlocated = [
+            {"word_id": w.get("word_id"), "raw_word": w.get("raw_word"), "reasons": w.get("alignment_reasons", [])}
+            for w in spoken if not w.get("accepted_interval")
+        ]
         fraction = len(accepted) / max(1, len(spoken)) if spoken else 1.0
         media = read_json(sample_dir / "media.json", {})
         vision_diagnostic = read_json(sample_dir / "vision_diagnostic.json", {})
@@ -515,6 +547,13 @@ def stage_audit(cfg: dict[str, Any], run: Path, samples: list[Sample]) -> None:
         for issue in media.get("issues", []):
             if issue.get("type") in pairing_issue_types:
                 automatic.append({"sample_id": sample.sample_id, "issue_type": issue.get("type", "media_issue"), **issue})
+        current_status = _status(sample_dir / "status.json", sample)
+        if float(media.get("duration", 0.0) or 0.0) <= 0:
+            automatic.append({"sample_id": sample.sample_id, "issue_type": "media_structure_failed", "evidence": "no reliable positive common duration"})
+        if current_status.get("stages", {}).get("align", {}).get("status") != "ok":
+            automatic.append({"sample_id": sample.sample_id, "issue_type": "alignment_failed", "evidence": current_status.get("stages", {}).get("align", {}).get("error", "alignment stage not completed")})
+        if int(vision_diagnostic.get("episode_count", 0) or 0) > 1 and not bool(vision_diagnostic.get("automatic_single")):
+            automatic.append({"sample_id": sample.sample_id, "issue_type": "identity_unknown", "evidence": f"episode_count={vision_diagnostic.get('episode_count')} requires target review"})
         result = audit_pairing(
             diagnostic_wer=diagnostic.get("diagnostic_wer"), aligned_word_fraction=fraction,
             automatic_issues=automatic,
@@ -533,21 +572,44 @@ def stage_audit(cfg: dict[str, Any], run: Path, samples: list[Sample]) -> None:
         write_json(status_path, status)
         for issue in result["issues"]:
             issue_rows.append({"sample_id": sample.sample_id, "file": sample.video_relpath, "start": issue.get("start", ""), "end": issue.get("end", ""), "issue_type": issue.get("issue_type", "unknown"), "status": result["pairing_status"], "evidence": issue.get("evidence", json.dumps(issue, ensure_ascii=False)), "action": "quarantine_pairing" if not result["paired_use"] else "none"})
+        accepted_by_time = sorted(accepted, key=lambda w: float(w["accepted_interval"][0]))
+        first_accepted = float(accepted_by_time[0]["accepted_interval"][0]) if accepted_by_time else ""
+        last_accepted = float(accepted_by_time[-1]["accepted_interval"][1]) if accepted_by_time else ""
+        vision_rows = read_jsonl(sample_dir / "vision_rows.jsonl")
+        stage_states = current_status.get("stages", {})
+        required_audits_attempted = all(name in stage_states for name in ("media", "align", "vision"))
         quality_rows.append({
             "sample_id": sample.sample_id, "input_status": sample.input_status,
             "duration": media.get("duration", ""), "audio_offset": media.get("audio_offset", ""),
             "video_stream_index": media.get("video_stream_index", ""), "audio_stream_index": media.get("audio_stream_index", ""),
+            "first_pts_difference_s": media.get("first_pts_difference_s", ""),
+            "terminal_difference_s": media.get("terminal_difference_s", ""),
             "audio_discontinuous": media.get("audio_discontinuous", ""),
             "audio_frame_count": media.get("audio_frame_count", ""), "video_frame_count": media.get("video_frame_count", ""),
+            "bad_audio_frame_count": media.get("bad_audio_frame_count", ""),
+            "bad_video_frame_count": media.get("bad_video_frame_count", ""),
+            "resample_duration_difference_s": media.get("resample_duration_difference_s", ""),
             "selected_video_frames": media.get("selected_video_frames", ""),
             "media_issues": json.dumps(media.get("issues", []), ensure_ascii=False),
             "spoken_words": len(spoken), "accepted_words": len(accepted), "aligned_word_fraction": fraction,
+            "low_score_words": len(low_score), "low_score_word_fraction": len(low_score) / max(1, len(spoken)),
+            "unlocated_words": json.dumps(unlocated, ensure_ascii=False),
+            "first_accepted_word_start_s": first_accepted, "last_accepted_word_end_s": last_accepted,
+            "first_word_boundary_distance_s": first_accepted if first_accepted != "" else "",
+            "last_word_boundary_distance_s": float(media.get("duration", 0.0)) - last_accepted if last_accepted != "" else "",
             "diagnostic_wer": diagnostic.get("diagnostic_wer", ""), "pairing_status": result["pairing_status"],
+            "diagnostic_transcript": diagnostic.get("diagnostic_transcript", ""),
+            "normalized_reference": diagnostic.get("normalized_reference", ""),
             "paired_use": int(result["paired_use"]),
             "vision_successful_candidates": vision_diagnostic.get("successful_candidate_count", ""),
             "vision_episode_count": vision_diagnostic.get("episode_count", ""),
             "vision_scene_break_count": vision_diagnostic.get("scene_break_count", ""),
             "vision_single_visible_assumption": vision_diagnostic.get("automatic_single", ""),
+            "vision_eligible_rows": sum(bool(row.get("eligible")) for row in vision_rows),
+            "vision_eligible_fraction": sum(bool(row.get("eligible")) for row in vision_rows) / max(1, len(vision_rows)),
+            "automatic_check_status": "completed" if required_audits_attempted else "incomplete",
+            "automatic_issue_count": len(result["issues"]),
+            "review_scope": json.dumps(result["review_scope"], ensure_ascii=False),
         })
     write_csv(run / "reports" / "quality.csv", quality_rows, list(quality_rows[0]) if quality_rows else ["sample_id"])
     write_csv(run / "reports" / "alignment_issues.csv", issue_rows, ["sample_id", "file", "start", "end", "issue_type", "status", "evidence", "action"])
@@ -613,9 +675,9 @@ def stage_pool(cfg: dict[str, Any], run: Path, samples: list[Sample]) -> None:
         edges = np.linspace(0.0, duration, 51, dtype=np.float64) if duration > 0 else np.zeros(51, np.float64)
         intervals = np.stack([edges[:-1], edges[1:]], axis=1)
         write_npz(sample_dir / "native.npz",
-            word_features=text_series.values, word_intervals=text_series.intervals, word_eligible=text_series.eligible.astype(np.uint8),
-            audio_features=audio_series.values, audio_intervals=audio_series.intervals, audio_eligible=audio_series.eligible.astype(np.uint8),
-            vision_features=vision_series.values, vision_intervals=vision_series.intervals, vision_eligible=vision_series.eligible.astype(np.uint8))
+            word_features=text_series.values, word_intervals=text_series.intervals, word_eligible=text_series.eligible.astype(np.uint8), word_source_ids=text_series.source_ids,
+            audio_features=audio_series.values, audio_intervals=audio_series.intervals, audio_eligible=audio_series.eligible.astype(np.uint8), audio_source_ids=audio_series.source_ids,
+            vision_features=vision_series.values, vision_intervals=vision_series.intervals, vision_eligible=vision_series.eligible.astype(np.uint8), vision_source_ids=vision_series.source_ids)
         for name, result in zip(kinds, pooled):
             write_npz(sample_dir / f"map_{name}.npz", indptr=result.indptr, source_ids=result.source_ids, overlap_s=result.overlap_s, weights=result.weights)
         write_npz(sample_dir / "compact50.npz", text=text, audio=audio, vision=vision, valid_mask=valid,
@@ -657,17 +719,34 @@ def collect_run(run: Path, manifest: list[Sample]) -> Path:
 
 
 def validate_run(run: Path, manifest: list[Sample], selected_ids: set[str] | None = None) -> list[str]:
+    from .pooling import interval_union_length
     errors: list[str] = []
+    recomputed_windows: list[dict[str, Any]] = []
     path = run / "features" / "q1_compact50.npz"
     if not path.is_file():
         return ["missing features/q1_compact50.npz"]
     data = load_npz(path)
     expected = {"text": ((len(manifest), 50, 768), np.float32), "audio": ((len(manifest), 50, 25), np.float32), "vision": ((len(manifest), 50, 22), np.float32), "valid_mask": ((len(manifest), 50), np.uint8), "observed_mask": ((len(manifest), 50, 3), np.uint8), "perturb_mask": ((len(manifest), 50, 3), np.uint8), "coverage": ((len(manifest), 50, 3), np.float32), "time_intervals": ((len(manifest), 50, 2), np.float64)}
+    expected.update({
+        "duration": ((len(manifest),), np.float64), "valid_length": ((len(manifest),), np.int64),
+        "sample_index": ((len(manifest),), np.int64), "paired_use": ((len(manifest),), np.uint8),
+    })
+    structural_errors: list[str] = []
     for key, (shape, dtype) in expected.items():
-        if key not in data: errors.append(f"missing array {key}"); continue
-        if data[key].shape != shape: errors.append(f"{key} shape {data[key].shape} != {shape}")
+        if key not in data:
+            structural_errors.append(f"missing array {key}")
+            continue
+        if data[key].shape != shape:
+            structural_errors.append(f"{key} shape {data[key].shape} != {shape}")
         if data[key].dtype != dtype: errors.append(f"{key} dtype {data[key].dtype} != {dtype}")
         if not np.isfinite(data[key]).all(): errors.append(f"{key} contains non-finite values")
+    errors.extend(structural_errors)
+    if structural_errors:
+        write_json(run / "reports" / "validation.json", {
+            "ok": False, "errors": errors, "selected_only": selected_ids is not None,
+            "recomputed_observed_window_count": 0, "seed_2026_recomputed_examples": [],
+        })
+        return errors
     if "coverage" in data and (np.any(data["coverage"] < -1e-7) or np.any(data["coverage"] > 1 + 1e-7)): errors.append("coverage outside [0,1]")
     if "observed_mask" in data:
         if not np.isin(data["observed_mask"], [0, 1]).all(): errors.append("observed_mask is not binary")
@@ -675,20 +754,158 @@ def validate_run(run: Path, manifest: list[Sample], selected_ids: set[str] | Non
             missing = data["observed_mask"][:, :, m] == 0
             if np.any(data[key][missing] != 0): errors.append(f"{key} has nonzero values where observed=0")
             if np.any(data["coverage"][:, :, m][missing] != 0): errors.append(f"{key} has nonzero coverage where observed=0")
+    if "sample_index" in data and not np.array_equal(data["sample_index"], np.arange(len(manifest), dtype=np.int64)): errors.append("sample_index array is not manifest order")
+    if not np.isin(data["valid_mask"], [0, 1]).all(): errors.append("valid_mask is not binary")
+    if "valid_length" in data and "valid_mask" in data and not np.array_equal(data["valid_length"], data["valid_mask"].sum(axis=1, dtype=np.int64)): errors.append("valid_length != sum(valid_mask)")
+    if "perturb_mask" in data and np.any(data["perturb_mask"] != 0): errors.append("Q1 perturb_mask must be all zero")
+    if "paired_use" in data and not np.isin(data["paired_use"], [0, 1]).all(): errors.append("paired_use is not binary")
+    if any(key.lower() in {"label", "labels", "annotation"} for key in data): errors.append("labels/annotations must not be stored in feature NPZ")
+    if all(key in data for key in ("duration", "valid_mask", "time_intervals")):
+        for i, duration in enumerate(data["duration"]):
+            if duration > 0:
+                if not np.all(data["valid_mask"][i] == 1): errors.append(f"row {i}: positive duration but V is not all one")
+                intervals = data["time_intervals"][i]
+                if not (np.isclose(intervals[0, 0], 0.0) and np.isclose(intervals[-1, 1], duration) and np.allclose(intervals[:-1, 1], intervals[1:, 0])):
+                    errors.append(f"row {i}: time intervals do not cover [0,D] continuously")
+            elif not np.all(data["valid_mask"][i] == 0):
+                errors.append(f"row {i}: failed duration but V is not all zero")
     for sample in manifest:
         if selected_ids is not None and sample.sample_id not in selected_ids:
             continue
         sample_dir = _sample_dir(run, sample)
+        sample_status = _status(sample_dir / "status.json", sample)
+        if selected_ids is None and sample_status.get("processing_status") == "not_processed":
+            errors.append(f"{sample.sample_id}: not_processed in full validation")
+        if sample_status.get("pairing_status") in {"suspected", "confirmed_mismatch", "unverifiable"} and bool(data["paired_use"][sample.sample_index]):
+            errors.append(f"{sample.sample_id}: quarantined pairing marked paired_use=true")
         if not (sample_dir / "compact50.npz").is_file(): errors.append(f"{sample.sample_id}: selected sample not pooled"); continue
+        native_path = sample_dir / "native.npz"
+        compact_path = sample_dir / "compact50.npz"
+        if not native_path.is_file(): errors.append(f"{sample.sample_id}: missing native.npz"); continue
+        native_data, sample_compact = load_npz(native_path), load_npz(compact_path)
+        compact_required = {
+            "text", "audio", "vision", "valid_mask", "observed_mask", "perturb_mask",
+            "coverage", "time_intervals", "duration", "valid_length", "sample_index", "paired_use",
+        }
+        missing_compact = sorted(compact_required - set(sample_compact))
+        if missing_compact:
+            errors.append(f"{sample.sample_id}: compact50 missing arrays {missing_compact}")
+            continue
+        duration = float(sample_compact["duration"])
+        native_prefix = {"text": "word", "audio": "audio", "vision": "vision"}
+        modality_index = {"text": 0, "audio": 1, "vision": 2}
         for name in ("text", "audio", "vision"):
             map_path = sample_dir / f"map_{name}.npz"
             if not map_path.is_file(): errors.append(f"{sample.sample_id}: missing map_{name}.npz"); continue
             mapping = load_npz(map_path)
-            if mapping["indptr"].shape != (51,): errors.append(f"{sample.sample_id}: {name} indptr shape")
+            prefix = native_prefix[name]
+            native_keys = {f"{prefix}_features", f"{prefix}_intervals", f"{prefix}_eligible", f"{prefix}_source_ids"}
+            missing_native = sorted(native_keys - set(native_data))
+            if missing_native:
+                errors.append(f"{sample.sample_id}: native missing {name} arrays {missing_native}")
+                continue
+            mapping_keys = {"indptr", "source_ids", "overlap_s", "weights"}
+            missing_mapping = sorted(mapping_keys - set(mapping))
+            if missing_mapping:
+                errors.append(f"{sample.sample_id}: map_{name} missing arrays {missing_mapping}")
+                continue
+            if mapping["indptr"].shape != (51,):
+                errors.append(f"{sample.sample_id}: {name} indptr shape")
+                continue
+            if mapping["indptr"].dtype != np.int64:
+                errors.append(f"{sample.sample_id}: {name} indptr dtype")
+            if mapping["source_ids"].dtype != np.int64:
+                errors.append(f"{sample.sample_id}: {name} source_ids dtype")
+            if mapping["overlap_s"].dtype != np.float64 or mapping["weights"].dtype != np.float64:
+                errors.append(f"{sample.sample_id}: {name} overlap/weights dtype")
+            payload_length = len(mapping["source_ids"])
+            if mapping["overlap_s"].shape != (payload_length,) or mapping["weights"].shape != (payload_length,):
+                errors.append(f"{sample.sample_id}: {name} CSR payload shape mismatch")
+                continue
+            if mapping["indptr"][0] != 0 or np.any(np.diff(mapping["indptr"]) < 0) or mapping["indptr"][-1] != payload_length:
+                errors.append(f"{sample.sample_id}: {name} invalid CSR indptr")
+                continue
+            if not np.isfinite(mapping["overlap_s"]).all() or not np.isfinite(mapping["weights"]).all():
+                errors.append(f"{sample.sample_id}: {name} non-finite CSR payload")
+                continue
+            if np.any(mapping["overlap_s"] <= 0) or np.any(mapping["weights"] <= 0):
+                errors.append(f"{sample.sample_id}: {name} non-positive CSR payload")
+            values = native_data[f"{prefix}_features"]
+            intervals = native_data[f"{prefix}_intervals"]
+            eligible = native_data[f"{prefix}_eligible"].astype(bool)
+            source_ids = native_data[f"{prefix}_source_ids"].astype(np.int64)
+            expected_dim = {"text": 768, "audio": 25, "vision": 22}[name]
+            native_length = len(source_ids)
+            if values.shape != (native_length, expected_dim) or intervals.shape != (native_length, 2) or eligible.shape != (native_length,):
+                errors.append(f"{sample.sample_id}: invalid {name} native shapes")
+                continue
+            if not np.isfinite(values).all() or not np.isfinite(intervals).all():
+                errors.append(f"{sample.sample_id}: non-finite {name} native values")
+                continue
+            if len(np.unique(source_ids)) != len(source_ids): errors.append(f"{sample.sample_id}: duplicate {name} source_ids")
+            row_by_source = {int(source_id): row for row, source_id in enumerate(source_ids)}
+            for row in np.flatnonzero(eligible):
+                start, end = map(float, intervals[row])
+                if not (np.isfinite([start, end]).all() and end > start and start >= -1e-8 and end <= duration + 1e-8):
+                    errors.append(f"{sample.sample_id}: invalid eligible {name} interval row {row}")
+            mapped_sources = set(map(int, mapping["source_ids"]))
+            expected_sources = {int(source_ids[row]) for row in np.flatnonzero(eligible) if intervals[row, 1] > 0 and intervals[row, 0] < duration}
+            if not expected_sources.issubset(mapped_sources):
+                errors.append(f"{sample.sample_id}: {name} eligible sources missing from CSR: {sorted(expected_sources - mapped_sources)}")
             for k in range(50):
-                weights = mapping["weights"][mapping["indptr"][k]:mapping["indptr"][k+1]]
+                left, right = int(mapping["indptr"][k]), int(mapping["indptr"][k + 1])
+                ids = mapping["source_ids"][left:right]
+                overlap = mapping["overlap_s"][left:right]
+                weights = mapping["weights"][left:right]
+                if len(ids) and (np.any(np.diff(ids) <= 0)):
+                    errors.append(f"{sample.sample_id}: {name} bin {k} source_ids not strictly increasing")
                 if len(weights) and not np.isclose(weights.sum(), 1.0, atol=1e-6): errors.append(f"{sample.sample_id}: {name} bin {k} weights sum")
-    write_json(run / "reports" / "validation.json", {"ok": not errors, "errors": errors, "selected_only": selected_ids is not None})
+                observed = bool(sample_compact["observed_mask"][k, modality_index[name]])
+                if observed != bool(len(weights)):
+                    errors.append(f"{sample.sample_id}: {name} bin {k} observed/CSR mismatch")
+                if not observed:
+                    continue
+                rows = []
+                missing_source = False
+                for source_id in ids:
+                    if int(source_id) not in row_by_source:
+                        errors.append(f"{sample.sample_id}: {name} unknown source_id {int(source_id)}")
+                        missing_source = True
+                    else:
+                        rows.append(row_by_source[int(source_id)])
+                if missing_source:
+                    continue
+                rows_array = np.asarray(rows, dtype=np.int64)
+                recomputed = np.sum(values[rows_array].astype(np.float64) * weights[:, None], axis=0)
+                if name == "vision":
+                    angles = values[rows_array, 17:22].astype(np.float64)
+                    sine = np.sum(np.sin(angles) * weights[:, None], axis=0)
+                    cosine = np.sum(np.cos(angles) * weights[:, None], axis=0)
+                    recomputed[17:22] = np.arctan2(sine, cosine)
+                    actual = sample_compact[name][k].astype(np.float64)
+                    ordinary_ok = np.allclose(actual[:17], recomputed[:17], rtol=1e-5, atol=1e-6)
+                    circular_delta = np.abs((actual[17:22] - recomputed[17:22] + np.pi) % (2 * np.pi) - np.pi)
+                    vector_ok = ordinary_ok and bool(np.all(circular_delta <= 1e-6))
+                else:
+                    vector_ok = bool(np.allclose(sample_compact[name][k], recomputed, rtol=1e-5, atol=1e-6))
+                if not vector_ok: errors.append(f"{sample.sample_id}: {name} bin {k} native/CSR recomputation mismatch")
+                bin_start, bin_end = map(float, sample_compact["time_intervals"][k])
+                clipped = np.column_stack((np.maximum(intervals[rows_array, 0], bin_start), np.minimum(intervals[rows_array, 1], bin_end)))
+                expected_coverage = interval_union_length(clipped) / (bin_end - bin_start)
+                if not np.isclose(float(sample_compact["coverage"][k, modality_index[name]]), expected_coverage, rtol=1e-5, atol=1e-6):
+                    errors.append(f"{sample.sample_id}: {name} bin {k} coverage union mismatch")
+                recomputed_windows.append({"sample_id": sample.sample_id, "modality": name, "bin_index": k, "source_ids": ids.astype(int).tolist(), "overlap_s": overlap.astype(float).tolist()})
+    rng = np.random.default_rng(2026)
+    if len(recomputed_windows) > 10:
+        positions = sorted(rng.choice(len(recomputed_windows), size=10, replace=False).tolist())
+        checked_examples = [recomputed_windows[position] for position in positions]
+    else:
+        checked_examples = recomputed_windows
+    write_json(run / "reports" / "validation.json", {
+        "ok": not errors, "errors": errors, "selected_only": selected_ids is not None,
+        "recomputed_observed_window_count": len(recomputed_windows),
+        "seed_2026_recomputed_examples": checked_examples,
+    })
     return errors
 
 

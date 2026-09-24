@@ -60,6 +60,35 @@ def audit_pairing(
         text_alignment_triggered = True
         issues.append({"issue_type": "low_aligned_word_fraction", "evidence": f"aligned_word_fraction={aligned_word_fraction:.6f}"})
     review_rows = list(reviews)
+    valid_pairs = {
+        "confirmed_match": "release_pairing",
+        "confirmed_mismatch": "quarantine_pairing",
+        "unresolved": "keep_unresolved",
+    }
+    for row in review_rows:
+        review_status = str(row.get("review_status", "")).strip()
+        action = str(row.get("action", "")).strip()
+        if review_status not in valid_pairs or action != valid_pairs[review_status]:
+            raise ValueError(
+                "invalid alignment review status/action pair: "
+                f"review_status={review_status!r}, action={action!r}"
+            )
+        start = str(row.get("start", "")).strip()
+        end = str(row.get("end", "")).strip()
+        if bool(start) != bool(end):
+            raise ValueError("alignment review start/end must both be blank or both be set")
+        if start:
+            try:
+                start_value, end_value = float(start), float(end)
+            except ValueError as exc:
+                raise ValueError("alignment review start/end must be finite numbers") from exc
+            if not (start_value < end_value):
+                raise ValueError("alignment review interval must have end > start")
+
+    automatic_issue_types = {
+        str(issue.get("issue_type", "")).strip() for issue in issues
+        if str(issue.get("issue_type", "")).strip()
+    }
     for row in review_rows:
         if row.get("review_status") in {"confirmed_mismatch", "unresolved"}:
             issues.append({
@@ -68,9 +97,18 @@ def audit_pairing(
                 "evidence": row.get("evidence", ""),
                 "review_status": row.get("review_status"), "action": row.get("action"),
             })
-    mismatch = any(r.get("review_status") == "confirmed_mismatch" or r.get("action") == "quarantine_pairing" for r in review_rows)
-    release = bool(review_rows) and all(r.get("review_status") == "confirmed_match" and r.get("action") == "release_pairing" for r in review_rows)
-    unresolved = any(r.get("review_status") == "unresolved" or r.get("action") == "keep_unresolved" for r in review_rows)
+    mismatch = any(r.get("review_status") == "confirmed_mismatch" for r in review_rows)
+    unresolved = any(r.get("review_status") == "unresolved" for r in review_rows)
+    released_issue_types = {
+        str(row.get("issue_type", "")).strip() for row in review_rows
+        if row.get("review_status") == "confirmed_match"
+    }
+    all_automatic_issues_released = automatic_issue_types.issubset(released_issue_types)
+    release = (
+        bool(review_rows)
+        and all(r.get("review_status") == "confirmed_match" for r in review_rows)
+        and all_automatic_issues_released
+    )
     if mismatch:
         status, paired = "confirmed_mismatch", False
     elif release:
@@ -81,13 +119,14 @@ def audit_pairing(
         status, paired = "suspected", False
     else:
         status, paired = "no_issue_detected", True
+    active_issues = [] if release else issues
     text_issue_rows = []
-    for issue in issues:
+    for issue in active_issues:
         issue_type = str(issue.get("issue_type", "")).lower()
         if any(token in issue_type for token in ("text", "transcript", "word", "ctc", "alignment")):
             text_issue_rows.append(issue)
-    if text_alignment_triggered and not text_issue_rows:
-        text_issue_rows = list(issues)
+    if text_alignment_triggered and not release and not text_issue_rows:
+        text_issue_rows = list(active_issues)
     quarantine_intervals: list[list[float]] = []
     all_local = bool(text_issue_rows)
     for issue in text_issue_rows:
@@ -109,4 +148,5 @@ def audit_pairing(
         "pairing_status": status, "paired_use": paired, "issues": issues,
         "review_scope": review_rows, "text_time_policy": text_time_policy,
         "text_quarantine_intervals": quarantine_intervals,
+        "released_issue_types": sorted(released_issue_types),
     }
