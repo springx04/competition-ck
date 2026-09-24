@@ -58,6 +58,27 @@ class _Student:
         self.loaded = state
 
 
+def test_bundle_forwards_restored_cls_context_to_frontend(monkeypatch):
+    class _ForwardingStudent:
+        def eval(self):
+            return self
+
+        def __call__(self, model_input, return_details=True):
+            return model_input
+
+    calls = {}
+    monkeypatch.setattr(
+        export,
+        "encode_view",
+        lambda raw, encoder, normalizer, **kwargs: calls.update(kwargs) or kwargs,
+    )
+    bundle = export.Bundle(_ForwardingStudent(), _Encoder(), _Normalizer(), "cpu",
+                           cls_context=True)
+
+    assert bundle.predict_raw({}, return_details=False)["cls_context"] is True
+    assert calls["cls_context"] is True
+
+
 @pytest.mark.parametrize("variant", TUNED_VARIANTS)
 def test_evaluate_best_restores_tuned_state_uses_output_root_and_disables_cache(monkeypatch, tmp_path, variant):
     output_root = tmp_path / "training-output"
@@ -87,7 +108,8 @@ def test_evaluate_best_restores_tuned_state_uses_output_root_and_disables_cache(
 def test_load_training_best_restores_checkpoint_text_encoder(monkeypatch, tmp_path):
     encoder = _Encoder()
     state = {"bert": torch.tensor(3)}
-    checkpoint = {"student": {"student": torch.tensor(1)}, "text_encoder": state}
+    checkpoint = {"student": {"student": torch.tensor(1)}, "text_encoder": state,
+                  "config": {"text": {"cls_context": True}, "data": {"clip_z": 2.5}}}
     monkeypatch.setattr(export.Normalizer, "load", lambda path: _Normalizer())
     monkeypatch.setattr(export.torch, "load", lambda path, **kwargs: checkpoint)
     monkeypatch.setattr(export, "Student", _Student)
@@ -101,6 +123,26 @@ def test_load_training_best_restores_checkpoint_text_encoder(monkeypatch, tmp_pa
 
     assert bundle.text_encoder is encoder
     assert encoder.loaded is state
+    assert bundle.cls_context is True
+    assert bundle.normalizer.clip_z == 2.5
+
+
+def test_old_checkpoint_without_frontend_option_defaults_to_token_only(monkeypatch, tmp_path):
+    encoder = _Encoder()
+    checkpoint = {"student": {"student": torch.tensor(1)}, "text_encoder": {"bert": torch.tensor(3)}}
+    monkeypatch.setattr(export.Normalizer, "load", lambda path: _Normalizer())
+    monkeypatch.setattr(export.torch, "load", lambda path, **kwargs: checkpoint)
+    monkeypatch.setattr(export, "Student", _Student)
+    monkeypatch.setattr(export, "load_text_encoder", lambda path, device: encoder)
+
+    bundle = export.load_training_best(
+        tmp_path,
+        {"variant": "late_tune_aug", "checkpoint": "runs/late_tune_aug/seed_1111/best.pt"},
+        device="cpu",
+    )
+
+    assert bundle.cls_context is False
+    assert not hasattr(bundle.normalizer, "clip_z")
 
 
 @pytest.mark.parametrize("variant", TUNED_VARIANTS)
@@ -125,7 +167,8 @@ def test_export_bundle_serializes_tuned_encoder_into_directory_and_zip(monkeypat
     (root / "outputs/q2_predictions_aligned.csv").write_text("sample_id\n", encoding="utf-8")
 
     encoder = _Encoder()
-    checkpoint = {"student": {"student": torch.tensor(1)}, "text_encoder": {"bert": torch.tensor(4)}}
+    checkpoint = {"student": {"student": torch.tensor(1)}, "text_encoder": {"bert": torch.tensor(4)},
+                  "config": {"text": {"cls_context": True}, "data": {"clip_z": 3.0}}}
     monkeypatch.setattr(export.Normalizer, "load", lambda path: _Normalizer())
     monkeypatch.setattr(export.torch, "load", lambda path, **kwargs: checkpoint)
     monkeypatch.setattr(export, "Student", _Student)
@@ -139,5 +182,9 @@ def test_export_bundle_serializes_tuned_encoder_into_directory_and_zip(monkeypat
 
     marker = Path(result["directory"]) / "assets/text_encoder/tuned-state.txt"
     assert marker.read_text(encoding="utf-8")
+    model_config = __import__("yaml").safe_load(
+        (Path(result["directory"]) / "model_config.yaml").read_text(encoding="utf-8"))
+    assert model_config["text"]["cls_context"] is True
+    assert model_config["data"]["clip_z"] == 3.0
     with export.zipfile.ZipFile(result["zip"]) as archive:
         assert "q2_inference/assets/text_encoder/tuned-state.txt" in archive.namelist()

@@ -13,7 +13,8 @@ import torch
 
 from .data import AlignedDataset, Normalizer, find_inputs, load_pickle, prepare_data, unpack_record
 from .evaluate import evaluate_model, make_fixed_masks
-from .export import (export_bundle, load_checkpoint_text_encoder, load_training_best,
+from .export import (checkpoint_runtime_options, export_bundle,
+                     load_checkpoint_text_encoder, load_training_best,
                      predict_special, verify_export)
 from .masking import evaluation_grid
 from .reporting import VARIANTS, SEEDS, generate_reports, select_final, suite_progress
@@ -120,7 +121,10 @@ def evaluate_best(root, config, variant, seed, split="valid", stress=True, outpu
         output_root = Path(root) / output_root
     path = output_root / "runs" / variant / f"seed_{seed}/best.pt"
     checkpoint = torch.load(path, map_location="cpu", weights_only=False)
+    runtime = checkpoint_runtime_options(checkpoint, path)
     normalizer = Normalizer.load(root / "data/processed/normalizer.npz")
+    if runtime["clip_z"] is not None:
+        normalizer.clip_z = runtime["clip_z"]
     from .model.network import Student
     device = torch.device("cuda:0")
     student = Student(variant, normalizer.class_prior, normalizer.score_prior).to(device)
@@ -131,7 +135,8 @@ def evaluate_best(root, config, variant, seed, split="valid", stress=True, outpu
              np.load(root / ".cache/text" / split / "features.npy", mmap_mode="r"))
     return evaluate_model(student, frozen, normalizer, dataset, device, root / "data/masks" / split,
                           cache, batch_size=config["data"]["eval_batch_size"],
-                          output_dir=output_dir, stress=stress, return_predictions=True)
+                          output_dir=output_dir, stress=stress, return_predictions=True,
+                          cls_context=runtime["cls_context"])
 
 
 def main():
@@ -174,7 +179,8 @@ def main():
         for split in args.splits:
             dataset = AlignedDataset(root / "data/processed" / split)
             result[split] = cache_clean_text(dataset, encoder, root / ".cache/text" / split,
-                                             device, root / "models/text_encoder")
+                                             device, root / "models/text_encoder",
+                                             cls_context=bool(config["text"].get("cls_context", False)))
     elif command == "make-masks":
         result = make_fixed_masks(AlignedDataset(root / "data/processed" / args.split),
                                   root / "data/masks" / args.split)

@@ -18,6 +18,7 @@
 | `evaluate.py` | `clean_cache=None`使用当前编码器。只在本次调用内复用实时clean特征；文本受损样本重新编码。禁止读写冻结磁盘缓存 |
 | `__main__.py`、`export.py` | 从微调checkpoint恢复BERT；缺失文本权重时明确失败，禁止静默回退原预训练权重 |
 | `masking.py` | 课程阶段依据总轮数与预热轮数缩放；60/5默认设置维持原边界 |
+| `scripts/audit_data_quality.py` | 只读审计附件2处理数组的零行、NaN/Inf、范围、类别计数和重复文本，不修改数据 |
 | `losses.py` | 接收回归权重、类别权重、预热和ramp设置；历史默认值保持兼容 |
 
 优化器保存`lr_scale`；每轮使用当前余弦值乘组比例，不能根据组当前lr是否大于某阈值决定是否更新。历史checkpoint缺少该字段时按下游组和文本组角色恢复比例。RNG状态恢复到CPU ByteTensor再交给随机数API。

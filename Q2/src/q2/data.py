@@ -138,7 +138,11 @@ class Normalizer:
         mean = torch.as_tensor(getattr(self, key + "_mean"), device=x.device)
         std = torch.as_tensor(getattr(self, key + "_std"), device=x.device)
         available = (x != 0).any(dim=-1, keepdim=True)
-        return torch.where(available, (x - mean) / std, torch.zeros_like(x))
+        transformed = (x - mean) / std
+        clip_z = getattr(self, "clip_z", None)
+        if clip_z is not None:
+            transformed = transformed.clamp(-float(clip_z), float(clip_z))
+        return torch.where(available, transformed, torch.zeros_like(x))
 
 
 def prepare_data(data_root: Path, output_dir: Path) -> dict:

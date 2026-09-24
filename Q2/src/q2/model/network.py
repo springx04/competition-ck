@@ -13,11 +13,11 @@ from .reliability import ErrorEstimator
 from .fusion import ContentFusion
 
 
-VARIANTS = ("full", "late_clean", "late_balanced", "late_tune", "late_tune_balanced", "late_tune_aug", "late_classifier",
+VARIANTS = ("full", "full_tune", "full_tune_stress", "late_clean", "late_balanced", "late_tune", "late_tune_balanced", "late_tune_aug", "late_classifier", "late_attn_tune",
             "late_pool_tune", "late_pool_tune_aug",
             "late_aug", "no_msd", "no_comp", "no_reliability",
             "no_cons", "no_span", "no_teacher", "uniform_spans")
-TUNED_VARIANTS = ("late_tune", "late_tune_balanced", "late_tune_aug", "late_pool_tune", "late_pool_tune_aug")
+TUNED_VARIANTS = ("full_tune", "full_tune_stress", "late_tune", "late_tune_balanced", "late_tune_aug", "late_pool_tune", "late_pool_tune_aug", "late_attn_tune")
 CLEAN_VARIANTS = ("late_clean", "late_balanced", "late_tune", "late_tune_balanced", "late_classifier", "late_pool_tune")
 
 
@@ -55,11 +55,12 @@ class ForwardOutput:
 
 
 def encode_view(raw_batch: dict, frozen_text_encoder, normalizer, text_cache=None,
-                text_recompute=None, text_grad=False) -> ModelInput:
+                text_recompute=None, text_grad=False, cls_context=False) -> ModelInput:
     from ..text import encode_text
     state = infer_state(raw_batch)
     if text_cache is None:
-        text_features = encode_text(raw_batch, frozen_text_encoder, state, requires_grad=text_grad)
+        text_features = encode_text(raw_batch, frozen_text_encoder, state,
+                                    requires_grad=text_grad, cls_context=cls_context)
     else:
         text_features = text_cache.clone()
         if text_recompute is not None and bool(text_recompute.any()):
@@ -67,7 +68,8 @@ def encode_view(raw_batch: dict, frozen_text_encoder, normalizer, text_cache=Non
             subset = {key: value[indices] for key, value in raw_batch.items() if isinstance(value, torch.Tensor)}
             substate = infer_state(subset)
             text_features[indices] = encode_text(subset, frozen_text_encoder, substate,
-                                                 requires_grad=text_grad)
+                                                 requires_grad=text_grad,
+                                                 cls_context=cls_context)
     text_features = text_features * state.U[:, :, 0, None]
     return ModelInput(text_features=text_features, audio_norm=normalizer.transform(raw_batch, "audio"),
                       vision_norm=normalizer.transform(raw_batch, "vision"),
@@ -82,15 +84,17 @@ class Student(nn.Module):
         self.variant = variant
         self.late = variant.startswith("late_")
         self.pool_only = variant.startswith("late_pool_")
+        self.attn_pool = variant == "late_attn_tune"
         self.use_msd = not self.late and variant != "no_msd"
         self.use_comp = not self.late and variant != "no_comp"
         self.use_reliability = self.use_comp and variant not in ("no_reliability", "no_teacher")
         self.register_buffer("class_prior", torch.as_tensor(class_prior, dtype=torch.float32))
         self.register_buffer("score_prior", torch.as_tensor(score_prior, dtype=torch.float32))
-        if self.pool_only:
+        if self.pool_only or self.attn_pool:
             self.modalities = None
             self.encoders = nn.ModuleList([nn.Sequential(nn.Linear(dim, 128), nn.LayerNorm(128),
                                                         nn.GELU(), nn.Dropout(.3)) for dim in (256, 74, 35)])
+            self.pool_scores = nn.ModuleList([nn.Linear(128, 1) for _ in range(3)]) if self.attn_pool else None
         else:
             self.modalities = nn.Embedding(3, 128)
             self.encoders = nn.ModuleList([ModalityEncoder(dim) for dim in (256, 74, 35)])
@@ -120,14 +124,23 @@ class Student(nn.Module):
         position = sinusoidal_positions(length, 128, U.device)
         embeds = self.modalities.weight if self.modalities is not None else None
         inputs = (model_input.text_features, model_input.audio_norm, model_input.vision_norm)
-        if self.pool_only:
+        if self.pool_only or self.attn_pool:
             H = torch.stack([self.encoders[m](inputs[m]) * U[:, :, m, None]
                              for m in range(3)], dim=2)
         else:
             H = torch.stack([self.encoders[m](inputs[m], U[:, :, m], position, embeds[m])
                              for m in range(3)], dim=2)
         if self.late:
-            pools, flags = zip(*(masked_mean(H[:, :, m], U[:, :, m]) for m in range(3)))
+            if self.attn_pool:
+                pools, flags = [], []
+                for m in range(3):
+                    available = U[:, :, m]
+                    scores = self.pool_scores[m](H[:, :, m]).squeeze(-1).masked_fill(~available, -1e4)
+                    weights = torch.softmax(scores, dim=1) * available
+                    pools.append((H[:, :, m] * weights[..., None]).sum(dim=1))
+                    flags.append(available.any(dim=1))
+            else:
+                pools, flags = zip(*(masked_mean(H[:, :, m], U[:, :, m]) for m in range(3)))
             pooled = self.late_projection(torch.cat((*pools, torch.stack(flags, dim=-1).float()), dim=-1))
             source = U.long()
             B_comp = torch.zeros_like(U)

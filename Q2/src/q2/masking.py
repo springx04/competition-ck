@@ -89,11 +89,16 @@ def apply_span(raw_batch: dict, perturbation: Perturbation) -> dict:
 
 
 def sample_train_descriptor(seed: int, epoch: int, sample_index: int, uniform_spans: bool = False,
-                            total_epochs: int = 60, warmup_epochs: int = 5) -> dict:
+                            total_epochs: int = 60, warmup_epochs: int = 5,
+                            stress_text: bool = False) -> dict:
     rng = np.random.default_rng(np.random.SeedSequence([seed, epoch, sample_index]))
     if epoch <= warmup_epochs:
         return {"pattern": "", "rho": 0, "position": "middle"}
     progress = (epoch - warmup_epochs) / max(1, total_epochs - warmup_epochs)
+    if stress_text:
+        pattern = str(rng.choice(["T", "T", "T", "TA", "TV", "AV", "A", "V"]))
+        rho = float(rng.uniform(.35, .85))
+        return {"pattern": pattern, "rho": rho, "position": "random", "rng": rng}
     phase = int(rng.choice([1, 2, 3], p=[10/55, 15/55, 30/55])) if uniform_spans else (1 if progress <= 10/55 else 2 if progress <= 25/55 else 3)
     if rng.random() < 0.2:
         return {"pattern": "", "rho": 0, "position": "middle"}

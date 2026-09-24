@@ -22,6 +22,37 @@ CLASS_NAMES = ("Negative", "Neutral", "Positive")
 _FP32_EXPORT_TOLERANCE = 1e-5
 _FP16_TEXT_EXPORT_TOLERANCE = 1e-3
 
+# These are the only historical exploratory runs known to have been trained
+# while the temporary unconditional CLS term was present.  Checkpoints from
+# any other legacy run keep the original, token-only frontend semantics.
+LEGACY_CLS_CONTEXT_RUNS = frozenset({
+    "pool_clsctx_v3",
+    "pool_pw15_v3",
+    "full_tune_v3",
+    "full_tune_stress_v3",
+    "attn_tune_v3",
+    "pool_low_lr5e5_30_v3",
+    "attn_40_v4",
+})
+
+
+def checkpoint_runtime_options(checkpoint: dict, checkpoint_path: Path | None = None) -> dict:
+    """Resolve frontend options saved by a checkpoint, with a narrow legacy map."""
+    config = checkpoint.get("config") or {}
+    text_config = config.get("text") or {}
+    data_config = config.get("data") or {}
+    cls_context = text_config.get("cls_context")
+    if cls_context is None:
+        names = set()
+        output_root = config.get("project", {}).get("output_root")
+        if output_root:
+            names.add(Path(str(output_root)).name)
+        if checkpoint_path is not None:
+            path = Path(checkpoint_path)
+            names.update(parent.name for parent in path.parents)
+        cls_context = any(name in LEGACY_CLS_CONTEXT_RUNS for name in names)
+    return {"cls_context": bool(cls_context), "clip_z": data_config.get("clip_z")}
+
 
 def load_checkpoint_text_encoder(root: Path, variant: str, checkpoint: dict, device):
     """Load the base encoder and restore the state saved by tuned runs."""
@@ -39,16 +70,18 @@ def load_checkpoint_text_encoder(root: Path, variant: str, checkpoint: dict, dev
 
 
 class Bundle:
-    def __init__(self, student, text_encoder, normalizer, device):
+    def __init__(self, student, text_encoder, normalizer, device, cls_context=False):
         self.student = student.eval()
         self.text_encoder = text_encoder.eval()
         self.normalizer = normalizer
         self.device = torch.device(device)
+        self.cls_context = bool(cls_context)
 
     @torch.no_grad()
     def predict_raw(self, raw_batch: dict, return_details=True):
         raw = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v for k, v in raw_batch.items()}
-        model_input = encode_view(raw, self.text_encoder, self.normalizer)
+        model_input = encode_view(raw, self.text_encoder, self.normalizer,
+                                  cls_context=self.cls_context)
         output = self.student(model_input, return_details=return_details)
         return output
 
@@ -57,18 +90,27 @@ def load_bundle(directory: Path, device="cpu") -> Bundle:
     directory = Path(directory)
     config = __import__("yaml").safe_load((directory / "model_config.yaml").read_text(encoding="utf-8"))
     normalizer = Normalizer.load(directory / "normalizer.npz")
+    data_config = config.get("data") or {}
+    if data_config.get("clip_z") is not None:
+        normalizer.clip_z = data_config["clip_z"]
     student = Student(config["variant"], normalizer.class_prior, normalizer.score_prior,
                       include_aux_heads=False)
     weights = load_file(str(directory / "student.safetensors"), device="cpu")
     student.load_state_dict(weights, strict=True)
     student = student.to(device).eval()
     text_encoder = load_text_encoder(directory / "assets/text_encoder", torch.device(device)).float()
-    return Bundle(student, text_encoder, normalizer, device)
+    text_config = config.get("text") or {}
+    return Bundle(student, text_encoder, normalizer, device,
+                  cls_context=bool(text_config.get("cls_context", False)))
 
 
 def load_training_best(root: Path, selection: dict, device="cuda:0", round_text_for_export=False) -> Bundle:
     normalizer = Normalizer.load(Path(root) / "data/processed/normalizer.npz")
-    checkpoint = torch.load(Path(root) / selection["checkpoint"], map_location="cpu", weights_only=False)
+    checkpoint_path = Path(root) / selection["checkpoint"]
+    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    runtime = checkpoint_runtime_options(checkpoint, checkpoint_path)
+    if runtime["clip_z"] is not None:
+        normalizer.clip_z = runtime["clip_z"]
     student = Student(selection["variant"], normalizer.class_prior, normalizer.score_prior)
     student.load_state_dict(checkpoint["student"])
     student = student.to(device).eval()
@@ -77,7 +119,8 @@ def load_training_best(root: Path, selection: dict, device="cuda:0", round_text_
         # Match the FP16-on-disk text weights used by export_bundle, while
         # keeping inference itself in the declared FP32 compute dtype.
         encoder.half().float()
-    return Bundle(student, encoder, normalizer, device)
+    return Bundle(student, encoder, normalizer, device,
+                  cls_context=runtime["cls_context"])
 
 
 def raw_from_record(record: dict):
@@ -152,7 +195,11 @@ def export_bundle(root: Path, selection: dict):
         shutil.rmtree(dest)
     (dest / "assets").mkdir(parents=True)
     normalizer = Normalizer.load(root / "data/processed/normalizer.npz")
-    checkpoint = torch.load(root / selection["checkpoint"], map_location="cpu", weights_only=False)
+    checkpoint_path = root / selection["checkpoint"]
+    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    runtime = checkpoint_runtime_options(checkpoint, checkpoint_path)
+    if runtime["clip_z"] is not None:
+        normalizer.clip_z = runtime["clip_z"]
     student = Student(selection["variant"], normalizer.class_prior, normalizer.score_prior,
                       include_aux_heads=False)
     state = {key: value for key, value in checkpoint["student"].items()
@@ -170,7 +217,12 @@ def export_bundle(root: Path, selection: dict):
     for name in ("THIRD_PARTY.md", "requirements.txt"):
         shutil.copy2(root / name, dest / name)
     shutil.copy2(root / "outputs/q2_predictions_aligned.csv", dest / "q2_predictions_aligned.csv")
-    (dest / "model_config.yaml").write_text(__import__("yaml").safe_dump({"variant": selection["variant"]}), encoding="utf-8")
+    (dest / "model_config.yaml").write_text(
+        __import__("yaml").safe_dump({
+            "variant": selection["variant"],
+            "text": {"cls_context": runtime["cls_context"]},
+            "data": {"clip_z": runtime["clip_z"]},
+        }), encoding="utf-8")
     (dest / "run_inference.py").write_text(INFERENCE_SCRIPT, encoding="utf-8")
     (dest / "README.md").write_text("# Q2 offline inference\n\nRun `python run_inference.py --input-dir PATH --output q2_predictions_aligned.csv --device cuda:0`. The bundle contains the selected student and the complete frozen text encoder.\n", encoding="utf-8")
     archive = root / "delivery/q2_inference.zip"

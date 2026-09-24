@@ -11,6 +11,7 @@ from q2 import evaluate
 from q2.data import Normalizer
 from q2.trainer import learning_rate, optimizer_for, set_learning_rate, _rng_state, _restore_rng
 from q2.masking import sample_train_descriptor
+from q2.data import Normalizer
 
 
 def test_live_evaluation_uses_current_encoder_for_clean_and_corrupt(tmp_path, monkeypatch):
@@ -95,3 +96,18 @@ def test_short_curriculum_reaches_severe_dual_modality_missing():
     # Original 60-epoch settings retain their early single-modality stage.
     early = [sample_train_descriptor(1111, 15, i) for i in range(100)]
     assert all(len(d["pattern"]) <= 1 and d["rho"] <= .2 for d in early)
+    stress = [sample_train_descriptor(1111, 10, i, total_epochs=20, warmup_epochs=2,
+                                      stress_text=True) for i in range(200)]
+    assert sum(d["pattern"] == "T" for d in stress) > 50
+    assert min(d["rho"] for d in stress) >= .35
+
+
+def test_train_only_zscore_clipping_preserves_missing_zero_rows():
+    normalizer = Normalizer(np.zeros(1), np.ones(1), np.zeros(1), np.ones(1), 1, 1,
+                            np.ones(3) / 3, 0)
+    normalizer.clip_z = 3
+    raw = {"audio": torch.tensor([[[10.0], [0.0]]]),
+           "vision": torch.zeros(1, 2, 1)}
+    transformed = normalizer.transform(raw, "audio")
+    assert transformed[0, 0, 0].item() == 3
+    assert transformed[0, 1, 0].item() == 0

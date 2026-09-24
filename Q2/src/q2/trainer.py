@@ -10,7 +10,7 @@ import time
 
 import numpy as np
 import torch
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, WeightedRandomSampler
 
 from .data import AlignedDataset, Normalizer, collate_raw
 from .evaluate import evaluate_model, better_key, selection_key
@@ -18,6 +18,7 @@ from .losses import compute_losses
 from .masking import apply_span, make_span_mask, sample_train_descriptor
 from .model.network import Student, encode_view, TUNED_VARIANTS, CLEAN_VARIANTS
 from .state import infer_state
+from .sampling import video_sample_weights
 
 
 def set_seed(seed):
@@ -108,12 +109,23 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
     train_set = AlignedDataset(root / "data/processed/train")
     valid_set = AlignedDataset(root / "data/processed/valid")
     normalizer = Normalizer.load(root / "data/processed/normalizer.npz")
+    if "clip_z" in config["data"]:
+        normalizer.clip_z = config["data"]["clip_z"]
+    cls_context = bool(config["text"].get("cls_context", False))
     frozen = load_text_encoder(root / config["text"]["model_dir"], device)
     tune_text = variant in TUNED_VARIANTS
     if bool(config["text"]["frozen"]) == tune_text:
         raise ValueError("text.frozen must match the selected frozen/tuned variant")
     if tune_text:
-        frozen.requires_grad_(True).train()
+        unfrozen_layers = int(config["text"].get("unfrozen_layers", 4))
+        frozen.requires_grad_(False)
+        if unfrozen_layers:
+            for layer in frozen.encoder.layer[-unfrozen_layers:]:
+                layer.requires_grad_(True)
+        frozen.embeddings.requires_grad_(False)
+        if getattr(frozen, "pooler", None) is not None:
+            frozen.pooler.requires_grad_(False)
+        frozen.train()
     clean_cache = None if tune_text else np.load(root / ".cache/text/train/features.npy", mmap_mode="r")
     valid_cache = None if tune_text else np.load(root / ".cache/text/valid/features.npy", mmap_mode="r")
     student = Student(variant, normalizer.class_prior, normalizer.score_prior).to(device)
@@ -167,7 +179,15 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
                           config["text"].get("learning_rate", 1e-5) / max_lr)
         if tune_text:
             frozen.train()
-        loader = DataLoader(train_set, batch_size=config["data"]["train_batch_size"], shuffle=True, generator=generator,
+        sampling_power = float(config["data"].get("video_sampling_power", 0.0))
+        sampler = None
+        if sampling_power > 0:
+            weights = video_sample_weights(train_set.metadata["video_id"], sampling_power)
+            sampler = WeightedRandomSampler(torch.as_tensor(weights, dtype=torch.double),
+                                            num_samples=len(train_set), replacement=True,
+                                            generator=generator)
+        loader = DataLoader(train_set, batch_size=config["data"]["train_batch_size"],
+                            shuffle=sampler is None, sampler=sampler, generator=generator,
                             num_workers=config["data"]["num_workers"], pin_memory=True,
                             drop_last=False, collate_fn=collate_raw)
         totals = {key: 0.0 for key in ("total", "task_clean", "task_corrupt", "msd", "span", "calibration", "consistency")}
@@ -181,7 +201,8 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
             descriptors = ([{"pattern": "", "rho": 0, "position": "middle"} for _ in original_indices]
                            if variant in CLEAN_VARIANTS else
                            [sample_train_descriptor(seed, epoch, int(index), variant == "uniform_spans",
-                                                    total_epochs=epochs, warmup_epochs=warmup_epochs)
+                                                    total_epochs=epochs, warmup_epochs=warmup_epochs,
+                                                    stress_text=variant == "full_tune_stress")
                             for index in original_indices])
             perturbation = make_span_mask(raw, state0, descriptors)
             descriptors_for_epoch.extend({"sample_index": int(index), "epoch": epoch, **desc}
@@ -190,13 +211,14 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
             if variant in CLEAN_VARIANTS:
                 corrupted = raw
             cached = None if tune_text else torch.from_numpy(np.asarray(clean_cache[original_indices.numpy()]).copy()).to(device)
-            clean_input = encode_view(raw, frozen, normalizer, cached, text_grad=tune_text)
+            clean_input = encode_view(raw, frozen, normalizer, cached,
+                                      text_grad=tune_text, cls_context=cls_context)
             if variant in CLEAN_VARIANTS:
                 corrupt_input = clean_input
             else:
                 corrupt_input = encode_view(corrupted, frozen, normalizer, cached,
                                             perturbation.P[:, :, 0].any(dim=1),
-                                            text_grad=tune_text)
+                                            text_grad=tune_text, cls_context=cls_context)
             optimizer.zero_grad(set_to_none=True)
             clean_output = student(clean_input, return_details=True, return_attention=False)
             corrupt_output = (student(corrupt_input, return_details=True, return_attention=False)
@@ -235,7 +257,8 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
             validation_dir = run_dir / "validation" / f"epoch_{epoch}"
             rows, _ = evaluate_model(student, frozen, normalizer, valid_set, device,
                                      root / "data/masks/valid", None if tune_text else valid_cache,
-                                     batch_size=config["data"]["eval_batch_size"], output_dir=validation_dir)
+                                     batch_size=config["data"]["eval_batch_size"], output_dir=validation_dir,
+                                     cls_context=cls_context)
             candidate = selection_key(rows, epoch)
             row.update({"missing_macro_f1": candidate[0], "missing_mae": candidate[1],
                         "clean_macro_f1": candidate[2], "clean_mae": candidate[3]})

@@ -23,6 +23,7 @@ def verify_real_batch(root: Path, config: dict):
     root = Path(root)
     dataset = AlignedDataset(root / "data/processed/train")
     normalizer = Normalizer.load(root / "data/processed/normalizer.npz")
+    cls_context = bool(config["text"].get("cls_context", False))
     encoder = load_text_encoder(root / "models/text_encoder", device)
     selected = []
     for i in range(len(dataset)):
@@ -37,7 +38,7 @@ def verify_real_batch(root: Path, config: dict):
     raw = {key: value.to(device) if isinstance(value, torch.Tensor) else value for key, value in raw_cpu.items()}
     state0 = infer_state(raw)
     with torch.no_grad():
-        clean_input = encode_view(raw, encoder, normalizer)
+        clean_input = encode_view(raw, encoder, normalizer, cls_context=cls_context)
     labels = {"class_id": raw["class_id"], "score": raw["score"]}
 
     debug = Student("no_msd", normalizer.class_prior, normalizer.score_prior).to(device)
@@ -66,7 +67,7 @@ def verify_real_batch(root: Path, config: dict):
     perturbation = make_span_mask(raw, state0, descriptor)
     corrupt = apply_span(raw, perturbation)
     with torch.no_grad():
-        corrupt_input = encode_view(corrupt, encoder, normalizer)
+        corrupt_input = encode_view(corrupt, encoder, normalizer, cls_context=cls_context)
     student.train()
     clean_output = student(clean_input, return_details=True)
     corrupt_output = student(corrupt_input, return_details=True)

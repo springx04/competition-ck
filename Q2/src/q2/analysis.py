@@ -205,22 +205,25 @@ def reliability_analysis(root: Path, variant: str, seed: int, split="valid", bat
     from .masking import apply_span, evaluation_grid, make_span_mask
     from .model.network import Student, encode_view
     from .state import infer_state
-    from .text import load_text_encoder
+    from .export import checkpoint_runtime_options, load_checkpoint_text_encoder
 
     root = Path(root)
     device = torch.device("cuda:0")
-    checkpoint = torch.load(root / "runs" / variant / f"seed_{seed}" / "best.pt",
-                            map_location="cpu", weights_only=False)
+    checkpoint_path = root / "runs" / variant / f"seed_{seed}" / "best.pt"
+    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    runtime = checkpoint_runtime_options(checkpoint, checkpoint_path)
     if checkpoint["teacher"] is None:
         return {"status": "no_ema_teacher"}
     normalizer = Normalizer.load(root / "data/processed/normalizer.npz")
+    if runtime["clip_z"] is not None:
+        normalizer.clip_z = runtime["clip_z"]
     student = Student(variant, normalizer.class_prior, normalizer.score_prior).to(device).eval()
     teacher = Student(variant, normalizer.class_prior, normalizer.score_prior).to(device).eval()
     student.load_state_dict(checkpoint["student"])
     teacher.load_state_dict(checkpoint["teacher"])
     if student.estimator is None:
         return {"status": "no_error_estimator"}
-    encoder = load_text_encoder(root / "models/text_encoder", device)
+    encoder = load_checkpoint_text_encoder(root, variant, checkpoint, device)
     dataset = AlignedDataset(root / "data/processed" / split)
     clean_cache = np.load(root / ".cache/text" / split / "features.npy", mmap_mode="r")
     masks_dir = root / "data/masks" / split
@@ -244,11 +247,13 @@ def reliability_analysis(root: Path, variant: str, seed: int, split="valid", bat
             clean = {k: v.to(device) if isinstance(v, torch.Tensor) else v for k,v in batch.items()}
             corrupt = {k: v.to(device) if isinstance(v, torch.Tensor) else v for k,v in damaged.items()}
             cached = torch.from_numpy(np.asarray(clean_cache[offset:offset+n]).copy()).to(device)
-            clean_input = encode_view(clean, encoder, normalizer, cached)
+            clean_input = encode_view(clean, encoder, normalizer, cached,
+                                      cls_context=runtime["cls_context"])
             teacher_output = teacher(clean_input, return_details=True)
             corrupt_cached = torch.from_numpy(np.asarray(scenario_cache[offset:offset+n]).copy()).to(device) if scenario_cache is not None else cached
             damaged_input = encode_view(corrupt, encoder, normalizer, corrupt_cached,
-                                        perturbation.P[:, :, 0].any(dim=1).to(device) if scenario_cache is None else None)
+                                        perturbation.P[:, :, 0].any(dim=1).to(device) if scenario_cache is None else None,
+                                        cls_context=runtime["cls_context"])
             student_output = student(damaged_input, return_details=True)
             omega = perturbation.P.to(device) & state0.U.to(device) & student_output.B_comp
             if omega.any():

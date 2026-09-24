@@ -57,7 +57,8 @@ def _read_descriptors(mask_dir: Path, name: str):
 @torch.no_grad()
 def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, device,
                    mask_dir: Path, clean_cache: np.ndarray | None, batch_size=128,
-                   output_dir: Path | None = None, stress=False, return_predictions=False):
+                   output_dir: Path | None = None, stress=False, return_predictions=False,
+                   cls_context=False):
     student.eval()
     text_encoder.eval()
     scenarios = [{"name": "clean"}] + evaluation_grid() + (evaluation_grid(stress=True) if stress else [])
@@ -112,7 +113,8 @@ def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, d
             raw_device = _device_batch(raw, device)
             model_input = encode_view(raw_device, text_encoder, normalizer, cache,
                                       p[:, :, 0].any(dim=1).to(device)
-                                      if scenario_cache_new or (clean_cache is None and text_affected) else None)
+                                      if scenario_cache_new or (clean_cache is None and text_affected) else None,
+                                      cls_context=cls_context)
             if live_clean_cache is not None and name == "clean":
                 live_clean_cache[offset:offset+n] = model_input.text_features.cpu().numpy()
             if scenario_cache_new:

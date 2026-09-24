@@ -49,11 +49,13 @@ def load_text_encoder(path: Path, device: torch.device) -> BertModel:
 
 
 def encode_text(raw: dict, model: BertModel, state=None, batch_size: int = 64,
-                requires_grad: bool = False) -> torch.Tensor:
+                requires_grad: bool = False, cls_context: bool = False) -> torch.Tensor:
     state = state or infer_state(raw)
     ids = raw["input_ids"].clone()
     ids[raw["stored_attention"] == 0] = 0
     output = torch.zeros(*ids.shape, 256, dtype=torch.float32, device=ids.device)
+    global_output = (torch.zeros(ids.shape[0], 256, dtype=torch.float32, device=ids.device)
+                     if cls_context else None)
     valid = torch.where(state.bert_attention.any(dim=1))[0]
     context = torch.enable_grad() if requires_grad else torch.no_grad()
     with context:
@@ -62,6 +64,13 @@ def encode_text(raw: dict, model: BertModel, state=None, batch_size: int = 64,
                                    attention_mask=state.bert_attention[indices].long(),
                                    token_type_ids=raw["token_type_ids"][indices]).last_hidden_state
             output[indices] = representation * state.U[indices, :, 0, None]
+            if cls_context:
+                global_output[indices] = representation[:, 0]
+    # BERT token rows are already contextualized.  This optional term adds a
+    # second, sentence-level summary to observed token rows; it is disabled by
+    # default so existing checkpoints and frozen caches keep their semantics.
+    if cls_context:
+        output = output + state.U[:, :, 0, None] * global_output[:, None, :]
     return output
 
 
@@ -101,7 +110,8 @@ def tokenizer_check(record: dict, model_dir: Path, output_csv: Path) -> dict:
 
 
 def cache_clean_text(dataset, encoder, output_dir: Path, device: torch.device,
-                     model_dir: Path, batch_size: int = 64) -> dict:
+                     model_dir: Path, batch_size: int = 64,
+                     cls_context: bool = False) -> dict:
     from torch.utils.data import DataLoader
     from .data import collate_raw
     output_dir = Path(output_dir)
@@ -112,12 +122,13 @@ def cache_clean_text(dataset, encoder, output_dir: Path, device: torch.device,
     offset = 0
     for batch in loader:
         raw = {k: v.to(device) if isinstance(v, torch.Tensor) else v for k, v in batch.items()}
-        features = encode_text(raw, encoder).cpu().numpy()
+        features = encode_text(raw, encoder, cls_context=cls_context).cpu().numpy()
         result[offset:offset+len(features)] = features
         offset += len(features)
     result.flush()
     metadata = {"model_dir": str(model_dir), "model_id": MODEL_ID,
                 "tokenizer": "BertTokenizerFast", "samples": len(dataset),
+                "cls_context": bool(cls_context),
                 "sample_ids": dataset.metadata["id"], "created_at": datetime.now(timezone.utc).isoformat()}
     (output_dir / "metadata.json").write_text(json.dumps(metadata, ensure_ascii=False), encoding="utf-8")
     return {"samples": len(dataset), "shape": list(result.shape)}

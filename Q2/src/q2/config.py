@@ -114,7 +114,9 @@ def _mapping(value: Any, name: str) -> dict[str, Any]:
 def _check_keys(value: Mapping[str, Any], name: str, expected: tuple[str, ...]) -> None:
     actual = set(value)
     allowed = set(expected)
-    optional = {"learning_rate"} if name == "text" else {"class_weight_power"} if name == "loss" else set()
+    optional = ({"learning_rate", "unfrozen_layers", "cls_context"} if name == "text" else
+                {"class_weight_power"} if name == "loss" else
+                {"clip_z", "video_sampling_power"} if name == "data" else set())
     unknown = sorted(actual - allowed - optional)
     missing = sorted(allowed - actual)
     if unknown:
@@ -177,6 +179,10 @@ def _validate_values(config: Mapping[str, Any]) -> None:
     _equal_list(data["modality_order"], ["text", "audio", "vision"], "data.modality_order")
     _equal_list(data["dims"], [256, 74, 35], "data.dims")
     _integer(data["num_workers"], "data.num_workers", minimum=0)
+    if "clip_z" in data:
+        _number(data["clip_z"], "data.clip_z", minimum=0.0)
+    if "video_sampling_power" in data:
+        _number(data["video_sampling_power"], "data.video_sampling_power", minimum=0.0)
     _bool(data["pin_memory"], "data.pin_memory")
     _integer(data["train_batch_size"], "data.train_batch_size", minimum=1)
     _integer(data["eval_batch_size"], "data.eval_batch_size", minimum=1)
@@ -187,8 +193,13 @@ def _validate_values(config: Mapping[str, Any]) -> None:
     if text["model_id"] != "google/bert_uncased_L-4_H-256_A-4":
         raise ConfigError("text.model_id must be google/bert_uncased_L-4_H-256_A-4")
     _bool(text["frozen"], "text.frozen")
+    if "cls_context" in text:
+        _bool(text["cls_context"], "text.cls_context")
     if "learning_rate" in text:
         _number(text["learning_rate"], "text.learning_rate", minimum=0.0)
+    if "unfrozen_layers" in text:
+        if type(text["unfrozen_layers"]) is not int or not 0 <= text["unfrozen_layers"] <= 4:
+            raise ConfigError("text.unfrozen_layers must be an integer from 0 through 4")
     if text["compute_dtype"] != "float32" or text["stored_dtype"] != "float16":
         raise ConfigError("text.compute_dtype/stored_dtype must be float32/float16")
     if text["attention_implementation"] != "eager":
