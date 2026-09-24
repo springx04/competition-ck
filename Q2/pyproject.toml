@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68,<81", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "q2-sentiment"
+version = "0.1.0"
+description = "Robust multimodal sentiment prediction with local modality dropout"
+requires-python = ">=3.11,<3.12"
+dependencies = []
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["q2*"]

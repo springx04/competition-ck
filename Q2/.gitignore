@@ -1,0 +1,37 @@
+# Python bytecode and local tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Project environments and package caches
+.venv/
+.python311/
+.cache/
+pip-wheel-metadata/
+
+# Downloaded model files and generated data
+models/bert_download/
+models/text_encoder/
+data/raw/
+data/processed/
+data/masks/
+
+# Training, evaluation and delivery artifacts
+runs/
+reports/
+outputs/
+delivery/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.npz
+
+# Local logs and editor/OS files
+*.log
+.coverage
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,11 @@
+variants:
+  - full
+  - late_clean
+  - late_aug
+  - no_msd
+  - no_comp
+  - no_reliability
+  - no_cons
+  - no_span
+  - no_teacher
+  - uniform_spans
