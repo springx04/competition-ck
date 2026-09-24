@@ -8,9 +8,9 @@ from torch.nn import functional as F
 from .model.encoders import masked_mean
 
 
-def task_loss(output, class_id, score, class_weight=None):
+def task_loss(output, class_id, score, class_weight=None, regression_weight=1.0):
     return (F.cross_entropy(output.logits, class_id, weight=class_weight, reduction="none")
-            + F.huber_loss(output.score, score, delta=1.0, reduction="none")).mean()
+            + regression_weight * F.huber_loss(output.score, score, delta=1.0, reduction="none")).mean()
 
 
 def msd_loss(clean, student, class_id, score):
@@ -68,17 +68,18 @@ class LossOutput:
 
 
 def compute_losses(clean_output, corrupt_output, teacher_output, labels, perturbation,
-                   state0, epoch: int, student, class_weight=None) -> LossOutput:
+                   state0, epoch: int, student, class_weight=None,
+                   regression_weight=1.0, warmup_epochs=5, ramp_epochs=10) -> LossOutput:
     cls, score = labels["class_id"], labels["score"]
-    clean_task = task_loss(clean_output, cls, score, class_weight)
+    clean_task = task_loss(clean_output, cls, score, class_weight, regression_weight)
     msd = msd_loss(clean_output, student, cls, score)["total"]
     zero = clean_task * 0
     terms = {"task_clean": clean_task, "task_corrupt": zero, "msd": msd,
              "span": zero, "calibration": zero, "consistency": zero}
     total = clean_task + .05 * msd
-    if epoch <= 5:
+    if epoch <= warmup_epochs:
         return LossOutput(total, terms, 0)
-    corrupt_task = task_loss(corrupt_output, cls, score, class_weight)
+    corrupt_task = task_loss(corrupt_output, cls, score, class_weight, regression_weight)
     terms["task_corrupt"] = corrupt_task
     total = total + corrupt_task
     omega = perturbation.P & state0.U & corrupt_output.B_comp
@@ -101,6 +102,6 @@ def compute_losses(clean_output, corrupt_output, teacher_output, labels, perturb
         huber = F.huber_loss(corrupt_output.score, teacher_output.score.detach(),
                              delta=1.0, reduction="none")
         terms["consistency"] = (weight * (kl + huber)).mean()
-    ramp = min(1, (epoch - 5) / 10)
+    ramp = min(1, (epoch - warmup_epochs) / max(1, ramp_epochs))
     total = total + ramp * (.2 * terms["span"] + .1 * terms["calibration"] + .2 * terms["consistency"])
     return LossOutput(total, terms, int(omega.sum()))

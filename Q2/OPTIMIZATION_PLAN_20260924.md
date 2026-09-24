@@ -1,5 +1,17 @@
 # Q2 baseline review and optimization profile
 
+## Current revision
+
+The active method and implementation updates are
+`docs/E题_Q2_优化方案_v3_实验中.md` and
+`docs/E题_Q2_优化实现说明_v2_实验中.md`. The frozen `late_balanced`
+profile below is historical exploration, not a selected final method.
+Fine-tuning initially used stale frozen validation features; those scores are
+invalid. Reevaluating the saved epoch-15 tuned checkpoint with its own BERT
+weights gives missing Macro-F1 0.54049 and clean Macro-F1 0.58243. No test-set
+claim follows from these validation results. The target of at least 0.60
+missing-grid Macro-F1 remains unmet.
+
 ## What the baseline actually measured
 
 `runs_baseline_20260924` contains nine complete runs: `full`, `late_clean`, and
@@ -45,9 +57,11 @@ deployment candidate.
   `late_clean`, and computes class weights from the train-only class prior.
 - `task_loss` accepts an optional classification weight vector; the default is
   `None`, so all historical variants preserve their previous objective.
-- The vectorized state inference, attention-diagnostic suppression, and resume
-  RNG compatibility fixes are protocol-preserving runtime improvements.
+- State inference is vectorized, diagnostic attention output is suppressed
+  during training, and RNG restoration uses CPU ByteTensors. Attention backend
+  changes may alter floating-point results and random paths; training is not
+  claimed to be bitwise equivalent.
 
-Run the new profile only after the current suite has finished, in a separate
-run directory or after archiving its outputs. Do not use its result to rewrite
-the already completed baseline table.
+The user has since authorized stopping the original suite. Run each new
+profile in a separate named directory and retain its outputs. Do not use new
+results to rewrite the completed historical table.

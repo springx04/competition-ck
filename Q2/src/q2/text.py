@@ -48,18 +48,20 @@ def load_text_encoder(path: Path, device: torch.device) -> BertModel:
     return model.to(device).requires_grad_(False).eval()
 
 
-@torch.no_grad()
-def encode_text(raw: dict, model: BertModel, state=None, batch_size: int = 64) -> torch.Tensor:
+def encode_text(raw: dict, model: BertModel, state=None, batch_size: int = 64,
+                requires_grad: bool = False) -> torch.Tensor:
     state = state or infer_state(raw)
     ids = raw["input_ids"].clone()
     ids[raw["stored_attention"] == 0] = 0
     output = torch.zeros(*ids.shape, 256, dtype=torch.float32, device=ids.device)
     valid = torch.where(state.bert_attention.any(dim=1))[0]
-    for indices in valid.split(batch_size):
-        representation = model(input_ids=ids[indices],
-                               attention_mask=state.bert_attention[indices].long(),
-                               token_type_ids=raw["token_type_ids"][indices]).last_hidden_state
-        output[indices] = representation * state.U[indices, :, 0, None]
+    context = torch.enable_grad() if requires_grad else torch.no_grad()
+    with context:
+        for indices in valid.split(batch_size):
+            representation = model(input_ids=ids[indices],
+                                   attention_mask=state.bert_attention[indices].long(),
+                                   token_type_ids=raw["token_type_ids"][indices]).last_hidden_state
+            output[indices] = representation * state.U[indices, :, 0, None]
     return output
 
 

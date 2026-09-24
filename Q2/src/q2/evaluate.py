@@ -56,7 +56,7 @@ def _read_descriptors(mask_dir: Path, name: str):
 
 @torch.no_grad()
 def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, device,
-                   mask_dir: Path, clean_cache: np.ndarray, batch_size=128,
+                   mask_dir: Path, clean_cache: np.ndarray | None, batch_size=128,
                    output_dir: Path | None = None, stress=False, return_predictions=False):
     student.eval()
     text_encoder.eval()
@@ -65,7 +65,10 @@ def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, d
     duplicates = {entry["name"]: entry["duplicate_of"] for entry in index}
     loader = DataLoader(dataset, batch_size=batch_size, shuffle=False, collate_fn=collate_raw)
     metric_rows, prediction_rows = [], []
-    clean_cache_by_index = {}
+    # Scoped to this call only: an A/V-only perturbation cannot change BERT's
+    # input. Reuse live clean features without persisting fine-tuned features.
+    live_clean_cache = (np.empty((len(dataset), 50, 256), dtype=np.float32)
+                        if clean_cache is None else None)
     scenario_outputs = {}
     for scenario in scenarios:
         name = scenario["name"]
@@ -76,7 +79,9 @@ def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, d
         text_affected = name != "clean" and "T" in scenario["pattern"]
         scenario_cache = None
         scenario_cache_new = False
-        if text_affected:
+        # None means the encoder was fine-tuned: every view must use its current
+        # weights, including text-corrupted scenarios. Never open frozen caches.
+        if text_affected and clean_cache is not None:
             cache_dir = Path(mask_dir).parents[2] / ".cache/text" / dataset.directory.name / "scenarios"
             cache_dir.mkdir(parents=True, exist_ok=True)
             cache_path = cache_dir / f"{name}.npy"
@@ -100,10 +105,16 @@ def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, d
                 raw = apply_span(clean, perturbation)
                 p = perturbation.P
             selected_cache = scenario_cache if scenario_cache is not None and not scenario_cache_new else clean_cache
-            cache = torch.from_numpy(np.asarray(selected_cache[offset:offset+n]).copy()).to(device)
+            if clean_cache is None and name != "clean":
+                selected_cache = live_clean_cache
+            cache = (torch.from_numpy(np.asarray(selected_cache[offset:offset+n]).copy()).to(device)
+                     if selected_cache is not None else None)
             raw_device = _device_batch(raw, device)
             model_input = encode_view(raw_device, text_encoder, normalizer, cache,
-                                      p[:, :, 0].any(dim=1).to(device) if scenario_cache_new else None)
+                                      p[:, :, 0].any(dim=1).to(device)
+                                      if scenario_cache_new or (clean_cache is None and text_affected) else None)
+            if live_clean_cache is not None and name == "clean":
+                live_clean_cache[offset:offset+n] = model_input.text_features.cpu().numpy()
             if scenario_cache_new:
                 scenario_cache[offset:offset+n] = model_input.text_features.cpu().numpy()
             output = student(model_input)

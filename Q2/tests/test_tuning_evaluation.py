@@ -1,0 +1,97 @@
+from pathlib import Path
+from types import SimpleNamespace
+import sys
+import json
+
+import numpy as np
+import torch
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from q2 import evaluate
+from q2.data import Normalizer
+from q2.trainer import learning_rate, optimizer_for, set_learning_rate, _rng_state, _restore_rng
+from q2.masking import sample_train_descriptor
+
+
+def test_live_evaluation_uses_current_encoder_for_clean_and_corrupt(tmp_path, monkeypatch):
+    grid = [{"name": "T_middle_0.4", "pattern": "T", "rho": .4, "position": "middle"}]
+    monkeypatch.setattr(evaluate, "evaluation_grid", lambda **kwargs: grid)
+
+    class Dataset:
+        directory = tmp_path / "data/processed/valid"
+        metadata = {"id": ["a", "b", "c"], "video_id": ["a", "b", "c"]}
+
+        def __len__(self):
+            return 3
+
+        def __getitem__(self, index):
+            ids = torch.tensor([101, 201, 202, 203, 204, 205, 102] + [0] * 43)
+            return {"input_ids": ids, "stored_attention": (ids != 0).long(),
+                    "token_type_ids": torch.zeros_like(ids), "audio": torch.zeros(50, 74),
+                    "vision": torch.zeros(50, 35), "class_id": torch.tensor(index),
+                    "score": torch.tensor(float(index - 1)), "sample_id": self.metadata["id"][index],
+                    "sample_index": index}
+
+    class Encoder(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.weight = torch.nn.Parameter(torch.tensor(1.0))
+            self.calls = []
+
+        def forward(self, input_ids, **kwargs):
+            self.calls.append(input_ids.clone())
+            return SimpleNamespace(last_hidden_state=self.weight * torch.ones(*input_ids.shape, 256))
+
+    class Student(torch.nn.Module):
+        def forward(self, batch):
+            score = batch.text_features.mean((1, 2))
+            return SimpleNamespace(logits=torch.stack((score, -score, score * 0), -1),
+                                   score=score, J=batch.J)
+
+    data = Dataset()
+    mask_dir = tmp_path / "data/masks/valid"
+    evaluate.make_fixed_masks(data, mask_dir, include_stress=False)
+    # Reading any persisted feature cache would fail this test.
+    monkeypatch.setattr(np, "load", lambda *a, **kw: (_ for _ in ()).throw(AssertionError("stale cache read")))
+    norm = Normalizer(np.zeros(74), np.ones(74), np.zeros(35), np.ones(35), 0, 0,
+                      np.ones(3) / 3, 0)
+    encoder = Encoder()
+    _, first = evaluate.evaluate_model(Student(), encoder, norm, data, "cpu", mask_dir,
+                                       None, return_predictions=True)
+    with torch.no_grad():
+        encoder.weight.fill_(2)
+    _, second = evaluate.evaluate_model(Student(), encoder, norm, data, "cpu", mask_dir,
+                                        None, return_predictions=True)
+    assert len(encoder.calls) == 4
+    assert not (encoder.calls[0] == 103).any()
+    assert (encoder.calls[1] == 103).any()
+    assert all(np.allclose(np.array(b["logits"]), 2 * np.array(a["logits"]))
+               for a, b in zip(first, second))
+    assert not (tmp_path / ".cache").exists()
+
+
+def test_optimizer_group_scales_are_persistent_and_rng_resume_matches():
+    optimizer = optimizer_for(torch.nn.Linear(3, 2), torch.nn.Linear(3, 2), text_lr=3e-5)
+    assert [group["lr_scale"] for group in optimizer.param_groups] == [1, 1, .1]
+    rates = [learning_rate(e, 20, 2) for e in range(1, 21)]
+    assert rates[-1] == 3e-5
+    assert rates[-2] > rates[-1]
+    for rate in rates:
+        set_learning_rate(optimizer, rate)
+    assert np.allclose([group["lr"] for group in optimizer.param_groups], [3e-5, 3e-5, 3e-6])
+    generator = torch.Generator().manual_seed(123)
+    state = _rng_state(generator)
+    expected = torch.rand(5, generator=generator)
+    _restore_rng(state, generator)
+    assert torch.equal(torch.rand(5, generator=generator), expected)
+
+
+def test_short_curriculum_reaches_severe_dual_modality_missing():
+    descriptors = [sample_train_descriptor(1111, 20, i, total_epochs=20, warmup_epochs=2)
+                   for i in range(100)]
+    assert any(len(d["pattern"]) == 2 and d["rho"] > .6 for d in descriptors)
+    assert all(sample_train_descriptor(1111, 2, i, total_epochs=20, warmup_epochs=2)["rho"] == 0
+               for i in range(10))
+    # Original 60-epoch settings retain their early single-modality stage.
+    early = [sample_train_descriptor(1111, 15, i) for i in range(100)]
+    assert all(len(d["pattern"]) <= 1 and d["rho"] <= .2 for d in early)

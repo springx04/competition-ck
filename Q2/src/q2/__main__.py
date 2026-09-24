@@ -13,9 +13,11 @@ import torch
 
 from .data import AlignedDataset, Normalizer, find_inputs, load_pickle, prepare_data, unpack_record
 from .evaluate import evaluate_model, make_fixed_masks
-from .export import export_bundle, load_training_best, predict_special, verify_export
+from .export import (export_bundle, load_checkpoint_text_encoder, load_training_best,
+                     predict_special, verify_export)
 from .masking import evaluation_grid
 from .reporting import VARIANTS, SEEDS, generate_reports, select_final, suite_progress
+from .model.network import TUNED_VARIANTS, VARIANTS as MODEL_VARIANTS
 from .text import cache_clean_text, load_text_encoder, prepare_model, tokenizer_check
 from .trainer import train_one
 
@@ -113,16 +115,20 @@ def verify(root, config):
 
 
 def evaluate_best(root, config, variant, seed, split="valid", stress=True, output_dir=None):
-    path = root / "runs" / variant / f"seed_{seed}/best.pt"
+    output_root = Path(config["project"].get("output_root", root))
+    if not output_root.is_absolute():
+        output_root = Path(root) / output_root
+    path = output_root / "runs" / variant / f"seed_{seed}/best.pt"
     checkpoint = torch.load(path, map_location="cpu", weights_only=False)
     normalizer = Normalizer.load(root / "data/processed/normalizer.npz")
     from .model.network import Student
     device = torch.device("cuda:0")
     student = Student(variant, normalizer.class_prior, normalizer.score_prior).to(device)
     student.load_state_dict(checkpoint["student"])
-    frozen = load_text_encoder(root / "models/text_encoder", device)
+    frozen = load_checkpoint_text_encoder(root, variant, checkpoint, device)
     dataset = AlignedDataset(root / "data/processed" / split)
-    cache = np.load(root / ".cache/text" / split / "features.npy", mmap_mode="r")
+    cache = (None if variant in TUNED_VARIANTS else
+             np.load(root / ".cache/text" / split / "features.npy", mmap_mode="r"))
     return evaluate_model(student, frozen, normalizer, dataset, device, root / "data/masks" / split,
                           cache, batch_size=config["data"]["eval_batch_size"],
                           output_dir=output_dir, stress=stress, return_predictions=True)
@@ -137,7 +143,7 @@ def main():
     parser.add_argument("--experiments", default="configs/experiments.yaml")
     parser.add_argument("--splits", nargs="+", default=["train", "valid"])
     parser.add_argument("--split", default="valid")
-    parser.add_argument("--variant", choices=VARIANTS)
+    parser.add_argument("--variant", choices=MODEL_VARIANTS)
     parser.add_argument("--seed", type=int)
     parser.add_argument("--selection", default="reports/selection.json")
     parser.add_argument("--resume", action="store_true")
@@ -234,7 +240,8 @@ def main():
         result = {"rows": len(predict_special(bundle, inputs["special"][0].parent,
             root / "outputs/q2_predictions_aligned.csv"))}
     elif command == "export":
-        result = export_bundle(root, _selection(root, args.selection))
+        selection = _selection(root, args.selection)
+        result = export_bundle(root, selection)
     elif command == "verify-export":
         inputs = find_inputs(_source_data(config))
         result = verify_export(root, _selection(root, args.selection), inputs["special"][0].parent)

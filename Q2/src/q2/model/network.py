@@ -13,8 +13,12 @@ from .reliability import ErrorEstimator
 from .fusion import ContentFusion
 
 
-VARIANTS = ("full", "late_clean", "late_balanced", "late_aug", "no_msd", "no_comp", "no_reliability",
+VARIANTS = ("full", "late_clean", "late_balanced", "late_tune", "late_tune_balanced", "late_tune_aug", "late_classifier",
+            "late_pool_tune", "late_pool_tune_aug",
+            "late_aug", "no_msd", "no_comp", "no_reliability",
             "no_cons", "no_span", "no_teacher", "uniform_spans")
+TUNED_VARIANTS = ("late_tune", "late_tune_balanced", "late_tune_aug", "late_pool_tune", "late_pool_tune_aug")
+CLEAN_VARIANTS = ("late_clean", "late_balanced", "late_tune", "late_tune_balanced", "late_classifier", "late_pool_tune")
 
 
 @dataclass
@@ -51,18 +55,19 @@ class ForwardOutput:
 
 
 def encode_view(raw_batch: dict, frozen_text_encoder, normalizer, text_cache=None,
-                text_recompute=None) -> ModelInput:
+                text_recompute=None, text_grad=False) -> ModelInput:
     from ..text import encode_text
     state = infer_state(raw_batch)
     if text_cache is None:
-        text_features = encode_text(raw_batch, frozen_text_encoder, state)
+        text_features = encode_text(raw_batch, frozen_text_encoder, state, requires_grad=text_grad)
     else:
         text_features = text_cache.clone()
         if text_recompute is not None and bool(text_recompute.any()):
             indices = torch.where(text_recompute)[0]
             subset = {key: value[indices] for key, value in raw_batch.items() if isinstance(value, torch.Tensor)}
             substate = infer_state(subset)
-            text_features[indices] = encode_text(subset, frozen_text_encoder, substate)
+            text_features[indices] = encode_text(subset, frozen_text_encoder, substate,
+                                                 requires_grad=text_grad)
     text_features = text_features * state.U[:, :, 0, None]
     return ModelInput(text_features=text_features, audio_norm=normalizer.transform(raw_batch, "audio"),
                       vision_norm=normalizer.transform(raw_batch, "vision"),
@@ -76,13 +81,19 @@ class Student(nn.Module):
             raise ValueError(f"unknown variant: {variant}")
         self.variant = variant
         self.late = variant.startswith("late_")
+        self.pool_only = variant.startswith("late_pool_")
         self.use_msd = not self.late and variant != "no_msd"
         self.use_comp = not self.late and variant != "no_comp"
         self.use_reliability = self.use_comp and variant not in ("no_reliability", "no_teacher")
         self.register_buffer("class_prior", torch.as_tensor(class_prior, dtype=torch.float32))
         self.register_buffer("score_prior", torch.as_tensor(score_prior, dtype=torch.float32))
-        self.modalities = nn.Embedding(3, 128)
-        self.encoders = nn.ModuleList([ModalityEncoder(dim) for dim in (256, 74, 35)])
+        if self.pool_only:
+            self.modalities = None
+            self.encoders = nn.ModuleList([nn.Sequential(nn.Linear(dim, 128), nn.LayerNorm(128),
+                                                        nn.GELU(), nn.Dropout(.3)) for dim in (256, 74, 35)])
+        else:
+            self.modalities = nn.Embedding(3, 128)
+            self.encoders = nn.ModuleList([ModalityEncoder(dim) for dim in (256, 74, 35)])
         if self.late:
             self.late_projection = nn.Sequential(nn.Linear(387, 128), nn.GELU(), nn.Dropout(.1))
             self.decomposition = None
@@ -107,10 +118,14 @@ class Student(nn.Module):
         U, J = model_input.U, model_input.J
         batch, length, _ = U.shape
         position = sinusoidal_positions(length, 128, U.device)
-        embeds = self.modalities.weight
+        embeds = self.modalities.weight if self.modalities is not None else None
         inputs = (model_input.text_features, model_input.audio_norm, model_input.vision_norm)
-        H = torch.stack([self.encoders[m](inputs[m], U[:, :, m], position, embeds[m])
-                         for m in range(3)], dim=2)
+        if self.pool_only:
+            H = torch.stack([self.encoders[m](inputs[m]) * U[:, :, m, None]
+                             for m in range(3)], dim=2)
+        else:
+            H = torch.stack([self.encoders[m](inputs[m], U[:, :, m], position, embeds[m])
+                             for m in range(3)], dim=2)
         if self.late:
             pools, flags = zip(*(masked_mean(H[:, :, m], U[:, :, m]) for m in range(3)))
             pooled = self.late_projection(torch.cat((*pools, torch.stack(flags, dim=-1).float()), dim=-1))
@@ -134,7 +149,7 @@ class Student(nn.Module):
             fusion_type = "position_content"
         logits = self.classifier(pooled)
         score = 3 * torch.tanh(self.regressor(pooled).squeeze(-1))
-        no_content = ~J.any(dim=1)
+        no_content = ~U.any(dim=(1, 2))
         if no_content.any():
             logits = torch.where(no_content[:, None], self.class_prior.clamp_min(1e-12).log()[None], logits)
             score = torch.where(no_content, self.score_prior.expand_as(score), score)

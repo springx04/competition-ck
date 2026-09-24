@@ -114,7 +114,8 @@ def _mapping(value: Any, name: str) -> dict[str, Any]:
 def _check_keys(value: Mapping[str, Any], name: str, expected: tuple[str, ...]) -> None:
     actual = set(value)
     allowed = set(expected)
-    unknown = sorted(actual - allowed)
+    optional = {"learning_rate"} if name == "text" else {"class_weight_power"} if name == "loss" else set()
+    unknown = sorted(actual - allowed - optional)
     missing = sorted(allowed - actual)
     if unknown:
         raise ConfigError(f"{name} contains unknown key(s): {', '.join(unknown)}")
@@ -186,6 +187,8 @@ def _validate_values(config: Mapping[str, Any]) -> None:
     if text["model_id"] != "google/bert_uncased_L-4_H-256_A-4":
         raise ConfigError("text.model_id must be google/bert_uncased_L-4_H-256_A-4")
     _bool(text["frozen"], "text.frozen")
+    if "learning_rate" in text:
+        _number(text["learning_rate"], "text.learning_rate", minimum=0.0)
     if text["compute_dtype"] != "float32" or text["stored_dtype"] != "float16":
         raise ConfigError("text.compute_dtype/stored_dtype must be float32/float16")
     if text["attention_implementation"] != "eager":
@@ -209,6 +212,8 @@ def _validate_values(config: Mapping[str, Any]) -> None:
         raise ConfigError("model.score_min must be less than model.score_max")
 
     loss = config["loss"]
+    if "class_weight_power" in loss:
+        _number(loss["class_weight_power"], "loss.class_weight_power", minimum=0.0)
     for key in (
         "regression_weight",
         "huber_delta",

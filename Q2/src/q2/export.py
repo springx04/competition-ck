@@ -14,11 +14,28 @@ import torch
 from safetensors.torch import load_file, save_file
 
 from .data import Normalizer, load_pickle, unpack_record
-from .model.network import Student, encode_view
+from .model.network import Student, TUNED_VARIANTS, encode_view
 from .text import load_text_encoder
 
 
 CLASS_NAMES = ("Negative", "Neutral", "Positive")
+_FP32_EXPORT_TOLERANCE = 1e-5
+_FP16_TEXT_EXPORT_TOLERANCE = 1e-3
+
+
+def load_checkpoint_text_encoder(root: Path, variant: str, checkpoint: dict, device):
+    """Load the base encoder and restore the state saved by tuned runs."""
+    # The on-disk model is FP16, while encode_text allocates FP32 features.
+    # Normalize the loaded module to the declared compute dtype before loading
+    # a tuned checkpoint state or running inference.
+    encoder = load_text_encoder(Path(root) / "models/text_encoder", torch.device(device)).float()
+    if variant in TUNED_VARIANTS:
+        state = checkpoint.get("text_encoder")
+        if state is None:
+            raise ValueError(f"{variant} checkpoint is missing text_encoder weights")
+        encoder.load_state_dict(state)
+        encoder.eval()
+    return encoder
 
 
 class Bundle:
@@ -45,17 +62,21 @@ def load_bundle(directory: Path, device="cpu") -> Bundle:
     weights = load_file(str(directory / "student.safetensors"), device="cpu")
     student.load_state_dict(weights, strict=True)
     student = student.to(device).eval()
-    text_encoder = load_text_encoder(directory / "assets/text_encoder", torch.device(device))
+    text_encoder = load_text_encoder(directory / "assets/text_encoder", torch.device(device)).float()
     return Bundle(student, text_encoder, normalizer, device)
 
 
-def load_training_best(root: Path, selection: dict, device="cuda:0") -> Bundle:
+def load_training_best(root: Path, selection: dict, device="cuda:0", round_text_for_export=False) -> Bundle:
     normalizer = Normalizer.load(Path(root) / "data/processed/normalizer.npz")
-    student = Student(selection["variant"], normalizer.class_prior, normalizer.score_prior)
     checkpoint = torch.load(Path(root) / selection["checkpoint"], map_location="cpu", weights_only=False)
+    student = Student(selection["variant"], normalizer.class_prior, normalizer.score_prior)
     student.load_state_dict(checkpoint["student"])
     student = student.to(device).eval()
-    encoder = load_text_encoder(Path(root) / "models/text_encoder", torch.device(device))
+    encoder = load_checkpoint_text_encoder(root, selection["variant"], checkpoint, device)
+    if round_text_for_export:
+        # Match the FP16-on-disk text weights used by export_bundle, while
+        # keeping inference itself in the declared FP32 compute dtype.
+        encoder.half().float()
     return Bundle(student, encoder, normalizer, device)
 
 
@@ -140,6 +161,10 @@ def export_bundle(root: Path, selection: dict):
     save_file({key: value.contiguous() for key, value in state.items()}, str(dest / "student.safetensors"))
     shutil.copy2(root / "data/processed/normalizer.npz", dest / "normalizer.npz")
     shutil.copytree(root / "models/text_encoder", dest / "assets/text_encoder")
+    if selection["variant"] in TUNED_VARIANTS:
+        encoder = load_checkpoint_text_encoder(root, selection["variant"], checkpoint, torch.device("cpu"))
+        # Keep the package's FP16-on-disk / FP32-at-runtime text contract.
+        encoder.half().save_pretrained(dest / "assets/text_encoder", safe_serialization=True)
     shutil.copytree(root / "src/q2", dest / "src/q2", ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
     shutil.copytree(root / "licenses", dest / "licenses")
     for name in ("THIRD_PARTY.md", "requirements.txt"):
@@ -176,10 +201,15 @@ def verify_export(root: Path, selection: dict, attachment3_dir: Path, device="cu
         descriptors = [{"pattern": p, "position": "middle", "rho": .4} for p in patterns]
         damaged = apply_span(clean, make_span_mask(clean, infer_state(clean), descriptors))
         reference_bundle = load_training_best(root, selection, device)
+        export_reference_bundle = load_training_best(root, selection, device,
+                                                      round_text_for_export=True)
         expected = []
+        export_expected = []
         for raw in (clean, damaged):
             predicted = reference_bundle.predict_raw(raw, return_details=False)
             expected.append((predicted.logits.cpu().numpy(), predicted.score.cpu().numpy()))
+            predicted = export_reference_bundle.predict_raw(raw, return_details=False)
+            export_expected.append((predicted.logits.cpu().numpy(), predicted.score.cpu().numpy()))
         arrays = {}
         for prefix, raw in (("clean", clean), ("damaged", damaged)):
             for key in ("input_ids", "stored_attention", "token_type_ids", "audio", "vision"):
@@ -215,27 +245,68 @@ print(q2.__file__)
         if not valid_process.stdout.strip().startswith(str(package / "src")):
             raise AssertionError(f"offline process imported unexpected q2 module: {valid_process.stdout}")
         with np.load(package_output) as actual:
-            valid_differences = [np.max(np.abs(actual[prefix + "_logits"] - expected[i][0]))
-                                 for i, prefix in enumerate(("clean", "damaged"))]
-            valid_differences += [np.max(np.abs(actual[prefix + "_score"] - expected[i][1]))
-                                  for i, prefix in enumerate(("clean", "damaged"))]
+            valid_asset_differences = []
+            valid_rounding_differences = []
+            valid_asset_labels = []
+            valid_rounding_labels = []
+            for i, prefix in enumerate(("clean", "damaged")):
+                package_logits = actual[prefix + "_logits"]
+                package_score = actual[prefix + "_score"]
+                valid_asset_differences.extend((
+                    np.max(np.abs(package_logits - export_expected[i][0])),
+                    np.max(np.abs(package_score - export_expected[i][1])),
+                ))
+                valid_rounding_differences.extend((
+                    np.max(np.abs(export_expected[i][0] - expected[i][0])),
+                    np.max(np.abs(export_expected[i][1] - expected[i][1])),
+                ))
+                valid_asset_labels.append(np.array_equal(package_logits.argmax(axis=-1),
+                                                          export_expected[i][0].argmax(axis=-1)))
+                valid_rounding_labels.append(np.array_equal(export_expected[i][0].argmax(axis=-1),
+                                                            expected[i][0].argmax(axis=-1)))
         completed = subprocess.run([sys.executable, str(package / "run_inference.py"),
                                     "--input-dir", str(attachment3_dir), "--output", str(output),
                                     "--device", device], cwd=temp, env=env,
                                    capture_output=True, text=True, check=True)
         with output.open(encoding="utf-8", newline="") as handle:
             exported = list(csv.DictReader(handle))
+        rounded_output = Path(temp) / "rounded_predictions.csv"
+        predict_special(export_reference_bundle, attachment3_dir, rounded_output)
+        with rounded_output.open(encoding="utf-8", newline="") as handle:
+            export_reference = list(csv.DictReader(handle))
         with (root / "outputs/q2_predictions_aligned.csv").open(encoding="utf-8", newline="") as handle:
             original = list(csv.DictReader(handle))
-        differences = [abs(float(a[key]) - float(b[key])) for a, b in zip(exported, original)
-                       for key in ("pred_score", "prob_negative", "prob_neutral", "prob_positive")]
+        prediction_fields = ("pred_score", "prob_negative", "prob_neutral", "prob_positive")
+        asset_differences = [abs(float(a[key]) - float(b[key]))
+                             for a, b in zip(exported, export_reference)
+                             for key in prediction_fields]
+        rounding_differences = [abs(float(a[key]) - float(b[key]))
+                                for a, b in zip(export_reference, original)
+                                for key in prediction_fields]
+        labels_equal = (len(exported) == len(export_reference)
+                        and all(a["pred_label"] == b["pred_label"]
+                                for a, b in zip(exported, export_reference)))
+        training_labels_equal = (len(export_reference) == len(original)
+                                 and all(a["pred_label"] == b["pred_label"]
+                                         for a, b in zip(export_reference, original)))
+        comparison_tolerance = _FP32_EXPORT_TOLERANCE
+        rounding_tolerance = _FP16_TEXT_EXPORT_TOLERANCE
         result = {"module_path_output": completed.stdout.strip(),
                   "valid_module_path": valid_process.stdout.strip(), "valid_cases": selected,
-                  "valid_max_absolute_difference": float(max(valid_differences)), "rows": len(exported),
-                  "max_absolute_difference": max(differences),
-                  "labels_equal": all(a["pred_label"] == b["pred_label"] for a, b in zip(exported, original)),
-                  "passed": len(exported) == 30 and max(differences) <= 1e-5
-                  and max(valid_differences) <= 1e-5}
+                  "valid_max_absolute_difference": float(max(valid_asset_differences)), "rows": len(exported),
+                  "max_absolute_difference": max(asset_differences),
+                  "comparison_tolerance": comparison_tolerance,
+                  "valid_label_agreement": all(valid_asset_labels),
+                  "labels_equal": labels_equal,
+                  "fp16_valid_max_absolute_difference": float(max(valid_rounding_differences)),
+                  "fp16_max_absolute_difference": max(rounding_differences),
+                  "fp16_comparison_tolerance": rounding_tolerance,
+                  "training_valid_label_agreement": all(valid_rounding_labels),
+                  "training_labels_equal": training_labels_equal,
+                  "passed": len(exported) == 30 and len(export_reference) == 30
+                  and labels_equal and all(valid_asset_labels)
+                  and max(asset_differences) <= comparison_tolerance
+                  and max(valid_asset_differences) <= comparison_tolerance}
         if not result["passed"]:
             raise AssertionError(result)
         return result

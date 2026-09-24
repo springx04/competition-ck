@@ -17,6 +17,7 @@ from q2.model.network import ModelInput, Student, encode_view
 from q2.model.compensation import SharedCompensator
 from q2.model.encoders import sinusoidal_positions
 from q2.state import infer_state
+from q2.text import encode_text
 from q2.trainer import update_ema
 
 
@@ -74,6 +75,20 @@ def test_empty_content_uses_train_prior_without_nan():
     assert output.score.item() == pytest.approx(.25)
     assert not output.B_comp.any()
     assert torch.isfinite(output.logits).all()
+
+
+def test_mask_slots_without_any_observed_source_use_prior():
+    raw = _case(1)
+    raw["input_ids"][0, 1:7] = 103
+    raw["audio"].zero_()
+    raw["vision"].zero_()
+    model = Student("late_tune", [.2, .3, .5], .25).eval()
+    inputs = _model_input(raw)
+    assert inputs.J.any() and not inputs.U.any()
+    with torch.no_grad():
+        output = model(inputs)
+    assert torch.allclose(output.logits.softmax(-1)[0], torch.tensor([.2, .3, .5]))
+    assert output.score.item() == pytest.approx(.25)
 
 
 def test_calibration_gradient_is_confined_to_estimator():
@@ -140,6 +155,23 @@ def test_task_loss_accepts_train_only_class_weights():
     weighted = task_loss(output, torch.tensor([0, 1]), torch.tensor([-.5, .5]),
                          torch.tensor([1.0, 2.0, 1.0]))
     assert not torch.equal(unweighted, weighted)
+
+
+def test_text_frontend_can_propagate_gradients_for_finetuning_profile():
+    class GradEncoder(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.scale = torch.nn.Parameter(torch.ones(()))
+
+        def forward(self, input_ids, attention_mask, token_type_ids):
+            shape = (*input_ids.shape, 256)
+            return SimpleNamespace(last_hidden_state=torch.ones(shape) * self.scale)
+
+    raw = _case(1)
+    encoder = GradEncoder()
+    output = encode_text(raw, encoder, infer_state(raw), requires_grad=True)
+    output.sum().backward()
+    assert encoder.scale.grad is not None
 
 
 def test_masked_source_keys_have_zero_attention():
