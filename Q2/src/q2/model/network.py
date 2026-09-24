@@ -13,7 +13,7 @@ from .reliability import ErrorEstimator
 from .fusion import ContentFusion
 
 
-VARIANTS = ("full", "late_clean", "late_aug", "no_msd", "no_comp", "no_reliability",
+VARIANTS = ("full", "late_clean", "late_balanced", "late_aug", "no_msd", "no_comp", "no_reliability",
             "no_cons", "no_span", "no_teacher", "uniform_spans")
 
 

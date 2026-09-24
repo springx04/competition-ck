@@ -123,6 +123,25 @@ def test_ema_parameters_and_buffers():
     assert next(teacher.parameters()).flatten()[0].item() == pytest.approx(1.01)
 
 
+def test_late_balanced_variant_is_a_clean_late_fusion_model():
+    model = Student("late_balanced", [.285, .223, .492], 0.0)
+    assert model.late
+    assert not model.use_msd
+    assert not model.use_comp
+    assert model.decomposition is None
+
+
+def test_task_loss_accepts_train_only_class_weights():
+    raw = _case()
+    model = Student("late_balanced", [.3, .3, .4], 0).eval()
+    output = model(_model_input(raw))
+    from q2.losses import task_loss
+    unweighted = task_loss(output, torch.tensor([0, 1]), torch.tensor([-.5, .5]))
+    weighted = task_loss(output, torch.tensor([0, 1]), torch.tensor([-.5, .5]),
+                         torch.tensor([1.0, 2.0, 1.0]))
+    assert not torch.equal(unweighted, weighted)
+
+
 def test_masked_source_keys_have_zero_attention():
     raw = _case(1)
     raw["vision"].zero_()

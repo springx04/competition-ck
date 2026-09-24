@@ -117,4 +117,15 @@ python -m q2 train --config configs/default.yaml --variant full --seed 1111 --re
 - `delivery/q2_inference/`：可离线重载的推理代码、学生权重、标准化、冻结文本模型和入口。
 - `reports/report.md`、`reports/paper_q2_results.md`：技术报告和论文结果材料。
 
+## 基线审核后的优化 profile
+
+`OPTIMIZATION_PLAN_20260924.md` records the baseline split/metric audit and
+the evidence-led exploratory profile `late_balanced`. It is deliberately kept
+outside the fixed ten-variant ablation: after the current suite finishes, run
+it as a separate candidate with `python -m q2 train --config
+configs/default.yaml --variant late_balanced --seed 1111 --resume`, then
+evaluate it on the same valid mask grid before considering deployment. Its
+classification loss uses only the train class prior; it does not read valid or
+test labels.
+
 原始数据、模型缓存、训练产物和交付文件默认由 `.gitignore` 排除；需要提交代码时只提交源码、配置和来源说明。正式结果必须以实际服务器运行日志和文件为准。

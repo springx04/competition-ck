@@ -99,6 +99,14 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
     valid_cache = np.load(root / ".cache/text/valid/features.npy", mmap_mode="r")
     frozen = load_text_encoder(root / config["text"]["model_dir"], device)
     student = Student(variant, normalizer.class_prior, normalizer.score_prior).to(device)
+    class_weight = None
+    if variant == "late_balanced":
+        # A deliberately mild train-only prior correction.  The square-root
+        # inverse prior preserves accuracy better than full balancing while
+        # giving the minority neutral class a chance to improve Macro-F1.
+        prior = torch.as_tensor(normalizer.class_prior, device=device, dtype=torch.float32)
+        class_weight = prior.rsqrt()
+        class_weight = class_weight / class_weight.mean()
     optimizer = optimizer_for(student)
     generator = torch.Generator().manual_seed(seed)
     teacher = None
@@ -140,19 +148,20 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
             raw = _gpu_batch(batch, device)
             state0 = infer_state(raw)
             descriptors = ([{"pattern": "", "rho": 0, "position": "middle"} for _ in original_indices]
-                           if variant == "late_clean" else
+                           if variant in ("late_clean", "late_balanced") else
                            [sample_train_descriptor(seed, epoch, int(index), variant == "uniform_spans")
                             for index in original_indices])
             perturbation = make_span_mask(raw, state0, descriptors)
             descriptors_for_epoch.extend({"sample_index": int(index), "epoch": epoch, **desc}
                                          for index, desc in zip(original_indices, perturbation.descriptors))
             corrupted = apply_span(raw, perturbation)
-            if variant == "late_clean":
+            if variant in ("late_clean", "late_balanced"):
                 corrupted = raw
             cached = torch.from_numpy(np.asarray(clean_cache[original_indices.numpy()]).copy()).to(device)
             clean_input = encode_view(raw, frozen, normalizer, cached)
             corrupt_input = encode_view(corrupted, frozen, normalizer, cached,
-                                        perturbation.P[:, :, 0].any(dim=1) if variant != "late_clean" else None)
+                                        perturbation.P[:, :, 0].any(dim=1)
+                                        if variant not in ("late_clean", "late_balanced") else None)
             optimizer.zero_grad(set_to_none=True)
             clean_output = student(clean_input, return_details=True, return_attention=False)
             corrupt_output = (student(corrupt_input, return_details=True, return_attention=False)
@@ -162,7 +171,7 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
                                   if teacher is not None else None)
             labels = {"class_id": raw["class_id"], "score": raw["score"]}
             losses = compute_losses(clean_output, corrupt_output, teacher_output, labels, perturbation,
-                                    state0, epoch, student)
+                                    state0, epoch, student, class_weight=class_weight)
             if not torch.isfinite(losses.total):
                 raise FloatingPointError(f"non-finite loss in {variant}/seed_{seed}/epoch_{epoch}")
             losses.total.backward()
@@ -175,7 +184,7 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
             totals["total"] += float(losses.total.detach())
             for key, value in losses.terms.items():
                 totals[key] += float(value.detach())
-        if epoch == 5 and variant not in ("late_clean", "late_aug", "no_teacher"):
+        if epoch == 5 and variant not in ("late_clean", "late_balanced", "late_aug", "no_teacher"):
             teacher = copy.deepcopy(student).requires_grad_(False).eval()
         with masks_path.open("a", encoding="utf-8") as handle:
             for descriptor in sorted(descriptors_for_epoch, key=lambda item: item["sample_index"]):

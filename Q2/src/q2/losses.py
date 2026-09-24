@@ -8,8 +8,8 @@ from torch.nn import functional as F
 from .model.encoders import masked_mean
 
 
-def task_loss(output, class_id, score):
-    return (F.cross_entropy(output.logits, class_id, reduction="none")
+def task_loss(output, class_id, score, class_weight=None):
+    return (F.cross_entropy(output.logits, class_id, weight=class_weight, reduction="none")
             + F.huber_loss(output.score, score, delta=1.0, reduction="none")).mean()
 
 
@@ -68,9 +68,9 @@ class LossOutput:
 
 
 def compute_losses(clean_output, corrupt_output, teacher_output, labels, perturbation,
-                   state0, epoch: int, student) -> LossOutput:
+                   state0, epoch: int, student, class_weight=None) -> LossOutput:
     cls, score = labels["class_id"], labels["score"]
-    clean_task = task_loss(clean_output, cls, score)
+    clean_task = task_loss(clean_output, cls, score, class_weight)
     msd = msd_loss(clean_output, student, cls, score)["total"]
     zero = clean_task * 0
     terms = {"task_clean": clean_task, "task_corrupt": zero, "msd": msd,
@@ -78,7 +78,7 @@ def compute_losses(clean_output, corrupt_output, teacher_output, labels, perturb
     total = clean_task + .05 * msd
     if epoch <= 5:
         return LossOutput(total, terms, 0)
-    corrupt_task = task_loss(corrupt_output, cls, score)
+    corrupt_task = task_loss(corrupt_output, cls, score, class_weight)
     terms["task_corrupt"] = corrupt_task
     total = total + corrupt_task
     omega = perturbation.P & state0.U & corrupt_output.B_comp
