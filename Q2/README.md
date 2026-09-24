@@ -96,6 +96,8 @@ python -m q2 train --config configs/default.yaml --variant full --seed 1111 --re
 
 `train-suite` 按 `configs/experiments.yaml` 的 10 个变体和 `default.yaml` 的 3 个 seed 顺序运行，共 30 个 run，不在同一张 4090 上并发。已完整的 run 经配置核对后跳过；未完成的 run 使用 `--resume` 从 `last` 续训。不得只因已有 `best.pt` 就判定 60 轮和评估已完成。
 
+当前执行门控：先只运行 ull 的 1111、1112、1113 三个 seed，等待 valid 指标和稳定性审核通过后，才允许启动 late_clean、late_aug 及其他消融。服务器使用 scripts/train_full_only.sh，已完成的 full run 会自动跳过，未完成的从 last.pt 续训。
+
 服务器长任务可先启动 `train-suite`，再运行 `bash scripts/finish_suite.sh`；后者等待 `reports/train_suite.pid` 对应进程结束，按上述顺序续训、分析、选模、test、专项、导出及报告，并把标准输出写入 `reports/finish_suite.log`。若任一步失败，脚本立即停止，修正原因后从该步继续。
 
 ## 固定变体
