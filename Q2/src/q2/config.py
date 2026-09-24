@@ -116,7 +116,8 @@ def _check_keys(value: Mapping[str, Any], name: str, expected: tuple[str, ...]) 
     allowed = set(expected)
     optional = ({"learning_rate", "unfrozen_layers", "cls_context"} if name == "text" else
                 {"class_weight_power"} if name == "loss" else
-                {"clip_z", "video_sampling_power"} if name == "data" else set())
+                {"clip_z", "video_sampling_power"} if name == "data" else
+                {"class_bias"} if name == "evaluation" else set())
     unknown = sorted(actual - allowed - optional)
     missing = sorted(allowed - actual)
     if unknown:
@@ -267,6 +268,12 @@ def _validate_values(config: Mapping[str, Any]) -> None:
     _integer(evaluation["bootstrap_repeats"], "evaluation.bootstrap_repeats", minimum=1)
     _integer(evaluation["bootstrap_seed"], "evaluation.bootstrap_seed")
     _integer(evaluation["deployed_seed"], "evaluation.deployed_seed")
+    if "class_bias" in evaluation:
+        bias = _list(evaluation["class_bias"], "evaluation.class_bias")
+        if len(bias) != 3:
+            raise ConfigError("evaluation.class_bias must contain exactly 3 numbers")
+        for index, value in enumerate(bias):
+            _number(value, f"evaluation.class_bias[{index}]")
     if evaluation["deployed_seed"] not in train["seeds"]:
         raise ConfigError("evaluation.deployed_seed must be one of train.seeds")
 

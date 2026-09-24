@@ -58,9 +58,13 @@ def _read_descriptors(mask_dir: Path, name: str):
 def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, device,
                    mask_dir: Path, clean_cache: np.ndarray | None, batch_size=128,
                    output_dir: Path | None = None, stress=False, return_predictions=False,
-                   cls_context=False):
+                   cls_context=False, class_bias=None):
     student.eval()
     text_encoder.eval()
+    if class_bias is not None:
+        class_bias = np.asarray(class_bias, dtype=np.float32)
+        if class_bias.shape != (3,) or not np.isfinite(class_bias).all():
+            raise ValueError("class_bias must be a finite length-3 vector")
     scenarios = [{"name": "clean"}] + evaluation_grid() + (evaluation_grid(stress=True) if stress else [])
     index = json.loads((Path(mask_dir) / "index.json").read_text(encoding="utf-8"))
     duplicates = {entry["name"]: entry["duplicate_of"] for entry in index}
@@ -120,6 +124,9 @@ def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, d
             if scenario_cache_new:
                 scenario_cache[offset:offset+n] = model_input.text_features.cpu().numpy()
             output = student(model_input)
+            if class_bias is not None:
+                output.logits = output.logits + torch.as_tensor(
+                    class_bias, device=output.logits.device, dtype=output.logits.dtype)
             y_class.extend(batch["class_id"].tolist())
             y_score.extend(batch["score"].tolist())
             logits.extend(output.logits.cpu().tolist())

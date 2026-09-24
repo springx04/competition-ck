@@ -258,7 +258,8 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
             rows, _ = evaluate_model(student, frozen, normalizer, valid_set, device,
                                      root / "data/masks/valid", None if tune_text else valid_cache,
                                      batch_size=config["data"]["eval_batch_size"], output_dir=validation_dir,
-                                     cls_context=cls_context)
+                                     cls_context=cls_context,
+                                     class_bias=config.get("evaluation", {}).get("class_bias"))
             candidate = selection_key(rows, epoch)
             row.update({"missing_macro_f1": candidate[0], "missing_mae": candidate[1],
                         "clean_macro_f1": candidate[2], "clean_mae": candidate[3]})

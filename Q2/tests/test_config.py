@@ -20,3 +20,12 @@ def test_cls_context_must_be_boolean_when_declared():
     config["text"]["cls_context"] = "true"
     with pytest.raises(ConfigError, match=r"text\.cls_context must be a boolean"):
         validate_config(config)
+
+
+def test_class_bias_accepts_exactly_three_finite_numbers():
+    config = load_config(Path(__file__).resolve().parents[1] / "configs/default.yaml")
+    config["evaluation"]["class_bias"] = [-0.3, 0.025, 0.0]
+    assert validate_config(config)["evaluation"]["class_bias"] == [-0.3, 0.025, 0.0]
+    config["evaluation"]["class_bias"] = [0.0, 1.0]
+    with pytest.raises(ConfigError, match="exactly 3"):
+        validate_config(config)

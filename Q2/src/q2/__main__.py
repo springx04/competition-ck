@@ -136,7 +136,8 @@ def evaluate_best(root, config, variant, seed, split="valid", stress=True, outpu
     return evaluate_model(student, frozen, normalizer, dataset, device, root / "data/masks" / split,
                           cache, batch_size=config["data"]["eval_batch_size"],
                           output_dir=output_dir, stress=stress, return_predictions=True,
-                          cls_context=runtime["cls_context"])
+                          cls_context=runtime["cls_context"],
+                          class_bias=config.get("evaluation", {}).get("class_bias"))
 
 
 def main():
