@@ -1,6 +1,6 @@
 project:
   name: q2_sentiment
-  data_root: /replace/with/actual/E题数据
+  data_root: /root/gpufree-data/shuomo_E/data
   output_root: .
 data:
   feature_version: aligned

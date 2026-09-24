@@ -6,16 +6,16 @@
 
 服务器系统盘只有约 30 GB、数据盘约 50 GB 时，把本项目根目录 `Q2_ROOT` 放在数据盘挂载点，并把已解压的只读 `E题数据` 也放在数据盘。项目代码、`.venv`、Hugging Face/Pip 缓存、预处理数据、训练 run、报告和交付包都置于 `Q2_ROOT`；系统盘只保留操作系统和必要的 SSH/Python 工具。训练完成后可清理缓存，但不要删除尚未归档的 run、best checkpoint 或报告。
 
-示例（按服务器实际数据盘挂载点替换）：
+当前服务器路径：
 
 ```bash
-export Q2_ROOT=/data/e_question/Q2
-export Q2_DATA_ROOT=/data/e_question/E题数据
+export Q2_ROOT=/root/gpufree-data/shuomo_E/Q2
+export Q2_DATA_ROOT=/root/gpufree-data/shuomo_E/data
 mkdir -p "$Q2_ROOT"
 cd "$Q2_ROOT"
 ```
 
-`configs/default.yaml` 中的 `project.data_root` 是可替换占位值 `/replace/with/actual/E题数据`。服务器上改成 `$Q2_DATA_ROOT` 对应的绝对路径；不要把本地 Windows 路径提交到配置，也不要改动原始题目数据。
+`configs/default.yaml` 的 `project.data_root` 已填写上述服务器数据目录。不要把本地 Windows 路径写入配置，也不要改动原始题目数据。
 
 ## 本地阶段
 
@@ -37,7 +37,7 @@ python -m pytest -q
 ```bash
 ssh e-question-server
 cd "$Q2_ROOT"
-python3.11 -m venv .venv
+.python311/bin/python -m venv --prompt Q2 .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
@@ -96,6 +96,8 @@ python -m q2 train --config configs/default.yaml --variant full --seed 1111 --re
 
 `train-suite` 按 `configs/experiments.yaml` 的 10 个变体和 `default.yaml` 的 3 个 seed 顺序运行，共 30 个 run，不在同一张 4090 上并发。已完整的 run 经配置核对后跳过；未完成的 run 使用 `--resume` 从 `last` 续训。不得只因已有 `best.pt` 就判定 60 轮和评估已完成。
 
+服务器长任务可先启动 `train-suite`，再运行 `bash scripts/finish_suite.sh`；后者等待 `reports/train_suite.pid` 对应进程结束，按上述顺序续训、分析、选模、test、专项、导出及报告，并把标准输出写入 `reports/finish_suite.log`。若任一步失败，脚本立即停止，修正原因后从该步继续。
+
 ## 固定变体
 
 `experiments.yaml` 固定列出：`full`、`late_clean`、`late_aug`、`no_msd`、`no_comp`、`no_reliability`、`no_cons`、`no_span`、`no_teacher`、`uniform_spans`。网络和 trainer 集中解析这些名称；关闭的组件不实例化，避免把未使用参数计入模型规模或导出包。
@@ -109,6 +111,7 @@ python -m q2 train --config configs/default.yaml --variant full --seed 1111 --re
 - `reports/selection.json`：按方案规则选出的变体以及固定部署 seed=1111 的学生。
 - `reports/test/`：选定学生的附件 2 test 留出评价。
 - `outputs/q2_predictions_aligned.csv`：附件 3 对齐版 30 条预测。
+- `outputs/q2_special_state.csv`：附件 3 每条当前可观测位置和补偿位置计数；全零当前视觉不等于人工缺失真相。
 - `delivery/q2_inference/`：可离线重载的推理代码、学生权重、标准化、冻结文本模型和入口。
 - `reports/report.md`、`reports/paper_q2_results.md`：技术报告和论文结果材料。
 
