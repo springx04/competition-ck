@@ -97,7 +97,13 @@ class Student(nn.Module):
         self.classifier = nn.Linear(128, 3)
         self.regressor = nn.Linear(128, 1)
 
-    def forward(self, model_input: ModelInput, return_details=False) -> ForwardOutput:
+    def forward(self, model_input: ModelInput, return_details=False, return_attention=None) -> ForwardOutput:
+        # Training needs the intermediate tensors for losses but never the
+        # 3 x 50 x 150 attention map.  Keep the historical default for
+        # callers that request details, while allowing training/evaluation
+        # code to opt out of materializing this large diagnostic tensor.
+        if return_attention is None:
+            return_attention = return_details
         U, J = model_input.U, model_input.J
         batch, length, _ = U.shape
         position = sinusoidal_positions(length, 128, U.device)
@@ -116,7 +122,7 @@ class Student(nn.Module):
         else:
             C, S, F = self.decomposition(H, U)
             if self.use_comp:
-                F_hat, B_comp, attention = self.compensator(C, S, F, U, J, position, embeds, return_details)
+                F_hat, B_comp, attention = self.compensator(C, S, F, U, J, position, embeds, return_attention)
                 e_hat = self.estimator(F_hat, C, F, U, model_input.q, B_comp, embeds) if self.estimator else None
             else:
                 F_hat, B_comp, e_hat, attention = torch.zeros_like(F), torch.zeros_like(U), None, None

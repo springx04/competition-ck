@@ -61,10 +61,16 @@ def _rng_state(generator):
 
 def _restore_rng(state, generator):
     random.setstate(state["python"]); np.random.set_state(state["numpy"])
-    torch.set_rng_state(state["torch_cpu"])
+    def _byte_tensor(value):
+        # Checkpoints written by older torch/pickle combinations can restore
+        # byte tensors as lists or numpy arrays.  Normalize that representation
+        # before passing it to the RNG APIs so --resume remains reliable.
+        return value if isinstance(value, torch.Tensor) else torch.as_tensor(value, dtype=torch.uint8)
+
+    torch.set_rng_state(_byte_tensor(state["torch_cpu"]))
     if state["torch_cuda"] is not None and torch.cuda.is_available():
-        torch.cuda.set_rng_state_all(state["torch_cuda"])
-    generator.set_state(state["shuffle_generator"])
+        torch.cuda.set_rng_state_all([_byte_tensor(value) for value in state["torch_cuda"]])
+    generator.set_state(_byte_tensor(state["shuffle_generator"]))
 
 
 def _save_checkpoint(path, student, teacher, optimizer, epoch, best_key, generator, config, variant, seed):
@@ -148,10 +154,12 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
             corrupt_input = encode_view(corrupted, frozen, normalizer, cached,
                                         perturbation.P[:, :, 0].any(dim=1) if variant != "late_clean" else None)
             optimizer.zero_grad(set_to_none=True)
-            clean_output = student(clean_input, return_details=True)
-            corrupt_output = student(corrupt_input, return_details=True) if epoch > 5 else None
+            clean_output = student(clean_input, return_details=True, return_attention=False)
+            corrupt_output = (student(corrupt_input, return_details=True, return_attention=False)
+                              if epoch > 5 else None)
             with torch.no_grad():
-                teacher_output = teacher(clean_input, return_details=True) if teacher is not None else None
+                teacher_output = (teacher(clean_input, return_details=True, return_attention=False)
+                                  if teacher is not None else None)
             labels = {"class_id": raw["class_id"], "score": raw["score"]}
             losses = compute_losses(clean_output, corrupt_output, teacher_output, labels, perturbation,
                                     state0, epoch, student)
