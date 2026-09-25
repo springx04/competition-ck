@@ -128,3 +128,15 @@ OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 CUBLAS_WORKSPACE_CONFIG=:4096:8 \
 `scripts/audit_special_missing.py DATA_ROOT --output REPORT.json`只读取附件3对齐版的token ID/attention及A/V特征，报告内容位置中的不可用率、缺口数量和最长缺口，不读取或推断标签、不修改数据。已在本地原始附件复核，与服务器独立审计一致；输出零行原因未知，不将它们全部标为人工缺失。该报告不输入训练流程。
 
 网格混合三种子均已完成，选中轮次分别10/15/20；valid缺失均值0.561106、完整均值0.601508，提升幅度不足以替换现行候选。服务器汇总保存在`reports/grid_mix_summary.json`，逐轮日志与checkpoint保存在各自experiments目录。没有运行新的test评价、附件3标签评估或离线最终包验收。本轮代码完成本地88项测试；服务器同步相同文件后按同一测试目录验证。
+
+## 10. 后续test复核脚本与联合任务结果
+
+用户要求后续候选即使valid增益小也须考虑test复核。新增`scripts/evaluate_grid_mix.py`固定原课程与网格混合各三种子，先记录全部checkpoint、valid选中轮次和显式`class_bias=null`，再用现有`evaluate_best`读取test；不更新正式selection或test/latest。结果目录为`reports/gridmix_test_20260925T033118042556Z`，含cohort、逐场景CSV、逐样本预测、三种子均值和配对视频bootstrap；所有文件注明非独立留出。上节未运行test是此前状态，本节记录本次执行。
+
+联合任务对照沿用已有`--regression-weight`、`--class-weight-power`、`--epochs`开关，不改训练实现。组合参数为`--regression-weight 1.0 --class-weight-power .5 --epochs 20 --grid-mix`，其它与第9节一致。目录为`attn_gridmix_reg1_v1`、`attn_gridmix_reg1_seed1112_v1`、`attn_gridmix_reg1_seed1113_v1`。类别权重对照目录后缀为`pw0_v1`、`pw1.0_v1`；30轮目录为`attn_gridmix_reg1_30_v1`。各自的best checkpoint由原valid主指标选择。test使用相同frontend恢复和显式bias，逐场景CSV及selection说明保存在对应reports目录；`reports/joint_tuning_readout_20260925.json`汇总checkpoint、valid原始值、test结果、偏置和已见test后的探索状态。
+
+`scripts/summarize_joint_experiments.py`固定读取三个组合模型**无偏置**test目录，按scenario/sample_id对齐，平均logits后给有观测内容样本加一次`[-.1,.15,0]`，全空内容保留先验。它不运行优化或搜索，复核输出`reports/joint_ensemble_corrected.json`。该脚本修正了临时脚本把test偏置加两次的问题；valid临时集成值0.569372/0.612754未受test路径错误影响，但不据此宣称完成离线部署。
+
+历史摘要中的seed1112无偏置test缺失0.556955、seed1113无偏置0.557457、seed1113旧校准0.566071均不等于原CSV的72主场景均值。按精确场景名称重新读取原CSV，分别为0.558045、0.558175、0.566883；当前推理与原CSV一致，不是重新训练导致的变化。后续汇总只接受同一72场景、同一scope，不混入压力场景。详细真实数值、失败候选和test自适应探索边界见方案第12节。
+
+`scripts/fit_joint_bias.py`保留本次625个网格点的valid-only偏置搜索，固定读取seed1111的best_validation预测，不接受test输入；保存`reports/joint_bias_selection.json`。它使用向量化的逐场景混淆计数，先求每场景三分类Macro-F1再平均，不把所有缺失场景拼接后算一个F1。本次53144条valid场景记录中无全空记录；实现仍与部署一致，不向全空内容加偏置。此脚本只复现已有探索选择，不启动新一轮test评估。
