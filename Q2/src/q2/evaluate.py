@@ -59,9 +59,12 @@ def _read_descriptors(mask_dir: Path, name: str):
 def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, device,
                    mask_dir: Path, clean_cache: np.ndarray | None, batch_size=128,
                    output_dir: Path | None = None, stress=False, return_predictions=False,
-                   cls_context=False, class_bias=None):
-    student.eval()
-    text_encoder.eval()
+                   cls_context=False, class_bias=None, predictor=None):
+    if predictor is None:
+        student.eval()
+        text_encoder.eval()
+    elif class_bias is not None or clean_cache is not None:
+        raise ValueError("a raw predictor owns its calibration and text encoding")
     class_bias = validate_class_bias(class_bias)
     scenarios = [{"name": "clean"}] + evaluation_grid() + (evaluation_grid(stress=True) if stress else [])
     index = json.loads((Path(mask_dir) / "index.json").read_text(encoding="utf-8"))
@@ -71,7 +74,7 @@ def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, d
     # Scoped to this call only: an A/V-only perturbation cannot change BERT's
     # input. Reuse live clean features without persisting fine-tuned features.
     live_clean_cache = (np.empty((len(dataset), 50, 256), dtype=np.float32)
-                        if clean_cache is None else None)
+                        if clean_cache is None and predictor is None else None)
     scenario_outputs = {}
     for scenario in scenarios:
         name = scenario["name"]
@@ -113,16 +116,20 @@ def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, d
             cache = (torch.from_numpy(np.asarray(selected_cache[offset:offset+n]).copy()).to(device)
                      if selected_cache is not None else None)
             raw_device = _device_batch(raw, device)
-            model_input = encode_view(raw_device, text_encoder, normalizer, cache,
-                                      p[:, :, 0].any(dim=1).to(device)
-                                      if scenario_cache_new or (clean_cache is None and text_affected) else None,
-                                      cls_context=cls_context)
-            if live_clean_cache is not None and name == "clean":
-                live_clean_cache[offset:offset+n] = model_input.text_features.cpu().numpy()
-            if scenario_cache_new:
-                scenario_cache[offset:offset+n] = model_input.text_features.cpu().numpy()
-            output = student(model_input)
-            output.logits = apply_class_bias(output.logits, model_input.U, class_bias)
+            if predictor is None:
+                model_input = encode_view(raw_device, text_encoder, normalizer, cache,
+                                          p[:, :, 0].any(dim=1).to(device)
+                                          if scenario_cache_new or (clean_cache is None and text_affected) else None,
+                                          cls_context=cls_context)
+                if live_clean_cache is not None and name == "clean":
+                    live_clean_cache[offset:offset+n] = model_input.text_features.cpu().numpy()
+                if scenario_cache_new:
+                    scenario_cache[offset:offset+n] = model_input.text_features.cpu().numpy()
+                output = student(model_input)
+                output.logits = apply_class_bias(output.logits, model_input.U, class_bias)
+            else:
+                model_input = infer_state(raw_device)
+                output = predictor.predict_raw(raw_device, return_details=False)
             y_class.extend(batch["class_id"].tolist())
             y_score.extend(batch["score"].tolist())
             logits.extend(output.logits.cpu().tolist())

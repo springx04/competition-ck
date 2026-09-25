@@ -24,6 +24,8 @@ parser.add_argument("--cls-context", action="store_true",
                     help="add the optional BERT CLS summary to observed token rows")
 parser.add_argument("--train-embeddings", action="store_true",
                     help="also fine-tune BERT embeddings; disabled in previous runs")
+parser.add_argument("--no-corruption", action="store_true",
+                    help="ablate artificial deletion while retaining both supervised stochastic views")
 parser.add_argument("--stress-text", action="store_true",
                     help="emphasize text-missing training views after warmup")
 parser.add_argument("--grid-mix", action="store_true",
@@ -51,6 +53,8 @@ if args.text_model_dir is not None:
 if args.text_model_id is not None:
     config["text"]["model_id"] = args.text_model_id
 config["text"]["train_embeddings"] = args.train_embeddings
+if args.no_corruption:
+    config["train"]["no_corruption"] = True
 config["evaluation"].pop("class_bias", None)
 config["loss"]["regression_weight"] = args.regression_weight
 if args.late_unimodal_weight is not None:

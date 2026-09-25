@@ -317,6 +317,10 @@ def _load_export_text_encoder(directory: Path, member_config: Mapping[str, Any],
     text_directory = directory / member_config.get("text", {}).get(
         "directory", "assets/text_encoder")
     config = BertConfig.from_pretrained(text_directory, local_files_only=True)
+    # Training and the single-model loader both force eager attention.  Set
+    # the resolved config before constructing BertModel so an exported bundle
+    # cannot silently switch to SDPA (or another backend) on reload.
+    config._attn_implementation = "eager"
     encoder = BertModel(config, add_pooling_layer=False)
     shared_path = directory / member_config.get("text", {}).get(
         "shared_embeddings", "assets/text_encoder/shared_embeddings.safetensors")

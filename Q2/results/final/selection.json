@@ -1,0 +1,16 @@
+{
+  "name": "bert8_all_seed1111",
+  "members": [
+    {
+      "variant": "late_attn_tune",
+      "seed": 1111,
+      "checkpoint": "experiments/attn_bert8_all_v1/runs/late_attn_tune/seed_1111/best.pt"
+    }
+  ],
+  "class_bias": null,
+  "independent_holdout": false,
+  "selection_basis": "Architecture adopted after exploratory test observations; epoch 10 selected by valid missing Macro-F1. Deployment seed 1111 fixed before reading the two replication seeds. No per-seed test cherry-picking.",
+  "evaluation": "Actual exported FP16-storage / FP32-compute model; clean and 72 missing scenarios reported separately.",
+  "historical_ensembles": "Three BERT4 members were exploratory comparators, not this deployed predictor.",
+  "protocol_deviation": "Problem statement requires model structure, hyperparameters and thresholds to be selected on valid. Architecture adoption here used observed test results and deviates from that selection requirement; user explicitly chose to report this exploratory model with disclosure."
+}

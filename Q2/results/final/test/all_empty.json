@@ -1,0 +1,85 @@
+{
+  "n": 727,
+  "class_order": [
+    "Negative",
+    "Neutral",
+    "Positive"
+  ],
+  "accuracy": 0.49793672627235214,
+  "macro_f1": 0.22161003979185798,
+  "weighted_f1": 0.33104333316913037,
+  "per_class": {
+    "Negative": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 207
+    },
+    "Neutral": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 158
+    },
+    "Positive": {
+      "precision": 0.49793672627235214,
+      "recall": 1.0,
+      "f1": 0.6648301193755739,
+      "support": 362
+    }
+  },
+  "missing_classes": [],
+  "missing_class_names": [],
+  "mae": 0.8849151799406605,
+  "pearson": null,
+  "pearson_reason": "constant_prediction",
+  "symbol_inconsistency_count": 569,
+  "symbol_inconsistency_rate": 0.782668500687758,
+  "symbol_inconsistency_by_class": {
+    "Negative": {
+      "n": 207,
+      "inconsistent": 207,
+      "rate": 1.0
+    },
+    "Neutral": {
+      "n": 158,
+      "inconsistent": 0,
+      "rate": 0.0
+    },
+    "Positive": {
+      "n": 362,
+      "inconsistent": 362,
+      "rate": 1.0
+    }
+  },
+  "neutral_score": {
+    "n": 158,
+    "abs_mean": 0.0,
+    "abs_quantiles": {
+      "q50": 0.0,
+      "q90": 0.0,
+      "q95": 0.0
+    }
+  },
+  "neutral_abs_score_mean": 0.0,
+  "neutral_abs_score_quantiles": {
+    "q50": 0.0,
+    "q90": 0.0,
+    "q95": 0.0
+  },
+  "predicted_neutral_score": {
+    "n": 0,
+    "abs_mean": null,
+    "abs_quantiles": {
+      "q50": null,
+      "q90": null,
+      "q95": null
+    }
+  },
+  "predicted_neutral_abs_score_mean": null,
+  "predicted_neutral_abs_score_quantiles": {
+    "q50": null,
+    "q90": null,
+    "q95": null
+  }
+}

@@ -201,7 +201,7 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
             raw = _gpu_batch(batch, device)
             state0 = infer_state(raw)
             descriptors = ([{"pattern": "", "rho": 0, "position": "middle"} for _ in original_indices]
-                           if variant in CLEAN_VARIANTS else
+                           if variant in CLEAN_VARIANTS or config["train"].get("no_corruption", False) else
                            [sample_train_descriptor(seed, epoch, int(index), variant == "uniform_spans",
                                                     total_epochs=epochs, warmup_epochs=warmup_epochs,
                                                     stress_text=(variant == "full_tune_stress"

@@ -1,0 +1,97 @@
+{
+  "independent_holdout": false,
+  "results": [
+    {
+      "variant": "late_aux_tune",
+      "seed": 1112,
+      "checkpoint": "experiments/attn_aux0.2_seed1112_v1/runs/late_aux_tune/seed_1112/best.pt",
+      "epoch": 15,
+      "class_bias": null,
+      "split": "test",
+      "independent_holdout": false,
+      "selection_basis": "Saved best checkpoint selected on valid.",
+      "observation_history": "Adaptive exploration; test has already been observed in this project.",
+      "valid_selection_key": [
+        0.5639479940983021,
+        0.6572840597701288,
+        0.5944870248148937,
+        0.6265078557928343,
+        15
+      ],
+      "directory": "reports/exploratory/attn_aux0.2_seed1112_v1/20260925T050640164751Z",
+      "missing_macro_f1": 0.5624935835989727,
+      "missing_mae": 0.7265939162973015,
+      "clean_macro_f1": 0.5984743300193852,
+      "clean_mae": 0.6941575445414122
+    },
+    {
+      "variant": "late_aux_tune",
+      "seed": 1113,
+      "checkpoint": "experiments/attn_aux0.2_seed1113_v1/runs/late_aux_tune/seed_1113/best.pt",
+      "epoch": 20,
+      "class_bias": null,
+      "split": "test",
+      "independent_holdout": false,
+      "selection_basis": "Saved best checkpoint selected on valid.",
+      "observation_history": "Adaptive exploration; test has already been observed in this project.",
+      "valid_selection_key": [
+        0.5634112848131277,
+        0.6595165409120981,
+        0.6063692654375058,
+        0.6264955946650473,
+        20
+      ],
+      "directory": "reports/exploratory/attn_aux0.2_seed1113_v1/20260925T051032597061Z",
+      "missing_macro_f1": 0.5675870679106464,
+      "missing_mae": 0.7274278383097856,
+      "clean_macro_f1": 0.6014025621022282,
+      "clean_mae": 0.6917769241305594
+    },
+    {
+      "variant": "late_attn_tune",
+      "seed": 1111,
+      "checkpoint": "experiments/attn_gridmix_reg1_clip3_v1/runs/late_attn_tune/seed_1111/best.pt",
+      "epoch": 15,
+      "class_bias": null,
+      "split": "test",
+      "independent_holdout": false,
+      "selection_basis": "Saved best checkpoint selected on valid.",
+      "observation_history": "Adaptive exploration; test has already been observed in this project.",
+      "valid_selection_key": [
+        0.5599660424427368,
+        0.6643207946718545,
+        0.5963300026585732,
+        0.635301137811269,
+        15
+      ],
+      "directory": "reports/exploratory/attn_gridmix_reg1_clip3_v1/20260925T051416790489Z",
+      "missing_macro_f1": 0.5693215756324932,
+      "missing_mae": 0.7259326766081009,
+      "clean_macro_f1": 0.597715015086642,
+      "clean_mae": 0.6891347355151003
+    },
+    {
+      "variant": "late_attn_tune",
+      "seed": 1111,
+      "checkpoint": "experiments/attn_gridmix_reg1_clip5_v1/runs/late_attn_tune/seed_1111/best.pt",
+      "epoch": 15,
+      "class_bias": null,
+      "split": "test",
+      "independent_holdout": false,
+      "selection_basis": "Saved best checkpoint selected on valid.",
+      "observation_history": "Adaptive exploration; test has already been observed in this project.",
+      "valid_selection_key": [
+        0.5600430454976197,
+        0.6645015733703432,
+        0.5940658549015706,
+        0.6356635016523836,
+        15
+      ],
+      "directory": "reports/exploratory/attn_gridmix_reg1_clip5_v1/20260925T051758090437Z",
+      "missing_macro_f1": 0.5691632490073275,
+      "missing_mae": 0.7257273548217865,
+      "clean_macro_f1": 0.5968178276003702,
+      "clean_mae": 0.6887976143885778
+    }
+  ]
+}

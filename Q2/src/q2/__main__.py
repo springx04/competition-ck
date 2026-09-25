@@ -162,7 +162,9 @@ def main():
     command = args.command
     result = None
     if command == "prepare-model":
-        result = prepare_model(root / "models/bert_download", root / "models/text_encoder")
+        model_id = config["text"]["model_id"]
+        download = "bert8_download" if "L-8_" in model_id else "bert_download"
+        result = prepare_model(root / "models" / download, Path(config["text"]["model_dir"]), model_id)
         record_environment(root)
     elif command == "inspect-data":
         result = inspect_data(root, config)
@@ -178,13 +180,15 @@ def main():
         result = prepare_data(_source_data(config), root / "data/processed")
     elif command == "cache-text":
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        encoder = load_text_encoder(root / "models/text_encoder", device)
+        model_dir = Path(config["text"]["model_dir"])
+        encoder = load_text_encoder(model_dir, device)
         result = {}
         for split in args.splits:
             dataset = AlignedDataset(root / "data/processed" / split)
             result[split] = cache_clean_text(dataset, encoder, root / ".cache/text" / split,
-                                             device, root / "models/text_encoder",
-                                             cls_context=bool(config["text"].get("cls_context", False)))
+                                             device, model_dir,
+                                             cls_context=bool(config["text"].get("cls_context", False)),
+                                             model_id=config["text"]["model_id"])
     elif command == "make-masks":
         result = make_fixed_masks(AlignedDataset(root / "data/processed" / args.split),
                                   root / "data/masks" / args.split)

@@ -9,6 +9,50 @@ import torch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from q2 import evaluate
 from q2.data import Normalizer
+
+
+def test_raw_predictor_receives_actual_corruption_and_owns_calibration(tmp_path, monkeypatch):
+    import pytest
+    grid = [{"name": "T_middle_0.4", "pattern": "T", "rho": .4, "position": "middle"}]
+    monkeypatch.setattr(evaluate, "evaluation_grid", lambda **kwargs: grid)
+
+    class Dataset:
+        directory = tmp_path / "data/processed/test"
+        metadata = {"id": ["a", "b", "c"], "video_id": ["a", "b", "c"]}
+
+        def __len__(self):
+            return 3
+
+        def __getitem__(self, index):
+            ids = torch.tensor([101, 201, 202, 203, 204, 205, 102] + [0] * 43)
+            return {"input_ids": ids, "stored_attention": (ids != 0).long(),
+                    "token_type_ids": torch.zeros_like(ids), "audio": torch.zeros(50, 74),
+                    "vision": torch.zeros(50, 35), "class_id": torch.tensor(index),
+                    "score": torch.tensor(float(index - 1)), "sample_id": self.metadata["id"][index],
+                    "sample_index": index}
+
+    class Predictor:
+        def __init__(self):
+            self.calls = []
+
+        def predict_raw(self, raw, return_details=False):
+            self.calls.append(raw["input_ids"].clone())
+            value = (raw["input_ids"] == 103).sum(-1).float()
+            return SimpleNamespace(logits=torch.stack((value, -value, value * 0), -1), score=value)
+
+    data, predictor = Dataset(), Predictor()
+    masks = tmp_path / "masks"
+    evaluate.make_fixed_masks(data, masks, include_stress=False)
+    monkeypatch.setattr(evaluate, "encode_view", lambda *a, **kw: pytest.fail("predictor encoded twice"))
+    _, predictions = evaluate.evaluate_model(None, None, None, data, "cpu", masks, None,
+                                             predictor=predictor, return_predictions=True)
+    assert len(predictor.calls) == 2
+    assert not (predictor.calls[0] == 103).any()
+    assert (predictor.calls[1] == 103).any()
+    assert all(row["damaged"] for row in predictions if row["scenario"] != "clean")
+    with pytest.raises(ValueError, match="owns its calibration"):
+        evaluate.evaluate_model(None, None, None, data, "cpu", masks, None,
+                                predictor=predictor, class_bias=[0, 1, 0])
 from q2.trainer import learning_rate, optimizer_for, set_learning_rate, _rng_state, _restore_rng
 from q2.masking import sample_train_descriptor
 from q2.data import Normalizer

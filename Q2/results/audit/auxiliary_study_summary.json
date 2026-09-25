@@ -1,0 +1,100 @@
+{
+  "independent_holdout": false,
+  "selection": "Each saved best checkpoint was chosen on valid; all three weights received test evaluation.",
+  "zero_weight_max_total_loss_delta": 4.0107798415789375e-08,
+  "results": [
+    {
+      "variant": "late_aux_tune",
+      "seed": 1111,
+      "checkpoint": "experiments/attn_aux0_v1/runs/late_aux_tune/seed_1111/best.pt",
+      "epoch": 15,
+      "class_bias": null,
+      "split": "test",
+      "independent_holdout": false,
+      "selection_basis": "Saved best checkpoint selected on valid.",
+      "observation_history": "Adaptive exploration; test has already been observed in this project.",
+      "valid_selection_key": [
+        0.5601819167632889,
+        0.6643666894322049,
+        0.5972702941489352,
+        0.6355351408929781,
+        15
+      ],
+      "directory": "reports/exploratory/attn_aux0_v1/20260925T044953444904Z",
+      "missing_macro_f1": 0.5689897763272034,
+      "missing_mae": 0.7263121986180681,
+      "clean_macro_f1": 0.5969270106029502,
+      "clean_mae": 0.6895900185212257,
+      "main_scenario_count": 72,
+      "auxiliary_weight": 0.0,
+      "resource_usage": {
+        "seconds": 210.268976688385,
+        "peak_memory_bytes": 532184576,
+        "parameter_count": 99600,
+        "completed_epoch": 20
+      }
+    },
+    {
+      "variant": "late_aux_tune",
+      "seed": 1111,
+      "checkpoint": "experiments/attn_aux0.05_v1/runs/late_aux_tune/seed_1111/best.pt",
+      "epoch": 15,
+      "class_bias": null,
+      "split": "test",
+      "independent_holdout": false,
+      "selection_basis": "Saved best checkpoint selected on valid.",
+      "observation_history": "Adaptive exploration; test has already been observed in this project.",
+      "valid_selection_key": [
+        0.5606938448948227,
+        0.6635280110275121,
+        0.595840924988693,
+        0.6345500154830106,
+        15
+      ],
+      "directory": "reports/exploratory/attn_aux0.05_v1/20260925T045350562662Z",
+      "missing_macro_f1": 0.568960898571741,
+      "missing_mae": 0.7258970724478248,
+      "clean_macro_f1": 0.5973205435651479,
+      "clean_mae": 0.6888345404067865,
+      "main_scenario_count": 72,
+      "auxiliary_weight": 0.05,
+      "resource_usage": {
+        "seconds": 212.77927207946777,
+        "peak_memory_bytes": 532184576,
+        "parameter_count": 99600,
+        "completed_epoch": 20
+      }
+    },
+    {
+      "variant": "late_aux_tune",
+      "seed": 1111,
+      "checkpoint": "experiments/attn_aux0.2_v1/runs/late_aux_tune/seed_1111/best.pt",
+      "epoch": 15,
+      "class_bias": null,
+      "split": "test",
+      "independent_holdout": false,
+      "selection_basis": "Saved best checkpoint selected on valid.",
+      "observation_history": "Adaptive exploration; test has already been observed in this project.",
+      "valid_selection_key": [
+        0.5604845498014775,
+        0.6618114537011398,
+        0.5953960837596647,
+        0.6323572188544798,
+        15
+      ],
+      "directory": "reports/exploratory/attn_aux0.2_v1/20260925T045743774791Z",
+      "missing_macro_f1": 0.5683607182365997,
+      "missing_mae": 0.725432914146928,
+      "clean_macro_f1": 0.6032496634935419,
+      "clean_mae": 0.6877540287867885,
+      "main_scenario_count": 72,
+      "auxiliary_weight": 0.2,
+      "resource_usage": {
+        "seconds": 208.827223777771,
+        "peak_memory_bytes": 532184576,
+        "parameter_count": 99600,
+        "completed_epoch": 20
+      }
+    }
+  ]
+}

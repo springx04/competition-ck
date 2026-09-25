@@ -1,0 +1,39 @@
+{
+  "interpretation": "Conditional on fitted models; no multiplicity or adaptive-selection correction",
+  "vs_grid50_single_seed1111": {
+    "missing": {
+      "videos": 381,
+      "scenarios": 72,
+      "repeats": 1000,
+      "difference_mean": 0.006225608194886514,
+      "ci_2_5": -0.011655834032137005,
+      "ci_97_5": 0.024297974093883585
+    },
+    "clean": {
+      "videos": 381,
+      "scenarios": 1,
+      "repeats": 1000,
+      "difference_mean": 0.021865299077065622,
+      "ci_2_5": -0.007423666950348581,
+      "ci_97_5": 0.05131150082120382
+    }
+  },
+  "vs_historical_full_seed1111": {
+    "missing": {
+      "videos": 381,
+      "scenarios": 72,
+      "repeats": 1000,
+      "difference_mean": 0.07393146352882655,
+      "ci_2_5": 0.04883692132337446,
+      "ci_97_5": 0.09947376234849108
+    },
+    "clean": {
+      "videos": 381,
+      "scenarios": 1,
+      "repeats": 1000,
+      "difference_mean": 0.10246377883545026,
+      "ci_2_5": 0.06283592462759456,
+      "ci_97_5": 0.1407739552896505
+    }
+  }
+}

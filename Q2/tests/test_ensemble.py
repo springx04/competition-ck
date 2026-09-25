@@ -168,6 +168,8 @@ def test_export_reload_shares_embeddings_and_restores_fp32_bert(tmp_path):
                    for value in member.text_encoder.state_dict().values()
                    if value.is_floating_point()) for member in loaded.members)
     assert all(member.text_encoder.training is False for member in loaded.members)
+    assert all(member.text_encoder.config._attn_implementation == "eager"
+               for member in loaded.members)
 
     with pytest.raises(FileExistsError):
         ensemble.export_ensemble(root, selection, destination)

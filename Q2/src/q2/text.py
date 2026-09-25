@@ -15,11 +15,14 @@ from .state import infer_state
 MODEL_ID = "google/bert_uncased_L-4_H-256_A-4"
 
 
-def prepare_model(download_dir: Path, output_dir: Path) -> dict:
+def prepare_model(download_dir: Path, output_dir: Path, model_id: str = MODEL_ID) -> dict:
+    supported = {MODEL_ID: 4, "google/bert_uncased_L-8_H-256_A-4": 8}
+    if model_id not in supported:
+        raise ValueError("unsupported BERT model identifier")
     download_dir, output_dir = Path(download_dir), Path(output_dir)
     download_dir.mkdir(parents=True, exist_ok=True)
     if not all((download_dir / name).exists() for name in ("config.json", "vocab.txt", "pytorch_model.bin")):
-        snapshot_download(repo_id=MODEL_ID, local_dir=download_dir,
+        snapshot_download(repo_id=model_id, local_dir=download_dir,
                           allow_patterns=["config.json", "vocab.txt", "pytorch_model.bin", "README.md"])
     tokenizer = BertTokenizerFast(vocab_file=str(download_dir / "vocab.txt"), do_lower_case=True)
     if (tokenizer.pad_token_id, tokenizer.unk_token_id, tokenizer.cls_token_id,
@@ -27,7 +30,7 @@ def prepare_model(download_dir: Path, output_dir: Path) -> dict:
         raise ValueError("specified tokenizer has unexpected special IDs or vocabulary size")
     model = BertModel.from_pretrained(download_dir, add_pooling_layer=False,
                                      attn_implementation="eager", torch_dtype=torch.float32)
-    if model.config.hidden_size != 256 or model.config.num_hidden_layers != 4:
+    if model.config.hidden_size != 256 or model.config.num_hidden_layers != supported[model_id]:
         raise ValueError("unexpected BERT architecture")
     model.requires_grad_(False).eval()
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -38,7 +41,7 @@ def prepare_model(download_dir: Path, output_dir: Path) -> dict:
         result = reloaded(input_ids=torch.tensor([[101, 2023, 102]]), attention_mask=torch.ones(1, 3, dtype=torch.long))
     if result.last_hidden_state.shape != (1, 3, 256):
         raise ValueError("reloaded BERT output shape mismatch")
-    return {"model_id": MODEL_ID, "parameters": sum(p.numel() for p in reloaded.parameters()),
+    return {"model_id": model_id, "parameters": sum(p.numel() for p in reloaded.parameters()),
             "stored_weight_bytes": (output_dir / "model.safetensors").stat().st_size}
 
 
@@ -128,7 +131,7 @@ def tokenizer_check(record: dict, model_dir: Path, output_csv: Path) -> dict:
 
 def cache_clean_text(dataset, encoder, output_dir: Path, device: torch.device,
                      model_dir: Path, batch_size: int = 64,
-                     cls_context: bool = False) -> dict:
+                     cls_context: bool = False, model_id: str = MODEL_ID) -> dict:
     from torch.utils.data import DataLoader
     from .data import collate_raw
     output_dir = Path(output_dir)
@@ -143,7 +146,7 @@ def cache_clean_text(dataset, encoder, output_dir: Path, device: torch.device,
         result[offset:offset+len(features)] = features
         offset += len(features)
     result.flush()
-    metadata = {"model_dir": str(model_dir), "model_id": MODEL_ID,
+    metadata = {"model_dir": str(model_dir), "model_id": model_id,
                 "tokenizer": "BertTokenizerFast", "samples": len(dataset),
                 "cls_context": bool(cls_context),
                 "sample_ids": dataset.metadata["id"], "created_at": datetime.now(timezone.utc).isoformat()}

@@ -1,0 +1,86 @@
+{
+  "independent_holdout": false,
+  "zero_weight_max_total_loss_delta": 0.0,
+  "teacher": {
+    "name": "feature_teacher_v1",
+    "selected_epoch": 3,
+    "valid_clean_macro_f1": 0.618544167954545,
+    "valid_clean_mae": 0.5897563469073618,
+    "seconds": 30.656288623809814,
+    "target_count": 3395,
+    "deployment_candidate": false,
+    "test_evaluated": false,
+    "limitation": "Clean teacher only; official full-text vectors are not valid missing-input features."
+  },
+  "results": [
+    {
+      "variant": "late_attn_tune",
+      "seed": 1111,
+      "checkpoint": "experiments/attn_feature_kd0_v1/runs/late_attn_tune/seed_1111/best.pt",
+      "epoch": 15,
+      "class_bias": null,
+      "split": "test",
+      "independent_holdout": false,
+      "selection_basis": "Saved best checkpoint selected on valid.",
+      "observation_history": "Adaptive exploration; test has already been observed in this project.",
+      "valid_selection_key": [
+        0.5601819167632889,
+        0.6643666879665125,
+        0.5972702941489352,
+        0.635535148220747,
+        15
+      ],
+      "directory": "reports/exploratory/attn_feature_kd0_v1/20260925T054716639851Z",
+      "missing_macro_f1": 0.5689897763272036,
+      "missing_mae": 0.7263122026732463,
+      "clean_macro_f1": 0.5969270106029502,
+      "clean_mae": 0.6895900293845206
+    },
+    {
+      "variant": "late_attn_tune",
+      "seed": 1111,
+      "checkpoint": "experiments/attn_feature_kd0.2_v1/runs/late_attn_tune/seed_1111/best.pt",
+      "epoch": 20,
+      "class_bias": null,
+      "split": "test",
+      "independent_holdout": false,
+      "selection_basis": "Saved best checkpoint selected on valid.",
+      "observation_history": "Adaptive exploration; test has already been observed in this project.",
+      "valid_selection_key": [
+        0.5606251884644036,
+        0.6662031375311552,
+        0.5966468939518584,
+        0.6373735755310358,
+        20
+      ],
+      "directory": "reports/exploratory/attn_feature_kd0.2_v1/20260925T055123735456Z",
+      "missing_macro_f1": 0.5669032004455793,
+      "missing_mae": 0.7281614657065391,
+      "clean_macro_f1": 0.5926556287106294,
+      "clean_mae": 0.6909509273753547
+    },
+    {
+      "variant": "late_attn_tune",
+      "seed": 1111,
+      "checkpoint": "experiments/attn_feature_kd1.0_v1/runs/late_attn_tune/seed_1111/best.pt",
+      "epoch": 20,
+      "class_bias": null,
+      "split": "test",
+      "independent_holdout": false,
+      "selection_basis": "Saved best checkpoint selected on valid.",
+      "observation_history": "Adaptive exploration; test has already been observed in this project.",
+      "valid_selection_key": [
+        0.5614906486542728,
+        0.6590918301061586,
+        0.5905245014392334,
+        0.6296139598694875,
+        20
+      ],
+      "directory": "reports/exploratory/attn_feature_kd1.0_v1/20260925T055529561400Z",
+      "missing_macro_f1": 0.5664332692858226,
+      "missing_mae": 0.7237469103210271,
+      "clean_macro_f1": 0.5936579609394438,
+      "clean_mae": 0.6869271481007739
+    }
+  ]
+}
