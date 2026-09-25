@@ -19,6 +19,7 @@ from .masking import apply_span, make_span_mask, sample_train_descriptor
 from .model.network import Student, encode_view, TUNED_VARIANTS, CLEAN_VARIANTS
 from .state import infer_state
 from .sampling import video_sample_weights
+from .teacher_targets import TrainTeacherTargets
 
 
 def set_seed(seed):
@@ -122,6 +123,12 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
     clean_cache = None if tune_text else np.load(root / ".cache/text/train/features.npy", mmap_mode="r")
     valid_cache = None if tune_text else np.load(root / ".cache/text/valid/features.npy", mmap_mode="r")
     student = Student(variant, normalizer.class_prior, normalizer.score_prior).to(device)
+    offline_teacher = None
+    if config["train"].get("teacher_targets"):
+        if not student.late or variant in CLEAN_VARIANTS:
+            raise ValueError("offline teacher targets require a late-fusion model with corrupt views")
+        offline_teacher = TrainTeacherTargets.load(root / config["train"]["teacher_targets"],
+                                                   train_set.metadata["id"])
     class_weight = None
     class_weight_power = config["loss"].get("class_weight_power",
         .5 if variant in ("late_balanced", "late_tune_balanced", "late_classifier") else 0.0)
@@ -221,7 +228,8 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
             corrupt_output = (student(corrupt_input, return_details=True, return_attention=False)
                               if epoch > warmup_epochs else None)
             with torch.no_grad():
-                teacher_output = (teacher(clean_input, return_details=True, return_attention=False)
+                teacher_output = (offline_teacher.batch(original_indices, device) if offline_teacher is not None else
+                                  teacher(clean_input, return_details=True, return_attention=False)
                                   if teacher is not None else None)
             labels = {"class_id": raw["class_id"], "score": raw["score"]}
             losses = compute_losses(clean_output, corrupt_output, teacher_output, labels, perturbation,
@@ -229,7 +237,8 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
                                     regression_weight=config["loss"]["regression_weight"],
                                     warmup_epochs=warmup_epochs,
                                     ramp_epochs=config["loss"]["ramp_epochs"],
-                                    unimodal_weight=config["loss"].get("late_unimodal_weight", .2))
+                                    unimodal_weight=config["loss"].get("late_unimodal_weight", .2),
+                                    consistency_weight=config["loss"]["consistency_weight"])
             if not torch.isfinite(losses.total):
                 raise FloatingPointError(f"non-finite loss in {variant}/seed_{seed}/epoch_{epoch}")
             losses.total.backward()

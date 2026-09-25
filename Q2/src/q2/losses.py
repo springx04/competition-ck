@@ -85,7 +85,7 @@ def unimodal_classification_loss(output, class_id, class_weight=None):
 def compute_losses(clean_output, corrupt_output, teacher_output, labels, perturbation,
                    state0, epoch: int, student, class_weight=None,
                    regression_weight=1.0, warmup_epochs=5, ramp_epochs=10,
-                   unimodal_weight=.2) -> LossOutput:
+                   unimodal_weight=.2, consistency_weight=.2) -> LossOutput:
     cls, score = labels["class_id"], labels["score"]
     clean_task = task_loss(clean_output, cls, score, class_weight, regression_weight)
     msd = msd_loss(clean_output, student, cls, score)["total"]
@@ -126,5 +126,5 @@ def compute_losses(clean_output, corrupt_output, teacher_output, labels, perturb
                              delta=1.0, reduction="none")
         terms["consistency"] = (weight * (kl + huber)).mean()
     ramp = min(1, (epoch - warmup_epochs) / max(1, ramp_epochs))
-    total = total + ramp * (.2 * terms["span"] + .1 * terms["calibration"] + .2 * terms["consistency"])
+    total = total + ramp * (.2 * terms["span"] + .1 * terms["calibration"] + consistency_weight * terms["consistency"])
     return LossOutput(total, terms, int(omega.sum()))

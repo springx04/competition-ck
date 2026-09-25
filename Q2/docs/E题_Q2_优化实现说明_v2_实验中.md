@@ -171,3 +171,30 @@ export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 CUBLAS_WORKSPACE_CONFIG=:4096:8
 已完成方案第15节全部十项test读数，计划先写入`reports/previous_candidates_cohort.json`，执行日志为`reports/previous_candidates_test.log`，完整汇总为`reports/previous_candidates_summary.json`。每项均调用`evaluate_experiment.py NAME --variant VARIANT`，seed默认1111，保留独立带时间的selection、预测、场景CSV与summary。前六项使用`late_attn_tune`；其后依次为`late_attn_runweight_tune`、`late_gru_tune`、`late_av_tune`、`late_gate_tune`。所有checkpoint来自旧训练，不因此次test表现重新选择epoch。
 
 历史候选读取完成后已启动第11节四项固定候选的顺序队列，日志为`reports/next_candidates.log`。当前仅能确认任务启动，结果应由各run的history、resource_usage及test summary核实；不能把排队视作训练完成。
+
+## 13. 辅助复验和裁剪队列完成
+
+第11节四项训练及test均已完成，完整读数保存在`reports/auxiliary_replication_clipping_summary.json`，精确来源目录保留在各项summary中。结果见方案第16节；没有修改正式selection、最终包或原始数据。辅助0.2三种子仅对完整输入有小幅平均改善，裁剪的单种子缺失提升也很小，不能宣称达到缺失0.60目标。
+
+## 14. 只在训练时使用的完整特征教师
+
+`scripts/train_feature_teacher.py --name feature_teacher_v1 --epochs 40`读取附件2 aligned文件，训练仅使用train，valid仅选择教师；不使用test数据生成目标。脚本逐一核对train/valid ID顺序与标签和已有处理数组相同，文本特征为有限的`[N,50,768]`。教师使用独立模态注意力池化：文本保留全部50个提供的特征向量，AV保留自身非零行，不把这些行解释成有效WordPiece。先前用“非零文本特征行”运行的本次数据全部非零，与保留全部50行完全相同。脚本复用Student轻量结构，但单独把文本入口设为768维，其权重只存于教师实验目录，不能被普通256维学生checkpoint加载流程冒用。
+
+教师输出`experiments/feature_teacher_v1/train_targets.npz`包含train ID、logits、score和`source_split=train`。`teacher_targets.TrainTeacherTargets`要求split、ID顺序、数组形状完全匹配训练数据且数值有限；按`sample_index`提取目标，允许训练采样重复索引，不把batch内次序当作原样本次序。没有test/专项教师目标入口。
+
+新增可选`train.teacher_targets`与`explore_tuning.py --teacher-targets`，只在带受损视图的晚融合训练中使用。它与原full模型EMA教师分开，不把离线教师送入EMA更新，不增加学生参数，不改变学生输入。`compute_losses`新增`consistency_weight`参数，默认仍0.2；trainer现将已有配置`loss.consistency_weight`实际传入，`--consistency-weight`提供实验覆盖。本轮参考run该值本来为0.2，默认路径数值不变。此前该系数在损失中写死为0.2，不能将此前未传入的配置修改说成已执行的消融。
+
+学生命令沿用原组合参数，增加以下参数；`W`预先取`0 0.2 1.0`：
+
+```bash
+.venv/bin/python scripts/explore_tuning.py --config configs/quick_tune.yaml \
+  --name "attn_feature_kd${W}_v1" --variant late_attn_tune --seed 1111 \
+  --text-lr 1e-5 --student-lr 1e-4 --regression-weight 1 --class-weight-power .5 \
+  --epochs 20 --cls-context --grid-mix \
+  --teacher-targets experiments/feature_teacher_v1/train_targets.npz --consistency-weight "$W"
+.venv/bin/python scripts/evaluate_experiment.py "attn_feature_kd${W}_v1" --variant late_attn_tune
+```
+
+服务器`reports/feature_kd_plan.json`在学生读取test前记录固定三个权重，顺序队列为`reports/run_feature_kd.sh`，日志`reports/feature_kd.log`。学生评估、专项与导出只恢复学生及其微调BERT，不读取教师目标文件；checkpoint中保留该路径仅用于训练复现/续跑，不构成推理依赖。
+
+本批三项学生均已完成训练和test读取。零权重20轮总损失最大差为0，分类指标与原组合一致；两个非零系数未改善test，详见方案第17节。`reports/feature_kd_summary.json`同时保留教师valid读数、学生valid/test读数和零权重轨迹差异。本地、服务器均108项测试通过；新增测试覆盖train目标split/ID顺序/形状检查、重复采样索引、预热和ramp权重、教师梯度停止，并单独对一致性项回传确认受损分类与回归输出收到梯度，避免用主任务梯度掩盖蒸馏断路。

@@ -64,7 +64,9 @@ def load_checkpoint_text_encoder(root: Path, variant: str, checkpoint: dict, dev
     # The on-disk model is FP16, while encode_text allocates FP32 features.
     # Normalize the loaded module to the declared compute dtype before loading
     # a tuned checkpoint state or running inference.
-    encoder = load_text_encoder(Path(root) / "models/text_encoder", torch.device(device)).float()
+    text_dir = (checkpoint.get("config", {}).get("text", {}).get("model_dir")
+                or "models/text_encoder")
+    encoder = load_text_encoder(Path(root) / text_dir, torch.device(device)).float()
     if variant in TUNED_VARIANTS:
         state = checkpoint.get("text_encoder")
         if state is None:

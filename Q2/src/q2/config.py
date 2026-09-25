@@ -118,7 +118,7 @@ def _check_keys(value: Mapping[str, Any], name: str, expected: tuple[str, ...]) 
     optional = ({"learning_rate", "unfrozen_layers", "cls_context", "train_embeddings"} if name == "text" else
                 {"class_weight_power", "late_unimodal_weight"} if name == "loss" else
                 {"clip_z", "video_sampling_power"} if name == "data" else
-                {"stress_text", "grid_mix"} if name == "train" else
+                {"stress_text", "grid_mix", "teacher_targets"} if name == "train" else
                 {"class_bias"} if name == "evaluation" else set())
     unknown = sorted(actual - allowed - optional)
     missing = sorted(allowed - actual)
@@ -195,8 +195,9 @@ def _validate_values(config: Mapping[str, Any]) -> None:
 
     text = config["text"]
     _string(text["model_dir"], "text.model_dir")
-    if text["model_id"] != "google/bert_uncased_L-4_H-256_A-4":
-        raise ConfigError("text.model_id must be google/bert_uncased_L-4_H-256_A-4")
+    if text["model_id"] not in ("google/bert_uncased_L-4_H-256_A-4",
+                                 "google/bert_uncased_L-8_H-256_A-4"):
+        raise ConfigError("text.model_id must be a supported 256-dimensional Google BERT")
     _bool(text["frozen"], "text.frozen")
     if "cls_context" in text:
         _bool(text["cls_context"], "text.cls_context")
@@ -249,6 +250,8 @@ def _validate_values(config: Mapping[str, Any]) -> None:
     _integer(loss["ramp_epochs"], "loss.ramp_epochs", minimum=0)
 
     train = config["train"]
+    if "teacher_targets" in train:
+        _string(train["teacher_targets"], "train.teacher_targets")
     if "stress_text" in train:
         _bool(train["stress_text"], "train.stress_text")
     if "grid_mix" in train:

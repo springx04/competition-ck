@@ -30,17 +30,33 @@ parser.add_argument("--grid-mix", action="store_true",
                     help="mix public fixed-grid spans with the original training curriculum")
 parser.add_argument("--late-unimodal-weight", type=float, default=None,
                     help="training-only auxiliary classification weight for late_aux_tune")
+parser.add_argument("--teacher-targets", default=None,
+                    help="train-only NPZ targets from a clean feature teacher")
+parser.add_argument("--consistency-weight", type=float, default=None,
+                    help="weight of confidence-weighted corrupt-view teacher consistency")
+parser.add_argument("--text-model-dir", default=None,
+                    help="local 256-dimensional BERT directory for a fixed encoder comparison")
+parser.add_argument("--text-model-id", default=None,
+                    help="matching supported model identifier")
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 config = load_config(root / args.config)
 config["project"]["output_root"] = str(root / "experiments" / args.name)
 config["text"].update(frozen=False, learning_rate=args.text_lr)
 config["text"]["cls_context"] = args.cls_context
+if args.text_model_dir is not None:
+    config["text"]["model_dir"] = args.text_model_dir
+if args.text_model_id is not None:
+    config["text"]["model_id"] = args.text_model_id
 config["text"]["train_embeddings"] = args.train_embeddings
 config["evaluation"].pop("class_bias", None)
 config["loss"]["regression_weight"] = args.regression_weight
 if args.late_unimodal_weight is not None:
     config["loss"]["late_unimodal_weight"] = args.late_unimodal_weight
+if args.teacher_targets is not None:
+    config["train"]["teacher_targets"] = args.teacher_targets
+if args.consistency_weight is not None:
+    config["loss"]["consistency_weight"] = args.consistency_weight
 if args.class_weight_power is not None:
     config["loss"]["class_weight_power"] = args.class_weight_power
 if args.clip_z is not None:
