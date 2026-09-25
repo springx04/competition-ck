@@ -1,0 +1,23 @@
+{
+  "seed": 2026,
+  "anchor_sample_count": 33,
+  "anchor_row_count": 165,
+  "existing_text_alert_count": 23,
+  "clean_control_count": 10,
+  "forms": {
+    "reviewer_a_segments": "runs/q1_full_20260924/reports/review_experiment/reviewer_a_segments.csv",
+    "reviewer_b_segments": "runs/q1_full_20260924/reports/review_experiment/reviewer_b_segments.csv",
+    "reviewer_a_anchors": "runs/q1_full_20260924/reports/review_experiment/reviewer_a_anchors.csv",
+    "reviewer_b_anchors": "runs/q1_full_20260924/reports/review_experiment/reviewer_b_anchors.csv",
+    "anchor_selection": "runs/q1_full_20260924/reports/review_experiment/anchor_sample_selection.csv"
+  },
+  "archived_empty_summary_forms": [
+    "runs/q1_full_20260924/reports/review_experiment/template_archive/reviewer_a.pre_multisegment.csv",
+    "runs/q1_full_20260924/reports/review_experiment/template_archive/reviewer_b.pre_multisegment.csv"
+  ],
+  "blinding": {
+    "reviewer_forms_contain_alert_status": false,
+    "reviewer_forms_contain_auxiliary_scores": false,
+    "anchor_selection_admin_only": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "sample_count": 100,
+  "cluster_count": 137,
+  "null_row_count": 3041,
+  "threshold": 0.6,
+  "local_lag_s": 0.2,
+  "temporal_shifts_s": [
+    -2.0,
+    -1.0,
+    -0.5,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "cross_sample_null_count": 20,
+  "visual_signal": "normalized mouth landmark distance with AU25/AU26 fallback",
+  "audio_signal": "PCM log RMS on frozen video-frame intervals"
+}

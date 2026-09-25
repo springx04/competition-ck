@@ -1,0 +1,11 @@
+{
+  "recorded_before_stage1_evidence_generation": true,
+  "files": {
+    "configs/alignment_review.csv": "1584599169ceea180d3f6ae606e02770514d81d82a822cabd00f936fa7f7afd3",
+    "configs/target_face_segments.csv": "682c38c257eaf06e3a531f6599a2e0221b124f8ccf77b9572607e0257124b99a",
+    "runs/q1_full_20260924/features/q1_compact50.npz": "0ba53548741328abb5c916bb2250495d41b8d98e2b461b099247a2b7a9c01057",
+    "runs/q1_full_20260924/manifest.jsonl": "f6b15042dbd90b7fd8c04f93cfea102404c8e53ce1ccf399729682d791a602c5",
+    "runs/q1_full_20260924/sample_index.csv": "9095db9ce61f20b03b8f3514539ba78bd284ee48d015576159029ca3bd4a6090",
+    "SOURCE_REVISION": "40a6409caa5cdbb09db3df38984873610ca37f8caca905a6f88ae7a1baf9f259"
+  }
+}

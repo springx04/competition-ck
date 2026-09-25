@@ -1,0 +1,8 @@
+{
+  "status": "skipped_optional_high_cost",
+  "executed": false,
+  "reason": "No MFA executable, English acoustic model, or pronunciation dictionary is installed. Preparing an isolated MFA environment and locked models is materially costly; the user explicitly allows MFA to be skipped when preparation cost is high.",
+  "scope_if_resumed": "TA_CONFLICT plus original 23 text-audio alerts with clear CTC/WhisperX disagreement",
+  "production_ctc_replaced": false,
+  "safe_next_step": "Install a locked Montreal Forced Aligner environment and English acoustic/dictionary models, then run only the recorded conflict scope."
+}

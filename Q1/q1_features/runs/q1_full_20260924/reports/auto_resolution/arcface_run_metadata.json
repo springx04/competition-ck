@@ -1,0 +1,48 @@
+{
+  "implementation": "InsightFace buffalo_l ArcFace ONNX direct inference",
+  "insightface_model_release": "https://github.com/deepinsight/insightface/releases/download/v0.7/buffalo_l.zip",
+  "onnxruntime_version": "1.18.1",
+  "providers_available": [
+    "TensorrtExecutionProvider",
+    "CUDAExecutionProvider",
+    "AzureExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "model_pack": "buffalo_l",
+  "thresholds": [
+    0.5,
+    0.6,
+    0.7
+  ],
+  "sample_count": 100,
+  "samples_with_episodes": 96,
+  "episode_count": 191,
+  "valid_embedding_episode_count": 187,
+  "model_files": [
+    {
+      "path": "/home/jqy/shumo/q1_features/models/auto_resolution/insightface/models/buffalo_l/1k3d68.onnx",
+      "bytes": 143607619,
+      "sha256": "df5c06b8a0c12e422b2ed8947b8869faa4105387f199c477af038aa01f9a45cc"
+    },
+    {
+      "path": "/home/jqy/shumo/q1_features/models/auto_resolution/insightface/models/buffalo_l/2d106det.onnx",
+      "bytes": 5030888,
+      "sha256": "f001b856447c413801ef5c42091ed0cd516fcd21f2d6b79635b1e733a7109dbf"
+    },
+    {
+      "path": "/home/jqy/shumo/q1_features/models/auto_resolution/insightface/models/buffalo_l/det_10g.onnx",
+      "bytes": 16923827,
+      "sha256": "5838f7fe053675b1c7a08b633df49e7af5495cee0493c7dcf6697200b85b5b91"
+    },
+    {
+      "path": "/home/jqy/shumo/q1_features/models/auto_resolution/insightface/models/buffalo_l/genderage.onnx",
+      "bytes": 1322532,
+      "sha256": "4fde69b1c810857b88c64a335084f1c3fe8f01246c9a191b48c7bb756d6652fb"
+    },
+    {
+      "path": "/home/jqy/shumo/q1_features/models/auto_resolution/insightface/models/buffalo_l/w600k_r50.onnx",
+      "bytes": 174383860,
+      "sha256": "4c06341c33c2ca1f86781dab0e829f88ad5b64be9fba56e56bc9ebdefc619e43"
+    }
+  ]
+}

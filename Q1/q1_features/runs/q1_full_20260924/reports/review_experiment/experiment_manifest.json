@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-09-24T15:43:31.548059+00:00",
+  "run_dir": "/home/jqy/shumo/q1_features/runs/q1_full_20260924",
+  "data_root": "/home/jqy/shumo/E题数据",
+  "seed": 2026,
+  "sample_count": 100,
+  "video_count": 37,
+  "reviewer_a_order_seed": 2026,
+  "reviewer_b_order_seed": 2027,
+  "zero_face_sample_ids": [
+    "-NFrJFQijFE$_$1",
+    "-NFrJFQijFE$_$2",
+    "-mJ2ud6oKI8$_$1",
+    "-ri04Z7vwnc$_$0"
+  ],
+  "blind_fields_excluded": [
+    "label",
+    "paired_use",
+    "pairing_status",
+    "automatic_issues",
+    "auxiliary_scores"
+  ]
+}

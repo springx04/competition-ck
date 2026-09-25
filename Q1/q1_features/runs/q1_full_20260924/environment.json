@@ -1,0 +1,62 @@
+{
+  "python": "3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]",
+  "platform": "Linux-5.15.0-191-generic-x86_64-with-glibc2.35",
+  "machine": "x86_64",
+  "packages": {
+    "torch": "2.5.1",
+    "torchaudio": "2.5.1",
+    "numpy": "1.23.5",
+    "transformers": "4.38.2",
+    "espnet": "202402",
+    "ctc-segmentation": "1.7.4",
+    "opensmile": "2.5.1",
+    "av": "12.3.0",
+    "openpyxl": "3.1.5",
+    "PyYAML": "6.0.2"
+  },
+  "ffmpeg": "ffmpeg version 6.1.1 Copyright (c) 2000-2023 the FFmpeg developers\nbuilt with gcc 12.4.0 (conda-forge gcc 12.4.0-0)\nconfiguration: --prefix=/home/jqy/shumo/q1_features/env/python --cc=/home/conda/feedstock_root/build_artifacts/ffmpeg_1722545947306/_build_env/bin/x86_64-conda-linux-gnu-cc --cxx=/home/conda/feedstock_root/build_artifacts/ffmpeg_1722545947306/_build_env/bin/x86_64-conda-linux-gnu-c++ --nm=/home/conda/feedstock_root/build_artifacts/ffmpeg_1722545947306/_build_env/bin/x86_64-conda-linux-gnu-nm --ar=/home/conda/feedstock_root/build_artifacts/ffmpeg_1722545947306/_build_env/bin/x86_64-conda-linux-gnu-ar --disable-doc --disable-openssl --enable-demuxer=dash --enable-hardcoded-tables --enable-libfreetype --enable-libharfbuzz --enable-libfontconfig --enable-libopenh264 --enable-libdav1d --enable-gnutls --enable-libmp3lame --enable-libvpx --enable-libass --enable-pthreads --enable-vaapi --enable-libopenvino --enable-gpl --enable-libx264 --enable-libx265 --enable-libaom --enable-libsvtav1 --enable-libxml2 --enable-pic --enable-shared --disable-static --enable-version3 --enable-zlib --enable-libopus --pkg-config=/home/conda/feedstock_root/build_artifacts/ffmpeg_1722545947306/_build_env/bin/pkg-config\nlibavutil      58. 29.100 / 58. 29.100\nlibavcodec     60. 31.102 / 60. 31.102\nlibavformat    60. 16.100 / 60. 16.100\nlibavdevice    60.  3.100 / 60.  3.100\nlibavfilter     9. 12.100 /  9. 12.100\nlibswscale      7.  5.100 /  7.  5.100\nlibswresample   4. 12.100 /  4. 12.100\nlibpostproc    57.  3.100 / 57.  3.100",
+  "nvidia_smi": "NVIDIA GeForce RTX 4090, 580.178.04, 24564 MiB",
+  "mmsa_revision": "f8fbd2d88d4f77580ea1ded0b3469073488c5c19",
+  "openface_revision": null,
+  "model_download_record": [
+    {
+      "repo_id": "google-bert/bert-base-uncased",
+      "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+      "local_dir": "models/bert"
+    },
+    {
+      "repo_id": "espnet/kamo-naoyuki_librispeech_asr_train_asr_conformer5_raw_bpe5000_schedule-truncated-c8e5f9",
+      "revision": "e6a0f274799b5a4c157d1d5bc20de4c569e25f7e",
+      "local_dir": "models/ctc"
+    }
+  ],
+  "seed": 2026,
+  "argv": [
+    "/home/jqy/shumo/q1_features/src/q1_features/__main__.py",
+    "prepare",
+    "--config",
+    "configs/q1.yaml",
+    "--data-root",
+    "/home/jqy/shumo/E题数据",
+    "--run-dir",
+    "runs/q1_full_20260924"
+  ],
+  "code_state": {
+    "git_head": "da6c8e5bd553d0480ca941384ae20f279929872f",
+    "dirty": false,
+    "source": "git-archive-export",
+    "git_probe_error": "CalledProcessError(128, ['git', '-C', '/home/jqy/shumo/q1_features', 'rev-parse', 'HEAD'])"
+  },
+  "bert_device": {
+    "requested": "cuda:0",
+    "actual": "cuda:0",
+    "gpu_name": "NVIDIA GeForce RTX 4090",
+    "probe": 64.0
+  },
+  "ctc_device": {
+    "requested": "cuda:0",
+    "actual": "cuda:0",
+    "gpu_name": "NVIDIA GeForce RTX 4090",
+    "probe": 64.0
+  }
+}

@@ -1,0 +1,1 @@
+﻿review_order,sample_index,sample_id,video_id,video_path,audio_path,raw_text,words_path,vision_rows_path,frames_dir,duration_s,reviewer_id,transcript_status,transcript_start,transcript_end,visual_status,visual_start,visual_end,face_id,episode_id,confidence,evidence_note,review_seconds,submitted_at_utc

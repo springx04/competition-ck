@@ -1,0 +1,9 @@
+{
+  "labels_xlsx": "/home/jqy/shumo/E题数据/附件1-数据集原始多模态样本/MOSEI数据集部分原始视频-100条/label-100.xlsx",
+  "sheet": "label",
+  "sample_count": 100,
+  "source_count": 37,
+  "expected_sample_count": 100,
+  "expected_source_count": 37,
+  "differences": []
+}

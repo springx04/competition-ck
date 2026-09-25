@@ -1,0 +1,42 @@
+Could not find the HAAR face detector location
+Reading the landmark detector/tracker from: model/main_ceclm_general.txt
+Reading the landmark detector module from: model/cen_general.txt
+Reading the PDM module from: model/pdms/In-the-wild_aligned_PDM_68.txt....Done
+Reading the Triangulations module from: model/tris_68.txt....Done
+Reading the intensity CEN patch experts from: model/patch_experts/cen_patches_0.25_of.dat....Done
+Reading the intensity CEN patch experts from: model/patch_experts/cen_patches_0.35_of.dat....Done
+Reading the intensity CEN patch experts from: model/patch_experts/cen_patches_0.50_of.dat....Done
+Reading the intensity CEN patch experts from: model/patch_experts/cen_patches_1.00_of.dat....Done
+Reading part based module....left_eye_28
+Reading the landmark detector/tracker from: model/model_eye/main_clnf_synth_left.txt
+Reading the landmark detector module from: model/model_eye/clnf_left_synth.txt
+Reading the PDM module from: model/model_eye/pdms/pdm_28_l_eye_3D_closed.txt....Done
+Reading the intensity CCNF patch experts from: model/model_eye/patch_experts/left_ccnf_patches_1.00_synth_lid_.txt....Done
+Reading the intensity CCNF patch experts from: model/model_eye/patch_experts/left_ccnf_patches_1.50_synth_lid_.txt....Done
+Could not find the HAAR face detector location
+Done
+Reading part based module....right_eye_28
+Reading the landmark detector/tracker from: model/model_eye/main_clnf_synth_right.txt
+Reading the landmark detector module from: model/model_eye/clnf_right_synth.txt
+Reading the PDM module from: model/model_eye/pdms/pdm_28_eye_3D_closed.txt....Done
+Reading the intensity CCNF patch experts from: model/model_eye/patch_experts/ccnf_patches_1.00_synth_lid_.txt....Done
+Reading the intensity CCNF patch experts from: model/model_eye/patch_experts/ccnf_patches_1.50_synth_lid_.txt....Done
+Could not find the HAAR face detector location
+Done
+Reading the landmark validation module....Done
+Reading the MTCNN face detector from: model/mtcnn_detector/MTCNN_detector.txt
+Reading the PNet module from: model/mtcnn_detector/PNet.dat
+Reading the RNet module from: model/mtcnn_detector/RNet.dat
+Reading the ONet module from: model/mtcnn_detector/ONet.dat
+Reading the AU analysis module from: AU_predictors/main_static_svms.txt
+Reading the AU predictors from: AU_predictors/AU_all_static.txt... Done
+Reading the PDM from: AU_predictors/In-the-wild_aligned_PDM_68.txt... Done
+Reading the triangulation from:AU_predictors/tris_68_full.txt... Done
+Attempting to read from file: /home/jqy/shumo/E题数据/附件1-数据集原始多模态样本/MOSEI数据集部分原始视频-100条/-mJ2ud6oKI8/6.mp4
+Device or file opened
+WARNING: using a AU detection in multiple face mode, it might not be as accurate and is experimental
+Starting tracking
+0% 10% 20% 30% 40% 50% 60% 70% 80% Closing output recorder
+Closing input reader
+Closed successfully
+exit_status=0
