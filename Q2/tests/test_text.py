@@ -57,3 +57,19 @@ def test_selected_bert_components_receive_gradients_and_updates(train_embeddings
     assert model.encoder.layer[1].attention.self.query.weight.grad is not None
     optimizer.step()
     assert torch.equal(before, model.embeddings.word_embeddings.weight) != train_embeddings
+
+
+def test_configure_text_training_rejects_more_layers_than_model_has():
+    model = BertModel(BertConfig(vocab_size=32, hidden_size=16, num_hidden_layers=2,
+                                num_attention_heads=2, intermediate_size=32),
+                      add_pooling_layer=False)
+    with pytest.raises(ValueError, match=r"unfrozen_layers=3 exceeds .* 2 encoder layers"):
+        configure_text_training(model, unfrozen_layers=3)
+
+
+def test_configure_text_training_can_unfreeze_all_encoder_layers():
+    model = BertModel(BertConfig(vocab_size=32, hidden_size=16, num_hidden_layers=8,
+                                num_attention_heads=2, intermediate_size=32),
+                      add_pooling_layer=False)
+    configure_text_training(model, unfrozen_layers=8)
+    assert all(p.requires_grad for p in model.encoder.parameters())

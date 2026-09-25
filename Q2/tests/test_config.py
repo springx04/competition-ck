@@ -55,3 +55,25 @@ def test_text_stress_training_option_requires_boolean():
     config["train"]["stress_text"] = "false"
     with pytest.raises(ConfigError, match="train.stress_text must be a boolean"):
         validate_config(config)
+
+
+@pytest.mark.parametrize("model_id,max_layers", [
+    ("google/bert_uncased_L-4_H-256_A-4", 4),
+    ("google/bert_uncased_L-8_H-256_A-4", 8),
+])
+def test_unfrozen_layers_limit_matches_selected_text_model(model_id, max_layers):
+    config = load_config(Path(__file__).resolve().parents[1] / "configs/default.yaml")
+    config["text"]["model_id"] = model_id
+    for value in (0, max_layers):
+        config["text"]["unfrozen_layers"] = value
+        assert validate_config(config)["text"]["unfrozen_layers"] == value
+    config["text"]["unfrozen_layers"] = max_layers + 1
+    with pytest.raises(ConfigError, match=rf"from 0 through {max_layers}"):
+        validate_config(config)
+
+
+@pytest.mark.parametrize("probability", [0.0, 1.0])
+def test_grid_mix_probability_accepts_closed_interval_endpoints(probability):
+    config = load_config(Path(__file__).resolve().parents[1] / "configs/default.yaml")
+    config["train"]["grid_mix_probability"] = probability
+    assert validate_config(config)["train"]["grid_mix_probability"] == probability

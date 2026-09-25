@@ -24,6 +24,12 @@ FIXED_VARIANTS = (
 )
 
 
+_TEXT_MODEL_LAYERS = {
+    "google/bert_uncased_L-4_H-256_A-4": 4,
+    "google/bert_uncased_L-8_H-256_A-4": 8,
+}
+
+
 class ConfigError(ValueError):
     """Raised when a Q2 config does not match the declared schema."""
 
@@ -195,8 +201,9 @@ def _validate_values(config: Mapping[str, Any]) -> None:
 
     text = config["text"]
     _string(text["model_dir"], "text.model_dir")
-    if text["model_id"] not in ("google/bert_uncased_L-4_H-256_A-4",
-                                 "google/bert_uncased_L-8_H-256_A-4"):
+    model_layers = (_TEXT_MODEL_LAYERS.get(text["model_id"])
+                    if isinstance(text["model_id"], str) else None)
+    if model_layers is None:
         raise ConfigError("text.model_id must be a supported 256-dimensional Google BERT")
     _bool(text["frozen"], "text.frozen")
     if "cls_context" in text:
@@ -206,8 +213,10 @@ def _validate_values(config: Mapping[str, Any]) -> None:
     if "learning_rate" in text:
         _number(text["learning_rate"], "text.learning_rate", minimum=0.0)
     if "unfrozen_layers" in text:
-        if type(text["unfrozen_layers"]) is not int or not 0 <= text["unfrozen_layers"] <= 4:
-            raise ConfigError("text.unfrozen_layers must be an integer from 0 through 4")
+        if type(text["unfrozen_layers"]) is not int or not 0 <= text["unfrozen_layers"] <= model_layers:
+            raise ConfigError(
+                f"text.unfrozen_layers must be an integer from 0 through {model_layers}"
+            )
     if text["compute_dtype"] != "float32" or text["stored_dtype"] != "float16":
         raise ConfigError("text.compute_dtype/stored_dtype must be float32/float16")
     if text["attention_implementation"] != "eager":

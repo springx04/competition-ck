@@ -50,6 +50,13 @@ def load_text_encoder(path: Path, device: torch.device) -> BertModel:
 
 def configure_text_training(model, unfrozen_layers=4, train_embeddings=False):
     """Choose trainable BERT components; preserve legacy frozen embeddings."""
+    if type(unfrozen_layers) is not int or unfrozen_layers < 0:
+        raise ValueError("unfrozen_layers must be a non-negative integer")
+    actual_layers = len(model.encoder.layer)
+    if unfrozen_layers > actual_layers:
+        raise ValueError(
+            f"unfrozen_layers={unfrozen_layers} exceeds the model's {actual_layers} encoder layers"
+        )
     model.requires_grad_(False)
     if unfrozen_layers:
         for layer in model.encoder.layer[-unfrozen_layers:]:
