@@ -116,7 +116,7 @@ def _check_keys(value: Mapping[str, Any], name: str, expected: tuple[str, ...]) 
     actual = set(value)
     allowed = set(expected)
     optional = ({"learning_rate", "unfrozen_layers", "cls_context", "train_embeddings"} if name == "text" else
-                {"class_weight_power"} if name == "loss" else
+                {"class_weight_power", "late_unimodal_weight"} if name == "loss" else
                 {"clip_z", "video_sampling_power"} if name == "data" else
                 {"stress_text", "grid_mix"} if name == "train" else
                 {"class_bias"} if name == "evaluation" else set())
@@ -230,6 +230,8 @@ def _validate_values(config: Mapping[str, Any]) -> None:
         raise ConfigError("model.score_min must be less than model.score_max")
 
     loss = config["loss"]
+    if "late_unimodal_weight" in loss:
+        _number(loss["late_unimodal_weight"], "loss.late_unimodal_weight", minimum=0.0)
     if "class_weight_power" in loss:
         _number(loss["class_weight_power"], "loss.class_weight_power", minimum=0.0)
     for key in (

@@ -16,10 +16,10 @@ from .temporal import ObservedGRU
 
 
 VARIANTS = ("full", "full_tune", "full_tune_stress", "late_clean", "late_balanced", "late_tune", "late_tune_balanced", "late_tune_aug", "late_classifier", "late_attn_tune",
-            "late_pool_tune", "late_pool_tune_aug", "late_attn_runweight_tune", "late_gru_tune", "late_av_tune", "late_gate_tune",
+            "late_pool_tune", "late_pool_tune_aug", "late_attn_runweight_tune", "late_gru_tune", "late_av_tune", "late_gate_tune", "late_aux_tune",
             "late_aug", "no_msd", "no_comp", "no_reliability",
             "no_cons", "no_span", "no_teacher", "uniform_spans")
-TUNED_VARIANTS = ("full_tune", "full_tune_stress", "late_tune", "late_tune_balanced", "late_tune_aug", "late_pool_tune", "late_pool_tune_aug", "late_attn_tune", "late_attn_runweight_tune", "late_gru_tune", "late_av_tune", "late_gate_tune")
+TUNED_VARIANTS = ("full_tune", "full_tune_stress", "late_tune", "late_tune_balanced", "late_tune_aug", "late_pool_tune", "late_pool_tune_aug", "late_attn_tune", "late_attn_runweight_tune", "late_gru_tune", "late_av_tune", "late_gate_tune", "late_aux_tune")
 CLEAN_VARIANTS = ("late_clean", "late_balanced", "late_tune", "late_tune_balanced", "late_classifier", "late_pool_tune")
 
 
@@ -54,6 +54,7 @@ class ForwardOutput:
     q: Optional[torch.Tensor] = None
     source_positions: Optional[torch.Tensor] = None
     time_axis: str = "official_aligned_positions"
+    unimodal_logits: Optional[torch.Tensor] = None
 
 
 def encode_view(raw_batch: dict, frozen_text_encoder, normalizer, text_cache=None,
@@ -86,7 +87,7 @@ class Student(nn.Module):
         self.variant = variant
         self.late = variant.startswith("late_")
         self.pool_only = variant.startswith("late_pool_")
-        self.attn_pool = variant in ("late_attn_tune", "late_attn_runweight_tune", "late_gru_tune", "late_av_tune", "late_gate_tune")
+        self.attn_pool = variant in ("late_attn_tune", "late_attn_runweight_tune", "late_gru_tune", "late_av_tune", "late_gate_tune", "late_aux_tune")
         self.use_msd = not self.late and variant != "no_msd"
         self.use_comp = not self.late and variant != "no_comp"
         self.use_reliability = self.use_comp and variant not in ("no_reliability", "no_teacher")
@@ -121,6 +122,12 @@ class Student(nn.Module):
         # initialization as the attention-only control.
         self.temporal = (nn.ModuleList([ObservedGRU(), ObservedGRU()])
                          if variant == "late_gru_tune" else None)
+        self.auxiliary_classifiers = None
+        if variant == "late_aux_tune" and include_aux_heads:
+            # New deterministic heads should not shift the common model's
+            # subsequent dropout RNG stream in the zero-weight control.
+            with torch.random.fork_rng(devices=[]):
+                self.auxiliary_classifiers = nn.ModuleList([nn.Linear(128, 3) for _ in range(3)])
 
     def forward(self, model_input: ModelInput, return_details=False, return_attention=None) -> ForwardOutput:
         # Training needs the intermediate tensors for losses but never the
@@ -130,6 +137,7 @@ class Student(nn.Module):
         if return_attention is None:
             return_attention = return_details
         U, J = model_input.U, model_input.J
+        unimodal_logits = None
         batch, length, _ = U.shape
         position = sinusoidal_positions(length, 128, U.device)
         embeds = self.modalities.weight if self.modalities is not None else None
@@ -157,6 +165,8 @@ class Student(nn.Module):
                     flags.append(available.any(dim=1))
             else:
                 pools, flags = zip(*(masked_mean(H[:, :, m], U[:, :, m]) for m in range(3)))
+            if return_details and self.auxiliary_classifiers is not None:
+                unimodal_logits = torch.stack([self.auxiliary_classifiers[m](pools[m]) for m in range(3)], dim=1)
             fused = torch.cat((*pools, torch.stack(flags, dim=-1).float()), dim=-1)
             if self.reliability_gates is not None:
                 gate_input = [torch.cat((pools[m], flags[m][:, None].float()), dim=-1)
@@ -205,4 +215,4 @@ class Student(nn.Module):
                              fusion_type=fusion_type, H=H, C=C, S=S, F=F, F_hat=F_hat,
                              e_hat=e_hat, r=r, alpha=alpha, attention=attention,
                              q=model_input.q if return_details else None,
-                             source_positions=source_positions)
+                             source_positions=source_positions, unimodal_logits=unimodal_logits)

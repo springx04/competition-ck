@@ -184,6 +184,8 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
                             num_workers=config["data"]["num_workers"], pin_memory=True,
                             drop_last=False, collate_fn=collate_raw)
         totals = {key: 0.0 for key in ("total", "task_clean", "task_corrupt", "msd", "span", "calibration", "consistency")}
+        if student.auxiliary_classifiers is not None:
+            totals["unimodal"] = 0.0
         omega_count = 0
         descriptors_for_epoch = []
         batches = 0
@@ -226,7 +228,8 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
                                     state0, epoch, student, class_weight=class_weight,
                                     regression_weight=config["loss"]["regression_weight"],
                                     warmup_epochs=warmup_epochs,
-                                    ramp_epochs=config["loss"]["ramp_epochs"])
+                                    ramp_epochs=config["loss"]["ramp_epochs"],
+                                    unimodal_weight=config["loss"].get("late_unimodal_weight", .2))
             if not torch.isfinite(losses.total):
                 raise FloatingPointError(f"non-finite loss in {variant}/seed_{seed}/epoch_{epoch}")
             losses.total.backward()

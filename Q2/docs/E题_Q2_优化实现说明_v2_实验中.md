@@ -1,6 +1,6 @@
 # Q2 优化实现说明 v2
 
-2026-09-24。配合《Q2优化方案v3》使用。本文记录已实现接口和待运行实验，替代旧任务书中“所有变体均冻结BERT、固定60轮”的探索限制，其余数据使用边界不变。
+2026-09-25。配合《Q2优化方案v3》使用。本文记录已实现接口和实验，替代旧任务书中“所有变体均冻结BERT、固定60轮”的探索限制，其余数据使用边界不变。当前每批候选在valid选checkpoint后均复核test，不能仅凭valid提升小否决；test参与后续方向选择的结果明确标为探索性。
 
 ## 1. 服务器与文件
 
@@ -140,3 +140,34 @@ OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 CUBLAS_WORKSPACE_CONFIG=:4096:8 \
 历史摘要中的seed1112无偏置test缺失0.556955、seed1113无偏置0.557457、seed1113旧校准0.566071均不等于原CSV的72主场景均值。按精确场景名称重新读取原CSV，分别为0.558045、0.558175、0.566883；当前推理与原CSV一致，不是重新训练导致的变化。后续汇总只接受同一72场景、同一scope，不混入压力场景。详细真实数值、失败候选和test自适应探索边界见方案第12节。
 
 `scripts/fit_joint_bias.py`保留本次625个网格点的valid-only偏置搜索，固定读取seed1111的best_validation预测，不接受test输入；保存`reports/joint_bias_selection.json`。它使用向量化的逐场景混淆计数，先求每场景三分类Macro-F1再平均，不把所有缺失场景拼接后算一个F1。本次53144条valid场景记录中无全空记录；实现仍与部署一致，不向全空内容加偏置。此脚本只复现已有探索选择，不启动新一轮test评估。
+
+## 11. 单模态辅助分类及逐候选 test 复核
+
+`late_aux_tune`加入`VARIANTS/TUNED_VARIANTS`，与`late_attn_tune`共享注意力池化与主预测结构。`ForwardOutput.unimodal_logits`仅在`return_details=True`且存在辅助头时生成，形状为`[B,3,3]`。三个`Linear(128,3)`在公共模块之后、`torch.random.fork_rng(devices=[])`内初始化，不推进公共CPU随机数流。`include_aux_heads=False`完全省去这些头；`export_bundle`过滤`auxiliary_classifiers.*`后严格加载无辅助头学生。
+
+`losses.unimodal_classification_loss`以`U.any(dim=1)`决定样本/模态是否有观测；CE使用`reduction="none"`后求有效样本均值，与主任务的类别权重尺度一致。有可用样本的模态再等权平均，全空时返回连接主logits的零项。`compute_losses`默认辅助系数0.2；现有变体没有辅助输出，因此不增加该损失或日志列。trainer将`loss.late_unimodal_weight`传入，配置仅要求其非负；`explore_tuning.py --late-unimodal-weight`控制独立对照。辅助系数0时不改变主梯度，仍记录辅助损失供检查。
+
+本轮三个候选依次运行以下命令，其中`W`预先固定为`0 0.05 0.2`，名称分别为`attn_aux0_v1`、`attn_aux0.05_v1`、`attn_aux0.2_v1`；旧目录不可覆盖：
+
+```bash
+export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 CUBLAS_WORKSPACE_CONFIG=:4096:8
+.venv/bin/python scripts/explore_tuning.py --config configs/quick_tune.yaml \
+  --name "attn_aux${W}_v1" --variant late_aux_tune \
+  --text-lr 1e-5 --student-lr 1e-4 --regression-weight 1 --class-weight-power .5 \
+  --epochs 20 --seed 1111 --cls-context --grid-mix --late-unimodal-weight "$W"
+.venv/bin/python scripts/evaluate_experiment.py "attn_aux${W}_v1" --variant late_aux_tune
+```
+
+`evaluate_experiment.py`读取命名run的`best.pt`，先记录checkpoint、valid选择键、轮次、显式`class_bias=null`和已见test历史，再调用统一`evaluate_best`；输出写入`reports/exploratory/<name>/<UTC时间>/`，不替换正式selection。`--split`默认test，可显式指定valid。`summarize_auxiliary_study.py`读取三个固定候选已完成的test读数，精确匹配72主场景/all_samples并复算均值，输出`reports/auxiliary_study_summary.json`，保留源目录和零权重历史差异。
+
+本地及服务器均99项测试通过，包含缺失模态梯度屏蔽、加权样本均值、辅助梯度进入编码器、公共初始化与后续随机流、无辅助头预测一致及实际export文件删除辅助权重后的严格加载。全空损失统一连接主logits的零项；旧辅助logits零项数值同为零，不把此调整描述成已造成预测错误。该测试没有替代真实最终离线包的完整验收。
+
+三个权重的训练耗时分别210.3/212.8/208.8秒，均完成20轮并由valid选择第15轮；这些耗时不含随后test读数。缺失场景数均为72；汇总精确结果见方案第13节。`resource_usage.parameter_count=99600`只统计学生，不包含BERT，不能作为整个系统参数量。训练中辅助头增加1161参数，正式导出尚未切换。
+
+下一批计划保存在服务器`reports/next_candidates_plan.json`，执行命令为`reports/run_next_candidates.sh`。辅助复验名称`attn_aux0.2_seed1112_v1`、`attn_aux0.2_seed1113_v1`，沿用本节命令仅改名称与seed。裁剪对照为`attn_gridmix_reg1_clip3_v1`、`attn_gridmix_reg1_clip5_v1`，沿用本节训练设置，变体改为`late_attn_tune`，移除辅助权重参数并增加`--clip-z 3`或`5`。这批无需修改Normalizer；已有`checkpoint_runtime_options`将checkpoint中的`clip_z`恢复到评估与导出推理。train极端值审计为`reports/train_clipping_audit.json`，不参与模型拟合。
+
+## 12. 十项历史候选的 test 补测
+
+已完成方案第15节全部十项test读数，计划先写入`reports/previous_candidates_cohort.json`，执行日志为`reports/previous_candidates_test.log`，完整汇总为`reports/previous_candidates_summary.json`。每项均调用`evaluate_experiment.py NAME --variant VARIANT`，seed默认1111，保留独立带时间的selection、预测、场景CSV与summary。前六项使用`late_attn_tune`；其后依次为`late_attn_runweight_tune`、`late_gru_tune`、`late_av_tune`、`late_gate_tune`。所有checkpoint来自旧训练，不因此次test表现重新选择epoch。
+
+历史候选读取完成后已启动第11节四项固定候选的顺序队列，日志为`reports/next_candidates.log`。当前仅能确认任务启动，结果应由各run的history、resource_usage及test summary核实；不能把排队视作训练完成。

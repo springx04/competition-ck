@@ -215,7 +215,7 @@ def export_bundle(root: Path, selection: dict):
     student = Student(selection["variant"], normalizer.class_prior, normalizer.score_prior,
                       include_aux_heads=False)
     state = {key: value for key, value in checkpoint["student"].items()
-             if not key.startswith(("decomposition.aux_class.", "decomposition.aux_score."))}
+             if not key.startswith(("decomposition.aux_class.", "decomposition.aux_score.", "auxiliary_classifiers."))}
     student.load_state_dict(state, strict=True)
     save_file({key: value.contiguous() for key, value in state.items()}, str(dest / "student.safetensors"))
     shutil.copy2(root / "data/processed/normalizer.npz", dest / "normalizer.npz")

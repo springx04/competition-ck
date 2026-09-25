@@ -28,6 +28,8 @@ parser.add_argument("--stress-text", action="store_true",
                     help="emphasize text-missing training views after warmup")
 parser.add_argument("--grid-mix", action="store_true",
                     help="mix public fixed-grid spans with the original training curriculum")
+parser.add_argument("--late-unimodal-weight", type=float, default=None,
+                    help="training-only auxiliary classification weight for late_aux_tune")
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 config = load_config(root / args.config)
@@ -37,6 +39,8 @@ config["text"]["cls_context"] = args.cls_context
 config["text"]["train_embeddings"] = args.train_embeddings
 config["evaluation"].pop("class_bias", None)
 config["loss"]["regression_weight"] = args.regression_weight
+if args.late_unimodal_weight is not None:
+    config["loss"]["late_unimodal_weight"] = args.late_unimodal_weight
 if args.class_weight_power is not None:
     config["loss"]["class_weight_power"] = args.class_weight_power
 if args.clip_z is not None:

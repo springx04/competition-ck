@@ -67,9 +67,25 @@ class LossOutput:
     omega_count: int
 
 
+def unimodal_classification_loss(output, class_id, class_weight=None):
+    """Equal mean over available modalities, each with its own observed samples."""
+    logits = getattr(output, "unimodal_logits", None)
+    if logits is None:
+        return output.logits.sum() * 0
+    observed = output.U.any(dim=1)
+    terms = []
+    for m in range(3):
+        valid = observed[:, m]
+        if valid.any():
+            terms.append(F.cross_entropy(logits[valid, m], class_id[valid],
+                                         weight=class_weight, reduction="none").mean())
+    return torch.stack(terms).mean() if terms else output.logits.sum() * 0
+
+
 def compute_losses(clean_output, corrupt_output, teacher_output, labels, perturbation,
                    state0, epoch: int, student, class_weight=None,
-                   regression_weight=1.0, warmup_epochs=5, ramp_epochs=10) -> LossOutput:
+                   regression_weight=1.0, warmup_epochs=5, ramp_epochs=10,
+                   unimodal_weight=.2) -> LossOutput:
     cls, score = labels["class_id"], labels["score"]
     clean_task = task_loss(clean_output, cls, score, class_weight, regression_weight)
     msd = msd_loss(clean_output, student, cls, score)["total"]
@@ -77,11 +93,18 @@ def compute_losses(clean_output, corrupt_output, teacher_output, labels, perturb
     terms = {"task_clean": clean_task, "task_corrupt": zero, "msd": msd,
              "span": zero, "calibration": zero, "consistency": zero}
     total = clean_task + .05 * msd
+    if getattr(clean_output, "unimodal_logits", None) is not None:
+        terms["unimodal"] = unimodal_classification_loss(clean_output, cls, class_weight)
+        total = total + unimodal_weight * terms["unimodal"]
     if epoch <= warmup_epochs:
         return LossOutput(total, terms, 0)
     corrupt_task = task_loss(corrupt_output, cls, score, class_weight, regression_weight)
     terms["task_corrupt"] = corrupt_task
     total = total + corrupt_task
+    if "unimodal" in terms:
+        corrupt_aux = unimodal_classification_loss(corrupt_output, cls, class_weight)
+        terms["unimodal"] = terms["unimodal"] + corrupt_aux
+        total = total + unimodal_weight * corrupt_aux
     omega = perturbation.P & state0.U & corrupt_output.B_comp
     if teacher_output is not None and corrupt_output.F_hat is not None and teacher_output.F is not None:
         target = F.layer_norm(teacher_output.F.detach().float(), (128,), eps=1e-5)
