@@ -198,3 +198,7 @@ export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 CUBLAS_WORKSPACE_CONFIG=:4096:8
 服务器`reports/feature_kd_plan.json`在学生读取test前记录固定三个权重，顺序队列为`reports/run_feature_kd.sh`，日志`reports/feature_kd.log`。学生评估、专项与导出只恢复学生及其微调BERT，不读取教师目标文件；checkpoint中保留该路径仅用于训练复现/续跑，不构成推理依赖。
 
 本批三项学生均已完成训练和test读取。零权重20轮总损失最大差为0，分类指标与原组合一致；两个非零系数未改善test，详见方案第17节。`reports/feature_kd_summary.json`同时保留教师valid读数、学生valid/test读数和零权重轨迹差异。本地、服务器均108项测试通过；新增测试覆盖train目标split/ID顺序/形状检查、重复采样索引、预热和ramp权重、教师梯度停止，并单独对一致性项回传确认受损分类与回归输出收到梯度，避免用主任务梯度掩盖蒸馏断路。
+
+辅助0.2三种子集成计算脚本只在服务器交互命令中完成，读取各自test `predictions.csv`和valid最佳checkpoint的原始logits，按`scenario,sample_id`对齐；未平均概率，未把偏置加到全空样本。旧偏置和重新valid集成偏置两组读数均保留在方案第18节，尚未写入正式selection。单模型test结果仍以各自summary为准。
+
+新增`--text-model-dir`、`--text-model-id`只允许两个已核对的256维Google BERT标识；`load_checkpoint_text_encoder`从checkpoint保存的text目录恢复，避免把8层checkpoint误读成4层。8层权重不进入现有`models/text_encoder`正式目录，训练和评估日志记录独立路径`models/text_encoder_8`。服务器测试仍108项通过；8层模型只做探索，不改变默认配置和导出路径。
