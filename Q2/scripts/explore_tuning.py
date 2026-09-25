@@ -28,6 +28,8 @@ parser.add_argument("--stress-text", action="store_true",
                     help="emphasize text-missing training views after warmup")
 parser.add_argument("--grid-mix", action="store_true",
                     help="mix public fixed-grid spans with the original training curriculum")
+parser.add_argument("--grid-mix-probability", type=float, default=None,
+                    help="probability of sampling the fixed evaluation grid after warmup")
 parser.add_argument("--late-unimodal-weight", type=float, default=None,
                     help="training-only auxiliary classification weight for late_aux_tune")
 parser.add_argument("--teacher-targets", default=None,
@@ -71,6 +73,9 @@ config["train"].update(epochs=args.epochs, warmup_epochs=2,
                        stress_text=args.stress_text)
 if args.grid_mix:
     config["train"]["grid_mix"] = True
+if args.grid_mix_probability is not None:
+    config["train"]["grid_mix"] = True
+    config["train"]["grid_mix_probability"] = args.grid_mix_probability
 config["evaluation"]["deployed_seed"] = args.seed
 config["data"]["num_workers"] = 0
 validate_config(config)

@@ -90,7 +90,8 @@ def apply_span(raw_batch: dict, perturbation: Perturbation) -> dict:
 
 def sample_train_descriptor(seed: int, epoch: int, sample_index: int, uniform_spans: bool = False,
                             total_epochs: int = 60, warmup_epochs: int = 5,
-                            stress_text: bool = False, grid_mix: bool = False) -> dict:
+                            stress_text: bool = False, grid_mix: bool = False,
+                            grid_mix_probability: float | None = None) -> dict:
     rng = np.random.default_rng(np.random.SeedSequence([seed, epoch, sample_index]))
     if epoch <= warmup_epochs:
         return {"pattern": "", "rho": 0, "position": "middle"}
@@ -99,7 +100,8 @@ def sample_train_descriptor(seed: int, epoch: int, sample_index: int, uniform_sp
     # or labels from either evaluation split.
     if grid_mix:
         grid_rng = np.random.default_rng(np.random.SeedSequence([seed, epoch, sample_index, 1]))
-        if grid_rng.random() < .5:
+        probability = .5 if grid_mix_probability is None else float(grid_mix_probability)
+        if grid_rng.random() < probability:
             grid = evaluation_grid()
             return {k: v for k, v in grid[int(grid_rng.integers(len(grid)))].items() if k != "name"}
     progress = (epoch - warmup_epochs) / max(1, total_epochs - warmup_epochs)

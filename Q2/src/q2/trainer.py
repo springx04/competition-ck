@@ -206,7 +206,8 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
                                                     total_epochs=epochs, warmup_epochs=warmup_epochs,
                                                     stress_text=(variant == "full_tune_stress"
                                                                  or config["train"].get("stress_text", False)),
-                                                    grid_mix=config["train"].get("grid_mix", False))
+                                                    grid_mix=config["train"].get("grid_mix", False),
+                                                    grid_mix_probability=config["train"].get("grid_mix_probability"))
                             for index in original_indices])
             perturbation = make_span_mask(raw, state0, descriptors)
             descriptors_for_epoch.extend({"sample_index": int(index), "epoch": epoch, **desc}
