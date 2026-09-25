@@ -2,6 +2,16 @@
 
 ## Current revision
 
+2026-09-25 correction: final performance is reported on test, not valid.
+The first locked attention checkpoint obtained test clean Macro-F1 0.598213
+and missing-grid Macro-F1 0.560844. The later bias-calibrated 0.602589/0.563362
+was produced after observing those test scores and is exploratory, not an
+independent holdout confirmation. Do not claim calibration was locked before
+the first test. Future train/valid exploration must disclose this test history.
+See section 8 of the method document and section 7 of the implementation
+document for updated experiments, corrected seed aggregation, shared
+evaluation/export semantics, and the controlled embedding-unfreezing run.
+
 The active method and implementation updates are
 `docs/E题_Q2_优化方案_v3_实验中.md` and
 `docs/E题_Q2_优化实现说明_v2_实验中.md`. The frozen `late_balanced`

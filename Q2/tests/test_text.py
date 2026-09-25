@@ -5,6 +5,9 @@ import torch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from q2.state import infer_state
 from q2.text import encode_text
+from q2.text import configure_text_training
+from transformers import BertConfig, BertModel
+import pytest
 
 
 class _Encoder:
@@ -37,3 +40,20 @@ def test_cls_context_is_added_only_to_observed_text_positions():
     assert torch.all(output[0, 1] == 208)
     assert torch.all(output[0, 2] == 209)
     assert torch.all(output[0, 3:] == 0)
+
+
+@pytest.mark.parametrize("train_embeddings", [False, True])
+def test_selected_bert_components_receive_gradients_and_updates(train_embeddings):
+    model = BertModel(BertConfig(vocab_size=32, hidden_size=16, num_hidden_layers=2,
+                                num_attention_heads=2, intermediate_size=32),
+                      add_pooling_layer=False)
+    configure_text_training(model, unfrozen_layers=1, train_embeddings=train_embeddings)
+    assert not any(p.requires_grad for p in model.encoder.layer[0].parameters())
+    assert all(p.requires_grad for p in model.encoder.layer[1].parameters())
+    before = model.embeddings.word_embeddings.weight.detach().clone()
+    optimizer = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=.01)
+    model(input_ids=torch.tensor([[1, 2, 3]])).last_hidden_state[..., 0].sum().backward()
+    assert (model.embeddings.word_embeddings.weight.grad is not None) == train_embeddings
+    assert model.encoder.layer[1].attention.self.query.weight.grad is not None
+    optimizer.step()
+    assert torch.equal(before, model.embeddings.word_embeddings.weight) != train_embeddings

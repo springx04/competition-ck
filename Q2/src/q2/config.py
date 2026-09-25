@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from numbers import Real
+import math
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -114,9 +115,10 @@ def _mapping(value: Any, name: str) -> dict[str, Any]:
 def _check_keys(value: Mapping[str, Any], name: str, expected: tuple[str, ...]) -> None:
     actual = set(value)
     allowed = set(expected)
-    optional = ({"learning_rate", "unfrozen_layers", "cls_context"} if name == "text" else
+    optional = ({"learning_rate", "unfrozen_layers", "cls_context", "train_embeddings"} if name == "text" else
                 {"class_weight_power"} if name == "loss" else
                 {"clip_z", "video_sampling_power"} if name == "data" else
+                {"stress_text"} if name == "train" else
                 {"class_bias"} if name == "evaluation" else set())
     unknown = sorted(actual - allowed - optional)
     missing = sorted(allowed - actual)
@@ -150,6 +152,8 @@ def _number(value: Any, name: str, *, minimum: float | None = None) -> float:
     if isinstance(value, bool) or not isinstance(value, Real):
         raise ConfigError(f"{name} must be a number")
     result = float(value)
+    if not math.isfinite(result):
+        raise ConfigError(f"{name} must be finite")
     if minimum is not None and result < minimum:
         raise ConfigError(f"{name} must be >= {minimum}")
     return result
@@ -196,6 +200,8 @@ def _validate_values(config: Mapping[str, Any]) -> None:
     _bool(text["frozen"], "text.frozen")
     if "cls_context" in text:
         _bool(text["cls_context"], "text.cls_context")
+    if "train_embeddings" in text:
+        _bool(text["train_embeddings"], "text.train_embeddings")
     if "learning_rate" in text:
         _number(text["learning_rate"], "text.learning_rate", minimum=0.0)
     if "unfrozen_layers" in text:
@@ -241,6 +247,8 @@ def _validate_values(config: Mapping[str, Any]) -> None:
     _integer(loss["ramp_epochs"], "loss.ramp_epochs", minimum=0)
 
     train = config["train"]
+    if "stress_text" in train:
+        _bool(train["stress_text"], "train.stress_text")
     for key in ("epochs", "warmup_epochs"):
         _integer(train[key], f"train.{key}", minimum=1)
     if train["optimizer"] != "adamw":

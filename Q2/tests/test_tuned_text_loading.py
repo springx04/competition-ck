@@ -127,6 +127,33 @@ def test_load_training_best_restores_checkpoint_text_encoder(monkeypatch, tmp_pa
     assert bundle.normalizer.clip_z == 2.5
 
 
+@pytest.mark.parametrize("selected_bias", [[-.3, .025, 0], None])
+def test_selection_checkpoint_and_bias_agree_in_evaluation_and_prediction(monkeypatch, tmp_path, selected_bias):
+    checkpoint = {"student": {}, "text_encoder": {},
+                  "config": {"evaluation": {"class_bias": [1, 2, 3]}}}
+    paths, calls = [], []
+    monkeypatch.setattr(cli.torch, "load", lambda path, **kwargs: paths.append(Path(path)) or checkpoint)
+    monkeypatch.setattr(cli.Normalizer, "load", lambda path: _Normalizer())
+    monkeypatch.setattr(cli, "AlignedDataset", lambda path: object())
+    monkeypatch.setattr(cli, "load_checkpoint_text_encoder", lambda *args: _Encoder())
+    monkeypatch.setattr(export, "load_checkpoint_text_encoder", lambda *args: _Encoder())
+    monkeypatch.setattr(cli, "evaluate_model", lambda *args, **kwargs: calls.append(kwargs) or ([], []))
+    monkeypatch.setattr("q2.model.network.Student", _Student)
+    monkeypatch.setattr(export, "Student", _Student)
+    selection = {"variant": "late_attn_tune", "seed": 1111,
+                 "checkpoint": "experiments/chosen/best.pt", "class_bias": selected_bias}
+    config = {"project": {"output_root": "wrong-directory"}, "data": {"eval_batch_size": 4},
+              "evaluation": {"class_bias": [99, 99, 99]}}
+    cli.evaluate_best(tmp_path, config, selection["variant"], 1111, selection=selection)
+    bundle = export.load_training_best(tmp_path, selection, device="cpu")
+    assert paths == [tmp_path / selection["checkpoint"]] * 2
+    assert calls[0]["class_bias"] == bundle.class_bias
+    if selected_bias is None:
+        assert bundle.class_bias is None
+    else:
+        assert bundle.class_bias == pytest.approx(selected_bias)
+
+
 def test_old_checkpoint_without_frontend_option_defaults_to_token_only(monkeypatch, tmp_path):
     encoder = _Encoder()
     checkpoint = {"student": {"student": torch.tensor(1)}, "text_encoder": {"bert": torch.tensor(3)}}
@@ -177,7 +204,8 @@ def test_export_bundle_serializes_tuned_encoder_into_directory_and_zip(monkeypat
 
     result = export.export_bundle(
         root,
-        {"variant": "late_tune_aug", "checkpoint": "runs/late_tune_aug/seed_1111/best.pt"},
+        {"variant": "late_tune_aug", "checkpoint": "runs/late_tune_aug/seed_1111/best.pt",
+         "class_bias": [-.3, .025, 0]},
     )
 
     marker = Path(result["directory"]) / "assets/text_encoder/tuned-state.txt"
@@ -186,5 +214,6 @@ def test_export_bundle_serializes_tuned_encoder_into_directory_and_zip(monkeypat
         (Path(result["directory"]) / "model_config.yaml").read_text(encoding="utf-8"))
     assert model_config["text"]["cls_context"] is True
     assert model_config["data"]["clip_z"] == 3.0
+    assert model_config["evaluation"]["class_bias"] == pytest.approx([-.3, .025, 0])
     with export.zipfile.ZipFile(result["zip"]) as archive:
         assert "q2_inference/assets/text_encoder/tuned-state.txt" in archive.namelist()

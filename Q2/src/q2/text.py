@@ -48,6 +48,16 @@ def load_text_encoder(path: Path, device: torch.device) -> BertModel:
     return model.to(device).requires_grad_(False).eval()
 
 
+def configure_text_training(model, unfrozen_layers=4, train_embeddings=False):
+    """Choose trainable BERT components; preserve legacy frozen embeddings."""
+    model.requires_grad_(False)
+    if unfrozen_layers:
+        for layer in model.encoder.layer[-unfrozen_layers:]:
+            layer.requires_grad_(True)
+    model.embeddings.requires_grad_(train_embeddings)
+    model.train()
+
+
 def encode_text(raw: dict, model: BertModel, state=None, batch_size: int = 64,
                 requires_grad: bool = False, cls_context: bool = False) -> torch.Tensor:
     state = state or infer_state(raw)

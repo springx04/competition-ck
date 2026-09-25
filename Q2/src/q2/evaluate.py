@@ -13,6 +13,7 @@ from .masking import apply_span, evaluation_grid, make_span_mask
 from .metrics import compute_metrics, degradation_metrics
 from .model.network import encode_view
 from .state import infer_state
+from .calibration import apply_class_bias, validate_class_bias
 
 
 def _device_batch(batch, device):
@@ -61,10 +62,7 @@ def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, d
                    cls_context=False, class_bias=None):
     student.eval()
     text_encoder.eval()
-    if class_bias is not None:
-        class_bias = np.asarray(class_bias, dtype=np.float32)
-        if class_bias.shape != (3,) or not np.isfinite(class_bias).all():
-            raise ValueError("class_bias must be a finite length-3 vector")
+    class_bias = validate_class_bias(class_bias)
     scenarios = [{"name": "clean"}] + evaluation_grid() + (evaluation_grid(stress=True) if stress else [])
     index = json.loads((Path(mask_dir) / "index.json").read_text(encoding="utf-8"))
     duplicates = {entry["name"]: entry["duplicate_of"] for entry in index}
@@ -124,9 +122,7 @@ def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, d
             if scenario_cache_new:
                 scenario_cache[offset:offset+n] = model_input.text_features.cpu().numpy()
             output = student(model_input)
-            if class_bias is not None:
-                output.logits = output.logits + torch.as_tensor(
-                    class_bias, device=output.logits.device, dtype=output.logits.dtype)
+            output.logits = apply_class_bias(output.logits, model_input.U, class_bias)
             y_class.extend(batch["class_id"].tolist())
             y_score.extend(batch["score"].tolist())
             logits.extend(output.logits.cpu().tolist())
@@ -134,7 +130,7 @@ def evaluate_model(student, text_encoder, normalizer, dataset: AlignedDataset, d
             damaged.extend(p.any(dim=(1, 2)).tolist())
             p_counts.extend(p.sum(dim=1).tolist())
             u_counts.extend(state0.U.sum(dim=1).tolist())
-            empty.extend((~output.J.any(dim=1)).cpu().tolist())
+            empty.extend((~model_input.U.any(dim=(1, 2))).cpu().tolist())
             offset += n
         if scenario_cache_new:
             scenario_cache.flush()

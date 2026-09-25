@@ -16,6 +16,7 @@ from safetensors.torch import load_file, save_file
 from .data import Normalizer, load_pickle, unpack_record
 from .model.network import Student, TUNED_VARIANTS, encode_view
 from .text import load_text_encoder
+from .calibration import apply_class_bias, validate_class_bias
 
 
 CLASS_NAMES = ("Negative", "Neutral", "Positive")
@@ -36,7 +37,8 @@ LEGACY_CLS_CONTEXT_RUNS = frozenset({
 })
 
 
-def checkpoint_runtime_options(checkpoint: dict, checkpoint_path: Path | None = None) -> dict:
+def checkpoint_runtime_options(checkpoint: dict, checkpoint_path: Path | None = None,
+                               selection: dict | None = None) -> dict:
     """Resolve frontend options saved by a checkpoint, with a narrow legacy map."""
     config = checkpoint.get("config") or {}
     text_config = config.get("text") or {}
@@ -52,8 +54,9 @@ def checkpoint_runtime_options(checkpoint: dict, checkpoint_path: Path | None = 
             names.update(parent.name for parent in path.parents)
         cls_context = any(name in LEGACY_CLS_CONTEXT_RUNS for name in names)
     evaluation_config = config.get("evaluation") or {}
+    bias = (selection or {}).get("class_bias", evaluation_config.get("class_bias"))
     return {"cls_context": bool(cls_context), "clip_z": data_config.get("clip_z"),
-            "class_bias": evaluation_config.get("class_bias")}
+            "class_bias": validate_class_bias(bias)}
 
 
 def load_checkpoint_text_encoder(root: Path, variant: str, checkpoint: dict, device):
@@ -79,8 +82,7 @@ class Bundle:
         self.normalizer = normalizer
         self.device = torch.device(device)
         self.cls_context = bool(cls_context)
-        self.class_bias = None if class_bias is None else torch.as_tensor(
-            class_bias, dtype=torch.float32, device=self.device)
+        self.class_bias = validate_class_bias(class_bias)
 
     @torch.no_grad()
     def predict_raw(self, raw_batch: dict, return_details=True):
@@ -89,7 +91,7 @@ class Bundle:
                                   cls_context=self.cls_context)
         output = self.student(model_input, return_details=return_details)
         if self.class_bias is not None:
-            output.logits = output.logits + self.class_bias.to(output.logits.dtype)
+            output.logits = apply_class_bias(output.logits, model_input.U, self.class_bias)
         return output
 
 
@@ -117,7 +119,7 @@ def load_training_best(root: Path, selection: dict, device="cuda:0", round_text_
     normalizer = Normalizer.load(Path(root) / "data/processed/normalizer.npz")
     checkpoint_path = Path(root) / selection["checkpoint"]
     checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
-    runtime = checkpoint_runtime_options(checkpoint, checkpoint_path)
+    runtime = checkpoint_runtime_options(checkpoint, checkpoint_path, selection)
     if runtime["clip_z"] is not None:
         normalizer.clip_z = runtime["clip_z"]
     student = Student(selection["variant"], normalizer.class_prior, normalizer.score_prior)
@@ -130,7 +132,7 @@ def load_training_best(root: Path, selection: dict, device="cuda:0", round_text_
         encoder.half().float()
     return Bundle(student, encoder, normalizer, device,
                   cls_context=runtime["cls_context"],
-                  class_bias=selection.get("class_bias", runtime.get("class_bias")))
+                  class_bias=runtime["class_bias"])
 
 
 def raw_from_record(record: dict):
@@ -207,7 +209,7 @@ def export_bundle(root: Path, selection: dict):
     normalizer = Normalizer.load(root / "data/processed/normalizer.npz")
     checkpoint_path = root / selection["checkpoint"]
     checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
-    runtime = checkpoint_runtime_options(checkpoint, checkpoint_path)
+    runtime = checkpoint_runtime_options(checkpoint, checkpoint_path, selection)
     if runtime["clip_z"] is not None:
         normalizer.clip_z = runtime["clip_z"]
     student = Student(selection["variant"], normalizer.class_prior, normalizer.score_prior,
@@ -232,7 +234,7 @@ def export_bundle(root: Path, selection: dict):
             "variant": selection["variant"],
             "text": {"cls_context": runtime["cls_context"]},
             "data": {"clip_z": runtime["clip_z"]},
-            "evaluation": {"class_bias": selection.get("class_bias", runtime.get("class_bias"))},
+            "evaluation": {"class_bias": runtime["class_bias"]},
         }), encoding="utf-8")
     (dest / "run_inference.py").write_text(INFERENCE_SCRIPT, encoding="utf-8")
     (dest / "README.md").write_text("# Q2 offline inference\n\nRun `python run_inference.py --input-dir PATH --output q2_predictions_aligned.csv --device cuda:0`. The bundle contains the selected student and the complete frozen text encoder.\n", encoding="utf-8")

@@ -98,7 +98,7 @@ def _gpu_batch(batch, device):
 
 
 def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, device=None):
-    from .text import load_text_encoder
+    from .text import configure_text_training, load_text_encoder
     root = Path(root)
     device = torch.device(device or "cuda:0")
     if device.type != "cuda" or not torch.cuda.is_available():
@@ -117,15 +117,8 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
     if bool(config["text"]["frozen"]) == tune_text:
         raise ValueError("text.frozen must match the selected frozen/tuned variant")
     if tune_text:
-        unfrozen_layers = int(config["text"].get("unfrozen_layers", 4))
-        frozen.requires_grad_(False)
-        if unfrozen_layers:
-            for layer in frozen.encoder.layer[-unfrozen_layers:]:
-                layer.requires_grad_(True)
-        frozen.embeddings.requires_grad_(False)
-        if getattr(frozen, "pooler", None) is not None:
-            frozen.pooler.requires_grad_(False)
-        frozen.train()
+        configure_text_training(frozen, config["text"].get("unfrozen_layers", 4),
+                                config["text"].get("train_embeddings", False))
     clean_cache = None if tune_text else np.load(root / ".cache/text/train/features.npy", mmap_mode="r")
     valid_cache = None if tune_text else np.load(root / ".cache/text/valid/features.npy", mmap_mode="r")
     student = Student(variant, normalizer.class_prior, normalizer.score_prior).to(device)
@@ -202,7 +195,8 @@ def train_one(root: Path, config: dict, variant: str, seed: int, resume=False, d
                            if variant in CLEAN_VARIANTS else
                            [sample_train_descriptor(seed, epoch, int(index), variant == "uniform_spans",
                                                     total_epochs=epochs, warmup_epochs=warmup_epochs,
-                                                    stress_text=variant == "full_tune_stress")
+                                                    stress_text=(variant == "full_tune_stress"
+                                                                 or config["train"].get("stress_text", False)))
                             for index in original_indices])
             perturbation = make_span_mask(raw, state0, descriptors)
             descriptors_for_epoch.extend({"sample_index": int(index), "epoch": epoch, **desc}

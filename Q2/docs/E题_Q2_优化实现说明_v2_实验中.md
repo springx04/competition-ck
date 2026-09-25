@@ -25,7 +25,7 @@
 
 ## 3. 可复现探索命令
 
-以下是待执行的原服务器实验命令，不代表已取得结果：
+以下保留早期探索命令，当前已执行；实际结果以实验汇总为准，不代表最终所选方案：
 
 ```bash
 cd /root/gpufree-data/shuomo_E/Q2
@@ -57,3 +57,31 @@ export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 CUBLAS_WORKSPACE_CONFIG=:4096:8
 ## 6. 输出与结论
 
 每run保存resolved_config、history、训练mask、各评估轮CSV、best/last checkpoint和resource_usage。最终汇总必须同时列完整输入、缺失平均、分模态/跨度、各类F1及种子波动，记录失败候选。新候选未验证前不更新正式selection、不生成冒充最终成绩的报告。
+
+## 7. 2026-09-25 评估一致性与embedding对照
+
+`evaluate-test`现在使用selection中的`checkpoint`，不再按外部配置的output_root重新拼接可能不同的路径。类别偏置统一按selection的`class_bias`优先、checkpoint配置其次恢复，适用于evaluate、predict和export；selection显式写`null`表示关闭。外部命令配置不再悄悄覆盖所选模型的偏置。旧校准实验若要复现，必须在selection明确记录偏置，并标记为看过test后的探索。
+
+每次`evaluate-test`写到`reports/test/<UTC时间>/`，同时保存selection，避免覆盖历史CSV。评估及配对分析完成后写`reports/test/latest.json`，报告生成器通过该路径读取本次结果，避免误读根目录的旧CSV；历史无该文件时保持旧目录兼容。该命令不宣称结果是独立留出；研究流程的test观察历史需由方案文档明确记录。首次原始test为clean=0.598213、missing=0.560844；随后校准的0.602589/0.563362不具备独立确认地位，详见方案第8节。原报告模板仍含固定full方法和30run表，探索模型正式交付前须按最终结构改写，不能将旧模板直接当本轮论文结论。
+
+`calibration.py`供评估与离线Bundle共用：偏置必须为3个有限数；仅对有实际观测内容的样本加偏置。全模态无观测时保留模型输出的train先验和得分回退，不能因仍有MASK结构槽位而加偏置。报告`empty_content`也按U全空计数，不再误用J结构槽位。测试使用同时包含空内容和有观测样本的实际Student，比较评估与Bundle logits及先验回退，并验证指定checkpoint、偏置覆盖及导出配置一致。
+
+`text.configure_text_training`新增可选`train_embeddings=false`，历史默认保持冻结embedding。`--train-embeddings`启用后，embedding梯度进入已有BERT优化器组，与encoder使用相同低学习率；pooler保持冻结（当前BERT没有pooler）。梯度与更新测试验证仅指定层和embedding发生更新。该变化不增加参数或额外数据。
+
+`explore_tuning.py`会移除外部配置中的`evaluation.class_bias`，探索统一使用原始logits评估。以下对照已完成，未取得明确净收益，保留命令供复现：
+
+```bash
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 CUBLAS_WORKSPACE_CONFIG=:4096:8 \
+.venv/bin/python scripts/explore_tuning.py --config configs/quick_tune.yaml \
+  --name attn_embeddings_v1 --variant late_attn_tune --text-lr 1e-5 \
+  --student-lr 1e-4 --regression-weight 0.25 --class-weight-power 0.5 \
+  --epochs 20 --seed 1111 --cls-context --train-embeddings
+```
+
+新增`train.stress_text`（默认false）与`--stress-text`，允许注意力晚融合使用此前full stress已有的采样策略；基础增强保持原样。`attn_textstress_v1`使用上面相同参数，删除`--train-embeddings`并增加`--stress-text`，只对照缺失课程。
+
+`attn_textlr3e5_v1`沿用原注意力配置，BERT学习率单独提高到3e-5（不用上述两个新开关）。每个实验保留自身resolved_config和history。训练epoch、结构、学习率、课程的实际设置以该run文件为准，不能因variant字符串相同就认为所有实验条件相同。
+
+测试包含embedding实际梯度与权重更新、同一模型评估/部署校准一致、空内容先验不变及报告目录恢复。同期的迁移配置、README及依赖配置不属于本轮修改，不并入checkpoint。
+
+本轮本地和服务器均72项测试通过。服务器另用4个真实checkpoint分别重载前16条valid样本，与各run训练时保存的clean logits比较，最大绝对误差为3.95e-6、类别预测全部一致；详见`reports/inference_consistency_20260925.json`。这是checkpoint重载核查，不等同于最终离线包验收。三项新增训练均已完成，不改变正式selection；没有再次运行test评价。

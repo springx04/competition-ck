@@ -1,5 +1,6 @@
 """Documented Q2 command line workflow."""
 import argparse
+from datetime import datetime, timezone
 import importlib.metadata
 import json
 from pathlib import Path
@@ -115,13 +116,15 @@ def verify(root, config):
     return result
 
 
-def evaluate_best(root, config, variant, seed, split="valid", stress=True, output_dir=None):
+def evaluate_best(root, config, variant, seed, split="valid", stress=True, output_dir=None,
+                  selection=None):
     output_root = Path(config["project"].get("output_root", root))
     if not output_root.is_absolute():
         output_root = Path(root) / output_root
-    path = output_root / "runs" / variant / f"seed_{seed}/best.pt"
+    path = (Path(root) / selection["checkpoint"] if selection is not None else
+            output_root / "runs" / variant / f"seed_{seed}/best.pt")
     checkpoint = torch.load(path, map_location="cpu", weights_only=False)
-    runtime = checkpoint_runtime_options(checkpoint, path)
+    runtime = checkpoint_runtime_options(checkpoint, path, selection)
     normalizer = Normalizer.load(root / "data/processed/normalizer.npz")
     if runtime["clip_z"] is not None:
         normalizer.clip_z = runtime["clip_z"]
@@ -137,7 +140,7 @@ def evaluate_best(root, config, variant, seed, split="valid", stress=True, outpu
                           cache, batch_size=config["data"]["eval_batch_size"],
                           output_dir=output_dir, stress=stress, return_predictions=True,
                           cls_context=runtime["cls_context"],
-                          class_bias=config.get("evaluation", {}).get("class_bias"))
+                          class_bias=runtime["class_bias"])
 
 
 def main():
@@ -236,10 +239,16 @@ def main():
     elif command == "evaluate-test":
         from .analysis import paired_condition_tables
         selection = _selection(root, args.selection)
+        out = root / "reports/test" / datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        out.mkdir(parents=True)
+        (out / "selection.json").write_text(json.dumps(selection, ensure_ascii=False, indent=2),
+                                            encoding="utf-8")
         result, _ = evaluate_best(root, config, selection["variant"], selection["seed"],
-                                  split="test", output_dir=root / "reports/test")
-        paired_condition_tables(root / "reports/test/predictions.csv", root / "reports/test")
-        result = {"scenarios": len(result)}
+                                  split="test", output_dir=out, selection=selection)
+        paired_condition_tables(out / "predictions.csv", out)
+        (root / "reports/test/latest.json").write_text(
+            json.dumps({"directory": str(out.relative_to(root))}), encoding="utf-8")
+        result = {"scenarios": len(result), "output_dir": str(out)}
     elif command == "predict-special":
         selection = _selection(root, args.selection)
         bundle = load_training_best(root, selection)

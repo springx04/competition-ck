@@ -190,6 +190,14 @@ def _figures(metrics, directory):
     return paths
 
 
+def test_report_directory(root):
+    root = Path(root)
+    pointer = root / "reports/test/latest.json"
+    if pointer.exists():
+        return root / json.loads(pointer.read_text(encoding="utf-8"))["directory"]
+    return root / "reports/test"
+
+
 def build_reports(root):
     root = Path(root)
     report_dir = root / "reports"
@@ -205,8 +213,9 @@ def build_reports(root):
     valid = rows(selected_dir / "metrics_per_scenario.csv") if selected_dir else []
     valid_deletion = rows(selected_dir / "deletion_rates.csv") if selected_dir else []
     valid_preds = rows(selected_dir / "predictions.csv") if selected_dir else []
-    test = rows(report_dir / "test/metrics_per_scenario.csv")
-    test_deletion = rows(report_dir / "test/deletion_rates.csv")
+    test_dir = test_report_directory(root)
+    test = rows(test_dir / "metrics_per_scenario.csv")
+    test_deletion = rows(test_dir / "deletion_rates.csv")
     inventory = json.loads((report_dir / "data_inventory.json").read_text(encoding="utf-8")) if (report_dir / "data_inventory.json").exists() else None
     normalizer_path = root / "data/processed/normalizer.npz"
     with np.load(normalizer_path) as saved:
@@ -265,7 +274,7 @@ def build_reports(root):
                       f"{r['clean_macro_f1']:.4f}±{r['clean_macro_f1_std']:.4f} | "
                       f"{r['clean_mae']:.4f}±{r['clean_mae_std']:.4f} |" for r in selection["candidates"]]
         technical += ["", f"支配关系：{selection['dominated_by']}；未支配排序：{selection['ordered_survivors']}。"
-                      "test未参与选模，部署固定seed1111的best学生。", ""]
+                      "选模应仅使用valid；test观察历史以实验记录为准，本报告不自动认定测试独立性。", ""]
     if valid:
         technical += main_summaries(valid, "valid模态、位置与跨度规律", valid_deletion)
         technical += visual_zero_table(valid)
@@ -290,15 +299,15 @@ def build_reports(root):
                       f"{float(r['true_score']):.3f} | {float(r['pred_score']):.3f} |" for r in failures]
         technical += [""]
     if test:
-        technical += ["## test留出结果", "", "clean及8个压力场景：", "",
+        technical += ["## test评估结果", "", f"数据目录：`{test_dir}`；独立性说明见实验记录。", "clean及8个压力场景：", "",
                       "| 场景 | N | Acc | Macro-F1 | Weighted-F1 | MAE | PCC |",
                       "|---|---:|---:|---:|---:|---:|---:|"]
         technical += [metric_line(r) for r in test if r["scope"] == "all_samples" and
                       (r["scenario"] == "clean" or not is_main_scenario(r["scenario"]))]
         technical += [""] + main_summaries(test, "test主网格规律", test_deletion)
         technical += visual_zero_table(test)
-        technical += paired_summary(report_dir / "test")
-        technical += deletion_strata(report_dir / "test")
+        technical += paired_summary(test_dir)
+        technical += deletion_strata(test_dir)
     if special:
         technical += ["## 附件3全部30条预测", ""] + special_table(special)
         zero_vision = sum(int(r["observed_visual_positions"]) == 0 for r in special_state)
