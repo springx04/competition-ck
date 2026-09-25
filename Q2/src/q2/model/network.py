@@ -11,13 +11,15 @@ from .msd import Decomposition
 from .compensation import SharedCompensator
 from .reliability import ErrorEstimator
 from .fusion import ContentFusion
+from .pooling import consecutive_run_weights
+from .temporal import ObservedGRU
 
 
 VARIANTS = ("full", "full_tune", "full_tune_stress", "late_clean", "late_balanced", "late_tune", "late_tune_balanced", "late_tune_aug", "late_classifier", "late_attn_tune",
-            "late_pool_tune", "late_pool_tune_aug",
+            "late_pool_tune", "late_pool_tune_aug", "late_attn_runweight_tune", "late_gru_tune", "late_av_tune", "late_gate_tune",
             "late_aug", "no_msd", "no_comp", "no_reliability",
             "no_cons", "no_span", "no_teacher", "uniform_spans")
-TUNED_VARIANTS = ("full_tune", "full_tune_stress", "late_tune", "late_tune_balanced", "late_tune_aug", "late_pool_tune", "late_pool_tune_aug", "late_attn_tune")
+TUNED_VARIANTS = ("full_tune", "full_tune_stress", "late_tune", "late_tune_balanced", "late_tune_aug", "late_pool_tune", "late_pool_tune_aug", "late_attn_tune", "late_attn_runweight_tune", "late_gru_tune", "late_av_tune", "late_gate_tune")
 CLEAN_VARIANTS = ("late_clean", "late_balanced", "late_tune", "late_tune_balanced", "late_classifier", "late_pool_tune")
 
 
@@ -84,7 +86,7 @@ class Student(nn.Module):
         self.variant = variant
         self.late = variant.startswith("late_")
         self.pool_only = variant.startswith("late_pool_")
-        self.attn_pool = variant == "late_attn_tune"
+        self.attn_pool = variant in ("late_attn_tune", "late_attn_runweight_tune", "late_gru_tune", "late_av_tune", "late_gate_tune")
         self.use_msd = not self.late and variant != "no_msd"
         self.use_comp = not self.late and variant != "no_comp"
         self.use_reliability = self.use_comp and variant not in ("no_reliability", "no_teacher")
@@ -111,6 +113,14 @@ class Student(nn.Module):
             self.fusion = ContentFusion()
         self.classifier = nn.Linear(128, 3)
         self.regressor = nn.Linear(128, 1)
+        self.av_projection = (nn.Sequential(nn.Linear(387, 128), nn.GELU(), nn.Dropout(.1))
+                              if variant == "late_av_tune" else None)
+        self.reliability_gates = (nn.ModuleList([nn.Linear(129, 1) for _ in range(3)])
+                                  if variant == "late_gate_tune" else None)
+        # Added after common heads so shared parameters retain the same seeded
+        # initialization as the attention-only control.
+        self.temporal = (nn.ModuleList([ObservedGRU(), ObservedGRU()])
+                         if variant == "late_gru_tune" else None)
 
     def forward(self, model_input: ModelInput, return_details=False, return_attention=None) -> ForwardOutput:
         # Training needs the intermediate tensors for losses but never the
@@ -130,18 +140,38 @@ class Student(nn.Module):
         else:
             H = torch.stack([self.encoders[m](inputs[m], U[:, :, m], position, embeds[m])
                              for m in range(3)], dim=2)
+        if self.temporal is not None:
+            H = torch.stack([H[:, :, 0], self.temporal[0](H[:, :, 1], U[:, :, 1]),
+                             self.temporal[1](H[:, :, 2], U[:, :, 2])], dim=2)
         if self.late:
             if self.attn_pool:
                 pools, flags = [], []
                 for m in range(3):
                     available = U[:, :, m]
                     scores = self.pool_scores[m](H[:, :, m]).squeeze(-1).masked_fill(~available, -1e4)
+                    if self.variant == "late_attn_runweight_tune" and m > 0:
+                        run_weights = consecutive_run_weights(inputs[m], available)
+                        scores = scores + run_weights.clamp_min(1e-12).log()
                     weights = torch.softmax(scores, dim=1) * available
                     pools.append((H[:, :, m] * weights[..., None]).sum(dim=1))
                     flags.append(available.any(dim=1))
             else:
                 pools, flags = zip(*(masked_mean(H[:, :, m], U[:, :, m]) for m in range(3)))
-            pooled = self.late_projection(torch.cat((*pools, torch.stack(flags, dim=-1).float()), dim=-1))
+            fused = torch.cat((*pools, torch.stack(flags, dim=-1).float()), dim=-1)
+            if self.reliability_gates is not None:
+                gate_input = [torch.cat((pools[m], flags[m][:, None].float()), dim=-1)
+                              for m in range(3)]
+                gate_logits = torch.cat([self.reliability_gates[m](gate_input[m])
+                                         for m in range(3)], dim=-1)
+                available = torch.stack(flags, dim=-1)
+                gate = torch.softmax(gate_logits.masked_fill(~available, -1e4), dim=-1) * available
+                fused = torch.cat(tuple(pools[m] * gate[:, m:m+1] * 3 for m in range(3))
+                                  + (torch.stack(flags, dim=-1).float(),), dim=-1)
+            pooled = self.late_projection(fused)
+            if self.av_projection is not None:
+                text_missing = ~flags[0]
+                if text_missing.any():
+                    pooled = torch.where(text_missing[:, None], self.av_projection(fused), pooled)
             source = U.long()
             B_comp = torch.zeros_like(U)
             C = S = F = F_hat = e_hat = alpha = attention = None

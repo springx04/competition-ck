@@ -118,7 +118,7 @@ def _check_keys(value: Mapping[str, Any], name: str, expected: tuple[str, ...]) 
     optional = ({"learning_rate", "unfrozen_layers", "cls_context", "train_embeddings"} if name == "text" else
                 {"class_weight_power"} if name == "loss" else
                 {"clip_z", "video_sampling_power"} if name == "data" else
-                {"stress_text"} if name == "train" else
+                {"stress_text", "grid_mix"} if name == "train" else
                 {"class_bias"} if name == "evaluation" else set())
     unknown = sorted(actual - allowed - optional)
     missing = sorted(allowed - actual)
@@ -249,6 +249,8 @@ def _validate_values(config: Mapping[str, Any]) -> None:
     train = config["train"]
     if "stress_text" in train:
         _bool(train["stress_text"], "train.stress_text")
+    if "grid_mix" in train:
+        _bool(train["grid_mix"], "train.grid_mix")
     for key in ("epochs", "warmup_epochs"):
         _integer(train[key], f"train.{key}", minimum=1)
     if train["optimizer"] != "adamw":

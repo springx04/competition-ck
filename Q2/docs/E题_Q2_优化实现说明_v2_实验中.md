@@ -85,3 +85,46 @@ OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 CUBLAS_WORKSPACE_CONFIG=:4096:8 \
 测试包含embedding实际梯度与权重更新、同一模型评估/部署校准一致、空内容先验不变及报告目录恢复。同期的迁移配置、README及依赖配置不属于本轮修改，不并入checkpoint。
 
 本轮本地和服务器均72项测试通过。服务器另用4个真实checkpoint分别重载前16条valid样本，与各run训练时保存的clean logits比较，最大绝对误差为3.95e-6、类别预测全部一致；详见`reports/inference_consistency_20260925.json`。这是checkpoint重载核查，不等同于最终离线包验收。三项新增训练均已完成，不改变正式selection；没有再次运行test评价。
+
+## 8. 音视频表示探索实现
+
+`model/pooling.py::consecutive_run_weights`按当前特征与观测掩码计算连续重复组倒数权重，`late_attn_runweight_tune`仅对音视频池化分数加该权重的对数。它不改源文件、模态有效位或标签。推理时复制相同音视频行不会改变池化结果；训练时逐位置dropout不同，因此不声称训练随机路径也完全不变。
+
+`model/temporal.py::ObservedGRU`按观测顺序compact→pack→双向GRU→scatter回官方位置，排除缺失行及padding对隐状态的影响。输出为LayerNorm后的残差表示。两个GRU在公共预测头初始化之后创建，公共参数与相同种子的`late_attn_tune`初始化一致；新模块改变后续随机数流，因此不声称训练随机路径逐位一致。
+
+新变体统一加入`TUNED_VARIANTS`，checkpoint、评估及导出均沿用微调BERT恢复机制。`late_gru_tune`使用普通注意力权重，不同时采用重复计权处理。
+
+```bash
+.venv/bin/python scripts/explore_tuning.py --config configs/quick_tune.yaml \
+  --name attn_runweight_v1 --variant late_attn_runweight_tune --text-lr 1e-5 \
+  --student-lr 1e-4 --regression-weight .25 --class-weight-power .5 \
+  --epochs 20 --seed 1111 --cls-context
+.venv/bin/python scripts/explore_tuning.py --config configs/quick_tune.yaml \
+  --name gru_av_v1 --variant late_gru_tune --text-lr 1e-5 \
+  --student-lr 1e-4 --regression-weight .25 --class-weight-power .5 \
+  --epochs 20 --seed 1111 --cls-context
+```
+
+测试检验重复组被缺失打断、隐藏值不影响分组、复制音视频行后的预测不变、GRU对缺失位置值及梯度不敏感、原位置scatter恢复、空观测回退、公共参数同种子初始化及新变体权重加载。训练效果以各run实际history与best checkpoint为准。
+
+`late_av_tune`新增`av_projection`，仅在`flags[text]==false`的样本上替代晚融合投影；它保持注意力池化和公共分类/回归头。该对照已完成20轮，最佳valid缺失0.557127、clean0.583849，未进入selection。当前最新代码和测试覆盖83项；服务器的seed1113 calibrated test评估目录为`reports/test/20260925T023121719340Z`，selection文件明确记录偏置和test历史污染状态。后续交付若采用该checkpoint，必须沿用相同偏置并在报告中标注探索性，不得重命名为独立最终留出。
+
+`late_gate_tune`在三个池化向量上用`Linear(129,1)`计算可靠性分数，按当前可用模态mask做softmax，并以3倍门控向量拼接可用标记。全空样本不进入softmax后的有效内容路径，仍由Student统一回退train先验。该实现严格读取当前受损输入，不读取clean标签或测试统计；实验未改善，保留作为攻略方向的否定对照。服务器代码测试86项通过。
+
+## 9. 缺失分布对照与攻略核验
+
+`sample_train_descriptor`新增`grid_mix=false`。预热期不改变；预热后使用独立的确定性随机流决定50%网格分支，并在`evaluation_grid(stress=False)`的72个描述符间等概率选择。未进入网格分支的样本保留原课程随机流；返回值去掉用于报告的name字段。`trainer`、配置校验和`explore_tuning.py --grid-mix`传递同一开关，run的resolved_config记录其设置。默认行为和旧checkpoint不变。
+
+```bash
+OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 CUBLAS_WORKSPACE_CONFIG=:4096:8 \
+.venv/bin/python scripts/explore_tuning.py --config configs/quick_tune.yaml \
+  --name attn_gridmix_v1 --variant late_attn_tune --text-lr 1e-5 \
+  --student-lr 1e-4 --regression-weight .25 --class-weight-power .5 \
+  --epochs 20 --seed 1111 --cls-context --grid-mix
+```
+
+其他种子使用1112/1113，并分别命名`attn_gridmix_seed1112_v1`、`attn_gridmix_seed1113_v1`。选择规则仍为原72场景valid缺失Macro-F1优先，不根据clean单独挑轮。测试检查全部72种规则可采到、非网格分支保持原课程、预热不注入缺失。新增`pytest.ini`明确仅收集`tests/`并优先导入`src/`，避免本地历史审计副本中的旧同名测试及旧q2包干扰默认pytest。
+
+`scripts/audit_special_missing.py DATA_ROOT --output REPORT.json`只读取附件3对齐版的token ID/attention及A/V特征，报告内容位置中的不可用率、缺口数量和最长缺口，不读取或推断标签、不修改数据。已在本地原始附件复核，与服务器独立审计一致；输出零行原因未知，不将它们全部标为人工缺失。该报告不输入训练流程。
+
+网格混合三种子均已完成，选中轮次分别10/15/20；valid缺失均值0.561106、完整均值0.601508，提升幅度不足以替换现行候选。服务器汇总保存在`reports/grid_mix_summary.json`，逐轮日志与checkpoint保存在各自experiments目录。没有运行新的test评价、附件3标签评估或离线最终包验收。本轮代码完成本地88项测试；服务器同步相同文件后按同一测试目录验证。
