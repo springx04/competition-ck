@@ -21,11 +21,18 @@ def ensure_q2_import_root(bundle_dir):
 class Predictor:
     def __init__(self, bundle_dir, device="cpu"):
         ensure_q2_import_root(bundle_dir)
+        torch.backends.cuda.matmul.allow_tf32 = False
+        torch.backends.cudnn.allow_tf32 = False
         self.device = device
         self.bundle = None
         self.load_error = None
         try:
-            self.bundle = importlib.import_module("q2.ensemble").load_ensemble(Path(bundle_dir), device=device)
+            ensemble = importlib.import_module("q2.ensemble")
+            module = importlib.import_module("q2")
+            expected = (Path(bundle_dir) / "src" / "q2").resolve()
+            if not Path(module.__file__).resolve().is_relative_to(expected):
+                raise RuntimeError("Q2 was imported from a different source tree")
+            self.bundle = ensemble.load_ensemble(Path(bundle_dir), device=device)
         except Exception as exc:
             self.load_error = exc
 

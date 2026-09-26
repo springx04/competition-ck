@@ -58,7 +58,7 @@ class Sample:
 def _sample(split, index, arrays, metadata):
     raw = {key: torch.from_numpy(np.array(arrays[key][index], copy=True)) for key in FIELDS}
     sample_id = str(metadata.get("id", [index])[index])
-    video_id = str(metadata.get("video_id", [sample_id.split("$_$")[0]])[index])
+    video_id = str(metadata['video_id'][index]) if 'video_id' in metadata else sample_id.split('$_$')[0]
     text = metadata.get("raw_text", [None] * len(arrays["input_ids"]))[index]
     return Sample(split, index, sample_id, sample_id, video_id, text, raw,
                   int(arrays["class_id"][index]) if "class_id" in arrays else None,

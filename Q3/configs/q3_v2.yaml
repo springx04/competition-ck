@@ -1,0 +1,67 @@
+project:
+  root: .
+  q2_root: ../Q2
+  bundle_dir: ../Q2/delivery/q2_final
+  data_root: ../E题数据
+  valid_dir: ../Q2/data/processed/valid
+runtime:
+  python: python
+  device: cpu
+  view_batch_size: 128
+  gpu_workers: 1
+  num_workers: 0
+  seed: 20260925
+  amp: false
+  tf32: false
+  text_cache: false
+method:
+  modality_order:
+  - T
+  - A
+  - V
+  class_names:
+  - Negative
+  - Neutral
+  - Positive
+  cls_weight: 0.5
+  score_weight: 0.5
+  score_scale: 6.0
+  budgets:
+  - 0.1
+  - 0.2
+  - 0.3
+  main_budget: 0.2
+  max_intervals: 3
+  direction_budgets:
+  - 0.2
+  keep_budgets:
+  - 0.2
+  grouped_budgets:
+  - 0.2
+  controls_per_set: 50
+  min_controls_for_tail_description: 20
+  bootstrap_repeats: 1000
+  replication_groups_file: data/review/official_replication_groups.jsonl
+  implementation_version: 2
+alignment:
+  python: Q3/.venv-align/bin/python
+  model_dir: models/ctc
+  device: cpu
+  sample_rate: 16000
+  min_window_size: 8000
+  max_window_size: 100000
+  score_min_mean_over_L: 30
+  min_log_score: -5.0
+  batch_size: 1
+  allow_cpu_on_cuda_oom: true
+  review_file: data/review/word_times.csv
+  av_provenance_file: data/review/official_av_mapping.csv
+  external_command_timeout_s: 120
+  audio_duration_tolerance_s: 0.02
+  playback_context_s: 0.2
+output:
+  valid_run: runs/valid_v2
+  special_run: runs/special_v2
+  float_csv_digits: 8
+  save_all_view_outputs: true
+  include_source_videos_in_delivery: false

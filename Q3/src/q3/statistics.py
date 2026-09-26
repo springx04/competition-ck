@@ -7,8 +7,9 @@ def summarize_faithfulness(rows):
 
 def cluster_bootstrap(values, groups, repeats=1000, seed=0):
     values, groups = np.asarray(values, float), np.asarray(groups)
-    unique = np.unique(groups); rng = np.random.default_rng(seed); result = []
-    for _ in range(repeats):
-        picked = rng.choice(unique, len(unique), replace=True)
-        result.append(np.mean([values[groups == group].mean() for group in picked]))
-    return np.asarray(result)
+    unique, inverse = np.unique(groups, return_inverse=True)
+    counts = np.bincount(inverse)
+    sums = np.bincount(inverse, weights=values)
+    rng = np.random.default_rng(seed)
+    picked = rng.integers(0, len(unique), size=(repeats,len(unique)))
+    return sums[picked].sum(axis=1) / counts[picked].sum(axis=1)

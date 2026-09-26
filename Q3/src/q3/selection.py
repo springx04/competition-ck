@@ -17,8 +17,10 @@ class Selection:
 def budget_count(n, pct):
     return 0 if n == 0 else min(n, max(1, (pct * n + 50) // 100))
 
-def select_units(units, budget, max_intervals=3, objective="max", exact_cost=False):
+def select_units(units, budget, max_intervals=3, objective="max", exact_cost=False, fill_budget=True):
     units = list(units)
+    if budget <= 0 or not units:
+        return Selection([], budget, 0, [], 0.0, "not_applicable", "no_observations")
     states = {(0, 0, 0): (0.0, [], [])}
     for unit in units:
         updated = {}
@@ -48,16 +50,21 @@ def select_units(units, budget, max_intervals=3, objective="max", exact_cost=Fal
             if previous is None or _prefer(candidate_key, previous_key, objective):
                 updated[key] = candidate
         states = updated
-    candidates = [v for (cost, count, last), v in states.items() if (cost == budget if exact_cost else 0 < cost <= budget)]
+    costs = [cost for cost, _, _ in states if 0 < cost <= budget]
+    target = budget if exact_cost else max(costs, default=0)
+    candidates = [v for (cost, count, last), v in states.items()
+                  if (cost == target if exact_cost or fill_budget else 0 < cost <= budget)]
     if not candidates:
         return Selection([], budget, 0, [], 0.0, "not_applicable", "budget_unreachable")
     best = candidates[0]
     for candidate in candidates[1:]:
-        ck = (candidate[0], len(candidate[2]), sum(b-a for a,b in candidate[2]), tuple(a for x in candidate[1] for a in x.atoms))
-        bk = (best[0], len(best[2]), sum(b-a for a,b in best[2]), tuple(a for x in best[1] for a in x.atoms))
+        ck = (candidate[0], sum(u.cost for u in candidate[1]) if not fill_budget else 0, len(candidate[2]), sum(b-a for a,b in candidate[2]), tuple(a for x in candidate[1] for a in x.atoms))
+        bk = (best[0], sum(u.cost for u in best[1]) if not fill_budget else 0, len(best[2]), sum(b-a for a,b in best[2]), tuple(a for x in best[1] for a in x.atoms))
         if _prefer(ck, bk, objective):
             best = candidate
-    return Selection(best[1], budget, sum(unit.cost for unit in best[1]), best[2], best[0])
+    actual_cost = sum(unit.cost for unit in best[1])
+    reason = 'maximum_reachable_cost_below_budget' if fill_budget and actual_cost < budget else None
+    return Selection(best[1], budget, actual_cost, best[2], best[0], reason=reason)
 
 def _prefer(candidate, previous, objective):
     if previous is None:

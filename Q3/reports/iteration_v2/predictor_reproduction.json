@@ -1,0 +1,279 @@
+{
+  "samples": 23,
+  "interventions": 584,
+  "records": [
+    {
+      "split": "valid",
+      "sample_id": "-UacrmKiTn4$_$7",
+      "interventions": 26,
+      "max_probability_difference": 1.1920928955078125e-07,
+      "max_score_difference": 2.980232238769531e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 1.4901161193847656e-08,
+      "av_permutation_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "split": "valid",
+      "sample_id": "MMpo2bDk-DU$_$10",
+      "interventions": 26,
+      "max_probability_difference": 4.76837158203125e-07,
+      "max_score_difference": 9.5367431640625e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 1.7881393432617188e-07,
+      "av_permutation_score_difference": 3.5762786865234375e-07,
+      "passed": true
+    },
+    {
+      "split": "valid",
+      "sample_id": "zk2jTlAtvSU$_$3",
+      "interventions": 26,
+      "max_probability_difference": 3.5762786865234375e-07,
+      "max_score_difference": 7.450580596923828e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 8.940696716308594e-08,
+      "av_permutation_score_difference": 1.7881393432617188e-07,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "01",
+      "interventions": 24,
+      "max_probability_difference": 2.086162567138672e-07,
+      "max_score_difference": 6.556510925292969e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 8.940696716308594e-08,
+      "av_permutation_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "02",
+      "interventions": 24,
+      "max_probability_difference": 2.682209014892578e-07,
+      "max_score_difference": 1.1920928955078125e-06,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 2.2351741790771484e-07,
+      "av_permutation_score_difference": 5.066394805908203e-07,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "03",
+      "interventions": 26,
+      "max_probability_difference": 3.5762786865234375e-07,
+      "max_score_difference": 3.5762786865234375e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 5.960464477539063e-08,
+      "av_permutation_score_difference": 2.2351741790771484e-07,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "04",
+      "interventions": 26,
+      "max_probability_difference": 4.172325134277344e-07,
+      "max_score_difference": 1.1324882507324219e-06,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 2.9802322387695312e-08,
+      "av_permutation_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "05",
+      "interventions": 26,
+      "max_probability_difference": 3.725290298461914e-07,
+      "max_score_difference": 4.023313522338867e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 4.470348358154297e-08,
+      "av_permutation_score_difference": 1.1920928955078125e-07,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "06",
+      "interventions": 26,
+      "max_probability_difference": 5.066394805908203e-07,
+      "max_score_difference": 8.344650268554688e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 1.4901161193847656e-08,
+      "av_permutation_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "07",
+      "interventions": 26,
+      "max_probability_difference": 1.9371509552001953e-07,
+      "max_score_difference": 8.344650268554688e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 1.1920928955078125e-07,
+      "av_permutation_score_difference": 1.7881393432617188e-07,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "08",
+      "interventions": 24,
+      "max_probability_difference": 3.5762786865234375e-07,
+      "max_score_difference": 3.5762786865234375e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 1.1920928955078125e-07,
+      "av_permutation_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "09",
+      "interventions": 26,
+      "max_probability_difference": 4.172325134277344e-07,
+      "max_score_difference": 8.940696716308594e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 5.960464477539063e-08,
+      "av_permutation_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "10",
+      "interventions": 26,
+      "max_probability_difference": 8.344650268554688e-07,
+      "max_score_difference": 1.475214958190918e-06,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 0.0,
+      "av_permutation_score_difference": 2.384185791015625e-07,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "11",
+      "interventions": 26,
+      "max_probability_difference": 2.5331974029541016e-07,
+      "max_score_difference": 8.493661880493164e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 2.2351741790771484e-08,
+      "av_permutation_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "12",
+      "interventions": 26,
+      "max_probability_difference": 5.364418029785156e-07,
+      "max_score_difference": 9.5367431640625e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 3.725290298461914e-08,
+      "av_permutation_score_difference": 1.1920928955078125e-07,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "13",
+      "interventions": 22,
+      "max_probability_difference": 3.5762786865234375e-07,
+      "max_score_difference": 6.258487701416016e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 5.960464477539063e-08,
+      "av_permutation_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "14",
+      "interventions": 26,
+      "max_probability_difference": 1.7881393432617188e-07,
+      "max_score_difference": 3.5762786865234375e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 5.960464477539063e-08,
+      "av_permutation_score_difference": 2.980232238769531e-07,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "15",
+      "interventions": 24,
+      "max_probability_difference": 3.8743019104003906e-07,
+      "max_score_difference": 6.556510925292969e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 1.1920928955078125e-07,
+      "av_permutation_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "16",
+      "interventions": 24,
+      "max_probability_difference": 4.470348358154297e-07,
+      "max_score_difference": 6.407499313354492e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 1.1920928955078125e-07,
+      "av_permutation_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "17",
+      "interventions": 26,
+      "max_probability_difference": 4.76837158203125e-07,
+      "max_score_difference": 5.960464477539062e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 1.1920928955078125e-07,
+      "av_permutation_score_difference": 1.1920928955078125e-07,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "18",
+      "interventions": 26,
+      "max_probability_difference": 3.2782554626464844e-07,
+      "max_score_difference": 6.556510925292969e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 1.1920928955078125e-07,
+      "av_permutation_score_difference": 4.470348358154297e-08,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "19",
+      "interventions": 26,
+      "max_probability_difference": 2.0116567611694336e-07,
+      "max_score_difference": 8.344650268554688e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 5.960464477539063e-08,
+      "av_permutation_score_difference": 1.1920928955078125e-07,
+      "passed": true
+    },
+    {
+      "split": "special",
+      "sample_id": "20",
+      "interventions": 26,
+      "max_probability_difference": 2.384185791015625e-07,
+      "max_score_difference": 6.556510925292969e-07,
+      "class_consistent": true,
+      "av_permutation_probability_difference": 2.384185791015625e-07,
+      "av_permutation_score_difference": 1.1920928955078125e-07,
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "status": "pass",
+  "numeric_tolerance": {
+    "probe_count": 28,
+    "batch_size": 128,
+    "single_batch_difference": {
+      "logits": 2.384185791015625e-06,
+      "probability": 6.556510925292969e-07,
+      "score": 1.1324882507324219e-06
+    },
+    "repeat_difference": {
+      "logits": 0.0,
+      "probability": 0.0,
+      "score": 0.0
+    },
+    "class_consistent": true,
+    "eps_prob": 6.556510925292969e-06,
+    "eps_score": 1.1324882507324219e-05,
+    "eps_D": 4.221995671590169e-06
+  }
+}

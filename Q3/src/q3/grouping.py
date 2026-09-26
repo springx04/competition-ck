@@ -20,7 +20,7 @@ def block3_units(observed, modality):
     for start in range(0, 50, 3):
         ts = [t for t in range(start, min(start + 3, 50)) if observed[t, m]]
         if ts:
-            result.append(Unit(f"{modality}.b{start:02d}", tuple(3 * t + m for t in ts), start, max(ts) + 1, len(ts), 0.0, modality))
+            result.append(Unit(f"{modality}.b{start:02d}", tuple(3 * t + m for t in ts), min(ts), max(ts) + 1, len(ts), 0.0, modality))
     return result
 
 def center3_atoms(observed, modality, center):
