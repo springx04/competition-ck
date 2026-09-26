@@ -1,0 +1,5 @@
+﻿group,n
+identity_only,28
+text_audio_only_single_episode,10
+identity_and_text_audio,9
+vision_no_face_and_text_audio,4

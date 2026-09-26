@@ -1,0 +1,3 @@
+# Local dependencies used only to reproduce paper diagnostics.
+.paper_runtime/
+scripts/__pycache__/
