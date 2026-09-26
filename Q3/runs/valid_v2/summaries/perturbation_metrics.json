@@ -1,0 +1,447 @@
+{
+  "key.T.p20.point": {
+    "n": 724,
+    "clean_same_subset": {
+      "n": 724,
+      "accuracy": 0.6132596685082873,
+      "macro_f1": 0.5737689899773125,
+      "weighted_f1": 0.6032047792649415,
+      "mae": 0.6442061613406471,
+      "pearson": 0.60824952160686,
+      "per_class": [
+        {
+          "class_id": 0,
+          "precision": 0.6494845360824743,
+          "recall": 0.6116504854368932,
+          "f1": 0.63,
+          "support": 206
+        },
+        {
+          "class_id": 1,
+          "precision": 0.45255474452554745,
+          "recall": 0.3425414364640884,
+          "f1": 0.389937106918239,
+          "support": 181
+        },
+        {
+          "class_id": 2,
+          "precision": 0.6513994910941476,
+          "recall": 0.7596439169139466,
+          "f1": 0.7013698630136986,
+          "support": 337
+        }
+      ]
+    },
+    "key": {
+      "n": 724,
+      "accuracy": 0.5400552486187845,
+      "macro_f1": 0.5069207284485061,
+      "weighted_f1": 0.5352887583521792,
+      "mae": 0.7167340579335912,
+      "pearson": 0.40024110703527327,
+      "per_class": [
+        {
+          "class_id": 0,
+          "precision": 0.5932203389830508,
+          "recall": 0.33980582524271846,
+          "f1": 0.43209876543209874,
+          "support": 206
+        },
+        {
+          "class_id": 1,
+          "precision": 0.38493723849372385,
+          "recall": 0.5082872928176796,
+          "f1": 0.4380952380952381,
+          "support": 181
+        },
+        {
+          "class_id": 2,
+          "precision": 0.6239782016348774,
+          "recall": 0.6795252225519288,
+          "f1": 0.6505681818181818,
+          "support": 337
+        }
+      ]
+    },
+    "random": {
+      "accuracy": {
+        "mean": 0.595414364640884,
+        "min": 0.5732044198895028,
+        "max": 0.6201657458563536
+      },
+      "macro_f1": {
+        "mean": 0.5602585088847009,
+        "min": 0.5349737239993749,
+        "max": 0.5856293235278417
+      },
+      "weighted_f1": {
+        "mean": 0.5889580882242278,
+        "min": 0.5673594514504452,
+        "max": 0.6145280454560462
+      },
+      "mae": {
+        "mean": 0.6567028280794756,
+        "min": 0.6304747458921683,
+        "max": 0.6758794527155481
+      }
+    },
+    "random_repeats": 50,
+    "interpretation": "Each trial computes dataset metrics before averaging; samples with <50 controls cycle their shuffled set. Ranges are descriptive, not independent confidence intervals."
+  },
+  "key.T.p20.word": {
+    "n": 719,
+    "clean_same_subset": {
+      "n": 719,
+      "accuracy": 0.6133518776077886,
+      "macro_f1": 0.5739220773190791,
+      "weighted_f1": 0.603657732453177,
+      "mae": 0.643238137638059,
+      "pearson": 0.6093259868128346,
+      "per_class": [
+        {
+          "class_id": 0,
+          "precision": 0.6492146596858639,
+          "recall": 0.6078431372549019,
+          "f1": 0.6278481012658228,
+          "support": 204
+        },
+        {
+          "class_id": 1,
+          "precision": 0.45255474452554745,
+          "recall": 0.3463687150837989,
+          "f1": 0.3924050632911392,
+          "support": 179
+        },
+        {
+          "class_id": 2,
+          "precision": 0.6521739130434783,
+          "recall": 0.7589285714285714,
+          "f1": 0.7015130674002751,
+          "support": 336
+        }
+      ]
+    },
+    "key": {
+      "n": 719,
+      "accuracy": 0.5340751043115438,
+      "macro_f1": 0.5019166524641091,
+      "weighted_f1": 0.5296276981190583,
+      "mae": 0.7284918451844942,
+      "pearson": 0.3722397469483045,
+      "per_class": [
+        {
+          "class_id": 0,
+          "precision": 0.6228070175438597,
+          "recall": 0.3480392156862745,
+          "f1": 0.44654088050314467,
+          "support": 204
+        },
+        {
+          "class_id": 1,
+          "precision": 0.37554585152838427,
+          "recall": 0.48044692737430167,
+          "f1": 0.4215686274509804,
+          "support": 179
+        },
+        {
+          "class_id": 2,
+          "precision": 0.6037234042553191,
+          "recall": 0.6755952380952381,
+          "f1": 0.6376404494382022,
+          "support": 336
+        }
+      ]
+    },
+    "random": {
+      "accuracy": {
+        "mean": 0.594547983310153,
+        "min": 0.5716272600834492,
+        "max": 0.6203059805285118
+      },
+      "macro_f1": {
+        "mean": 0.5594363430122206,
+        "min": 0.5344337801654855,
+        "max": 0.5854583378286043
+      },
+      "weighted_f1": {
+        "mean": 0.5884941589954314,
+        "min": 0.5647605508214818,
+        "max": 0.6132540985242356
+      },
+      "mae": {
+        "mean": 0.6557609286842095,
+        "min": 0.6309165249221476,
+        "max": 0.677009969222086
+      }
+    },
+    "random_repeats": 50,
+    "interpretation": "Each trial computes dataset metrics before averaging; samples with <50 controls cycle their shuffled set. Ranges are descriptive, not independent confidence intervals."
+  },
+  "key.A.p20.point": {
+    "n": 724,
+    "clean_same_subset": {
+      "n": 724,
+      "accuracy": 0.6132596685082873,
+      "macro_f1": 0.5737689899773125,
+      "weighted_f1": 0.6032047792649415,
+      "mae": 0.6442061613406471,
+      "pearson": 0.60824952160686,
+      "per_class": [
+        {
+          "class_id": 0,
+          "precision": 0.6494845360824743,
+          "recall": 0.6116504854368932,
+          "f1": 0.63,
+          "support": 206
+        },
+        {
+          "class_id": 1,
+          "precision": 0.45255474452554745,
+          "recall": 0.3425414364640884,
+          "f1": 0.389937106918239,
+          "support": 181
+        },
+        {
+          "class_id": 2,
+          "precision": 0.6513994910941476,
+          "recall": 0.7596439169139466,
+          "f1": 0.7013698630136986,
+          "support": 337
+        }
+      ]
+    },
+    "key": {
+      "n": 724,
+      "accuracy": 0.611878453038674,
+      "macro_f1": 0.5736378250036949,
+      "weighted_f1": 0.60289953997056,
+      "mae": 0.6432783477696865,
+      "pearson": 0.6083710378889999,
+      "per_class": [
+        {
+          "class_id": 0,
+          "precision": 0.6458333333333334,
+          "recall": 0.6019417475728155,
+          "f1": 0.6231155778894473,
+          "support": 206
+        },
+        {
+          "class_id": 1,
+          "precision": 0.4507042253521127,
+          "recall": 0.35359116022099446,
+          "f1": 0.39628482972136225,
+          "support": 181
+        },
+        {
+          "class_id": 2,
+          "precision": 0.6538461538461539,
+          "recall": 0.7566765578635015,
+          "f1": 0.7015130674002751,
+          "support": 337
+        }
+      ]
+    },
+    "random": {
+      "accuracy": {
+        "mean": 0.6124309392265194,
+        "min": 0.606353591160221,
+        "max": 0.6174033149171271
+      },
+      "macro_f1": {
+        "mean": 0.5729386535811328,
+        "min": 0.565251647490137,
+        "max": 0.5782232165346304
+      },
+      "weighted_f1": {
+        "mean": 0.6024797285604538,
+        "min": 0.5954917825335819,
+        "max": 0.6076075416160107
+      },
+      "mae": {
+        "mean": 0.6446267722602979,
+        "min": 0.6428421974775139,
+        "max": 0.6463439050727094
+      }
+    },
+    "random_repeats": 50,
+    "interpretation": "Each trial computes dataset metrics before averaging; samples with <50 controls cycle their shuffled set. Ranges are descriptive, not independent confidence intervals."
+  },
+  "key.V.p20.point": {
+    "n": 703,
+    "clean_same_subset": {
+      "n": 703,
+      "accuracy": 0.6102418207681366,
+      "macro_f1": 0.5703040161450644,
+      "weighted_f1": 0.5998751679791268,
+      "mae": 0.6493864202683799,
+      "pearson": 0.6062979153235479,
+      "per_class": [
+        {
+          "class_id": 0,
+          "precision": 0.6473684210526316,
+          "recall": 0.6089108910891089,
+          "f1": 0.6275510204081632,
+          "support": 202
+        },
+        {
+          "class_id": 1,
+          "precision": 0.45038167938931295,
+          "recall": 0.33714285714285713,
+          "f1": 0.38562091503267976,
+          "support": 175
+        },
+        {
+          "class_id": 2,
+          "precision": 0.6465968586387435,
+          "recall": 0.7576687116564417,
+          "f1": 0.6977401129943502,
+          "support": 326
+        }
+      ]
+    },
+    "key": {
+      "n": 703,
+      "accuracy": 0.6073968705547653,
+      "macro_f1": 0.5687243853008562,
+      "weighted_f1": 0.5979797464469611,
+      "mae": 0.6493983423123056,
+      "pearson": 0.6059184833422274,
+      "per_class": [
+        {
+          "class_id": 0,
+          "precision": 0.6455026455026455,
+          "recall": 0.6039603960396039,
+          "f1": 0.6240409207161125,
+          "support": 202
+        },
+        {
+          "class_id": 1,
+          "precision": 0.4444444444444444,
+          "recall": 0.34285714285714286,
+          "f1": 0.3870967741935484,
+          "support": 175
+        },
+        {
+          "class_id": 2,
+          "precision": 0.6464379947229552,
+          "recall": 0.7515337423312883,
+          "f1": 0.6950354609929078,
+          "support": 326
+        }
+      ]
+    },
+    "random": {
+      "accuracy": {
+        "mean": 0.6094736842105264,
+        "min": 0.6059743954480796,
+        "max": 0.6130867709815079
+      },
+      "macro_f1": {
+        "mean": 0.5696499669263914,
+        "min": 0.5656021126066167,
+        "max": 0.5744572101310265
+      },
+      "weighted_f1": {
+        "mean": 0.5993150313271974,
+        "min": 0.5956222153166989,
+        "max": 0.6034013323838453
+      },
+      "mae": {
+        "mean": 0.6493374440702908,
+        "min": 0.6480463953631775,
+        "max": 0.6508428114063967
+      }
+    },
+    "random_repeats": 50,
+    "interpretation": "Each trial computes dataset metrics before averaging; samples with <50 controls cycle their shuffled set. Ranges are descriptive, not independent confidence intervals."
+  },
+  "key.J.p20.joint": {
+    "n": 717,
+    "clean_same_subset": {
+      "n": 717,
+      "accuracy": 0.6136680613668062,
+      "macro_f1": 0.5735150001625087,
+      "weighted_f1": 0.603663553121309,
+      "mae": 0.6417877388990781,
+      "pearson": 0.6109749112668998,
+      "per_class": [
+        {
+          "class_id": 0,
+          "precision": 0.6476683937823834,
+          "recall": 0.6097560975609756,
+          "f1": 0.628140703517588,
+          "support": 205
+        },
+        {
+          "class_id": 1,
+          "precision": 0.45185185185185184,
+          "recall": 0.34269662921348315,
+          "f1": 0.38977635782747605,
+          "support": 178
+        },
+        {
+          "class_id": 2,
+          "precision": 0.6529562982005142,
+          "recall": 0.7604790419161677,
+          "f1": 0.7026279391424619,
+          "support": 334
+        }
+      ]
+    },
+    "key": {
+      "n": 717,
+      "accuracy": 0.5341701534170153,
+      "macro_f1": 0.50060706721382,
+      "weighted_f1": 0.5296793656290627,
+      "mae": 0.7145625382513743,
+      "pearson": 0.4077475741107544,
+      "per_class": [
+        {
+          "class_id": 0,
+          "precision": 0.5853658536585366,
+          "recall": 0.35121951219512193,
+          "f1": 0.43902439024390244,
+          "support": 205
+        },
+        {
+          "class_id": 1,
+          "precision": 0.375,
+          "recall": 0.47191011235955055,
+          "f1": 0.417910447761194,
+          "support": 178
+        },
+        {
+          "class_id": 2,
+          "precision": 0.6135135135135135,
+          "recall": 0.6796407185628742,
+          "f1": 0.6448863636363636,
+          "support": 334
+        }
+      ]
+    },
+    "random": {
+      "accuracy": {
+        "mean": 0.5953417015341702,
+        "min": 0.5788005578800558,
+        "max": 0.6122733612273361
+      },
+      "macro_f1": {
+        "mean": 0.5577949550560407,
+        "min": 0.5387055669756092,
+        "max": 0.5754487572950722
+      },
+      "weighted_f1": {
+        "mean": 0.5879629108112331,
+        "min": 0.5706094848160064,
+        "max": 0.6048781609894744
+      },
+      "mae": {
+        "mean": 0.6546464844040197,
+        "min": 0.6342754819973683,
+        "max": 0.6708284235905889
+      }
+    },
+    "random_repeats": 50,
+    "interpretation": "Each trial computes dataset metrics before averaging; samples with <50 controls cycle their shuffled set. Ranges are descriptive, not independent confidence intervals."
+  }
+}

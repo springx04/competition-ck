@@ -1,0 +1,177 @@
+{
+  "sample_index": 17,
+  "sample_id": "-I_e4mIh0yE$_$1",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "In the United States we don't punish failure to the degree to which failure is punished in Europe.",
+  "duration": 7.6,
+  "word_count": 18,
+  "timed_word_count": 18,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "In",
+      "start": 0.84,
+      "end": 0.901,
+      "score": 0.79,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "the",
+      "start": 0.922,
+      "end": 0.983,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "United",
+      "start": 1.045,
+      "end": 1.332,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "States",
+      "start": 1.373,
+      "end": 1.618,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "we",
+      "start": 1.7,
+      "end": 1.803,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "don't",
+      "start": 1.905,
+      "end": 2.151,
+      "score": 0.829,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "punish",
+      "start": 2.233,
+      "end": 2.581,
+      "score": 0.963,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "failure",
+      "start": 2.704,
+      "end": 3.155,
+      "score": 0.877,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "to",
+      "start": 3.605,
+      "end": 3.728,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "the",
+      "start": 3.769,
+      "end": 3.851,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "degree",
+      "start": 3.892,
+      "end": 4.261,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "to",
+      "start": 4.343,
+      "end": 4.445,
+      "score": 0.992,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "which",
+      "start": 4.527,
+      "end": 4.753,
+      "score": 0.903,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "failure",
+      "start": 4.998,
+      "end": 5.408,
+      "score": 0.914,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "is",
+      "start": 5.47,
+      "end": 5.531,
+      "score": 0.752,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "punished",
+      "start": 5.613,
+      "end": 6.023,
+      "score": 0.945,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "in",
+      "start": 6.494,
+      "end": 6.576,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "Europe.",
+      "start": 6.76,
+      "end": 7.026,
+      "score": 0.896,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

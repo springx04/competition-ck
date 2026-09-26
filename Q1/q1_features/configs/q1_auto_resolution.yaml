@@ -1,0 +1,104 @@
+experiment:
+  id: q1_auto_resolution_stage1_20260925
+  baseline_run: runs/q1_full_20260924
+  source_revision: da6c8e5bd553d0480ca941384ae20f279929872f
+  seed: 2026
+  sample_count: 100
+  video_group_count: 37
+  candidate_only: true
+  production_write: false
+
+problem_partition:
+  expected:
+    identity_only: 28
+    text_audio_only_single_episode: 10
+    identity_and_text_audio: 9
+    vision_no_face_and_text_audio: 4
+
+whisperx:
+  version: 3.8.6
+  model: large-v2
+  language: en
+  alignment_model: WAV2VEC2_ASR_LARGE_LV60K_960H
+  batch_size: 8
+  compute_type: float16
+  run_all_samples: true
+
+text_audio:
+  negative_control_count: 20
+  negative_match_fields: [duration, word_count]
+  different_video_required: true
+  semantic_support:
+    true_rank_max: 1
+    empirical_percentile_min: 0.95
+    word_overlap_f1_min: 0.60
+  existing_ctc_support:
+    diagnostic_wer_max: 0.65
+    accepted_word_fraction_min: 0.80
+  boundary_support:
+    common_word_coverage_min: 0.60
+    median_midpoint_difference_s_max: 0.35
+    p90_midpoint_difference_s_max: 0.75
+  threshold_note: frozen_before_whisperx_results_no_sentiment_labels
+
+mfa:
+  status: optional_high_cost_diagnostic
+  run_scope: ta_conflict_or_original_alert_with_clear_ctc_whisperx_disagreement
+  replaces_production_ctc: false
+
+arcface:
+  implementation: insightface
+  model_pack: buffalo_l
+  recognition_model: w600k_r50.onnx
+  max_frames_per_episode: 12
+  confidence_min: 0.80
+  crop_padding_fraction: 0.20
+  robust_trim_fraction: 0.20
+  primary_cosine_threshold: 0.60
+  sensitivity_cosine_thresholds: [0.50, 0.70]
+  run_all_samples_with_faces: true
+
+av_sync:
+  visual_signal: normalized_inner_lip_distance_with_au25_au26_fallback
+  audio_signal: pcm_log_rms
+  sample_rate_hz: 25.0
+  local_lag_s: 0.20
+  temporal_null_shifts_s: [-2.0, -1.0, -0.5, 0.5, 1.0, 2.0]
+  cross_sample_null_count: 20
+  different_video_required: true
+  score: maximum_pearson_correlation_within_local_lag
+  decision_basis: empirical_percentile_and_top1_top2_margin
+  strong_percentile_min: 0.95
+  strong_margin_min: 0.10
+  partial_percentile_min: 0.80
+  threshold_note: frozen_before_av_sync_results_no_sentiment_labels
+
+talknet:
+  official_weight: pretrain_TalkSet.model
+  official_repository: https://github.com/TaoRuijie/TalkNet-ASD
+  official_google_drive_file_id: 1AbN9fCf9IexMxEKXLQY2KYBlb-IhSEea
+  official_only: true
+  score_type: class_1_logit
+  primary_threshold: 0.0
+  inference_fps: 25.0
+  duration_ensemble_s: [1, 2, 3, 4, 5, 6]
+  openface_episode_crops: true
+  optional_nonblocking: true
+
+candidate_status:
+  text_audio:
+    TA_STRONG: verified
+    TA_SEMANTIC_ONLY: timing_partial
+    TA_CONFLICT: uncertain
+  vision:
+    V_STRONG: verified
+    V_PARTIAL: uncertain
+    V_UNCERTAIN: uncertain
+    V_MISSING: missing
+  false_release_not_applicable: candidate_only_no_production_write
+
+word_aligned_candidate:
+  output: reports/auto_resolution/q1_word_aligned_candidate.npz
+  interval_source: frozen_ctc_accepted_intervals
+  overwrite_compact50: false
+  preserve_unaligned_words: true

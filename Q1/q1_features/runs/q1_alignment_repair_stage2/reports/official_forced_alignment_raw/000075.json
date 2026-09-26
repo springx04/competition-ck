@@ -1,0 +1,186 @@
+{
+  "sample_index": 75,
+  "sample_id": "-s9qJ7ATP7w$_$5",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "I have been beat up and put down and everything that can go wrong, has gone wrong for me",
+  "duration": 8.533333333333333,
+  "word_count": 19,
+  "timed_word_count": 19,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "I",
+      "start": 0.407,
+      "end": 0.468,
+      "score": 0.667,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "have",
+      "start": 0.55,
+      "end": 1.446,
+      "score": 0.934,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "been",
+      "start": 1.487,
+      "end": 1.65,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "beat",
+      "start": 1.772,
+      "end": 2.057,
+      "score": 0.942,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "up",
+      "start": 2.342,
+      "end": 2.464,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "and",
+      "start": 2.607,
+      "end": 2.709,
+      "score": 0.879,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "put",
+      "start": 2.872,
+      "end": 3.075,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "down",
+      "start": 3.136,
+      "end": 3.646,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "and",
+      "start": 3.971,
+      "end": 4.094,
+      "score": 0.968,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "everything",
+      "start": 4.969,
+      "end": 5.316,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "that",
+      "start": 5.356,
+      "end": 5.478,
+      "score": 0.988,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "can",
+      "start": 5.519,
+      "end": 5.641,
+      "score": 0.906,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "go",
+      "start": 5.702,
+      "end": 5.865,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "wrong,",
+      "start": 5.967,
+      "end": 6.375,
+      "score": 0.914,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "has",
+      "start": 6.802,
+      "end": 6.945,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "gone",
+      "start": 6.986,
+      "end": 7.21,
+      "score": 0.861,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "wrong",
+      "start": 7.271,
+      "end": 7.535,
+      "score": 0.84,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "for",
+      "start": 7.617,
+      "end": 7.78,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "me",
+      "start": 7.841,
+      "end": 7.963,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

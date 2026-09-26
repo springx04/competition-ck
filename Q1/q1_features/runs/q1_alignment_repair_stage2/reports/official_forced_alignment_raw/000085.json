@@ -1,0 +1,159 @@
+{
+  "sample_index": 85,
+  "sample_id": "-tPCytz4rww$_$16",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "So make sure to get a through or to do a through cleaning of the property.",
+  "duration": 7.2,
+  "word_count": 16,
+  "timed_word_count": 16,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "So",
+      "start": 0.587,
+      "end": 0.829,
+      "score": 0.972,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "make",
+      "start": 0.971,
+      "end": 1.133,
+      "score": 0.981,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "sure",
+      "start": 1.173,
+      "end": 1.396,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "to",
+      "start": 1.476,
+      "end": 1.78,
+      "score": 0.931,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "get",
+      "start": 1.942,
+      "end": 2.063,
+      "score": 0.943,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "a",
+      "start": 2.103,
+      "end": 2.124,
+      "score": 0.988,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "through",
+      "start": 2.184,
+      "end": 2.569,
+      "score": 0.794,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "or",
+      "start": 4.166,
+      "end": 4.247,
+      "score": 0.676,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "to",
+      "start": 4.308,
+      "end": 4.409,
+      "score": 0.876,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "do",
+      "start": 4.47,
+      "end": 4.631,
+      "score": 0.877,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "a",
+      "start": 4.672,
+      "end": 4.712,
+      "score": 0.468,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "through",
+      "start": 4.834,
+      "end": 5.178,
+      "score": 0.726,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "cleaning",
+      "start": 5.218,
+      "end": 5.622,
+      "score": 0.967,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "of",
+      "start": 5.906,
+      "end": 6.007,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "the",
+      "start": 6.067,
+      "end": 6.148,
+      "score": 0.894,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "property.",
+      "start": 6.189,
+      "end": 6.613,
+      "score": 0.997,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,14 @@
+{
+  "source": "experiments/attn_gridmix_reg1_v1/runs/late_attn_tune/seed_1111/best_validation/predictions.csv",
+  "split": "valid",
+  "independent_holdout": false,
+  "objective": "half clean Macro-F1 plus half mean of 72 main-scenario Macro-F1",
+  "tie_break": "descending missing F1, clean F1, first bias, second bias",
+  "valid_missing": 0.5655230406385999,
+  "valid_clean": 0.6149819533440986,
+  "class_bias": [
+    -0.1,
+    0.15,
+    0
+  ]
+}

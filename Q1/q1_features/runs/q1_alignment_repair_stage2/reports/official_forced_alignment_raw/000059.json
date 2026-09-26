@@ -1,0 +1,60 @@
+{
+  "sample_index": 59,
+  "sample_id": "-iRBcNs9oI8$_$9",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Power is similar to strength",
+  "duration": 3.4034000000000004,
+  "word_count": 5,
+  "timed_word_count": 5,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Power",
+      "start": 1.297,
+      "end": 1.702,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "is",
+      "start": 1.722,
+      "end": 1.783,
+      "score": 0.25,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "similar",
+      "start": 1.803,
+      "end": 2.35,
+      "score": 0.425,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "to",
+      "start": 2.37,
+      "end": 2.451,
+      "score": 0.33,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "strength",
+      "start": 2.472,
+      "end": 2.654,
+      "score": 0.178,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

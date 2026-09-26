@@ -1,0 +1,12 @@
+[
+  {
+    "repo_id": "google-bert/bert-base-uncased",
+    "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+    "local_dir": "models/bert"
+  },
+  {
+    "repo_id": "espnet/kamo-naoyuki_librispeech_asr_train_asr_conformer5_raw_bpe5000_schedule-truncated-c8e5f9",
+    "revision": "e6a0f274799b5a4c157d1d5bc20de4c569e25f7e",
+    "local_dir": "models/ctc"
+  }
+]

@@ -1,0 +1,114 @@
+{
+  "sample_index": 65,
+  "sample_id": "-mJ2ud6oKI8$_$8",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Sometimes we have to stretch that joint that is already irritated",
+  "duration": 4.171337868480725,
+  "word_count": 11,
+  "timed_word_count": 11,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Sometimes",
+      "start": 0.18,
+      "end": 0.762,
+      "score": 0.39,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "we",
+      "start": 0.782,
+      "end": 0.882,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "have",
+      "start": 0.923,
+      "end": 1.023,
+      "score": 0.375,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "to",
+      "start": 1.063,
+      "end": 1.123,
+      "score": 0.773,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "stretch",
+      "start": 1.163,
+      "end": 1.464,
+      "score": 0.374,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "that",
+      "start": 1.484,
+      "end": 1.624,
+      "score": 0.378,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "joint",
+      "start": 1.665,
+      "end": 1.865,
+      "score": 0.35,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "that",
+      "start": 1.945,
+      "end": 2.026,
+      "score": 0.003,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "is",
+      "start": 2.046,
+      "end": 2.086,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "already",
+      "start": 2.106,
+      "end": 2.286,
+      "score": 0.021,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "irritated",
+      "start": 2.326,
+      "end": 2.507,
+      "score": 0.121,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

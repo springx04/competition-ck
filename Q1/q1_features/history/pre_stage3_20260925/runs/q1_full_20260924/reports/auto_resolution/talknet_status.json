@@ -1,0 +1,13 @@
+{
+  "attempted_at_utc": "2026-09-24",
+  "source_repository": "https://github.com/TaoRuijie/TalkNet_ASD",
+  "source_archive": "third_party/review_aux/TalkNet-ASD-main.tar.gz",
+  "source_archive_sha256": "7ba19f3dd877c8839445d5278130cabccd839df9f6a18f83b157219bdfbe029a",
+  "official_weight_name": "pretrain_TalkSet.model",
+  "official_google_drive_id": "1AbN9fCf9IexMxEKXLQY2KYBlb-IhSEea",
+  "download_command": "python -m gdown --id 1AbN9fCf9IexMxEKXLQY2KYBlb-IhSEea -O /tmp/pretrain_TalkSet.model.part",
+  "status": "failed_no_file_after_90_second_timeout",
+  "weight_sha256": null,
+  "inference_executed": false,
+  "note": "No unofficial mirror was used. TalkNet results must not be reported until the official weight is downloaded and hashed."
+}

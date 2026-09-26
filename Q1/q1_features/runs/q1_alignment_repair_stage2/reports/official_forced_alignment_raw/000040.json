@@ -1,0 +1,384 @@
+{
+  "sample_index": 40,
+  "sample_id": "-dxfTGcXJoc$_$0",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "This is Governor Steve Beshear ... About Kentucky Our state is home to more than 1,500 bioscience and lifescience companies and more than 100,000 people who work for these firms, in areas from nutrigenomics and pharmaceuticals to nanotechnology and medical devices.",
+  "duration": 20.53333333333333,
+  "word_count": 41,
+  "timed_word_count": 41,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "This",
+      "start": 0.564,
+      "end": 0.725,
+      "score": 0.889,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "is",
+      "start": 0.765,
+      "end": 0.845,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "Governor",
+      "start": 0.886,
+      "end": 1.228,
+      "score": 0.898,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "Steve",
+      "start": 1.268,
+      "end": 1.57,
+      "score": 0.755,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "Beshear",
+      "start": 1.61,
+      "end": 1.953,
+      "score": 0.592,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "...",
+      "start": 1.973,
+      "end": 2.053,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "About",
+      "start": 2.617,
+      "end": 2.879,
+      "score": 0.985,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "Kentucky",
+      "start": 2.939,
+      "end": 3.422,
+      "score": 0.971,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "Our",
+      "start": 4.469,
+      "end": 4.57,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "state",
+      "start": 4.63,
+      "end": 4.932,
+      "score": 0.897,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "is",
+      "start": 4.992,
+      "end": 5.073,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "home",
+      "start": 5.174,
+      "end": 5.496,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "to",
+      "start": 5.576,
+      "end": 5.657,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "more",
+      "start": 5.737,
+      "end": 5.918,
+      "score": 0.876,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "than",
+      "start": 5.959,
+      "end": 6.14,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "1,500",
+      "start": 6.241,
+      "end": 7.207,
+      "score": 0.765,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "bioscience",
+      "start": 7.307,
+      "end": 8.133,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "and",
+      "start": 8.314,
+      "end": 8.415,
+      "score": 0.92,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "lifescience",
+      "start": 8.495,
+      "end": 9.099,
+      "score": 0.916,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "companies",
+      "start": 9.139,
+      "end": 9.562,
+      "score": 0.884,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "and",
+      "start": 10.146,
+      "end": 10.226,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "more",
+      "start": 10.287,
+      "end": 10.448,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "than",
+      "start": 10.488,
+      "end": 10.609,
+      "score": 0.879,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "100,000",
+      "start": 10.649,
+      "end": 11.092,
+      "score": 0.9,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "people",
+      "start": 11.636,
+      "end": 11.958,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "who",
+      "start": 12.159,
+      "end": 12.26,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "work",
+      "start": 12.32,
+      "end": 12.521,
+      "score": 0.941,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "for",
+      "start": 12.541,
+      "end": 12.662,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "these",
+      "start": 12.682,
+      "end": 12.864,
+      "score": 0.801,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "firms,",
+      "start": 12.924,
+      "end": 13.306,
+      "score": 0.865,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "in",
+      "start": 14.031,
+      "end": 14.112,
+      "score": 0.836,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 31,
+      "raw_word": "areas",
+      "start": 14.273,
+      "end": 14.635,
+      "score": 0.933,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 32,
+      "raw_word": "from",
+      "start": 14.736,
+      "end": 14.997,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 33,
+      "raw_word": "nutrigenomics",
+      "start": 15.279,
+      "end": 16.205,
+      "score": 0.869,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 34,
+      "raw_word": "and",
+      "start": 16.366,
+      "end": 16.467,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 35,
+      "raw_word": "pharmaceuticals",
+      "start": 16.507,
+      "end": 17.353,
+      "score": 0.837,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 36,
+      "raw_word": "to",
+      "start": 17.755,
+      "end": 17.836,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 37,
+      "raw_word": "nanotechnology",
+      "start": 17.896,
+      "end": 18.903,
+      "score": 0.932,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 38,
+      "raw_word": "and",
+      "start": 18.943,
+      "end": 19.024,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 39,
+      "raw_word": "medical",
+      "start": 19.044,
+      "end": 19.366,
+      "score": 0.968,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 40,
+      "raw_word": "devices.",
+      "start": 19.406,
+      "end": 19.909,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

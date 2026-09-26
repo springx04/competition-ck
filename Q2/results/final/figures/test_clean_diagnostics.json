@@ -1,0 +1,34 @@
+{
+  "source": "official attachment2 test split; reloaded exported q2_final package",
+  "samples": 727,
+  "class_order": [
+    "Negative",
+    "Neutral",
+    "Positive"
+  ],
+  "confusion_matrix_rows_true_columns_predicted": [
+    [
+      131,
+      33,
+      43
+    ],
+    [
+      23,
+      59,
+      76
+    ],
+    [
+      35,
+      27,
+      300
+    ]
+  ],
+  "neutral_predictions": {
+    "Negative": 23,
+    "Neutral": 59,
+    "Positive": 76
+  },
+  "mae": 0.6840722626241685,
+  "pearson": 0.6081016857249555,
+  "device": "cuda:0"
+}

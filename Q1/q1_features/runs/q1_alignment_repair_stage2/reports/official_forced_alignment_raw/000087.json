@@ -1,0 +1,177 @@
+{
+  "sample_index": 87,
+  "sample_id": "-uywlfIYOS8$_$4",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "And then from a brand point of view, we need to make sure we're driving the relevant insight.",
+  "duration": 6.033333333333333,
+  "word_count": 18,
+  "timed_word_count": 18,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "And",
+      "start": 0.144,
+      "end": 1.091,
+      "score": 0.472,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "then",
+      "start": 1.215,
+      "end": 1.338,
+      "score": 0.975,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "from",
+      "start": 1.4,
+      "end": 1.524,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "a",
+      "start": 1.565,
+      "end": 1.606,
+      "score": 0.609,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "brand",
+      "start": 1.689,
+      "end": 2.121,
+      "score": 0.943,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "point",
+      "start": 2.162,
+      "end": 2.389,
+      "score": 0.983,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "of",
+      "start": 2.43,
+      "end": 2.492,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "view,",
+      "start": 2.512,
+      "end": 2.677,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "we",
+      "start": 2.718,
+      "end": 2.821,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "need",
+      "start": 2.924,
+      "end": 3.109,
+      "score": 0.95,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "to",
+      "start": 3.151,
+      "end": 3.212,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "make",
+      "start": 3.274,
+      "end": 3.439,
+      "score": 0.939,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "sure",
+      "start": 3.48,
+      "end": 3.624,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "we're",
+      "start": 3.789,
+      "end": 3.974,
+      "score": 0.802,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "driving",
+      "start": 4.015,
+      "end": 4.324,
+      "score": 0.903,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "the",
+      "start": 4.345,
+      "end": 4.427,
+      "score": 0.966,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "relevant",
+      "start": 4.489,
+      "end": 4.86,
+      "score": 0.932,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "insight.",
+      "start": 5.004,
+      "end": 5.436,
+      "score": 0.892,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

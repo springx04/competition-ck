@@ -1,0 +1,9 @@
+{
+  "directory": "/root/gpufree-data/shuomo_E/Q2/delivery/q2_final",
+  "config": "/root/gpufree-data/shuomo_E/Q2/delivery/q2_final/ensemble_config.json",
+  "members": 1,
+  "directory_bytes": 30250389,
+  "source_checkpoints": [
+    "experiments/attn_bert8_all_v1/runs/late_attn_tune/seed_1111/best.pt"
+  ]
+}

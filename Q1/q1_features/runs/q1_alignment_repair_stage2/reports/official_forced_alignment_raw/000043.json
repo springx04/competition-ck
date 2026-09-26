@@ -1,0 +1,258 @@
+{
+  "sample_index": 43,
+  "sample_id": "-dxfTGcXJoc$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Kentucky’s participation at the annual BIO International Convention is the primary means by which our high-tech companies and institutions can reach out to the global scientific community.",
+  "duration": 12.733333333333333,
+  "word_count": 27,
+  "timed_word_count": 27,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Kentucky’s",
+      "start": 0.424,
+      "end": 0.928,
+      "score": 0.945,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "participation",
+      "start": 0.969,
+      "end": 1.836,
+      "score": 0.974,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "at",
+      "start": 1.917,
+      "end": 1.978,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "the",
+      "start": 2.018,
+      "end": 2.139,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "annual",
+      "start": 2.361,
+      "end": 2.684,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "BIO",
+      "start": 2.765,
+      "end": 3.148,
+      "score": 0.934,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "International",
+      "start": 3.188,
+      "end": 3.774,
+      "score": 0.962,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "Convention",
+      "start": 3.814,
+      "end": 4.339,
+      "score": 0.967,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "is",
+      "start": 4.883,
+      "end": 4.984,
+      "score": 0.978,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "the",
+      "start": 5.065,
+      "end": 5.166,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "primary",
+      "start": 5.227,
+      "end": 5.751,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "means",
+      "start": 5.852,
+      "end": 6.215,
+      "score": 0.921,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "by",
+      "start": 6.316,
+      "end": 6.457,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "which",
+      "start": 6.538,
+      "end": 6.74,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "our",
+      "start": 7.063,
+      "end": 7.204,
+      "score": 0.896,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "high-tech",
+      "start": 7.285,
+      "end": 7.789,
+      "score": 0.852,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "companies",
+      "start": 7.83,
+      "end": 8.294,
+      "score": 0.868,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "and",
+      "start": 8.354,
+      "end": 8.435,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "institutions",
+      "start": 8.496,
+      "end": 9.222,
+      "score": 0.862,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "can",
+      "start": 9.464,
+      "end": 9.626,
+      "score": 0.892,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "reach",
+      "start": 9.706,
+      "end": 9.928,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "out",
+      "start": 10.09,
+      "end": 10.231,
+      "score": 0.753,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "to",
+      "start": 10.352,
+      "end": 10.473,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "the",
+      "start": 10.493,
+      "end": 10.574,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "global",
+      "start": 10.635,
+      "end": 11.038,
+      "score": 0.916,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "scientific",
+      "start": 11.099,
+      "end": 11.664,
+      "score": 0.935,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "community.",
+      "start": 11.704,
+      "end": 12.188,
+      "score": 0.991,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

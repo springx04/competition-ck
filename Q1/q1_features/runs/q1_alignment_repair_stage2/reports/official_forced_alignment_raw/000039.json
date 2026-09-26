@@ -1,0 +1,141 @@
+{
+  "sample_index": 39,
+  "sample_id": "-aqamKhZ1Ec$_$0",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "In 2008, there were very serious tribal warfare in Kenya following a disputed election.",
+  "duration": 11.0,
+  "word_count": 14,
+  "timed_word_count": 14,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "In",
+      "start": 0.404,
+      "end": 1.072,
+      "score": 0.636,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "2008,",
+      "start": 1.395,
+      "end": 2.831,
+      "score": 0.751,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "there",
+      "start": 2.892,
+      "end": 3.033,
+      "score": 0.932,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "were",
+      "start": 3.053,
+      "end": 3.195,
+      "score": 0.766,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "very",
+      "start": 3.276,
+      "end": 3.579,
+      "score": 0.918,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "serious",
+      "start": 3.66,
+      "end": 4.125,
+      "score": 0.989,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "tribal",
+      "start": 4.206,
+      "end": 4.631,
+      "score": 0.949,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "warfare",
+      "start": 4.792,
+      "end": 5.298,
+      "score": 0.932,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "in",
+      "start": 5.52,
+      "end": 5.621,
+      "score": 0.871,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "Kenya",
+      "start": 6.006,
+      "end": 8.169,
+      "score": 0.77,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "following",
+      "start": 9.059,
+      "end": 9.463,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "a",
+      "start": 9.504,
+      "end": 9.544,
+      "score": 0.48,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "disputed",
+      "start": 9.585,
+      "end": 10.05,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "election.",
+      "start": 10.11,
+      "end": 10.575,
+      "score": 0.967,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

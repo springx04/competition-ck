@@ -1,0 +1,177 @@
+{
+  "sample_index": 30,
+  "sample_id": "-UUCSKoHeMA$_$0",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "I mentioned a word in the last clip called 'monotone', and I want to talk about that briefly.",
+  "duration": 7.866666666666666,
+  "word_count": 18,
+  "timed_word_count": 18,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "I",
+      "start": 1.569,
+      "end": 1.63,
+      "score": 0.729,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "mentioned",
+      "start": 1.671,
+      "end": 2.058,
+      "score": 0.884,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "a",
+      "start": 2.099,
+      "end": 2.12,
+      "score": 0.979,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "word",
+      "start": 2.181,
+      "end": 2.527,
+      "score": 0.988,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "in",
+      "start": 2.731,
+      "end": 2.812,
+      "score": 0.842,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "the",
+      "start": 2.833,
+      "end": 2.914,
+      "score": 0.961,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "last",
+      "start": 2.975,
+      "end": 3.302,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "clip",
+      "start": 3.383,
+      "end": 3.73,
+      "score": 0.955,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "called",
+      "start": 3.811,
+      "end": 4.096,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "'monotone',",
+      "start": 4.117,
+      "end": 5.115,
+      "score": 0.799,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "and",
+      "start": 5.564,
+      "end": 5.645,
+      "score": 0.923,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "I",
+      "start": 5.686,
+      "end": 5.706,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "want",
+      "start": 5.768,
+      "end": 5.869,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "to",
+      "start": 5.91,
+      "end": 5.971,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "talk",
+      "start": 6.012,
+      "end": 6.257,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "about",
+      "start": 6.297,
+      "end": 6.562,
+      "score": 0.904,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "that",
+      "start": 6.603,
+      "end": 6.766,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "briefly.",
+      "start": 6.848,
+      "end": 7.337,
+      "score": 0.968,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

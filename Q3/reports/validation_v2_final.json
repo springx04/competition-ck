@@ -1,0 +1,31 @@
+{
+  "stage": "final",
+  "implementation_version": 2,
+  "issues": [],
+  "valid": {
+    "expected": 728,
+    "loaded": 728,
+    "complete_selections": 22492,
+    "controls": 587281,
+    "word_controls": 30031,
+    "experiments": 1011901,
+    "direction_candidates": 4310,
+    "direction_failed": 9,
+    "complete_samples": 728,
+    "not_applicable_selections": 163
+  },
+  "special": {
+    "expected": 20,
+    "loaded": 20,
+    "complete_selections": 617,
+    "controls": 18137,
+    "word_controls": 904,
+    "experiments": 31805,
+    "direction_candidates": 118,
+    "direction_failed": 2,
+    "complete_samples": 20,
+    "not_applicable_selections": 9
+  },
+  "status": "complete",
+  "material_status": "partial_until_word_review_and_AV_provenance"
+}

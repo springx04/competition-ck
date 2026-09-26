@@ -1,0 +1,213 @@
+{
+  "sample_index": 8,
+  "sample_id": "-9y-fZ3swSY$_$0",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "is, you can say, hey I really like baby skin, they are so soft, they don’t have any hair on their face",
+  "duration": 6.8999999999999995,
+  "word_count": 22,
+  "timed_word_count": 22,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "is,",
+      "start": 0.061,
+      "end": 0.184,
+      "score": 0.574,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "you",
+      "start": 0.205,
+      "end": 0.266,
+      "score": 0.04,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "can",
+      "start": 0.307,
+      "end": 0.43,
+      "score": 0.433,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "say,",
+      "start": 0.45,
+      "end": 0.696,
+      "score": 0.977,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "hey",
+      "start": 0.799,
+      "end": 1.638,
+      "score": 0.71,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "I",
+      "start": 1.966,
+      "end": 2.027,
+      "score": 0.761,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "really",
+      "start": 2.088,
+      "end": 2.355,
+      "score": 0.985,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "like",
+      "start": 2.457,
+      "end": 2.764,
+      "score": 0.753,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "baby",
+      "start": 3.03,
+      "end": 3.337,
+      "score": 0.9,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "skin,",
+      "start": 3.378,
+      "end": 3.726,
+      "score": 0.866,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "they",
+      "start": 3.747,
+      "end": 3.849,
+      "score": 0.898,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "are",
+      "start": 3.87,
+      "end": 3.952,
+      "score": 0.522,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "so",
+      "start": 3.993,
+      "end": 4.156,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "soft,",
+      "start": 4.361,
+      "end": 4.73,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "they",
+      "start": 4.75,
+      "end": 4.853,
+      "score": 0.942,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "don’t",
+      "start": 4.873,
+      "end": 5.037,
+      "score": 0.921,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "have",
+      "start": 5.139,
+      "end": 5.364,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "any",
+      "start": 5.446,
+      "end": 5.59,
+      "score": 0.86,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "hair",
+      "start": 5.651,
+      "end": 5.856,
+      "score": 0.823,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "on",
+      "start": 5.897,
+      "end": 5.958,
+      "score": 0.779,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "their",
+      "start": 5.979,
+      "end": 6.122,
+      "score": 0.97,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "face",
+      "start": 6.163,
+      "end": 6.368,
+      "score": 0.878,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

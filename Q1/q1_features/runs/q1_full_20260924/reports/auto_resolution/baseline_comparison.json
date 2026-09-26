@@ -1,0 +1,74 @@
+{
+  "comparison_scope": "frozen production baseline versus candidate-only automatic evidence",
+  "not_an_accuracy_comparison": true,
+  "reason_no_accuracy_delta": "No independent human gold standard exists; production pairing was intentionally not rewritten.",
+  "baseline": {
+    "samples": 100,
+    "formal_paired_use_true": 49,
+    "isolated_unverifiable": 51,
+    "identity_unresolved": 37,
+    "text_audio_unresolved": 23,
+    "vision_no_face": 4
+  },
+  "candidate_stage": {
+    "trimodal": {
+      "uncertain": 39,
+      "partial": 10,
+      "verified": 2
+    },
+    "identity_risk": {
+      "V_UNCERTAIN": 27,
+      "V_PARTIAL": 8,
+      "V_STRONG": 2
+    },
+    "text_audio_alerts": {
+      "TA_STRONG": 0,
+      "TA_SEMANTIC_ONLY": 4,
+      "TA_CONFLICT": 19
+    },
+    "no_face_as_missing": 4,
+    "original_paired_49_text_audio": {
+      "TA_STRONG": 47,
+      "TA_SEMANTIC_ONLY": 1,
+      "TA_CONFLICT": 1
+    },
+    "new_text_audio_risk_ids": [
+      "-I_e4mIh0yE$_$3",
+      "-vxjVxOeScU$_$4"
+    ]
+  },
+  "change": {
+    "formal_paired_sample_change": 0,
+    "fully_uncertain_change": -12,
+    "fully_uncertain_reduction_count": 12,
+    "fully_uncertain_reduction_fraction_of_51": 0.23529411764705882,
+    "new_strong_candidate_count": 2,
+    "new_strong_candidate_fraction_of_51": 0.0392156862745098,
+    "new_partial_candidate_count": 10,
+    "new_partial_candidate_fraction_of_51": 0.19607843137254902,
+    "conditional_formal_paired_if_two_verified_are_approved": 51,
+    "conditional_paired_absolute_percentage_point_change": 2.0,
+    "conditional_paired_relative_count_change": 0.04081632653061224,
+    "identity_fully_uncertain_reduction_count": 10,
+    "identity_fully_uncertain_reduction_fraction": 0.2702702702702703,
+    "text_audio_strong_resolution_count": 0,
+    "text_audio_semantic_only_diagnosis_count": 4
+  },
+  "independent_alignment_diagnostics": {
+    "whisperx_completed": 100,
+    "whisperx_total": 100,
+    "ctc_whisperx_midpoint_sample_n": 89,
+    "ctc_whisperx_midpoint_median_s": 0.1940763888888888,
+    "ctc_whisperx_midpoint_p90_s": 0.30153878562071945,
+    "production_ctc_replaced": false
+  },
+  "arcface_identity_cluster_distribution_for_37": {
+    "1": 15,
+    "2": 14,
+    "5": 1,
+    "9": 1,
+    "4": 3,
+    "3": 3
+  },
+  "production_write": false
+}

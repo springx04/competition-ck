@@ -1,0 +1,114 @@
+{
+  "sample_index": 46,
+  "sample_id": "-egA8-b7-3M$_$16",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Third, another big benefit of exhibiting is connecting with existing clients.",
+  "duration": 5.533333333333333,
+  "word_count": 11,
+  "timed_word_count": 11,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Third,",
+      "start": 0.486,
+      "end": 0.811,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "another",
+      "start": 0.953,
+      "end": 1.297,
+      "score": 0.929,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "big",
+      "start": 1.338,
+      "end": 1.52,
+      "score": 0.836,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "benefit",
+      "start": 1.561,
+      "end": 2.007,
+      "score": 0.943,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "of",
+      "start": 2.047,
+      "end": 2.128,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "exhibiting",
+      "start": 2.189,
+      "end": 2.736,
+      "score": 0.925,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "is",
+      "start": 2.838,
+      "end": 2.939,
+      "score": 0.828,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "connecting",
+      "start": 3.02,
+      "end": 3.547,
+      "score": 0.933,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "with",
+      "start": 3.588,
+      "end": 3.75,
+      "score": 0.855,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "existing",
+      "start": 3.851,
+      "end": 4.358,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "clients.",
+      "start": 4.398,
+      "end": 4.844,
+      "score": 0.799,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

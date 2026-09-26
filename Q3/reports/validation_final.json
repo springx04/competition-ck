@@ -1,0 +1,17 @@
+{
+  "stage": "final",
+  "status": "complete",
+  "issues": [],
+  "valid": {
+    "expected": 728,
+    "attribute_complete": 728,
+    "experiment_files": 728
+  },
+  "special": {
+    "expected": 20,
+    "attribute_complete": 20,
+    "experiment_files": 20
+  },
+  "material_status": "partial",
+  "material_reason": "word-time review and official A/V provenance remain unresolved"
+}

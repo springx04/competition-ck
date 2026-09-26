@@ -1,0 +1,31 @@
+{
+  "status": "completed_with_explicit_short_episode_gaps",
+  "source_repository": "https://github.com/TaoRuijie/TalkNet-ASD",
+  "official_weight_name": "pretrain_TalkSet.model",
+  "official_google_drive_id": "1AbN9fCf9IexMxEKXLQY2KYBlb-IhSEea",
+  "weight_path": "/home/jqy/shumo/q1_features/models/auto_resolution/manual_upload/pretrain_TalkSet.model",
+  "weight_bytes": 63227827,
+  "weight_sha256": "d985ddd07dca08864a28337726f5b7d91b6426bebc7327f0e9b21cf9ff1cc937",
+  "checkpoint_structure_validation": {
+    "keys": 487,
+    "missing": 0,
+    "unexpected": 0,
+    "shape_mismatch": 0
+  },
+  "inference_executed": true,
+  "samples_in_manifest": 100,
+  "samples_with_openface_episodes": 96,
+  "samples_with_any_valid_logit": 96,
+  "episode_count": 191,
+  "ok_episode_count": 165,
+  "failed_episode_count": 26,
+  "frame_logit_count": 19067,
+  "threshold": "class-1 logit >= 0",
+  "failure_reasons": {
+    "ValueError: episode too short for synchronized MFCC and video": 24,
+    "IndexError: index 0 is out of bounds for axis 0 with size 0": 2
+  },
+  "candidate_only": true,
+  "production_write": false,
+  "note": "Official repository file ID; user-supplied checkpoint was hashed, structurally matched to the official 15.01M-parameter network, and executed. Short fragments without one synchronized TalkNet frame retain no fabricated score."
+}

@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "isolated_import": "/root/gpufree-data/shuomo_E/Q2/delivery/q2_final/src/q2/__init__.py",
+  "special_rows": 30,
+  "special_identical": true,
+  "fp32_checkpoint_vs_fp16_storage": {
+    "clean": {
+      "max_logit_abs_difference": 0.002240806818008423,
+      "max_score_abs_difference": 0.0020163655281066895,
+      "labels_equal": true
+    },
+    "partial": {
+      "max_logit_abs_difference": 0.0022419095039367676,
+      "max_score_abs_difference": 0.0020184218883514404,
+      "labels_equal": true
+    },
+    "empty": {
+      "max_logit_abs_difference": 0.0,
+      "max_score_abs_difference": 0.0,
+      "labels_equal": true
+    }
+  },
+  "paper_metrics": "Full valid/test recomputation from the actual reloaded package"
+}

@@ -1,0 +1,123 @@
+{
+  "sample_index": 67,
+  "sample_id": "-mqbVkbCndg$_$0",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "How, at a particular moment in time—our moment in time—are they limited",
+  "duration": 6.5,
+  "word_count": 12,
+  "timed_word_count": 12,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "How,",
+      "start": 0.143,
+      "end": 0.428,
+      "score": 0.993,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "at",
+      "start": 0.876,
+      "end": 0.958,
+      "score": 0.772,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "a",
+      "start": 0.978,
+      "end": 1.019,
+      "score": 0.508,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "particular",
+      "start": 1.06,
+      "end": 1.589,
+      "score": 0.997,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "moment",
+      "start": 1.671,
+      "end": 2.038,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "in",
+      "start": 2.119,
+      "end": 2.201,
+      "score": 0.983,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "time—our",
+      "start": 2.262,
+      "end": 3.016,
+      "score": 0.926,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "moment",
+      "start": 3.097,
+      "end": 3.505,
+      "score": 0.988,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "in",
+      "start": 3.566,
+      "end": 3.668,
+      "score": 0.882,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "time—are",
+      "start": 3.729,
+      "end": 4.727,
+      "score": 0.958,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "they",
+      "start": 4.768,
+      "end": 4.992,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "limited",
+      "start": 5.522,
+      "end": 5.95,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

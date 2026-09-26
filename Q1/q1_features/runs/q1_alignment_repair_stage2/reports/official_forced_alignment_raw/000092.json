@@ -1,0 +1,222 @@
+{
+  "sample_index": 92,
+  "sample_id": "-wny0OAz3g8$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "And because they couldn’t get these jobs, Black communities had more men out of work, higher rates of poverty, and more criminal behavior",
+  "duration": 6.666666666666666,
+  "word_count": 23,
+  "timed_word_count": 23,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "And",
+      "start": 0.554,
+      "end": 0.636,
+      "score": 0.926,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "because",
+      "start": 0.677,
+      "end": 0.985,
+      "score": 0.93,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "they",
+      "start": 1.026,
+      "end": 1.128,
+      "score": 0.913,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "couldn’t",
+      "start": 1.149,
+      "end": 1.374,
+      "score": 0.857,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "get",
+      "start": 1.395,
+      "end": 1.497,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "these",
+      "start": 1.518,
+      "end": 1.682,
+      "score": 0.9,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "jobs,",
+      "start": 1.723,
+      "end": 2.092,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "Black",
+      "start": 2.256,
+      "end": 2.462,
+      "score": 0.896,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "communities",
+      "start": 2.482,
+      "end": 2.851,
+      "score": 0.866,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "had",
+      "start": 2.892,
+      "end": 2.995,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "more",
+      "start": 3.036,
+      "end": 3.2,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "men",
+      "start": 3.241,
+      "end": 3.344,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "out",
+      "start": 3.385,
+      "end": 3.467,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "of",
+      "start": 3.487,
+      "end": 3.549,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "work,",
+      "start": 3.59,
+      "end": 3.815,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "higher",
+      "start": 4.082,
+      "end": 4.308,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "rates",
+      "start": 4.328,
+      "end": 4.492,
+      "score": 0.829,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "of",
+      "start": 4.513,
+      "end": 4.574,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "poverty,",
+      "start": 4.615,
+      "end": 4.985,
+      "score": 0.875,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "and",
+      "start": 5.087,
+      "end": 5.169,
+      "score": 0.835,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "more",
+      "start": 5.21,
+      "end": 5.354,
+      "score": 0.875,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "criminal",
+      "start": 5.395,
+      "end": 5.723,
+      "score": 0.885,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "behavior",
+      "start": 5.744,
+      "end": 6.133,
+      "score": 0.976,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,244 @@
+{
+  "directory_bytes_excluding_bytecode": 30253681,
+  "zip_bytes": 27138297,
+  "q2_only_under_50MB": true,
+  "whole_submission_size_verified": false,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 130
+    },
+    {
+      "path": "THIRD_PARTY.md",
+      "bytes": 3176
+    },
+    {
+      "path": "assets/text_encoder/config.json",
+      "bytes": 581
+    },
+    {
+      "path": "assets/text_encoder/member_0.safetensors",
+      "bytes": 12650088
+    },
+    {
+      "path": "assets/text_encoder/shared_embeddings.safetensors",
+      "bytes": 15891952
+    },
+    {
+      "path": "assets/text_encoder/special_tokens_map.json",
+      "bytes": 125
+    },
+    {
+      "path": "assets/text_encoder/tokenizer.json",
+      "bytes": 711396
+    },
+    {
+      "path": "assets/text_encoder/tokenizer_config.json",
+      "bytes": 1300
+    },
+    {
+      "path": "assets/text_encoder/vocab.txt",
+      "bytes": 231508
+    },
+    {
+      "path": "ensemble_config.json",
+      "bytes": 640
+    },
+    {
+      "path": "licenses/EBMC-LICENSE",
+      "bytes": 17694
+    },
+    {
+      "path": "normalizer.npz",
+      "bytes": 2956
+    },
+    {
+      "path": "q2_predictions_aligned.csv",
+      "bytes": 3292
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 204
+    },
+    {
+      "path": "run_inference.py",
+      "bytes": 762
+    },
+    {
+      "path": "src/q2/.incoming_20260924/losses.py",
+      "bytes": 5046
+    },
+    {
+      "path": "src/q2/.incoming_20260924/network.py",
+      "bytes": 7348
+    },
+    {
+      "path": "src/q2/.incoming_20260924/trainer.py",
+      "bytes": 11965
+    },
+    {
+      "path": "src/q2/__init__.py",
+      "bytes": 72
+    },
+    {
+      "path": "src/q2/__main__.py",
+      "bytes": 15087
+    },
+    {
+      "path": "src/q2/__main__.py.pre_tune_20260924",
+      "bytes": 13466
+    },
+    {
+      "path": "src/q2/analysis.py",
+      "bytes": 15879
+    },
+    {
+      "path": "src/q2/calibration.py",
+      "bytes": 753
+    },
+    {
+      "path": "src/q2/config.py",
+      "bytes": 14905
+    },
+    {
+      "path": "src/q2/data.py",
+      "bytes": 8168
+    },
+    {
+      "path": "src/q2/ensemble.py",
+      "bytes": 18235
+    },
+    {
+      "path": "src/q2/evaluate.py",
+      "bytes": 12349
+    },
+    {
+      "path": "src/q2/export.py",
+      "bytes": 20495
+    },
+    {
+      "path": "src/q2/losses.py",
+      "bytes": 6406
+    },
+    {
+      "path": "src/q2/losses.py.pre_tune_20260924",
+      "bytes": 5046
+    },
+    {
+      "path": "src/q2/losses.py.preopt_20260924",
+      "bytes": 4959
+    },
+    {
+      "path": "src/q2/masking.py",
+      "bytes": 6365
+    },
+    {
+      "path": "src/q2/metrics.py",
+      "bytes": 14635
+    },
+    {
+      "path": "src/q2/model/__init__.py",
+      "bytes": 34
+    },
+    {
+      "path": "src/q2/model/compensation.py",
+      "bytes": 3155
+    },
+    {
+      "path": "src/q2/model/encoders.py",
+      "bytes": 1972
+    },
+    {
+      "path": "src/q2/model/fusion.py",
+      "bytes": 1463
+    },
+    {
+      "path": "src/q2/model/msd.py",
+      "bytes": 1222
+    },
+    {
+      "path": "src/q2/model/network.py",
+      "bytes": 12363
+    },
+    {
+      "path": "src/q2/model/network.py.pre_tune_20260924",
+      "bytes": 7348
+    },
+    {
+      "path": "src/q2/model/network.py.preopt_20260924",
+      "bytes": 7331
+    },
+    {
+      "path": "src/q2/model/pooling.py",
+      "bytes": 765
+    },
+    {
+      "path": "src/q2/model/reliability.py",
+      "bytes": 1344
+    },
+    {
+      "path": "src/q2/model/temporal.py",
+      "bytes": 1496
+    },
+    {
+      "path": "src/q2/network.py",
+      "bytes": 7331
+    },
+    {
+      "path": "src/q2/report_builder.py",
+      "bytes": 23153
+    },
+    {
+      "path": "src/q2/reporting.py",
+      "bytes": 6061
+    },
+    {
+      "path": "src/q2/sampling.py",
+      "bytes": 1678
+    },
+    {
+      "path": "src/q2/state.py",
+      "bytes": 3125
+    },
+    {
+      "path": "src/q2/teacher_targets.py",
+      "bytes": 1438
+    },
+    {
+      "path": "src/q2/text.py",
+      "bytes": 8701
+    },
+    {
+      "path": "src/q2/text.py.pre_tune_20260924",
+      "bytes": 6869
+    },
+    {
+      "path": "src/q2/trainer.py",
+      "bytes": 16966
+    },
+    {
+      "path": "src/q2/trainer.py.pre_tune2_20260924",
+      "bytes": 13887
+    },
+    {
+      "path": "src/q2/trainer.py.pre_tune_20260924",
+      "bytes": 11965
+    },
+    {
+      "path": "src/q2/trainer.py.preopt_20260924",
+      "bytes": 11348
+    },
+    {
+      "path": "src/q2/vendor/ebmc_msd.py",
+      "bytes": 5732
+    },
+    {
+      "path": "src/q2/verification.py",
+      "bytes": 4059
+    },
+    {
+      "path": "students/student_0.safetensors",
+      "bytes": 395892
+    }
+  ]
+}

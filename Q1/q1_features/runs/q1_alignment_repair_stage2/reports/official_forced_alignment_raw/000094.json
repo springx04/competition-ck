@@ -1,0 +1,195 @@
+{
+  "sample_index": 94,
+  "sample_id": "-wny0OAz3g8$_$5",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "This is what’s now known as racial formation theory, a theory formalized by modern sociologists Michael Omi and Howard Winant",
+  "duration": 6.8999999999999995,
+  "word_count": 20,
+  "timed_word_count": 20,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "This",
+      "start": 0.596,
+      "end": 0.739,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "is",
+      "start": 0.801,
+      "end": 0.863,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "what’s",
+      "start": 0.904,
+      "end": 1.088,
+      "score": 0.841,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "now",
+      "start": 1.129,
+      "end": 1.294,
+      "score": 0.889,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "known",
+      "start": 1.335,
+      "end": 1.561,
+      "score": 0.8,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "as",
+      "start": 1.602,
+      "end": 1.684,
+      "score": 0.75,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "racial",
+      "start": 1.766,
+      "end": 2.054,
+      "score": 0.84,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "formation",
+      "start": 2.095,
+      "end": 2.546,
+      "score": 0.963,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "theory,",
+      "start": 2.608,
+      "end": 2.875,
+      "score": 0.857,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "a",
+      "start": 3.163,
+      "end": 3.204,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "theory",
+      "start": 3.245,
+      "end": 3.471,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "formalized",
+      "start": 3.512,
+      "end": 4.004,
+      "score": 0.969,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "by",
+      "start": 4.046,
+      "end": 4.128,
+      "score": 0.75,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "modern",
+      "start": 4.189,
+      "end": 4.456,
+      "score": 0.926,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "sociologists",
+      "start": 4.497,
+      "end": 5.072,
+      "score": 0.867,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "Michael",
+      "start": 5.093,
+      "end": 5.319,
+      "score": 0.888,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "Omi",
+      "start": 5.421,
+      "end": 5.627,
+      "score": 0.83,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "and",
+      "start": 5.688,
+      "end": 5.771,
+      "score": 0.836,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "Howard",
+      "start": 5.812,
+      "end": 6.037,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "Winant",
+      "start": 6.058,
+      "end": 6.346,
+      "score": 0.78,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

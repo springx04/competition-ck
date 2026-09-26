@@ -1,0 +1,240 @@
+{
+  "sample_index": 25,
+  "sample_id": "-RfYyzHpjk4$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "You can make a conference call but it takes quite a bit of planning, well not a lot of planning it's pretty easy to do.",
+  "duration": 5.5,
+  "word_count": 25,
+  "timed_word_count": 25,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "You",
+      "start": 0.511,
+      "end": 0.613,
+      "score": 0.526,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "can",
+      "start": 0.634,
+      "end": 0.757,
+      "score": 0.971,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "make",
+      "start": 0.777,
+      "end": 0.92,
+      "score": 0.874,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "a",
+      "start": 0.941,
+      "end": 0.981,
+      "score": 0.487,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "conference",
+      "start": 1.022,
+      "end": 1.37,
+      "score": 0.969,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "call",
+      "start": 1.39,
+      "end": 1.574,
+      "score": 0.916,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "but",
+      "start": 1.595,
+      "end": 1.697,
+      "score": 0.832,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "it",
+      "start": 1.717,
+      "end": 1.779,
+      "score": 0.766,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "takes",
+      "start": 1.799,
+      "end": 2.024,
+      "score": 0.763,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "quite",
+      "start": 2.065,
+      "end": 2.29,
+      "score": 0.848,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "a",
+      "start": 2.31,
+      "end": 2.351,
+      "score": 0.476,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "bit",
+      "start": 2.372,
+      "end": 2.494,
+      "score": 0.907,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "of",
+      "start": 2.515,
+      "end": 2.576,
+      "score": 0.76,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "planning,",
+      "start": 2.617,
+      "end": 2.903,
+      "score": 0.697,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "well",
+      "start": 2.924,
+      "end": 3.026,
+      "score": 0.354,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "not",
+      "start": 3.046,
+      "end": 3.149,
+      "score": 0.945,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "a",
+      "start": 3.19,
+      "end": 3.21,
+      "score": 0.993,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "lot",
+      "start": 3.251,
+      "end": 3.394,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "of",
+      "start": 3.435,
+      "end": 3.476,
+      "score": 0.977,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "planning",
+      "start": 3.517,
+      "end": 3.864,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "it's",
+      "start": 3.885,
+      "end": 4.007,
+      "score": 0.854,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "pretty",
+      "start": 4.069,
+      "end": 4.314,
+      "score": 0.896,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "easy",
+      "start": 4.355,
+      "end": 4.559,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "to",
+      "start": 4.6,
+      "end": 4.682,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "do.",
+      "start": 4.743,
+      "end": 4.907,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

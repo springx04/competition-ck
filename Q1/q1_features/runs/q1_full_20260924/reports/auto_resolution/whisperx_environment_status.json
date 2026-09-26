@@ -1,0 +1,24 @@
+{
+  "whisperx": "3.8.6",
+  "torch": "2.5.1",
+  "torchaudio": "2.5.1",
+  "transformers": "4.38.2",
+  "numpy": "1.23.5",
+  "pandas": "1.5.3",
+  "vad_method": "silero",
+  "environment": "/home/jqy/shumo/q1_features/env/auto_resolution/whisperx",
+  "compatibility_note": "The isolated environment reuses the already validated CUDA PyTorch stack. WhisperX 3.8.6 imports Pyannote eagerly even when Silero is selected; unused Pyannote imports were made optional, and the local Silero Segment type was inlined. ASR and alignment imports were verified after the patch.",
+  "environment_patch_files": {
+    "whisperx/vads/__init__.py": "16ea846c886e3e16940c78dfa84fd95b98f4d2314fa63599492365b33b4d2b34",
+    "whisperx/vads/silero.py": "1bb801210980360ae8cc64a3f92cc449b7fccc2f93698e72513d4d3b6c4d910b",
+    "whisperx/vads/vad.py": "648f0bf1e64566f286a38cc7a97d6d85c5dc2cb92518ff2d143756875c4be44d"
+  },
+  "production_environment_modified": false,
+  "production_features_modified": false,
+  "offline_resources": {
+    "silero_commit": "5cd7945676eb32225748052e2e6a0580e4686a08",
+    "silero_archive_sha256": "978357e9d1d651bb3c5f9447554c3f3784fa39d20e3b278ec32e40e4a9bd47cd",
+    "nltk_punkt_tab_sha256": "e57f64187974277726a3417ca6f181ec5403676c717672eef6a748a7b20e0106",
+    "wav2vec2_sha256": "7a88965716fbd598a595209bf45c1210a18a6935cfb0cf53527fc986c5543ac7"
+  }
+}

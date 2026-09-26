@@ -1,0 +1,20 @@
+[
+  {
+    "name": "attn_gridmix_v1",
+    "epoch": 10.0,
+    "missing_macro_f1": 0.5575157371331757,
+    "clean_macro_f1": 0.5986363636363636
+  },
+  {
+    "name": "attn_gridmix_seed1112_v1",
+    "epoch": 15.0,
+    "missing_macro_f1": 0.5640095485965655,
+    "clean_macro_f1": 0.6022897973401813
+  },
+  {
+    "name": "attn_gridmix_seed1113_v1",
+    "epoch": 20.0,
+    "missing_macro_f1": 0.5617927857160026,
+    "clean_macro_f1": 0.6035965311827381
+  }
+]

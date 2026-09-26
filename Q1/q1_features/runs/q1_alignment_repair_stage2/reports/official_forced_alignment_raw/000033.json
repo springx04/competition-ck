@@ -1,0 +1,96 @@
+{
+  "sample_index": 33,
+  "sample_id": "-UuX1xuaiiE$_$0",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "^it's amazing to see their enthusiasm and their passion",
+  "duration": 3.6999999999999997,
+  "word_count": 9,
+  "timed_word_count": 9,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "^it's",
+      "start": 0.042,
+      "end": 0.146,
+      "score": 0.004,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "amazing",
+      "start": 0.291,
+      "end": 0.79,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "to",
+      "start": 0.894,
+      "end": 1.019,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "see",
+      "start": 1.102,
+      "end": 1.31,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "their",
+      "start": 1.372,
+      "end": 1.538,
+      "score": 0.962,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "enthusiasm",
+      "start": 1.601,
+      "end": 2.37,
+      "score": 0.975,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "and",
+      "start": 2.39,
+      "end": 2.474,
+      "score": 0.84,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "their",
+      "start": 2.494,
+      "end": 2.619,
+      "score": 0.984,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "passion",
+      "start": 2.661,
+      "end": 3.097,
+      "score": 0.923,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

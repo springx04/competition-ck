@@ -1,0 +1,96 @@
+{
+  "sample_index": 71,
+  "sample_id": "-ri04Z7vwnc$_$5",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "\" So I think it's important to discuss finances",
+  "duration": 3.5035111111111115,
+  "word_count": 9,
+  "timed_word_count": 9,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "\"",
+      "start": 0.061,
+      "end": 0.123,
+      "score": 0.653,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "So",
+      "start": 0.266,
+      "end": 0.348,
+      "score": 0.332,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "I",
+      "start": 0.369,
+      "end": 0.389,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "think",
+      "start": 0.492,
+      "end": 0.615,
+      "score": 0.088,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "it's",
+      "start": 0.676,
+      "end": 0.84,
+      "score": 0.251,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "important",
+      "start": 0.861,
+      "end": 1.127,
+      "score": 0.279,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "to",
+      "start": 1.147,
+      "end": 1.229,
+      "score": 0.5,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "discuss",
+      "start": 1.27,
+      "end": 1.537,
+      "score": 0.156,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "finances",
+      "start": 1.557,
+      "end": 2.131,
+      "score": 0.555,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

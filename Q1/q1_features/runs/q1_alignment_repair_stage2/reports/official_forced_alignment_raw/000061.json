@@ -1,0 +1,402 @@
+{
+  "sample_index": 61,
+  "sample_id": "-lzEya4AM_4$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "If the product or poison is some type of petroleum product or corrosive product, you would not attempt to induce vomiting and nausea, as as the product burned on the way down it could cause damage and burning on the way back up.",
+  "duration": 14.766666666666666,
+  "word_count": 43,
+  "timed_word_count": 43,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "If",
+      "start": 0.602,
+      "end": 0.682,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "the",
+      "start": 0.722,
+      "end": 0.823,
+      "score": 0.889,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "product",
+      "start": 0.863,
+      "end": 1.264,
+      "score": 0.929,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "or",
+      "start": 1.585,
+      "end": 1.645,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "poison",
+      "start": 1.705,
+      "end": 2.127,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "is",
+      "start": 2.187,
+      "end": 2.247,
+      "score": 0.952,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "some",
+      "start": 2.287,
+      "end": 2.448,
+      "score": 0.952,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "type",
+      "start": 2.468,
+      "end": 2.688,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "of",
+      "start": 2.729,
+      "end": 2.789,
+      "score": 0.75,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "petroleum",
+      "start": 2.869,
+      "end": 3.391,
+      "score": 0.961,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "product",
+      "start": 3.431,
+      "end": 3.812,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "or",
+      "start": 4.233,
+      "end": 4.294,
+      "score": 0.751,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "corrosive",
+      "start": 4.354,
+      "end": 4.815,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "product,",
+      "start": 4.875,
+      "end": 5.257,
+      "score": 0.887,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "you",
+      "start": 5.818,
+      "end": 5.919,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "would",
+      "start": 5.959,
+      "end": 6.099,
+      "score": 0.801,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "not",
+      "start": 6.139,
+      "end": 6.3,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "attempt",
+      "start": 6.46,
+      "end": 6.822,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "to",
+      "start": 7.203,
+      "end": 7.363,
+      "score": 0.881,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "induce",
+      "start": 7.644,
+      "end": 7.945,
+      "score": 0.991,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "vomiting",
+      "start": 8.025,
+      "end": 8.427,
+      "score": 0.988,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "and",
+      "start": 8.627,
+      "end": 8.687,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "nausea,",
+      "start": 8.748,
+      "end": 9.129,
+      "score": 0.788,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "as",
+      "start": 9.671,
+      "end": 9.791,
+      "score": 0.795,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "as",
+      "start": 9.811,
+      "end": 9.851,
+      "score": 0.002,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "the",
+      "start": 9.891,
+      "end": 9.992,
+      "score": 0.835,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "product",
+      "start": 10.012,
+      "end": 10.373,
+      "score": 0.923,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "burned",
+      "start": 10.453,
+      "end": 10.734,
+      "score": 0.922,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "on",
+      "start": 10.794,
+      "end": 10.854,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "the",
+      "start": 10.874,
+      "end": 10.955,
+      "score": 0.934,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "way",
+      "start": 10.995,
+      "end": 11.135,
+      "score": 0.89,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 31,
+      "raw_word": "down",
+      "start": 11.175,
+      "end": 11.456,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 32,
+      "raw_word": "it",
+      "start": 11.837,
+      "end": 11.878,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 33,
+      "raw_word": "could",
+      "start": 11.918,
+      "end": 12.058,
+      "score": 0.832,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 34,
+      "raw_word": "cause",
+      "start": 12.078,
+      "end": 12.339,
+      "score": 0.814,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 35,
+      "raw_word": "damage",
+      "start": 12.399,
+      "end": 12.76,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 36,
+      "raw_word": "and",
+      "start": 12.78,
+      "end": 12.861,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 37,
+      "raw_word": "burning",
+      "start": 12.921,
+      "end": 13.242,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 38,
+      "raw_word": "on",
+      "start": 13.503,
+      "end": 13.563,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 39,
+      "raw_word": "the",
+      "start": 13.583,
+      "end": 13.663,
+      "score": 0.933,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 40,
+      "raw_word": "way",
+      "start": 13.703,
+      "end": 13.824,
+      "score": 0.89,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 41,
+      "raw_word": "back",
+      "start": 13.844,
+      "end": 14.044,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 42,
+      "raw_word": "up.",
+      "start": 14.145,
+      "end": 14.245,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,18 @@
+{
+  "valid": {
+    "evaluation_seconds": 25.09314525895752,
+    "peak_allocated_bytes": 141360640,
+    "scenarios": 81
+  },
+  "test": {
+    "evaluation_seconds": 24.32035320799332,
+    "peak_allocated_bytes": 141360640,
+    "scenarios": 81
+  },
+  "warm_batch32_latency": {
+    "median_seconds": 0.012909732526168227,
+    "samples_per_second": 2478.750038789379,
+    "repeats": 10,
+    "includes_cpu_to_gpu": true
+  }
+}

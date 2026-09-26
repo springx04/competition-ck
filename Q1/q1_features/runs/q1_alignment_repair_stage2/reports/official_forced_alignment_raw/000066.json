@@ -1,0 +1,213 @@
+{
+  "sample_index": 66,
+  "sample_id": "-mJ2ud6oKI8$_$9",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "It's safe and the person will feel better later on, but it's sort of like flossing your teeth for the first time",
+  "duration": 7.007000000000001,
+  "word_count": 22,
+  "timed_word_count": 22,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "It's",
+      "start": 0.102,
+      "end": 0.305,
+      "score": 0.453,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "safe",
+      "start": 0.325,
+      "end": 0.427,
+      "score": 0.125,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "and",
+      "start": 0.487,
+      "end": 0.731,
+      "score": 0.916,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "the",
+      "start": 0.955,
+      "end": 1.219,
+      "score": 0.695,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "person",
+      "start": 1.28,
+      "end": 1.442,
+      "score": 0.417,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "will",
+      "start": 1.483,
+      "end": 1.645,
+      "score": 0.262,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "feel",
+      "start": 1.686,
+      "end": 1.828,
+      "score": 0.458,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "better",
+      "start": 1.869,
+      "end": 2.295,
+      "score": 0.622,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "later",
+      "start": 2.315,
+      "end": 2.539,
+      "score": 0.53,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "on,",
+      "start": 2.722,
+      "end": 2.823,
+      "score": 0.653,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "but",
+      "start": 2.965,
+      "end": 3.067,
+      "score": 0.93,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "it's",
+      "start": 3.087,
+      "end": 3.209,
+      "score": 0.14,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "sort",
+      "start": 3.229,
+      "end": 3.311,
+      "score": 0.244,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "of",
+      "start": 3.331,
+      "end": 3.371,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "like",
+      "start": 3.392,
+      "end": 3.473,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "flossing",
+      "start": 3.493,
+      "end": 3.717,
+      "score": 0.437,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "your",
+      "start": 3.737,
+      "end": 3.818,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "teeth",
+      "start": 3.839,
+      "end": 3.94,
+      "score": 0.342,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "for",
+      "start": 3.96,
+      "end": 4.164,
+      "score": 0.583,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "the",
+      "start": 4.184,
+      "end": 4.245,
+      "score": 0.667,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "first",
+      "start": 4.265,
+      "end": 4.407,
+      "score": 0.329,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "time",
+      "start": 4.976,
+      "end": 5.301,
+      "score": 0.518,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

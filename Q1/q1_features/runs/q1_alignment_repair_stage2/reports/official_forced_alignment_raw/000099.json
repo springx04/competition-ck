@@ -1,0 +1,186 @@
+{
+  "sample_index": 99,
+  "sample_id": "-yRb-Jum7EQ$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Therefore, the world needs to stand with Israel against this incitement, which is the number one cause of terrorism.",
+  "duration": 11.242539682539682,
+  "word_count": 19,
+  "timed_word_count": 19,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Therefore,",
+      "start": 0.381,
+      "end": 0.741,
+      "score": 0.496,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "the",
+      "start": 0.762,
+      "end": 0.842,
+      "score": 0.165,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "world",
+      "start": 0.882,
+      "end": 1.042,
+      "score": 0.507,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "needs",
+      "start": 1.102,
+      "end": 1.202,
+      "score": 0.146,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "to",
+      "start": 1.222,
+      "end": 1.283,
+      "score": 0.238,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "stand",
+      "start": 1.303,
+      "end": 1.543,
+      "score": 0.42,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "with",
+      "start": 1.563,
+      "end": 1.723,
+      "score": 0.385,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "Israel",
+      "start": 1.743,
+      "end": 2.044,
+      "score": 0.462,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "against",
+      "start": 2.064,
+      "end": 2.345,
+      "score": 0.267,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "this",
+      "start": 2.365,
+      "end": 2.505,
+      "score": 0.49,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "incitement,",
+      "start": 2.525,
+      "end": 2.886,
+      "score": 0.226,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "which",
+      "start": 3.587,
+      "end": 3.928,
+      "score": 0.463,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "is",
+      "start": 3.948,
+      "end": 3.988,
+      "score": 0.024,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "the",
+      "start": 4.008,
+      "end": 4.208,
+      "score": 0.606,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "number",
+      "start": 4.249,
+      "end": 4.549,
+      "score": 0.527,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "one",
+      "start": 4.569,
+      "end": 4.669,
+      "score": 0.358,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "cause",
+      "start": 4.689,
+      "end": 4.93,
+      "score": 0.478,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "of",
+      "start": 5.391,
+      "end": 5.571,
+      "score": 0.496,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "terrorism.",
+      "start": 5.591,
+      "end": 6.273,
+      "score": 0.637,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

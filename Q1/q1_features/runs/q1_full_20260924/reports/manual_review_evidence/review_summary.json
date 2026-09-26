@@ -1,0 +1,15 @@
+{
+  "review_rows": 78,
+  "unique_sample_ids": 51,
+  "by_issue": {
+    "identity_unknown": 37,
+    "low_aligned_word_fraction": 19,
+    "suspected_text_audio_mismatch": 22
+  },
+  "confirmed_match": 0,
+  "confirmed_mismatch": 0,
+  "unresolved": 78,
+  "identity_contact_sheets": 6,
+  "target_face_segments_confirmed": 0,
+  "note": "No unresolved item was represented as human-confirmed. Identity still frames and CTC timelines were inspected; records lacking reliable audiovisual confirmation remain unresolved."
+}

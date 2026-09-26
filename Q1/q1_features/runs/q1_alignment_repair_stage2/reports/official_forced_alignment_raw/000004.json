@@ -1,0 +1,177 @@
+{
+  "sample_index": 4,
+  "sample_id": "-3nNcZdcdvU$_$5",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Noncompliance can result in legal liability to you and to the school district in which you are employed.",
+  "duration": 7.866666666666666,
+  "word_count": 18,
+  "timed_word_count": 18,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Noncompliance",
+      "start": 0.586,
+      "end": 1.577,
+      "score": 0.992,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "can",
+      "start": 1.678,
+      "end": 1.941,
+      "score": 0.924,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "result",
+      "start": 2.022,
+      "end": 2.568,
+      "score": 0.934,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "in",
+      "start": 2.69,
+      "end": 2.771,
+      "score": 0.845,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "legal",
+      "start": 2.851,
+      "end": 3.135,
+      "score": 0.938,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "liability",
+      "start": 3.195,
+      "end": 3.903,
+      "score": 0.969,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "to",
+      "start": 4.004,
+      "end": 4.206,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "you",
+      "start": 4.328,
+      "end": 4.591,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "and",
+      "start": 5.116,
+      "end": 5.217,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "to",
+      "start": 5.298,
+      "end": 5.42,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "the",
+      "start": 5.46,
+      "end": 5.541,
+      "score": 0.839,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "school",
+      "start": 5.581,
+      "end": 5.844,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "district",
+      "start": 5.885,
+      "end": 6.229,
+      "score": 0.854,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "in",
+      "start": 6.269,
+      "end": 6.33,
+      "score": 0.748,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "which",
+      "start": 6.35,
+      "end": 6.512,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "you",
+      "start": 6.552,
+      "end": 6.674,
+      "score": 0.892,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "are",
+      "start": 6.734,
+      "end": 6.835,
+      "score": 0.891,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "employed.",
+      "start": 6.876,
+      "end": 7.341,
+      "score": 0.98,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

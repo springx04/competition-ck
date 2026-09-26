@@ -1,0 +1,1111 @@
+{
+  "counts": {
+    "words": 479,
+    "rejected_words": 14,
+    "main_evidence_words": 103,
+    "human_verified": 0
+  },
+  "samples": [
+    {
+      "sample_id": "01",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/01.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "9.000000"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "8.981995"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "9.000000"
+        }
+      },
+      "video_pts_count": 270,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 8.986125,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 54,
+          "pts_s": 1.8,
+          "asset": "01_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 134,
+          "pts_s": 4.466667,
+          "asset": "01_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 215,
+          "pts_s": 7.166667,
+          "asset": "01_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "02",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/02.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "3.492969"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "3.329002"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "3.700000"
+        }
+      },
+      "video_pts_count": 101,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 3.328375,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 21,
+          "pts_s": 0.7,
+          "asset": "02_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 52,
+          "pts_s": 1.733333,
+          "asset": "02_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 82,
+          "pts_s": 2.733333,
+          "asset": "02_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "03",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/03.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "9.663997"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "9.582993"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "16.000000"
+        }
+      },
+      "video_pts_count": 289,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 9.5835,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 58,
+          "pts_s": 1.933333,
+          "asset": "03_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 144,
+          "pts_s": 4.8,
+          "asset": "03_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 230,
+          "pts_s": 7.666667,
+          "asset": "03_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "04",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/04.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "6.994010"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "6.847007"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "9.300000"
+        }
+      },
+      "video_pts_count": 207,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 6.8475,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 42,
+          "pts_s": 1.4,
+          "asset": "04_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 104,
+          "pts_s": 3.466667,
+          "asset": "04_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 166,
+          "pts_s": 5.533333,
+          "asset": "04_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "05",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/05.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "6.100000"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "6.013991"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "6.167000"
+        }
+      },
+      "video_pts_count": 183,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 6.014,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 37,
+          "pts_s": 1.233333,
+          "asset": "05_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 92,
+          "pts_s": 3.066667,
+          "asset": "05_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 147,
+          "pts_s": 4.9,
+          "asset": "05_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "06",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/06.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "8.305013"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "8.158005"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "9.800000"
+        }
+      },
+      "video_pts_count": 247,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 8.1580625,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 50,
+          "pts_s": 1.666667,
+          "asset": "06_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 124,
+          "pts_s": 4.133333,
+          "asset": "06_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 198,
+          "pts_s": 6.6,
+          "asset": "06_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "07",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/07.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/90000",
+            "start_time": "0.000000",
+            "duration": "21.348000"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "21.266009"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "24.134000"
+        }
+      },
+      "video_pts_count": 639,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 21.2655625,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 128,
+          "pts_s": 4.266667,
+          "asset": "07_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 319,
+          "pts_s": 10.633333,
+          "asset": "07_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 511,
+          "pts_s": 17.033333,
+          "asset": "07_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "08",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/08.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "5.086003"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "4.908005"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "8.067000"
+        }
+      },
+      "video_pts_count": 149,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 4.9084375,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 30,
+          "pts_s": 1.0,
+          "asset": "08_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 75,
+          "pts_s": 2.5,
+          "asset": "08_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 121,
+          "pts_s": 4.033333,
+          "asset": "08_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "09",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/09.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "5.041992"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/48000",
+            "start_time": "0.000000",
+            "duration": "4.964000"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "11.300000"
+        }
+      },
+      "video_pts_count": 151,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 4.9643125,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 30,
+          "pts_s": 1.0,
+          "asset": "09_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 75,
+          "pts_s": 2.5,
+          "asset": "09_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 120,
+          "pts_s": 4.0,
+          "asset": "09_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "10",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/10.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "9.939974"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "9.775011"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "10.934000"
+        }
+      },
+      "video_pts_count": 295,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 9.7755625,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 59,
+          "pts_s": 1.966667,
+          "asset": "10_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 148,
+          "pts_s": 4.933333,
+          "asset": "10_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 238,
+          "pts_s": 7.933333,
+          "asset": "10_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "11",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/11.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "5.803971"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/32000",
+            "start_time": "0.000000",
+            "duration": "5.759000"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "11.424000"
+        }
+      },
+      "video_pts_count": 174,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 5.759,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 35,
+          "pts_s": 1.166667,
+          "asset": "11_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 86,
+          "pts_s": 2.866667,
+          "asset": "11_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 138,
+          "pts_s": 4.6,
+          "asset": "11_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "12",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/12.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "13.013997"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "12.875011"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "20.367000"
+        }
+      },
+      "video_pts_count": 388,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 12.8745625,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 78,
+          "pts_s": 2.6,
+          "asset": "12_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 194,
+          "pts_s": 6.466667,
+          "asset": "12_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 311,
+          "pts_s": 10.366667,
+          "asset": "12_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "13",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/13.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "8.666667"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "8.679002"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "8.680000"
+        }
+      },
+      "video_pts_count": 260,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 8.68425,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 52,
+          "pts_s": 1.733333,
+          "asset": "13_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 130,
+          "pts_s": 4.333333,
+          "asset": "13_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 207,
+          "pts_s": 6.9,
+          "asset": "13_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "14",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/14.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "10.350977"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "10.227007"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "13.900000"
+        }
+      },
+      "video_pts_count": 308,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 10.226375,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 62,
+          "pts_s": 2.066667,
+          "asset": "14_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 154,
+          "pts_s": 5.133333,
+          "asset": "14_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 247,
+          "pts_s": 8.233333,
+          "asset": "14_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "15",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/15.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "7.333333"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "7.298005"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "7.334000"
+        }
+      },
+      "video_pts_count": 220,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 7.3143125,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 44,
+          "pts_s": 1.466667,
+          "asset": "15_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 109,
+          "pts_s": 3.633333,
+          "asset": "15_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 175,
+          "pts_s": 5.833333,
+          "asset": "15_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "16",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/16.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "3.113997"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "3.042993"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "5.573000"
+        }
+      },
+      "video_pts_count": 93,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 3.0436875,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 18,
+          "pts_s": 0.6,
+          "asset": "16_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 46,
+          "pts_s": 1.533333,
+          "asset": "16_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 74,
+          "pts_s": 2.466667,
+          "asset": "16_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "17",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/17.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "9.666992"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "9.562993"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "14.000000"
+        }
+      },
+      "video_pts_count": 289,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 9.563375,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 58,
+          "pts_s": 1.933333,
+          "asset": "17_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 145,
+          "pts_s": 4.833333,
+          "asset": "17_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 231,
+          "pts_s": 7.7,
+          "asset": "17_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "18",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/18.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "18.808008"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "18.636009"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "22.967000"
+        }
+      },
+      "video_pts_count": 561,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 18.6365625,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 113,
+          "pts_s": 3.766667,
+          "asset": "18_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 282,
+          "pts_s": 9.4,
+          "asset": "18_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 450,
+          "pts_s": 15.0,
+          "asset": "18_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "19",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/19.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/90000",
+            "start_time": "0.000000",
+            "duration": "13.683000"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "13.610998"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "18.734000"
+        }
+      },
+      "video_pts_count": 409,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 13.6108125,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 82,
+          "pts_s": 2.733333,
+          "asset": "19_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 205,
+          "pts_s": 6.833333,
+          "asset": "19_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 327,
+          "pts_s": 10.9,
+          "asset": "19_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    },
+    {
+      "sample_id": "20",
+      "source_video": "/root/gpufree-data/shuomo_E/data/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/videos/20.mp4",
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_type": "video",
+            "time_base": "1/15360",
+            "start_time": "0.000000",
+            "duration": "10.952995"
+          },
+          {
+            "index": 1,
+            "codec_type": "audio",
+            "time_base": "1/44100",
+            "start_time": "0.000000",
+            "duration": "10.810000"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "18.767000"
+        }
+      },
+      "video_pts_count": 326,
+      "video_pts_monotonic": true,
+      "audio_offset_s": 0.0,
+      "decoded_audio_duration": 10.809875,
+      "candidate_clock_compatible": true,
+      "word_bounds_order_failures": [],
+      "representative_frames": [
+        {
+          "frame_index": 65,
+          "pts_s": 2.166667,
+          "asset": "20_context1.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 163,
+          "pts_s": 5.433333,
+          "asset": "20_context2.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        },
+        {
+          "frame_index": 262,
+          "pts_s": 8.733333,
+          "asset": "20_context3.jpg",
+          "role": "source_context_only_not_model_visual_evidence"
+        }
+      ],
+      "auditory_review": "not_performed",
+      "official_av_provenance": "unresolved"
+    }
+  ],
+  "auditory_review": "not_performed"
+}

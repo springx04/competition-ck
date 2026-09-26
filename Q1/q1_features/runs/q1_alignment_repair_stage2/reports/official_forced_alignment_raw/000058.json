@@ -1,0 +1,204 @@
+{
+  "sample_index": 58,
+  "sample_id": "-iRBcNs9oI8$_$8",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "I've drawn this man here, and if you can tell, he has a lot of big muscles, he looks very strong",
+  "duration": 8.074733333333334,
+  "word_count": 21,
+  "timed_word_count": 21,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "I've",
+      "start": 0.081,
+      "end": 0.262,
+      "score": 0.503,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "drawn",
+      "start": 0.322,
+      "end": 0.483,
+      "score": 0.5,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "this",
+      "start": 0.564,
+      "end": 0.644,
+      "score": 0.25,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "man",
+      "start": 0.665,
+      "end": 0.745,
+      "score": 0.076,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "here,",
+      "start": 0.765,
+      "end": 1.067,
+      "score": 0.478,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "and",
+      "start": 1.228,
+      "end": 1.41,
+      "score": 0.806,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "if",
+      "start": 1.43,
+      "end": 1.47,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "you",
+      "start": 1.49,
+      "end": 1.611,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "can",
+      "start": 1.631,
+      "end": 1.691,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "tell,",
+      "start": 1.913,
+      "end": 2.134,
+      "score": 0.448,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "he",
+      "start": 2.195,
+      "end": 2.316,
+      "score": 0.75,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "has",
+      "start": 2.336,
+      "end": 2.457,
+      "score": 0.667,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "a",
+      "start": 2.497,
+      "end": 2.517,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "lot",
+      "start": 2.537,
+      "end": 2.618,
+      "score": 0.499,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "of",
+      "start": 2.638,
+      "end": 2.678,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "big",
+      "start": 2.698,
+      "end": 2.88,
+      "score": 0.486,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "muscles,",
+      "start": 3.625,
+      "end": 4.088,
+      "score": 0.597,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "he",
+      "start": 4.148,
+      "end": 4.188,
+      "score": 0.5,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "looks",
+      "start": 4.209,
+      "end": 4.349,
+      "score": 0.3,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "very",
+      "start": 4.37,
+      "end": 4.49,
+      "score": 0.248,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "strong",
+      "start": 4.551,
+      "end": 4.732,
+      "score": 0.292,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

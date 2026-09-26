@@ -1,0 +1,195 @@
+{
+  "sample_index": 93,
+  "sample_id": "-wny0OAz3g8$_$3",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Which then allowed the white workers and unions to justify their decision to not allow black workers into their union",
+  "duration": 6.133333333333333,
+  "word_count": 20,
+  "timed_word_count": 20,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Which",
+      "start": 0.545,
+      "end": 0.686,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "then",
+      "start": 0.746,
+      "end": 0.888,
+      "score": 0.972,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "allowed",
+      "start": 0.928,
+      "end": 1.17,
+      "score": 0.929,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "the",
+      "start": 1.19,
+      "end": 1.251,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "white",
+      "start": 1.291,
+      "end": 1.453,
+      "score": 0.957,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "workers",
+      "start": 1.493,
+      "end": 1.775,
+      "score": 0.921,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "and",
+      "start": 1.816,
+      "end": 1.876,
+      "score": 0.528,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "unions",
+      "start": 1.957,
+      "end": 2.219,
+      "score": 0.949,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "to",
+      "start": 2.26,
+      "end": 2.34,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "justify",
+      "start": 2.401,
+      "end": 2.845,
+      "score": 0.953,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "their",
+      "start": 2.885,
+      "end": 3.006,
+      "score": 0.927,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "decision",
+      "start": 3.046,
+      "end": 3.369,
+      "score": 0.896,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "to",
+      "start": 3.389,
+      "end": 3.47,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "not",
+      "start": 3.551,
+      "end": 3.732,
+      "score": 0.838,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "allow",
+      "start": 3.773,
+      "end": 4.015,
+      "score": 0.894,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "black",
+      "start": 4.055,
+      "end": 4.297,
+      "score": 0.958,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "workers",
+      "start": 4.338,
+      "end": 4.681,
+      "score": 0.924,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "into",
+      "start": 4.882,
+      "end": 5.064,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "their",
+      "start": 5.084,
+      "end": 5.225,
+      "score": 0.939,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "union",
+      "start": 5.367,
+      "end": 5.589,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

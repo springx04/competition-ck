@@ -1,0 +1,402 @@
+{
+  "sample_index": 6,
+  "sample_id": "-571d8cVauQ$_$5",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "So very important to go out to the locations, walk around, talk with the owners if you can, tell them what you're doing, build a little excitement, put a little glitz on there and let everybody knows this is a very valuable spot.",
+  "duration": 15.266666666666666,
+  "word_count": 43,
+  "timed_word_count": 43,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "So",
+      "start": 0.566,
+      "end": 0.708,
+      "score": 0.997,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "very",
+      "start": 0.768,
+      "end": 0.971,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "important",
+      "start": 1.031,
+      "end": 1.375,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "to",
+      "start": 1.415,
+      "end": 1.496,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "go",
+      "start": 1.618,
+      "end": 1.8,
+      "score": 0.893,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "out",
+      "start": 1.941,
+      "end": 2.083,
+      "score": 0.787,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "to",
+      "start": 2.487,
+      "end": 2.649,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "the",
+      "start": 2.689,
+      "end": 2.75,
+      "score": 0.985,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "locations,",
+      "start": 2.831,
+      "end": 3.417,
+      "score": 0.971,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "walk",
+      "start": 3.842,
+      "end": 4.105,
+      "score": 0.932,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "around,",
+      "start": 4.165,
+      "end": 4.529,
+      "score": 0.984,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "talk",
+      "start": 4.772,
+      "end": 5.015,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "with",
+      "start": 5.055,
+      "end": 5.156,
+      "score": 0.877,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "the",
+      "start": 5.177,
+      "end": 5.278,
+      "score": 0.841,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "owners",
+      "start": 5.379,
+      "end": 5.621,
+      "score": 0.947,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "if",
+      "start": 5.702,
+      "end": 5.763,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "you",
+      "start": 5.803,
+      "end": 5.904,
+      "score": 0.965,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "can,",
+      "start": 5.945,
+      "end": 6.208,
+      "score": 0.942,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "tell",
+      "start": 6.531,
+      "end": 6.734,
+      "score": 0.876,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "them",
+      "start": 6.754,
+      "end": 6.875,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "what",
+      "start": 6.915,
+      "end": 7.037,
+      "score": 0.876,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "you're",
+      "start": 7.057,
+      "end": 7.239,
+      "score": 0.881,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "doing,",
+      "start": 7.259,
+      "end": 7.482,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "build",
+      "start": 7.765,
+      "end": 8.007,
+      "score": 0.782,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "a",
+      "start": 8.048,
+      "end": 8.088,
+      "score": 0.505,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "little",
+      "start": 8.129,
+      "end": 8.351,
+      "score": 0.963,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "excitement,",
+      "start": 8.392,
+      "end": 8.938,
+      "score": 0.962,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "put",
+      "start": 9.524,
+      "end": 9.645,
+      "score": 0.829,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "a",
+      "start": 9.666,
+      "end": 9.686,
+      "score": 0.997,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "little",
+      "start": 9.726,
+      "end": 9.908,
+      "score": 0.949,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "glitz",
+      "start": 9.949,
+      "end": 10.272,
+      "score": 0.947,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 31,
+      "raw_word": "on",
+      "start": 10.393,
+      "end": 10.474,
+      "score": 0.977,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 32,
+      "raw_word": "there",
+      "start": 10.515,
+      "end": 10.717,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 33,
+      "raw_word": "and",
+      "start": 11.364,
+      "end": 11.465,
+      "score": 0.868,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 34,
+      "raw_word": "let",
+      "start": 11.667,
+      "end": 11.809,
+      "score": 0.9,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 35,
+      "raw_word": "everybody",
+      "start": 11.849,
+      "end": 12.193,
+      "score": 0.9,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 36,
+      "raw_word": "knows",
+      "start": 12.234,
+      "end": 12.416,
+      "score": 0.75,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 37,
+      "raw_word": "this",
+      "start": 12.86,
+      "end": 13.042,
+      "score": 0.98,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 38,
+      "raw_word": "is",
+      "start": 13.123,
+      "end": 13.204,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 39,
+      "raw_word": "a",
+      "start": 13.285,
+      "end": 13.325,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 40,
+      "raw_word": "very",
+      "start": 13.467,
+      "end": 13.71,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 41,
+      "raw_word": "valuable",
+      "start": 13.831,
+      "end": 14.337,
+      "score": 0.866,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 42,
+      "raw_word": "spot.",
+      "start": 14.397,
+      "end": 14.7,
+      "score": 0.961,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

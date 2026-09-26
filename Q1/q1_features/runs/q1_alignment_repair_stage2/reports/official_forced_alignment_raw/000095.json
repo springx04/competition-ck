@@ -1,0 +1,276 @@
+{
+  "sample_index": 95,
+  "sample_id": "-wny0OAz3g8$_$7",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Omi and Winant argue that the concept of race came about as a tool to justify and maintain the economic and political power held by those of European descent",
+  "duration": 8.066666666666666,
+  "word_count": 29,
+  "timed_word_count": 29,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Omi",
+      "start": 0.184,
+      "end": 0.735,
+      "score": 0.752,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "and",
+      "start": 0.756,
+      "end": 0.817,
+      "score": 0.966,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "Winant",
+      "start": 0.837,
+      "end": 1.103,
+      "score": 0.678,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "argue",
+      "start": 1.164,
+      "end": 1.368,
+      "score": 0.908,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "that",
+      "start": 1.389,
+      "end": 1.47,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "the",
+      "start": 1.491,
+      "end": 1.572,
+      "score": 0.827,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "concept",
+      "start": 1.613,
+      "end": 1.961,
+      "score": 0.929,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "of",
+      "start": 1.981,
+      "end": 2.042,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "race",
+      "start": 2.103,
+      "end": 2.308,
+      "score": 0.752,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "came",
+      "start": 2.369,
+      "end": 2.512,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "about",
+      "start": 2.553,
+      "end": 2.737,
+      "score": 0.931,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "as",
+      "start": 2.798,
+      "end": 2.859,
+      "score": 0.75,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "a",
+      "start": 2.9,
+      "end": 2.92,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "tool",
+      "start": 2.961,
+      "end": 3.227,
+      "score": 0.872,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "to",
+      "start": 3.268,
+      "end": 3.329,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "justify",
+      "start": 3.39,
+      "end": 3.88,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "and",
+      "start": 3.962,
+      "end": 4.023,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "maintain",
+      "start": 4.064,
+      "end": 4.534,
+      "score": 0.919,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "the",
+      "start": 4.615,
+      "end": 4.717,
+      "score": 0.667,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "economic",
+      "start": 4.779,
+      "end": 5.208,
+      "score": 0.937,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "and",
+      "start": 5.248,
+      "end": 5.31,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "political",
+      "start": 5.351,
+      "end": 5.718,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "power",
+      "start": 5.759,
+      "end": 6.086,
+      "score": 0.933,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "held",
+      "start": 6.167,
+      "end": 6.351,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "by",
+      "start": 6.392,
+      "end": 6.494,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "those",
+      "start": 6.515,
+      "end": 6.698,
+      "score": 0.934,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "of",
+      "start": 6.739,
+      "end": 6.78,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "European",
+      "start": 6.841,
+      "end": 7.229,
+      "score": 0.883,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "descent",
+      "start": 7.25,
+      "end": 7.597,
+      "score": 0.973,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,222 @@
+{
+  "sample_index": 91,
+  "sample_id": "-wny0OAz3g8$_$1",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "And because they couldn’t join unions, many Black workers couldn’t get manufacturing or trade work – which paid much better than service work",
+  "duration": 6.833333333333333,
+  "word_count": 23,
+  "timed_word_count": 23,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "And",
+      "start": 0.546,
+      "end": 0.627,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "because",
+      "start": 0.667,
+      "end": 0.93,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "they",
+      "start": 0.97,
+      "end": 1.071,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "couldn’t",
+      "start": 1.112,
+      "end": 1.334,
+      "score": 0.89,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "join",
+      "start": 1.375,
+      "end": 1.577,
+      "score": 0.938,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "unions,",
+      "start": 1.698,
+      "end": 2.042,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "many",
+      "start": 2.183,
+      "end": 2.345,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "Black",
+      "start": 2.386,
+      "end": 2.588,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "workers",
+      "start": 2.608,
+      "end": 2.911,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "couldn’t",
+      "start": 2.992,
+      "end": 3.255,
+      "score": 0.866,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "get",
+      "start": 3.275,
+      "end": 3.376,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "manufacturing",
+      "start": 3.437,
+      "end": 4.043,
+      "score": 0.962,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "or",
+      "start": 4.084,
+      "end": 4.144,
+      "score": 0.752,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "trade",
+      "start": 4.185,
+      "end": 4.428,
+      "score": 0.804,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "work",
+      "start": 4.448,
+      "end": 4.609,
+      "score": 0.875,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "–",
+      "start": 4.63,
+      "end": 4.65,
+      "score": 0.708,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "which",
+      "start": 4.711,
+      "end": 4.852,
+      "score": 0.909,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "paid",
+      "start": 4.913,
+      "end": 5.115,
+      "score": 0.919,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "much",
+      "start": 5.196,
+      "end": 5.378,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "better",
+      "start": 5.438,
+      "end": 5.641,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "than",
+      "start": 5.681,
+      "end": 5.802,
+      "score": 0.876,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "service",
+      "start": 5.822,
+      "end": 6.126,
+      "score": 0.931,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "work",
+      "start": 6.166,
+      "end": 6.308,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

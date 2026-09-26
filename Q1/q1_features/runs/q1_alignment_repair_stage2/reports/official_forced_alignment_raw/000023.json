@@ -1,0 +1,177 @@
+{
+  "sample_index": 23,
+  "sample_id": "-NFrJFQijFE$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "So we coordinate with all the proper technical fields to get ready for the instrument to arrive here",
+  "duration": 6.840000000000001,
+  "word_count": 18,
+  "timed_word_count": 18,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "So",
+      "start": 0.573,
+      "end": 0.819,
+      "score": 0.809,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "we",
+      "start": 0.84,
+      "end": 0.922,
+      "score": 0.331,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "coordinate",
+      "start": 1.065,
+      "end": 1.331,
+      "score": 0.116,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "with",
+      "start": 1.352,
+      "end": 1.454,
+      "score": 0.124,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "all",
+      "start": 1.474,
+      "end": 1.597,
+      "score": 0.248,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "the",
+      "start": 1.7,
+      "end": 1.905,
+      "score": 0.497,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "proper",
+      "start": 1.966,
+      "end": 2.13,
+      "score": 0.11,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "technical",
+      "start": 2.15,
+      "end": 4.034,
+      "score": 0.566,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "fields",
+      "start": 4.178,
+      "end": 4.403,
+      "score": 0.393,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "to",
+      "start": 4.423,
+      "end": 4.505,
+      "score": 0.334,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "get",
+      "start": 4.587,
+      "end": 4.731,
+      "score": 0.461,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "ready",
+      "start": 4.751,
+      "end": 4.935,
+      "score": 0.3,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "for",
+      "start": 4.976,
+      "end": 5.079,
+      "score": 0.333,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "the",
+      "start": 5.263,
+      "end": 5.488,
+      "score": 0.722,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "instrument",
+      "start": 5.57,
+      "end": 6.287,
+      "score": 0.393,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "to",
+      "start": 6.308,
+      "end": 6.369,
+      "score": 0.686,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "arrive",
+      "start": 6.389,
+      "end": 6.676,
+      "score": 0.508,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "here",
+      "start": 6.697,
+      "end": 6.84,
+      "score": 0.188,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,21 @@
+{
+  "planned": 120,
+  "evaluated": 118,
+  "retained": 116,
+  "failed": 2,
+  "not_applicable": 2,
+  "failures": [
+    {
+      "sample_id": "09",
+      "selection_id": "suppress.T.p20.point",
+      "delta_class": 0.08936482667922974,
+      "delta_score_raw": -0.7479678392410278
+    },
+    {
+      "sample_id": "18",
+      "selection_id": "suppress.T.p20.point",
+      "delta_class": 0.07869058847427368,
+      "delta_score_raw": -0.342179074883461
+    }
+  ]
+}

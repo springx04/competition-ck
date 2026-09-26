@@ -1,0 +1,18 @@
+{
+  "probe_count": 28,
+  "batch_size": 128,
+  "single_batch_difference": {
+    "logits": 2.384185791015625e-06,
+    "probability": 6.556510925292969e-07,
+    "score": 1.1324882507324219e-06
+  },
+  "repeat_difference": {
+    "logits": 0.0,
+    "probability": 0.0,
+    "score": 0.0
+  },
+  "class_consistent": true,
+  "eps_prob": 6.556510925292969e-06,
+  "eps_score": 1.1324882507324219e-05,
+  "eps_D": 4.221995671590169e-06
+}

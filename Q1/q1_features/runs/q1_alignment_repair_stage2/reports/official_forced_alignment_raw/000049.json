@@ -1,0 +1,195 @@
+{
+  "sample_index": 49,
+  "sample_id": "-egA8-b7-3M$_$20",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Now you've got a face that you can connect with a voice, and that makes you closer to that client.",
+  "duration": 6.633333333333333,
+  "word_count": 20,
+  "timed_word_count": 20,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Now",
+      "start": 0.596,
+      "end": 0.76,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "you've",
+      "start": 0.78,
+      "end": 0.986,
+      "score": 0.702,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "got",
+      "start": 1.006,
+      "end": 1.171,
+      "score": 0.857,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "a",
+      "start": 1.212,
+      "end": 1.232,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "face",
+      "start": 1.335,
+      "end": 1.622,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "that",
+      "start": 1.684,
+      "end": 1.807,
+      "score": 0.993,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "you",
+      "start": 1.848,
+      "end": 1.972,
+      "score": 0.892,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "can",
+      "start": 2.013,
+      "end": 2.136,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "connect",
+      "start": 2.177,
+      "end": 2.567,
+      "score": 0.882,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "with",
+      "start": 2.649,
+      "end": 2.793,
+      "score": 0.876,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "a",
+      "start": 2.834,
+      "end": 2.875,
+      "score": 0.571,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "voice,",
+      "start": 2.937,
+      "end": 3.306,
+      "score": 0.816,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "and",
+      "start": 4.046,
+      "end": 4.148,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "that",
+      "start": 4.189,
+      "end": 4.354,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "makes",
+      "start": 4.415,
+      "end": 4.621,
+      "score": 0.819,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "you",
+      "start": 4.662,
+      "end": 4.785,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "closer",
+      "start": 4.826,
+      "end": 5.278,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "to",
+      "start": 5.34,
+      "end": 5.442,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "that",
+      "start": 5.483,
+      "end": 5.668,
+      "score": 0.963,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "client.",
+      "start": 5.709,
+      "end": 6.14,
+      "score": 0.926,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "errors": [],
+  "sample_count": 100,
+  "data_chain_ok": 100,
+  "official_forced_alignment_completed": 100,
+  "semantic_status_all100": {
+    "MATCH_STRONG": 78,
+    "CONFLICT": 12,
+    "UNRESOLVED": 7,
+    "MATCH_WEAK": 3
+  },
+  "temporal_status_all100": {
+    "VERIFIED": 71,
+    "PARTIAL": 10,
+    "NOT_APPLICABLE": 19
+  },
+  "visual_status_all100": {
+    "partially_verified": 43,
+    "unresolved": 34,
+    "fully_verified": 19,
+    "missing": 4
+  },
+  "unresolved_sample_count": 38,
+  "unresolved_reason_counts": {
+    "semantic:independent_semantic_evidence_is_inconclusive": 3,
+    "semantic:within_video_clip_mapping_suspected": 4,
+    "visual:no_unique_TalkNet_active_identity_window": 34
+  },
+  "pytest": "78 passed in 0.29s",
+  "pip_check": "No broken requirements found.",
+  "formal_validation_ok": true,
+  "candidate_only": true,
+  "production_write": false
+}

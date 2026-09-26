@@ -1,0 +1,132 @@
+{
+  "sample_index": 62,
+  "sample_id": "-mJ2ud6oKI8$_$1",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "There are a dozen or more hands on techniques that we can do",
+  "duration": 6.072733333333334,
+  "word_count": 13,
+  "timed_word_count": 13,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "There",
+      "start": 1.287,
+      "end": 4.806,
+      "score": 0.199,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "are",
+      "start": 4.826,
+      "end": 4.886,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "a",
+      "start": 4.906,
+      "end": 4.927,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "dozen",
+      "start": 4.947,
+      "end": 5.047,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "or",
+      "start": 5.067,
+      "end": 5.108,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "more",
+      "start": 5.128,
+      "end": 5.208,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "hands",
+      "start": 5.228,
+      "end": 5.329,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "on",
+      "start": 5.349,
+      "end": 5.389,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "techniques",
+      "start": 5.409,
+      "end": 5.61,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "that",
+      "start": 5.63,
+      "end": 5.711,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "we",
+      "start": 5.731,
+      "end": 5.771,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "can",
+      "start": 5.791,
+      "end": 5.852,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "do",
+      "start": 5.872,
+      "end": 5.912,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

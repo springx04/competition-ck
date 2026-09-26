@@ -1,0 +1,294 @@
+{
+  "sample_index": 21,
+  "sample_id": "-MeTTeMJBNc$_$7",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Maybe you could find a picture of the couple from their wedding or sometime in their life, or maybe even a current picture and have it put in a beautiful frame.",
+  "duration": 10.5,
+  "word_count": 31,
+  "timed_word_count": 31,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Maybe",
+      "start": 0.545,
+      "end": 0.767,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "you",
+      "start": 0.808,
+      "end": 0.929,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "could",
+      "start": 0.969,
+      "end": 1.151,
+      "score": 0.937,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "find",
+      "start": 1.575,
+      "end": 1.898,
+      "score": 0.921,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "a",
+      "start": 1.938,
+      "end": 1.979,
+      "score": 0.585,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "picture",
+      "start": 2.039,
+      "end": 2.423,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "of",
+      "start": 2.484,
+      "end": 2.564,
+      "score": 0.822,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "the",
+      "start": 2.585,
+      "end": 2.686,
+      "score": 0.987,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "couple",
+      "start": 2.726,
+      "end": 3.089,
+      "score": 0.894,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "from",
+      "start": 3.17,
+      "end": 3.473,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "their",
+      "start": 3.756,
+      "end": 3.917,
+      "score": 0.9,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "wedding",
+      "start": 3.978,
+      "end": 4.442,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "or",
+      "start": 4.705,
+      "end": 4.806,
+      "score": 0.837,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "sometime",
+      "start": 4.947,
+      "end": 5.391,
+      "score": 0.955,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "in",
+      "start": 5.432,
+      "end": 5.492,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "their",
+      "start": 5.533,
+      "end": 5.674,
+      "score": 0.991,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "life,",
+      "start": 5.755,
+      "end": 6.138,
+      "score": 0.99,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "or",
+      "start": 6.199,
+      "end": 6.26,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "maybe",
+      "start": 6.32,
+      "end": 6.562,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "even",
+      "start": 6.623,
+      "end": 6.805,
+      "score": 0.85,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "a",
+      "start": 6.845,
+      "end": 6.865,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "current",
+      "start": 6.946,
+      "end": 7.37,
+      "score": 0.98,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "picture",
+      "start": 7.431,
+      "end": 7.855,
+      "score": 0.907,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "and",
+      "start": 8.259,
+      "end": 8.36,
+      "score": 0.842,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "have",
+      "start": 8.4,
+      "end": 8.501,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "it",
+      "start": 8.562,
+      "end": 8.602,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "put",
+      "start": 8.662,
+      "end": 8.804,
+      "score": 0.89,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "in",
+      "start": 8.844,
+      "end": 8.905,
+      "score": 0.89,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "a",
+      "start": 8.945,
+      "end": 8.986,
+      "score": 0.499,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "beautiful",
+      "start": 9.006,
+      "end": 9.389,
+      "score": 0.912,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "frame.",
+      "start": 9.47,
+      "end": 9.894,
+      "score": 0.969,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

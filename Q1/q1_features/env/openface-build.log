@@ -1,0 +1,40 @@
+[1/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/CEN_patch_expert.cpp.o
+[2/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/CCNF_patch_expert.cpp.o
+[3/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/CNN_utils.cpp.o
+[4/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/FaceDetectorMTCNN.cpp.o
+[5/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/LandmarkDetectionValidator.cpp.o
+[6/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/LandmarkDetectorFunc.cpp.o
+[7/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/LandmarkDetectorModel.cpp.o
+[8/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/LandmarkDetectorParameters.cpp.o
+[9/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/LandmarkDetectorUtils.cpp.o
+[10/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/PAW.cpp.o
+[11/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/Patch_experts.cpp.o
+[12/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/PDM.cpp.o
+[13/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/SVR_patch_expert.cpp.o
+[14/40] Building CXX object lib/local/LandmarkDetector/CMakeFiles/LandmarkDetector.dir/src/stdafx.cpp.o
+[15/40] Linking CXX static library lib/local/LandmarkDetector/libLandmarkDetector.a
+[16/40] Building CXX object lib/local/FaceAnalyser/CMakeFiles/FaceAnalyser.dir/src/Face_utils.cpp.o
+[17/40] Building CXX object lib/local/FaceAnalyser/CMakeFiles/FaceAnalyser.dir/src/FaceAnalyserParameters.cpp.o
+[18/40] Building CXX object lib/local/FaceAnalyser/CMakeFiles/FaceAnalyser.dir/src/FaceAnalyser.cpp.o
+[19/40] Building CXX object lib/local/FaceAnalyser/CMakeFiles/FaceAnalyser.dir/src/stdafx_fa.cpp.o
+[20/40] Building CXX object lib/local/FaceAnalyser/CMakeFiles/FaceAnalyser.dir/src/SVM_dynamic_lin.cpp.o
+[21/40] Building CXX object lib/local/FaceAnalyser/CMakeFiles/FaceAnalyser.dir/src/SVM_static_lin.cpp.o
+[22/40] Building CXX object lib/local/FaceAnalyser/CMakeFiles/FaceAnalyser.dir/src/SVR_dynamic_lin_regressors.cpp.o
+[23/40] Building CXX object lib/local/FaceAnalyser/CMakeFiles/FaceAnalyser.dir/src/SVR_static_lin_regressors.cpp.o
+[24/40] Linking CXX static library lib/local/FaceAnalyser/libFaceAnalyser.a
+[25/40] Building CXX object lib/local/GazeAnalyser/CMakeFiles/GazeAnalyser.dir/src/GazeEstimation.cpp.o
+[26/40] Linking CXX static library lib/local/GazeAnalyser/libGazeAnalyser.a
+[27/40] Building CXX object lib/local/Utilities/CMakeFiles/Utilities.dir/src/RecorderCSV.cpp.o
+[28/40] Building CXX object lib/local/Utilities/CMakeFiles/Utilities.dir/src/ImageCapture.cpp.o
+[29/40] Building CXX object lib/local/Utilities/CMakeFiles/Utilities.dir/src/RecorderHOG.cpp.o
+[30/40] Building CXX object lib/local/Utilities/CMakeFiles/Utilities.dir/src/RecorderOpenFace.cpp.o
+[31/40] Building CXX object lib/local/Utilities/CMakeFiles/Utilities.dir/src/RecorderOpenFaceParameters.cpp.o
+[32/40] Building CXX object lib/local/Utilities/CMakeFiles/Utilities.dir/src/stdafx_ut.cpp.o
+[33/40] Building CXX object lib/local/Utilities/CMakeFiles/Utilities.dir/src/SequenceCapture.cpp.o
+[34/40] Building CXX object lib/local/Utilities/CMakeFiles/Utilities.dir/src/VisualizationUtils.cpp.o
+[35/40] Building CXX object lib/local/Utilities/CMakeFiles/Utilities.dir/src/Visualizer.cpp.o
+[36/40] Linking CXX static library lib/local/Utilities/libUtilities.a
+[37/40] Building CXX object exe/FaceLandmarkVidMulti/CMakeFiles/FaceLandmarkVidMulti.dir/FaceLandmarkVidMulti.cpp.o
+[38/40] Building CXX object exe/FeatureExtraction/CMakeFiles/FeatureExtraction.dir/FeatureExtraction.cpp.o
+[39/40] Linking CXX executable bin/FaceLandmarkVidMulti
+[40/40] Linking CXX executable bin/FeatureExtraction

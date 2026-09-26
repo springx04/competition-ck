@@ -1,0 +1,420 @@
+{
+  "sample_index": 80,
+  "sample_id": "-t217m2on-s$_$7",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "If you find that your ears consistently do this and you can't pop them often, you'll definitely need to see a physician regarding those things, it could be something more of a nasal infection or a sinus infection that he would need to deal with.",
+  "duration": 17.166666666666664,
+  "word_count": 45,
+  "timed_word_count": 45,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "If",
+      "start": 0.565,
+      "end": 0.625,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "you",
+      "start": 0.646,
+      "end": 0.787,
+      "score": 0.87,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "find",
+      "start": 0.827,
+      "end": 1.109,
+      "score": 0.95,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "that",
+      "start": 1.15,
+      "end": 1.331,
+      "score": 0.915,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "your",
+      "start": 1.412,
+      "end": 1.573,
+      "score": 0.947,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "ears",
+      "start": 1.715,
+      "end": 1.997,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "consistently",
+      "start": 3.268,
+      "end": 4.075,
+      "score": 0.987,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "do",
+      "start": 4.317,
+      "end": 4.478,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "this",
+      "start": 4.519,
+      "end": 4.72,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "and",
+      "start": 4.821,
+      "end": 4.902,
+      "score": 0.84,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "you",
+      "start": 4.922,
+      "end": 5.023,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "can't",
+      "start": 5.063,
+      "end": 5.406,
+      "score": 0.874,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "pop",
+      "start": 5.568,
+      "end": 5.91,
+      "score": 0.913,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "them",
+      "start": 5.951,
+      "end": 6.072,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "often,",
+      "start": 6.233,
+      "end": 6.536,
+      "score": 0.997,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "you'll",
+      "start": 6.959,
+      "end": 7.141,
+      "score": 0.861,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "definitely",
+      "start": 7.161,
+      "end": 7.807,
+      "score": 0.801,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "need",
+      "start": 7.847,
+      "end": 7.988,
+      "score": 0.96,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "to",
+      "start": 8.029,
+      "end": 8.089,
+      "score": 0.77,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "see",
+      "start": 8.129,
+      "end": 8.291,
+      "score": 0.832,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "a",
+      "start": 8.311,
+      "end": 8.351,
+      "score": 0.499,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "physician",
+      "start": 8.392,
+      "end": 8.936,
+      "score": 0.963,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "regarding",
+      "start": 9.562,
+      "end": 10.026,
+      "score": 0.946,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "those",
+      "start": 10.046,
+      "end": 10.227,
+      "score": 0.97,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "things,",
+      "start": 10.288,
+      "end": 10.933,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "it",
+      "start": 10.994,
+      "end": 11.054,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "could",
+      "start": 11.115,
+      "end": 11.297,
+      "score": 0.892,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "be",
+      "start": 11.317,
+      "end": 11.418,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "something",
+      "start": 11.498,
+      "end": 11.821,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "more",
+      "start": 11.861,
+      "end": 12.063,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "of",
+      "start": 12.103,
+      "end": 12.164,
+      "score": 0.746,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 31,
+      "raw_word": "a",
+      "start": 12.204,
+      "end": 12.224,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 32,
+      "raw_word": "nasal",
+      "start": 12.305,
+      "end": 12.628,
+      "score": 0.933,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 33,
+      "raw_word": "infection",
+      "start": 12.688,
+      "end": 13.273,
+      "score": 0.948,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 34,
+      "raw_word": "or",
+      "start": 13.435,
+      "end": 13.536,
+      "score": 0.838,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 35,
+      "raw_word": "a",
+      "start": 13.576,
+      "end": 13.596,
+      "score": 0.964,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 36,
+      "raw_word": "sinus",
+      "start": 13.657,
+      "end": 14.08,
+      "score": 0.859,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 37,
+      "raw_word": "infection",
+      "start": 14.141,
+      "end": 14.706,
+      "score": 0.972,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 38,
+      "raw_word": "that",
+      "start": 15.27,
+      "end": 15.432,
+      "score": 0.973,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 39,
+      "raw_word": "he",
+      "start": 15.513,
+      "end": 15.634,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 40,
+      "raw_word": "would",
+      "start": 15.694,
+      "end": 15.896,
+      "score": 0.874,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 41,
+      "raw_word": "need",
+      "start": 15.936,
+      "end": 16.098,
+      "score": 0.804,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 42,
+      "raw_word": "to",
+      "start": 16.118,
+      "end": 16.178,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 43,
+      "raw_word": "deal",
+      "start": 16.239,
+      "end": 16.44,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 44,
+      "raw_word": "with.",
+      "start": 16.481,
+      "end": 16.642,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

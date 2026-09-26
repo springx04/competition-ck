@@ -1,0 +1,7 @@
+{
+  "onnxruntime_version": "1.18.1",
+  "requested_providers": ["CUDAExecutionProvider", "CPUExecutionProvider"],
+  "active_providers": ["CPUExecutionProvider"],
+  "cuda_fallback_reason": "libcublasLt.so.11 was unavailable for onnxruntime-gpu 1.18.1",
+  "result_validity": "Inference completed on CPU; provider fallback changes runtime only, not the frozen ONNX model or embeddings definition."
+}

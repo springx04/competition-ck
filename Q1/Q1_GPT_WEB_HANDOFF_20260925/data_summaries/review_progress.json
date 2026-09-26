@@ -1,0 +1,43 @@
+{
+  "sample_count": 100,
+  "video_count": 37,
+  "pairing_status": {
+    "no_issue_detected": 49,
+    "unverifiable": 51
+  },
+  "paired_use": {
+    "1": 49,
+    "0": 51
+  },
+  "review_config_rows": 78,
+  "review_unique_samples": 51,
+  "review_issue_types": {
+    "identity_unknown": 37,
+    "low_aligned_word_fraction": 19,
+    "suspected_text_audio_mismatch": 22
+  },
+  "review_statuses": {
+    "unresolved": 78
+  },
+  "automatic_alignment_issue_rows": 160,
+  "automatic_alignment_issue_types": {
+    "identity_unknown": 74,
+    "low_aligned_word_fraction": 38,
+    "suspected_text_audio_mismatch": 44,
+    "vision_no_face": 4
+  },
+  "reviewer_a_summary_filled": 0,
+  "reviewer_b_summary_filled": 0,
+  "reviewer_a_segment_rows": 0,
+  "reviewer_b_segment_rows": 0,
+  "reviewer_a_anchor_boundaries_filled": 0,
+  "reviewer_b_anchor_boundaries_filled": 0,
+  "anchor_samples": 33,
+  "anchor_rows_per_reviewer": 165,
+  "anchor_selection_groups": {
+    "existing_text_alert": 23,
+    "clean_stratified_control": 10
+  },
+  "auxiliary_gate": "locked_until_independent_human_gold_sha256",
+  "human_gold_status": "not_established"
+}

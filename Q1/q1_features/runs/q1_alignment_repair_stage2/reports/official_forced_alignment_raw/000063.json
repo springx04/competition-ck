@@ -1,0 +1,114 @@
+{
+  "sample_index": 63,
+  "sample_id": "-mJ2ud6oKI8$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "So physical therapists and chiropractors will do joint manipulations and mobilizations",
+  "duration": 5.7057,
+  "word_count": 11,
+  "timed_word_count": 11,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "So",
+      "start": 1.286,
+      "end": 1.326,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "physical",
+      "start": 1.346,
+      "end": 1.507,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "therapists",
+      "start": 1.527,
+      "end": 1.728,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "and",
+      "start": 1.748,
+      "end": 1.808,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "chiropractors",
+      "start": 1.828,
+      "end": 4.661,
+      "score": 0.076,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "will",
+      "start": 4.681,
+      "end": 4.761,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "do",
+      "start": 4.782,
+      "end": 4.822,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "joint",
+      "start": 4.842,
+      "end": 4.942,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "manipulations",
+      "start": 4.962,
+      "end": 5.224,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "and",
+      "start": 5.244,
+      "end": 5.304,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "mobilizations",
+      "start": 5.324,
+      "end": 5.585,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

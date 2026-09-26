@@ -1,0 +1,132 @@
+{
+  "sample_index": 78,
+  "sample_id": "-s9qJ7ATP7w$_$8",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "\" And I said, \"Oh, make a profit, and all these other things",
+  "duration": 3.2666666666666666,
+  "word_count": 13,
+  "timed_word_count": 13,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "\"",
+      "start": 0.186,
+      "end": 0.455,
+      "score": 0.538,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "And",
+      "start": 0.538,
+      "end": 0.62,
+      "score": 0.992,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "I",
+      "start": 0.682,
+      "end": 0.724,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "said,",
+      "start": 0.765,
+      "end": 0.93,
+      "score": 0.989,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "\"Oh,",
+      "start": 1.013,
+      "end": 1.158,
+      "score": 0.772,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "make",
+      "start": 1.199,
+      "end": 1.344,
+      "score": 0.882,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "a",
+      "start": 1.385,
+      "end": 1.406,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "profit,",
+      "start": 1.468,
+      "end": 1.943,
+      "score": 0.974,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "and",
+      "start": 1.964,
+      "end": 2.026,
+      "score": 0.954,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "all",
+      "start": 2.047,
+      "end": 2.13,
+      "score": 0.634,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "these",
+      "start": 2.15,
+      "end": 2.274,
+      "score": 0.865,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "other",
+      "start": 2.316,
+      "end": 2.481,
+      "score": 0.947,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "things",
+      "start": 2.522,
+      "end": 2.708,
+      "score": 0.99,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

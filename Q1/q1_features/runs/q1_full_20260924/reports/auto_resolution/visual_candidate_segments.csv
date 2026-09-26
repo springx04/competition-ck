@@ -1,0 +1,147 @@
+﻿sample_id,cluster_id,episode_key,start,end,candidate_action,reason
+-9y-fZ3swSY$_$8,0,0:0,0.0,3.2666666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-9y-fZ3swSY$_$8,0,0:1,3.6333333333333333,4.933333333333334,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-HwX2H8Z4hY$_$2,0,0:0,2.8666666666666667,2.9,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-HwX2H8Z4hY$_$2,1,0:1,3.2666666666666666,3.9666666666666663,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-HwX2H8Z4hY$_$5,0,0:0,0.03333333333333333,0.06666666666666654,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-HwX2H8Z4hY$_$5,0,0:1,0.7333333333333333,0.8333333333333333,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-HwX2H8Z4hY$_$5,0,0:2,1.3,1.5666666666666664,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-HwX2H8Z4hY$_$5,0,0:3,5.466666666666667,5.633333333333333,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-HwX2H8Z4hY$_$6,0,0:0,0.4,0.5333333333333333,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-HwX2H8Z4hY$_$6,0,0:1,1.0,1.4666666666666666,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-HwX2H8Z4hY$_$6,1,0:2,3.2,3.2666666666666666,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-HwX2H8Z4hY$_$9,0,0:0,0.0,1.1333333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-HwX2H8Z4hY$_$9,0,0:1,3.2333333333333334,5.766666666666667,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-HwX2H8Z4hY$_$9,0,0:2,6.4,7.633333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-MeTTeMJBNc$_$0,0,0:0,0.3,0.36666666666666653,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-MeTTeMJBNc$_$0,0,0:1,0.4,9.333333333333334,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-MeTTeMJBNc$_$7,0,0:0,0.0,10.5,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-MeTTeMJBNc$_$7,1,1:1,3.0,3.1666666666666665,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-NFrJFQijFE$_$1,,,0.0,5.720000000000001,candidate_mask,confirmed automatic no-face condition from frozen OpenFace output
+-NFrJFQijFE$_$2,,,0.0,6.840000000000001,candidate_mask,confirmed automatic no-face condition from frozen OpenFace output
+-RfYyzHpjk4$_$2,0,0:0,0.0,2.7666666666666666,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-RfYyzHpjk4$_$2,0,1:2,2.8666666666666667,5.5,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-RfYyzHpjk4$_$2,1,1:1,0.9333333333333333,0.9666666666666666,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-THoVjtIkeU$_$6,0,0:0,0.03333333333333333,0.06666666666666654,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-THoVjtIkeU$_$6,0,0:1,0.06666666666666667,0.09999999999999988,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-THoVjtIkeU$_$6,0,0:2,0.1,0.13333333333333322,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-THoVjtIkeU$_$6,0,0:3,0.2,0.26666666666666655,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-THoVjtIkeU$_$6,0,0:4,0.26666666666666666,8.066666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-UuX1xuaiiE$_$0,0,0:0,0.0,1.7666666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-UuX1xuaiiE$_$0,1,0:1,2.2333333333333334,3.6999999999999997,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-UuX1xuaiiE$_$0,2,1:2,1.9,3.6999999999999997,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-UuX1xuaiiE$_$0,3,2:3,1.9,3.6999999999999997,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-UuX1xuaiiE$_$0,4,3:4,1.9,3.6999999999999997,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-UuX1xuaiiE$_$1,0,0:0,0.0,4.166666666666666,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-UuX1xuaiiE$_$1,1,0:1,4.466666666666667,9.833333333333334,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-UuX1xuaiiE$_$1,2,0:2,10.233333333333333,10.333333333333334,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-UuX1xuaiiE$_$1,3,1:3,0.0,4.366666666666666,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-UuX1xuaiiE$_$1,4,1:4,4.833333333333333,9.833333333333334,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-UuX1xuaiiE$_$1,5,2:5,0.0,4.166666666666666,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-UuX1xuaiiE$_$1,6,2:6,4.466666666666667,9.833333333333334,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-UuX1xuaiiE$_$1,7,3:7,0.0,4.166666666666666,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-UuX1xuaiiE$_$1,8,3:8,4.466666666666667,9.833333333333334,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-UuX1xuaiiE$_$3,0,0:0,0.0,1.2333333333333334,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-UuX1xuaiiE$_$3,0,1:2,0.6333333333333333,3.6666666666666665,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-UuX1xuaiiE$_$3,1,0:1,3.8333333333333335,4.1,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-UuX1xuaiiE$_$6,0,0:0,0.0,0.16666666666666655,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-UuX1xuaiiE$_$6,0,1:1,0.3333333333333333,8.1,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-aqamKhZ1Ec$_$0,0,0:0,0.0,10.933333333333334,candidate_usable,single-episode frozen baseline has no identity ambiguity
+-dxfTGcXJoc$_$1,0,0:0,0.0,16.133333333333333,candidate_usable,ArcFace merges all episodes stably and AV-sync exceeds frozen strong null threshold
+-dxfTGcXJoc$_$1,0,1:1,16.03333333333333,16.133333333333333,candidate_usable,ArcFace merges all episodes stably and AV-sync exceeds frozen strong null threshold
+-dxfTGcXJoc$_$6,0,0:0,0.0,12.433333333333334,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-dxfTGcXJoc$_$6,0,1:1,12.466666666666667,12.733333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$6,0,0:0,0.0,0.7924555555555554,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$6,0,0:1,1.3346666666666667,3.4200777777777778,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$6,0,1:5,1.0010000000000001,1.0427111111111111,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$6,1,0:2,3.6703333333333337,3.920577777777778,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$6,1,1:6,4.0040000000000004,4.087411111111111,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$6,2,0:3,4.421077777777778,4.546211111111111,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$6,3,0:4,6.0894111111111116,6.131122222222222,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$7,0,0:0,0.20854444444444445,0.2919555555555556,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$7,1,0:1,0.6673333333333333,0.8758777777777775,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$7,1,0:2,3.461788888888889,4.963288888888889,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$7,1,1:5,5.005,5.046711111111111,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$7,1,1:6,5.755755555555556,7.3406666666666665,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$7,2,0:3,5.422088888888889,5.463788888888889,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-hnBHBN8p5A$_$7,3,1:4,1.2095444444444445,1.8768777777777776,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-iRBcNs9oI8$_$3,0,0:0,0.0,5.605600000000001,candidate_usable,single-episode frozen baseline has no identity ambiguity
+-iRBcNs9oI8$_$6,0,0:0,0.0,2.8695333333333335,candidate_usable,single-episode frozen baseline has no identity ambiguity
+-iRBcNs9oI8$_$7,0,0:0,0.0,4.070733333333334,candidate_usable,single-episode frozen baseline has no identity ambiguity
+-iRBcNs9oI8$_$8,0,0:0,0.0,8.008000000000001,candidate_usable,single-episode frozen baseline has no identity ambiguity
+-iRBcNs9oI8$_$9,0,0:0,0.0,0.5338666666666667,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-iRBcNs9oI8$_$9,0,0:1,1.5682333333333334,3.4034000000000004,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-lzEya4AM_4$_$6,0,0:0,0.0,2.1333333333333333,candidate_usable,ArcFace merges all episodes stably and AV-sync exceeds frozen strong null threshold
+-lzEya4AM_4$_$6,0,0:1,2.533333333333333,14.766666666666666,candidate_usable,ArcFace merges all episodes stably and AV-sync exceeds frozen strong null threshold
+-mJ2ud6oKI8$_$1,,,0.0,6.072733333333334,candidate_mask,confirmed automatic no-face condition from frozen OpenFace output
+-mJ2ud6oKI8$_$2,0,0:0,2.9696333333333333,3.336666666666667,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-mJ2ud6oKI8$_$2,1,1:1,3.536866666666667,5.7057,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-mJ2ud6oKI8$_$6,0,0:0,0.0,2.2022,candidate_usable,single-episode frozen baseline has no identity ambiguity
+-mJ2ud6oKI8$_$8,0,0:0,0.0,4.170833333333333,candidate_usable,single-episode frozen baseline has no identity ambiguity
+-mJ2ud6oKI8$_$9,0,0:0,0.0,4.571233333333334,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-mJ2ud6oKI8$_$9,0,1:1,4.771433333333333,7.007000000000001,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-ri04Z7vwnc$_$0,,,0.0,2.7944666666666667,candidate_mask,confirmed automatic no-face condition from frozen OpenFace output
+-ri04Z7vwnc$_$2,0,0:0,4.0040000000000004,6.006,candidate_usable,single-episode frozen baseline has no identity ambiguity
+-ri04Z7vwnc$_$5,0,0:0,0.0,3.5035111111111115,candidate_usable,single-episode frozen baseline has no identity ambiguity
+-s9qJ7ATP7w$_$0,0,0:0,2.1,2.1666666666666665,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$0,1,0:1,3.0,6.866666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$0,1,1:2,0.0,6.866666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$1,0,0:0,0.8,4.766666666666667,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-s9qJ7ATP7w$_$1,1,1:1,0.0,4.766666666666667,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-s9qJ7ATP7w$_$4,0,0:0,2.933333333333333,4.266666666666667,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$4,1,1:1,0.6333333333333333,1.5333333333333332,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$4,2,1:2,1.9,1.9333333333333331,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$7,0,0:0,0.2,0.23333333333333323,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$7,1,0:1,2.2333333333333334,6.933333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$7,1,1:2,4.5,6.266666666666667,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$7,1,2:3,6.4,6.933333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$8,0,0:0,0.6333333333333333,3.0999999999999996,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-s9qJ7ATP7w$_$8,0,1:1,0.0,3.2666666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-tANM6ETl_M$_$3,0,0:0,0.0,5.366666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-tANM6ETl_M$_$3,0,0:1,5.733333333333333,6.733333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-tANM6ETl_M$_$3,1,1:2,0.6333333333333333,0.6666666666666665,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wMB_hJL-3o$_$7,0,0:0,0.0,5.366666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wMB_hJL-3o$_$7,0,0:1,5.4,5.566666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wMB_hJL-3o$_$7,0,0:5,5.8,5.966666666666667,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wMB_hJL-3o$_$7,0,0:6,6.0,6.033333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wMB_hJL-3o$_$7,1,0:2,5.6,5.633333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wMB_hJL-3o$_$7,2,0:3,5.633333333333333,5.733333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wMB_hJL-3o$_$7,3,0:4,5.733333333333333,5.766666666666667,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$0,0,0:0,0.0,2.7666666666666666,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$0,0,2:3,2.8666666666666667,3.333333333333333,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$0,1,0:1,3.2666666666666666,3.333333333333333,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$0,2,1:2,0.0,2.7666666666666666,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$1,0,0:0,0.0,0.4999999999999999,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$1,0,1:4,0.6333333333333333,6.266666666666667,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$1,0,2:6,6.4,6.833333333333333,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$1,1,0:1,1.6666666666666667,1.7333333333333332,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$1,1,0:2,5.466666666666667,5.733333333333333,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$1,1,0:3,6.1,6.433333333333334,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$1,1,2:5,0.7,0.7666666666666665,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-wny0OAz3g8$_$2,0,0:0,0.0,0.4999999999999999,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$2,0,0:1,6.066666666666666,6.666666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$2,0,1:3,0.6333333333333333,5.966666666666667,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$2,1,1:2,0.03333333333333333,0.26666666666666655,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$2,2,1:4,6.2,6.233333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$3,0,0:0,0.0,0.46666666666666656,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$3,0,0:1,5.733333333333333,6.133333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$3,0,1:2,0.6333333333333333,5.733333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$5,0,0:0,0.0,0.4999999999999999,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$5,0,0:4,6.4,6.8999999999999995,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$5,0,1:5,0.6333333333333333,6.166666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$5,1,0:1,1.6666666666666667,1.8333333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$5,1,0:2,2.3,2.4666666666666663,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$5,1,0:3,2.933333333333333,3.0666666666666664,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$5,1,2:6,0.7,0.8666666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$7,0,0:0,0.0,0.4999999999999999,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$7,0,0:1,7.666666666666667,8.066666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$7,0,1:2,0.6333333333333333,7.566666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$9,0,0:0,0.0,0.36666666666666653,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$9,0,0:1,0.6666666666666666,5.5,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-wny0OAz3g8$_$9,0,0:2,5.733333333333333,6.066666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-yRb-Jum7EQ$_$1,0,0:0,0.0,29.266666666666666,candidate_usable,only the top AV-supported ArcFace identity cluster is a usable candidate
+-yRb-Jum7EQ$_$1,1,1:1,0.0,2.7666666666666666,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-yRb-Jum7EQ$_$1,1,2:2,2.8666666666666667,6.633333333333333,candidate_mask,only the top AV-supported ArcFace identity cluster is a usable candidate
+-yRb-Jum7EQ$_$5,0,0:0,0.0,13.166666666666666,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-yRb-Jum7EQ$_$5,1,1:1,2.2666666666666666,2.6333333333333333,candidate_mask,ArcFace partition or AV-sync does not uniquely bind the target identity
+-yRb-Jum7EQ$_$6,0,0:0,0.0,11.166666666666666,candidate_usable,single-episode frozen baseline has no identity ambiguity

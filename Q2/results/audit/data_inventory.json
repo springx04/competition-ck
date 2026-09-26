@@ -1,0 +1,94 @@
+{
+  "main": "/root/gpufree-data/shuomo_E/data/附件2-数据集特征文件/aligned_50.pkl",
+  "special_files": 30,
+  "splits": {
+    "train": {
+      "samples": 3395,
+      "visual_all_zero": 110,
+      "class_counts": [
+        967,
+        758,
+        1670
+      ],
+      "label_sign_mismatch": 0,
+      "shape": {
+        "input_ids": [
+          3395,
+          50
+        ],
+        "audio": [
+          3395,
+          50,
+          74
+        ],
+        "vision": [
+          3395,
+          50,
+          35
+        ]
+      }
+    },
+    "valid": {
+      "samples": 728,
+      "visual_all_zero": 15,
+      "class_counts": [
+        206,
+        184,
+        338
+      ],
+      "label_sign_mismatch": 0,
+      "shape": {
+        "input_ids": [
+          728,
+          50
+        ],
+        "audio": [
+          728,
+          50,
+          74
+        ],
+        "vision": [
+          728,
+          50,
+          35
+        ]
+      }
+    },
+    "test": {
+      "samples": 727,
+      "visual_all_zero": 28,
+      "class_counts": [
+        207,
+        158,
+        362
+      ],
+      "label_sign_mismatch": 0,
+      "shape": {
+        "input_ids": [
+          727,
+          50
+        ],
+        "audio": [
+          727,
+          50,
+          74
+        ],
+        "vision": [
+          727,
+          50,
+          35
+        ]
+      }
+    }
+  },
+  "id_overlap": [
+    0,
+    0,
+    0
+  ],
+  "video_overlap": [
+    0,
+    0,
+    0
+  ]
+}

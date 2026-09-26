@@ -1,0 +1,162 @@
+{
+  "ok": true,
+  "errors": [],
+  "path": "/home/jqy/shumo/q1_features/runs/q1_full_20260924/reports/auto_resolution/q1_word_aligned_candidate.npz",
+  "sample_count": 100,
+  "word_count": 1932,
+  "aligned_word_count": 1793,
+  "text_observed": 1932,
+  "audio_observed": 1793,
+  "vision_observed": 1070,
+  "arrays": {
+    "sample_indptr": {
+      "shape": [
+        101
+      ],
+      "dtype": "int64"
+    },
+    "sample_id": {
+      "shape": [
+        1932
+      ],
+      "dtype": "<U16"
+    },
+    "sample_index": {
+      "shape": [
+        1932
+      ],
+      "dtype": "int64"
+    },
+    "word_id": {
+      "shape": [
+        1932
+      ],
+      "dtype": "int64"
+    },
+    "raw_word": {
+      "shape": [
+        1932
+      ],
+      "dtype": "<U15"
+    },
+    "start": {
+      "shape": [
+        1932
+      ],
+      "dtype": "float64"
+    },
+    "end": {
+      "shape": [
+        1932
+      ],
+      "dtype": "float64"
+    },
+    "text": {
+      "shape": [
+        1932,
+        768
+      ],
+      "dtype": "float32"
+    },
+    "audio": {
+      "shape": [
+        1932,
+        25
+      ],
+      "dtype": "float32"
+    },
+    "vision": {
+      "shape": [
+        1932,
+        22
+      ],
+      "dtype": "float32"
+    },
+    "masks": {
+      "shape": [
+        1932,
+        4
+      ],
+      "dtype": "uint8"
+    },
+    "coverage": {
+      "shape": [
+        1932,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "alignment_status": {
+      "shape": [
+        1932
+      ],
+      "dtype": "<U8"
+    },
+    "alignment_reason": {
+      "shape": [
+        1932
+      ],
+      "dtype": "<U43"
+    },
+    "audio_indptr": {
+      "shape": [
+        1933
+      ],
+      "dtype": "int64"
+    },
+    "audio_source_ids": {
+      "shape": [
+        58976
+      ],
+      "dtype": "int64"
+    },
+    "audio_source_sample_index": {
+      "shape": [
+        58976
+      ],
+      "dtype": "int64"
+    },
+    "audio_overlap_s": {
+      "shape": [
+        58976
+      ],
+      "dtype": "float64"
+    },
+    "audio_weights": {
+      "shape": [
+        58976
+      ],
+      "dtype": "float64"
+    },
+    "vision_indptr": {
+      "shape": [
+        1933
+      ],
+      "dtype": "int64"
+    },
+    "vision_source_ids": {
+      "shape": [
+        9492
+      ],
+      "dtype": "int64"
+    },
+    "vision_source_sample_index": {
+      "shape": [
+        9492
+      ],
+      "dtype": "int64"
+    },
+    "vision_overlap_s": {
+      "shape": [
+        9492
+      ],
+      "dtype": "float64"
+    },
+    "vision_weights": {
+      "shape": [
+        9492
+      ],
+      "dtype": "float64"
+    }
+  }
+}

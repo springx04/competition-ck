@@ -1,0 +1,96 @@
+{
+  "sample_index": 9,
+  "sample_id": "-9y-fZ3swSY$_$4",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "I’ve seen this in US or in the US",
+  "duration": 2.8,
+  "word_count": 9,
+  "timed_word_count": 9,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "I’ve",
+      "start": 0.339,
+      "end": 0.552,
+      "score": 0.858,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "seen",
+      "start": 0.594,
+      "end": 0.785,
+      "score": 0.939,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "this",
+      "start": 0.806,
+      "end": 0.997,
+      "score": 0.873,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "in",
+      "start": 1.082,
+      "end": 1.167,
+      "score": 0.867,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "US",
+      "start": 1.294,
+      "end": 1.633,
+      "score": 0.818,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "or",
+      "start": 1.93,
+      "end": 2.015,
+      "score": 0.836,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "in",
+      "start": 2.058,
+      "end": 2.121,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "the",
+      "start": 2.164,
+      "end": 2.27,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "US",
+      "start": 2.397,
+      "end": 2.63,
+      "score": 0.908,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

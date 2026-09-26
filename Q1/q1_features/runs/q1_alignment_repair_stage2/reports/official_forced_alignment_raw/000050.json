@@ -1,0 +1,150 @@
+{
+  "sample_index": 50,
+  "sample_id": "-egA8-b7-3M$_$26",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "We're updating it all the time and looking forward to your comments on our videos.",
+  "duration": 6.0,
+  "word_count": 15,
+  "timed_word_count": 15,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "We're",
+      "start": 0.529,
+      "end": 0.712,
+      "score": 0.865,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "updating",
+      "start": 0.773,
+      "end": 1.2,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "it",
+      "start": 1.261,
+      "end": 1.322,
+      "score": 0.75,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "all",
+      "start": 1.444,
+      "end": 1.586,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "the",
+      "start": 1.627,
+      "end": 1.708,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "time",
+      "start": 1.769,
+      "end": 2.054,
+      "score": 0.913,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "and",
+      "start": 2.522,
+      "end": 2.624,
+      "score": 0.838,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "looking",
+      "start": 2.664,
+      "end": 2.969,
+      "score": 0.964,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "forward",
+      "start": 3.031,
+      "end": 3.376,
+      "score": 0.884,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "to",
+      "start": 3.417,
+      "end": 3.519,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "your",
+      "start": 3.6,
+      "end": 3.763,
+      "score": 0.914,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "comments",
+      "start": 3.824,
+      "end": 4.312,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "on",
+      "start": 4.536,
+      "end": 4.597,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "our",
+      "start": 4.678,
+      "end": 4.759,
+      "score": 0.835,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "videos.",
+      "start": 4.8,
+      "end": 5.308,
+      "score": 0.941,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

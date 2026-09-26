@@ -1,0 +1,63 @@
+{
+  "file_count": 11,
+  "combined_sha256": "c19e94895df1fcf9f05da68c4d988c7974533d2f2a0607398f52ec1912b135fd",
+  "files": [
+    {
+      "path": "runs/q1_alignment_repair_stage2/reports/alignment_repair_status.csv",
+      "bytes": 36808,
+      "sha256": "c6ae9f9ce3df7d77cc62873284a01f52dbef0dda7886f9fbfb724a4bc9167035"
+    },
+    {
+      "path": "runs/q1_alignment_repair_stage2/reports/semantic_pairing_status.csv",
+      "bytes": 19780,
+      "sha256": "7ed3e9da03ea4af38653813f1a57d825ebe97989429b2687ee7348e7708d7eb6"
+    },
+    {
+      "path": "runs/q1_alignment_repair_stage2/reports/official_text_forced_alignment.jsonl",
+      "bytes": 223865,
+      "sha256": "dabf92c20fbceabc4406a4510caf7a2de76c0eb40eca49d3228d6b01c3fdbd69"
+    },
+    {
+      "path": "runs/q1_alignment_repair_stage2/reports/vision_sample_summary.csv",
+      "bytes": 9189,
+      "sha256": "071628e20c371ec34f3e2c69dd27180c63b6fde7784651a3f4d83476bfd04be3"
+    },
+    {
+      "path": "runs/q1_alignment_repair_stage2/reports/vision_segment_candidates.csv",
+      "bytes": 22432,
+      "sha256": "0ba1933e8a74a03b18eb7010bc5196d61f65d8fd0448d76711aa2576931bc643"
+    },
+    {
+      "path": "runs/q1_alignment_repair_stage2/reports/talknet_identity_timeline.csv",
+      "bytes": 262917,
+      "sha256": "669e9683859051b6664e5ac8c5e34961cdf832cb1ff1cc4a43b8f68c1dfcd4bd"
+    },
+    {
+      "path": "runs/q1_alignment_repair_stage2/reports/q1_word_aligned_repair_candidate.npz",
+      "bytes": 5931974,
+      "sha256": "e1e60409380e4a5d8419c57966cc6d70f3fd0b4cc8d58fc8ca67f0a8de3a5b08"
+    },
+    {
+      "path": "runs/q1_alignment_repair_stage2/reports/q1_compact50_repair_candidate.npz",
+      "bytes": 6848029,
+      "sha256": "be4c99564a850d8d31d05d631d36b1cdd981d0fd6c86104b71aa2b8bf43e877b"
+    },
+    {
+      "path": "runs/q1_full_20260924/features/q1_compact50.npz",
+      "bytes": 6886904,
+      "sha256": "0ba53548741328abb5c916bb2250495d41b8d98e2b461b099247a2b7a9c01057"
+    },
+    {
+      "path": "configs/alignment_review.csv",
+      "bytes": 39919,
+      "sha256": "1584599169ceea180d3f6ae606e02770514d81d82a822cabd00f936fa7f7afd3"
+    },
+    {
+      "path": "configs/target_face_segments.csv",
+      "bytes": 62,
+      "sha256": "682c38c257eaf06e3a531f6599a2e0221b124f8ccf77b9572607e0257124b99a"
+    }
+  ],
+  "candidate_only": true,
+  "production_write": false
+}

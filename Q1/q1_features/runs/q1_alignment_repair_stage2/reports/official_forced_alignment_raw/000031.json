@@ -1,0 +1,177 @@
+{
+  "sample_index": 31,
+  "sample_id": "-UacrmKiTn4$_$10",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Because, if they are not in any way held accountable for reading the material they won't do it.",
+  "duration": 7.333333333333333,
+  "word_count": 18,
+  "timed_word_count": 18,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Because,",
+      "start": 0.528,
+      "end": 0.833,
+      "score": 0.941,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "if",
+      "start": 0.873,
+      "end": 0.955,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "they",
+      "start": 1.016,
+      "end": 1.178,
+      "score": 0.988,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "are",
+      "start": 1.239,
+      "end": 1.32,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "not",
+      "start": 1.402,
+      "end": 1.686,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "in",
+      "start": 2.255,
+      "end": 2.316,
+      "score": 0.982,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "any",
+      "start": 2.458,
+      "end": 2.62,
+      "score": 0.898,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "way",
+      "start": 2.681,
+      "end": 2.844,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "held",
+      "start": 2.925,
+      "end": 3.128,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "accountable",
+      "start": 3.189,
+      "end": 3.88,
+      "score": 0.947,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "for",
+      "start": 4.022,
+      "end": 4.246,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "reading",
+      "start": 4.327,
+      "end": 4.632,
+      "score": 0.959,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "the",
+      "start": 4.672,
+      "end": 4.733,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "material",
+      "start": 4.794,
+      "end": 5.404,
+      "score": 0.95,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "they",
+      "start": 6.054,
+      "end": 6.196,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "won't",
+      "start": 6.236,
+      "end": 6.44,
+      "score": 0.9,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "do",
+      "start": 6.5,
+      "end": 6.643,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "it.",
+      "start": 6.724,
+      "end": 6.805,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

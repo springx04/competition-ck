@@ -1,0 +1,96 @@
+{
+  "sample_index": 90,
+  "sample_id": "-wny0OAz3g8$_$0",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "trade labor unions didn’t allow Black workers to join",
+  "duration": 3.333333333333333,
+  "word_count": 9,
+  "timed_word_count": 9,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "trade",
+      "start": 0.307,
+      "end": 0.511,
+      "score": 0.899,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "labor",
+      "start": 0.532,
+      "end": 0.757,
+      "score": 0.901,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "unions",
+      "start": 0.838,
+      "end": 1.084,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "didn’t",
+      "start": 1.166,
+      "end": 1.391,
+      "score": 0.986,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "allow",
+      "start": 1.452,
+      "end": 1.738,
+      "score": 0.835,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "Black",
+      "start": 1.8,
+      "end": 2.025,
+      "score": 0.956,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "workers",
+      "start": 2.045,
+      "end": 2.352,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "to",
+      "start": 2.393,
+      "end": 2.474,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "join",
+      "start": 2.515,
+      "end": 2.761,
+      "score": 0.884,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

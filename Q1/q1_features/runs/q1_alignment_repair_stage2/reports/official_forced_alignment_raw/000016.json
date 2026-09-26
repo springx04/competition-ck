@@ -1,0 +1,213 @@
+{
+  "sample_index": 16,
+  "sample_id": "-HwX2H8Z4hY$_$9",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "It is a word which the administrator uses when he turns around anything which he doesn't like that the teacher is doing",
+  "duration": 7.733333333333333,
+  "word_count": 22,
+  "timed_word_count": 22,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "It",
+      "start": 0.568,
+      "end": 0.629,
+      "score": 0.97,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "is",
+      "start": 0.69,
+      "end": 0.751,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "a",
+      "start": 0.832,
+      "end": 0.873,
+      "score": 0.856,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "word",
+      "start": 0.913,
+      "end": 1.218,
+      "score": 0.988,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "which",
+      "start": 1.461,
+      "end": 1.766,
+      "score": 0.793,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "the",
+      "start": 3.268,
+      "end": 3.349,
+      "score": 0.859,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "administrator",
+      "start": 3.39,
+      "end": 3.999,
+      "score": 0.94,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "uses",
+      "start": 4.1,
+      "end": 4.323,
+      "score": 0.876,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "when",
+      "start": 4.364,
+      "end": 4.486,
+      "score": 0.867,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "he",
+      "start": 4.506,
+      "end": 4.587,
+      "score": 0.607,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "turns",
+      "start": 4.608,
+      "end": 4.892,
+      "score": 0.795,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "around",
+      "start": 4.912,
+      "end": 5.196,
+      "score": 0.804,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "anything",
+      "start": 5.257,
+      "end": 5.562,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "which",
+      "start": 5.602,
+      "end": 5.724,
+      "score": 0.906,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "he",
+      "start": 5.744,
+      "end": 5.825,
+      "score": 0.721,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "doesn't",
+      "start": 5.846,
+      "end": 6.089,
+      "score": 0.864,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "like",
+      "start": 6.13,
+      "end": 6.313,
+      "score": 0.959,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "that",
+      "start": 6.333,
+      "end": 6.434,
+      "score": 0.56,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "the",
+      "start": 6.455,
+      "end": 6.515,
+      "score": 0.014,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "teacher",
+      "start": 6.536,
+      "end": 6.84,
+      "score": 0.893,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "is",
+      "start": 6.881,
+      "end": 6.962,
+      "score": 0.69,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "doing",
+      "start": 6.982,
+      "end": 7.226,
+      "score": 0.945,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

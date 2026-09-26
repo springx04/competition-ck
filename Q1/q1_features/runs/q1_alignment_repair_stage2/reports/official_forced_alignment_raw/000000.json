@@ -1,0 +1,150 @@
+{
+  "sample_index": 0,
+  "sample_id": "-3g5yACwYnA$_$13",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "They've been able to find solutions or at least bring some answers to the table.",
+  "duration": 5.5,
+  "word_count": 15,
+  "timed_word_count": 15,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "They've",
+      "start": 0.102,
+      "end": 1.636,
+      "score": 0.74,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "been",
+      "start": 1.656,
+      "end": 1.758,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "able",
+      "start": 1.799,
+      "end": 1.963,
+      "score": 0.92,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "to",
+      "start": 2.004,
+      "end": 2.086,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "find",
+      "start": 2.229,
+      "end": 2.454,
+      "score": 0.865,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "solutions",
+      "start": 2.494,
+      "end": 3.006,
+      "score": 0.929,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "or",
+      "start": 3.128,
+      "end": 3.21,
+      "score": 0.934,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "at",
+      "start": 3.251,
+      "end": 3.292,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "least",
+      "start": 3.333,
+      "end": 3.476,
+      "score": 0.813,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "bring",
+      "start": 3.558,
+      "end": 3.823,
+      "score": 0.954,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "some",
+      "start": 3.885,
+      "end": 4.069,
+      "score": 0.977,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "answers",
+      "start": 4.171,
+      "end": 4.437,
+      "score": 0.852,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "to",
+      "start": 4.457,
+      "end": 4.559,
+      "score": 0.862,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "the",
+      "start": 4.58,
+      "end": 4.662,
+      "score": 0.813,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "table.",
+      "start": 4.682,
+      "end": 4.968,
+      "score": 0.948,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,549 @@
+{
+  "source": "/root/gpufree-data/shuomo_E/data",
+  "scope": "aligned attachment 3 inputs only; zero rows are unavailable, not proven artificial deletion",
+  "samples": 30,
+  "samples_with_text_mask": 0,
+  "samples_with_equal_av_availability": 29,
+  "rows": [
+    {
+      "file": "附件3_01.pkl",
+      "content_positions": 6,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 0,
+        "unavailable_fraction": 0.0,
+        "gap_count": 0,
+        "longest_gap": 0
+      },
+      "vision": {
+        "unavailable_positions": 0,
+        "unavailable_fraction": 0.0,
+        "gap_count": 0,
+        "longest_gap": 0
+      }
+    },
+    {
+      "file": "附件3_02.pkl",
+      "content_positions": 28,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 5,
+        "unavailable_fraction": 0.17857142857142858,
+        "gap_count": 4,
+        "longest_gap": 2
+      },
+      "vision": {
+        "unavailable_positions": 5,
+        "unavailable_fraction": 0.17857142857142858,
+        "gap_count": 4,
+        "longest_gap": 2
+      }
+    },
+    {
+      "file": "附件3_03.pkl",
+      "content_positions": 32,
+      "text_mask_positions": 0,
+      "av_availability_equal": false,
+      "audio": {
+        "unavailable_positions": 5,
+        "unavailable_fraction": 0.15625,
+        "gap_count": 5,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 9,
+        "unavailable_fraction": 0.28125,
+        "gap_count": 5,
+        "longest_gap": 4
+      }
+    },
+    {
+      "file": "附件3_04.pkl",
+      "content_positions": 31,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.06451612903225806,
+        "gap_count": 2,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.06451612903225806,
+        "gap_count": 2,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_05.pkl",
+      "content_positions": 12,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 0,
+        "unavailable_fraction": 0.0,
+        "gap_count": 0,
+        "longest_gap": 0
+      },
+      "vision": {
+        "unavailable_positions": 0,
+        "unavailable_fraction": 0.0,
+        "gap_count": 0,
+        "longest_gap": 0
+      }
+    },
+    {
+      "file": "附件3_06.pkl",
+      "content_positions": 25,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 3,
+        "unavailable_fraction": 0.12,
+        "gap_count": 3,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 3,
+        "unavailable_fraction": 0.12,
+        "gap_count": 3,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_07.pkl",
+      "content_positions": 21,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 3,
+        "unavailable_fraction": 0.14285714285714285,
+        "gap_count": 3,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 3,
+        "unavailable_fraction": 0.14285714285714285,
+        "gap_count": 3,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_08.pkl",
+      "content_positions": 15,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.13333333333333333,
+        "gap_count": 1,
+        "longest_gap": 2
+      },
+      "vision": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.13333333333333333,
+        "gap_count": 1,
+        "longest_gap": 2
+      }
+    },
+    {
+      "file": "附件3_09.pkl",
+      "content_positions": 14,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.14285714285714285,
+        "gap_count": 1,
+        "longest_gap": 2
+      },
+      "vision": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.14285714285714285,
+        "gap_count": 1,
+        "longest_gap": 2
+      }
+    },
+    {
+      "file": "附件3_10.pkl",
+      "content_positions": 6,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 0,
+        "unavailable_fraction": 0.0,
+        "gap_count": 0,
+        "longest_gap": 0
+      },
+      "vision": {
+        "unavailable_positions": 0,
+        "unavailable_fraction": 0.0,
+        "gap_count": 0,
+        "longest_gap": 0
+      }
+    },
+    {
+      "file": "附件3_11.pkl",
+      "content_positions": 14,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 4,
+        "unavailable_fraction": 0.2857142857142857,
+        "gap_count": 3,
+        "longest_gap": 2
+      },
+      "vision": {
+        "unavailable_positions": 4,
+        "unavailable_fraction": 0.2857142857142857,
+        "gap_count": 3,
+        "longest_gap": 2
+      }
+    },
+    {
+      "file": "附件3_12.pkl",
+      "content_positions": 13,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.15384615384615385,
+        "gap_count": 2,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.15384615384615385,
+        "gap_count": 2,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_13.pkl",
+      "content_positions": 19,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.10526315789473684,
+        "gap_count": 2,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.10526315789473684,
+        "gap_count": 2,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_14.pkl",
+      "content_positions": 23,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.08695652173913043,
+        "gap_count": 1,
+        "longest_gap": 2
+      },
+      "vision": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.08695652173913043,
+        "gap_count": 1,
+        "longest_gap": 2
+      }
+    },
+    {
+      "file": "附件3_15.pkl",
+      "content_positions": 27,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 3,
+        "unavailable_fraction": 0.1111111111111111,
+        "gap_count": 3,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 3,
+        "unavailable_fraction": 0.1111111111111111,
+        "gap_count": 3,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_16.pkl",
+      "content_positions": 34,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 4,
+        "unavailable_fraction": 0.11764705882352941,
+        "gap_count": 4,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 4,
+        "unavailable_fraction": 0.11764705882352941,
+        "gap_count": 4,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_17.pkl",
+      "content_positions": 22,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 8,
+        "unavailable_fraction": 0.36363636363636365,
+        "gap_count": 6,
+        "longest_gap": 3
+      },
+      "vision": {
+        "unavailable_positions": 8,
+        "unavailable_fraction": 0.36363636363636365,
+        "gap_count": 6,
+        "longest_gap": 3
+      }
+    },
+    {
+      "file": "附件3_18.pkl",
+      "content_positions": 17,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 3,
+        "unavailable_fraction": 0.17647058823529413,
+        "gap_count": 2,
+        "longest_gap": 2
+      },
+      "vision": {
+        "unavailable_positions": 3,
+        "unavailable_fraction": 0.17647058823529413,
+        "gap_count": 2,
+        "longest_gap": 2
+      }
+    },
+    {
+      "file": "附件3_19.pkl",
+      "content_positions": 24,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 7,
+        "unavailable_fraction": 0.2916666666666667,
+        "gap_count": 5,
+        "longest_gap": 2
+      },
+      "vision": {
+        "unavailable_positions": 7,
+        "unavailable_fraction": 0.2916666666666667,
+        "gap_count": 5,
+        "longest_gap": 2
+      }
+    },
+    {
+      "file": "附件3_20.pkl",
+      "content_positions": 48,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 14,
+        "unavailable_fraction": 0.2916666666666667,
+        "gap_count": 9,
+        "longest_gap": 4
+      },
+      "vision": {
+        "unavailable_positions": 14,
+        "unavailable_fraction": 0.2916666666666667,
+        "gap_count": 9,
+        "longest_gap": 4
+      }
+    },
+    {
+      "file": "附件3_21.pkl",
+      "content_positions": 9,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 3,
+        "unavailable_fraction": 0.3333333333333333,
+        "gap_count": 3,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 3,
+        "unavailable_fraction": 0.3333333333333333,
+        "gap_count": 3,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_22.pkl",
+      "content_positions": 17,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 4,
+        "unavailable_fraction": 0.23529411764705882,
+        "gap_count": 4,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 4,
+        "unavailable_fraction": 0.23529411764705882,
+        "gap_count": 4,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_23.pkl",
+      "content_positions": 13,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 4,
+        "unavailable_fraction": 0.3076923076923077,
+        "gap_count": 2,
+        "longest_gap": 3
+      },
+      "vision": {
+        "unavailable_positions": 4,
+        "unavailable_fraction": 0.3076923076923077,
+        "gap_count": 2,
+        "longest_gap": 3
+      }
+    },
+    {
+      "file": "附件3_24.pkl",
+      "content_positions": 8,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.25,
+        "gap_count": 2,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.25,
+        "gap_count": 2,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_25.pkl",
+      "content_positions": 9,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.2222222222222222,
+        "gap_count": 2,
+        "longest_gap": 1
+      },
+      "vision": {
+        "unavailable_positions": 2,
+        "unavailable_fraction": 0.2222222222222222,
+        "gap_count": 2,
+        "longest_gap": 1
+      }
+    },
+    {
+      "file": "附件3_26.pkl",
+      "content_positions": 22,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 6,
+        "unavailable_fraction": 0.2727272727272727,
+        "gap_count": 5,
+        "longest_gap": 2
+      },
+      "vision": {
+        "unavailable_positions": 6,
+        "unavailable_fraction": 0.2727272727272727,
+        "gap_count": 5,
+        "longest_gap": 2
+      }
+    },
+    {
+      "file": "附件3_27.pkl",
+      "content_positions": 21,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 8,
+        "unavailable_fraction": 0.38095238095238093,
+        "gap_count": 5,
+        "longest_gap": 3
+      },
+      "vision": {
+        "unavailable_positions": 8,
+        "unavailable_fraction": 0.38095238095238093,
+        "gap_count": 5,
+        "longest_gap": 3
+      }
+    },
+    {
+      "file": "附件3_28.pkl",
+      "content_positions": 33,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 11,
+        "unavailable_fraction": 0.3333333333333333,
+        "gap_count": 6,
+        "longest_gap": 3
+      },
+      "vision": {
+        "unavailable_positions": 11,
+        "unavailable_fraction": 0.3333333333333333,
+        "gap_count": 6,
+        "longest_gap": 3
+      }
+    },
+    {
+      "file": "附件3_29.pkl",
+      "content_positions": 18,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 8,
+        "unavailable_fraction": 0.4444444444444444,
+        "gap_count": 4,
+        "longest_gap": 4
+      },
+      "vision": {
+        "unavailable_positions": 8,
+        "unavailable_fraction": 0.4444444444444444,
+        "gap_count": 4,
+        "longest_gap": 4
+      }
+    },
+    {
+      "file": "附件3_30.pkl",
+      "content_positions": 24,
+      "text_mask_positions": 0,
+      "av_availability_equal": true,
+      "audio": {
+        "unavailable_positions": 12,
+        "unavailable_fraction": 0.5,
+        "gap_count": 6,
+        "longest_gap": 4
+      },
+      "vision": {
+        "unavailable_positions": 12,
+        "unavailable_fraction": 0.5,
+        "gap_count": 6,
+        "longest_gap": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "sample_index": 24,
+  "sample_id": "-RfYyzHpjk4$_$11",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "So get your friends lined up, get your business colleagues lined up and have a good time.",
+  "duration": 5.233333333333333,
+  "word_count": 17,
+  "timed_word_count": 17,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "So",
+      "start": 0.579,
+      "end": 0.827,
+      "score": 0.943,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "get",
+      "start": 1.365,
+      "end": 1.531,
+      "score": 0.873,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "your",
+      "start": 1.551,
+      "end": 1.675,
+      "score": 0.854,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "friends",
+      "start": 1.696,
+      "end": 1.924,
+      "score": 0.812,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "lined",
+      "start": 1.986,
+      "end": 2.234,
+      "score": 0.809,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "up,",
+      "start": 2.296,
+      "end": 2.399,
+      "score": 0.967,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "get",
+      "start": 2.462,
+      "end": 2.627,
+      "score": 0.84,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "your",
+      "start": 2.648,
+      "end": 2.772,
+      "score": 0.84,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "business",
+      "start": 2.792,
+      "end": 3.061,
+      "score": 0.878,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "colleagues",
+      "start": 3.082,
+      "end": 3.413,
+      "score": 0.929,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "lined",
+      "start": 3.454,
+      "end": 3.703,
+      "score": 0.962,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "up",
+      "start": 3.765,
+      "end": 3.868,
+      "score": 0.946,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "and",
+      "start": 3.909,
+      "end": 4.013,
+      "score": 0.788,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "have",
+      "start": 4.034,
+      "end": 4.158,
+      "score": 0.88,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "a",
+      "start": 4.199,
+      "end": 4.22,
+      "score": 0.967,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "good",
+      "start": 4.261,
+      "end": 4.406,
+      "score": 0.955,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "time.",
+      "start": 4.447,
+      "end": 4.675,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

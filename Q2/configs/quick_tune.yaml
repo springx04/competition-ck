@@ -1,0 +1,71 @@
+project:
+  name: q2_sentiment
+  data_root: /root/gpufree-data/shuomo_E/data
+  output_root: .
+data:
+  feature_version: aligned
+  seq_len: 50
+  modality_order: [text, audio, vision]
+  dims: [256, 74, 35]
+  num_workers: 4
+  pin_memory: true
+  train_batch_size: 32
+  eval_batch_size: 128
+  drop_last: false
+text:
+  model_dir: models/text_encoder
+  model_id: google/bert_uncased_L-4_H-256_A-4
+  frozen: true
+  cls_context: false
+  compute_dtype: float32
+  stored_dtype: float16
+  attention_implementation: eager
+model:
+  hidden_dim: 128
+  encoder_layers: 2
+  num_heads: 4
+  ffn_dim: 256
+  dropout: 0.1
+  layer_norm_eps: 0.00001
+  compensation_rounds: 1
+  shared_compensator: true
+  source_classes: 3
+  q_dim: 5
+  num_classes: 3
+  class_names: [Negative, Neutral, Positive]
+  score_min: -3.0
+  score_max: 3.0
+loss:
+  regression_weight: 1.0
+  huber_delta: 1.0
+  msd_weight: 0.05
+  shared_temperature: 0.1
+  specific_inner_weight: 0.1
+  unimodal_inner_weight: 0.5
+  span_weight: 0.2
+  calibration_weight: 0.1
+  consistency_weight: 0.2
+  ramp_epochs: 10
+train:
+  epochs: 15
+  warmup_epochs: 3
+  optimizer: adamw
+  learning_rate: 0.0003
+  min_learning_rate: 0.00003
+  betas: [0.9, 0.999]
+  adam_eps: 0.00000001
+  weight_decay: 0.0001
+  gradient_clip_norm: 1.0
+  ema_decay: 0.99
+  seeds: [1111]
+  eval_epochs: [5, 10, 15]
+  amp: false
+  tf32: false
+  compile: false
+evaluation:
+  main_patterns: [T, A, V, TA, TV, AV]
+  main_positions: [front, middle, rear]
+  main_rhos: [0.2, 0.4, 0.6, 0.8]
+  bootstrap_repeats: 1000
+  bootstrap_seed: 20260924
+  deployed_seed: 1111

@@ -1,0 +1,105 @@
+{
+  "sample_index": 28,
+  "sample_id": "-THoVjtIkeU$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "I think social justice is extremely important for young people.",
+  "duration": 4.266666666666667,
+  "word_count": 10,
+  "timed_word_count": 10,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "I",
+      "start": 0.04,
+      "end": 0.101,
+      "score": 0.932,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "think",
+      "start": 0.182,
+      "end": 0.425,
+      "score": 0.946,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "social",
+      "start": 1.213,
+      "end": 1.456,
+      "score": 0.93,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "justice",
+      "start": 1.496,
+      "end": 1.82,
+      "score": 0.951,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "is",
+      "start": 1.86,
+      "end": 1.941,
+      "score": 0.762,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "extremely",
+      "start": 1.982,
+      "end": 2.386,
+      "score": 0.963,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "important",
+      "start": 2.427,
+      "end": 2.831,
+      "score": 0.968,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "for",
+      "start": 2.892,
+      "end": 3.053,
+      "score": 0.795,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "young",
+      "start": 3.114,
+      "end": 3.316,
+      "score": 0.838,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "people.",
+      "start": 3.357,
+      "end": 3.7,
+      "score": 0.99,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

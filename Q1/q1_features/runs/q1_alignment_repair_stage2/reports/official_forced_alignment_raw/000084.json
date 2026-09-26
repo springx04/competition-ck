@@ -1,0 +1,249 @@
+{
+  "sample_index": 84,
+  "sample_id": "-tPCytz4rww$_$12",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "No less than eight hundred squire feet and going to similar in, similar with bedrooms and bathrooms as well and hopefully the complexes have similar amenities.",
+  "duration": 11.833333333333334,
+  "word_count": 26,
+  "timed_word_count": 26,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "No",
+      "start": 0.545,
+      "end": 0.666,
+      "score": 0.837,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "less",
+      "start": 0.707,
+      "end": 0.889,
+      "score": 0.911,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "than",
+      "start": 0.949,
+      "end": 1.09,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "eight",
+      "start": 1.373,
+      "end": 1.515,
+      "score": 0.812,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "hundred",
+      "start": 1.555,
+      "end": 1.757,
+      "score": 0.929,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "squire",
+      "start": 1.797,
+      "end": 2.04,
+      "score": 0.726,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "feet",
+      "start": 2.08,
+      "end": 2.241,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "and",
+      "start": 2.585,
+      "end": 2.666,
+      "score": 0.814,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "going",
+      "start": 2.686,
+      "end": 2.787,
+      "score": 0.888,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "to",
+      "start": 2.807,
+      "end": 2.928,
+      "score": 0.299,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "similar",
+      "start": 2.989,
+      "end": 3.493,
+      "score": 0.928,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "in,",
+      "start": 3.655,
+      "end": 3.776,
+      "score": 0.909,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "similar",
+      "start": 4.988,
+      "end": 5.493,
+      "score": 0.934,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "with",
+      "start": 5.634,
+      "end": 5.816,
+      "score": 0.984,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "bedrooms",
+      "start": 5.957,
+      "end": 6.321,
+      "score": 0.919,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "and",
+      "start": 6.341,
+      "end": 6.422,
+      "score": 0.901,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "bathrooms",
+      "start": 6.462,
+      "end": 6.947,
+      "score": 0.851,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "as",
+      "start": 7.007,
+      "end": 7.088,
+      "score": 0.752,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "well",
+      "start": 7.148,
+      "end": 7.371,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "and",
+      "start": 7.997,
+      "end": 8.138,
+      "score": 0.924,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "hopefully",
+      "start": 8.501,
+      "end": 8.845,
+      "score": 0.942,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "the",
+      "start": 9.208,
+      "end": 9.37,
+      "score": 0.925,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "complexes",
+      "start": 9.471,
+      "end": 9.976,
+      "score": 0.974,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "have",
+      "start": 10.036,
+      "end": 10.177,
+      "score": 0.907,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "similar",
+      "start": 10.258,
+      "end": 10.622,
+      "score": 0.93,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "amenities.",
+      "start": 10.703,
+      "end": 11.228,
+      "score": 0.956,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

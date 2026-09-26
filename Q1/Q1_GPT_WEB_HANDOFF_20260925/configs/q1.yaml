@@ -1,0 +1,56 @@
+schema_version: 1
+seed: 2026
+paths:
+  data_root: null       # CLI --data-root必填一次，随后写入run配置
+  bert_dir: models/bert
+  ctc_dir: models/ctc
+  openface_bin: third_party/OpenFace/build/bin/FaceLandmarkVidMulti
+  openface_env: env/openface
+  face_review: configs/target_face_segments.csv
+  alignment_review: configs/alignment_review.csv
+media:
+  sample_rate: 16000
+  target_video_hz: 25.0
+  audio_gap_tolerance_samples: 2
+  audio_duration_tolerance_s: 0.02
+text:
+  model_id: google-bert/bert-base-uncased
+  hidden_layer: last
+  content_tokens_per_chunk: 510
+  chunk_stride: 382
+  word_pool: mean
+alignment:
+  model_id: espnet/kamo-naoyuki_librispeech_asr_train_asr_conformer5_raw_bpe5000_schedule-truncated-c8e5f9
+  ctc_blank_id: 0
+  min_log_score: -5.0
+  score_min_mean_over_L: 30
+  min_window_size: 8000
+  max_window_size: 100000
+  transcript_case: upper
+audio:
+  feature_set: eGeMAPSv02
+  feature_level: LowLevelDescriptors
+vision:
+  confidence_min: 0.8
+  au_mode: static
+  target_policy: single_episode_else_review
+  trajectory_gap_s: 0.20
+  bbox_iou_split: 0.10
+  bbox_center_jump_fraction: 0.25
+  scene_hist_l1_split: 0.65
+pool:
+  bins: 50
+  coverage: union
+  angle_resultant_min: 0.000001
+quality:
+  diagnostic_wer_warn: 0.65
+  aligned_word_fraction_warn: 0.80
+  crossmodal_review_required: true
+runtime:
+  device: cuda:0
+  gpu_workers: 1
+  openface_workers: 1
+  batch_size: 1
+  dtype: float32
+  allow_same_model_cpu_fallback: true
+  external_command_timeout_s: 1800

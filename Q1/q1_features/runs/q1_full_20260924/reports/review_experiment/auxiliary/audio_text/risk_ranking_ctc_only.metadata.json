@@ -1,0 +1,8 @@
+{
+  "sample_count": 100,
+  "ctc_alert_count": 23,
+  "whisperx_row_count": 0,
+  "complete_three_component_count": 0,
+  "formula": "mean(percentile(diagnostic_wer), percentile(1-aligned_word_fraction), optional percentile(whisperx_wer))",
+  "warning": "This is review prioritization only and must not create confirmed decisions."
+}

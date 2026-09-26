@@ -1,0 +1,30 @@
+{
+  "n": 728,
+  "correct": 448,
+  "incorrect": 280,
+  "confusion": [
+    [
+      126,
+      31,
+      49
+    ],
+    [
+      31,
+      65,
+      88
+    ],
+    [
+      37,
+      44,
+      257
+    ]
+  ],
+  "mae": 0.6415312532183104,
+  "pearson": 0.6082430924290272,
+  "rmse": 0.8456056676035272,
+  "mean_confidence": 0.6803465721153846,
+  "high_confidence_n": 212,
+  "high_confidence_errors": 42,
+  "video_clusters": 239,
+  "stage": "post-hoc validation diagnosis, no new training or selection"
+}

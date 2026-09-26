@@ -1,0 +1,114 @@
+{
+  "sample_index": 73,
+  "sample_id": "-s9qJ7ATP7w$_$1",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "But the hardest thing in life to learn, is to lose",
+  "duration": 4.766666666666667,
+  "word_count": 11,
+  "timed_word_count": 11,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "But",
+      "start": 0.537,
+      "end": 1.032,
+      "score": 0.677,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "the",
+      "start": 1.383,
+      "end": 1.486,
+      "score": 0.804,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "hardest",
+      "start": 1.527,
+      "end": 1.795,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "thing",
+      "start": 1.816,
+      "end": 1.96,
+      "score": 0.841,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "in",
+      "start": 1.981,
+      "end": 2.043,
+      "score": 0.568,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "life",
+      "start": 2.084,
+      "end": 2.229,
+      "score": 0.879,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "to",
+      "start": 2.27,
+      "end": 2.332,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "learn,",
+      "start": 2.394,
+      "end": 2.662,
+      "score": 0.837,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "is",
+      "start": 3.219,
+      "end": 3.322,
+      "score": 0.85,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "to",
+      "start": 3.363,
+      "end": 3.446,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "lose",
+      "start": 3.508,
+      "end": 3.735,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,18 @@
+{
+  "package": "Q1_ALIGNMENT_REPAIR_STAGE3_WEB_ANALYSIS_20260926",
+  "created_utc": "2026-09-26",
+  "purpose": "Candidate-only independent web GPT analysis of Q1 Stage3 alignment repair",
+  "formal_baseline": "runs/q1_full_20260924",
+  "stage2_input": "runs/q1_alignment_repair_stage2",
+  "stage3_candidate": "runs/q1_alignment_repair_stage3",
+  "member_file_count": 249,
+  "candidate_only": true,
+  "production_write": false,
+  "excluded": [
+    "emotion labels",
+    "raw video/audio/frames",
+    "model weights",
+    "Python/OpenFace environments",
+    "historical delivery archives"
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "sample_index": 79,
+  "sample_id": "-t217m2on-s$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "But a good thing to do is yawning, chewing gum is effective.",
+  "duration": 5.666666666666666,
+  "word_count": 12,
+  "timed_word_count": 12,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "But",
+      "start": 0.504,
+      "end": 0.726,
+      "score": 0.716,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "a",
+      "start": 0.948,
+      "end": 1.412,
+      "score": 0.873,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "good",
+      "start": 1.452,
+      "end": 1.593,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "thing",
+      "start": 1.633,
+      "end": 1.754,
+      "score": 0.947,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "to",
+      "start": 1.775,
+      "end": 1.855,
+      "score": 0.768,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "do",
+      "start": 1.875,
+      "end": 1.956,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "is",
+      "start": 1.996,
+      "end": 2.077,
+      "score": 0.8,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "yawning,",
+      "start": 2.158,
+      "end": 3.469,
+      "score": 0.993,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "chewing",
+      "start": 3.549,
+      "end": 3.932,
+      "score": 0.93,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "gum",
+      "start": 4.033,
+      "end": 4.275,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "is",
+      "start": 4.356,
+      "end": 4.437,
+      "score": 0.752,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "effective.",
+      "start": 4.497,
+      "end": 5.062,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

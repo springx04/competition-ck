@@ -1,0 +1,43 @@
+{
+  "candidate_only": true,
+  "production_models_modified": false,
+  "faster_whisper_large_v2": {
+    "repository": "Systran/faster-whisper-large-v2",
+    "commit": "f0fe81560cb8b68660e564f55dd99207059c092e",
+    "model_path": "models/auto_resolution/manual_upload/faster-whisper-large-v2-f0fe8156-model.bin",
+    "bytes": 3086912962,
+    "sha256": "bf2a9746382e1aa7ffff6b3a0d137ed9edbd9670c3b87e5d35f5e85e70d0333a"
+  },
+  "wav2vec2_alignment": {
+    "bundle": "torchaudio.pipelines.WAV2VEC2_ASR_LARGE_LV60K_960H",
+    "official_url": "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_large_lv60k_asr_ls960.pth",
+    "path": "models/auto_resolution/manual_upload/wav2vec2_fairseq_large_lv60k_asr_ls960.pth",
+    "bytes": 1262046195,
+    "sha256": "7a88965716fbd598a595209bf45c1210a18a6935cfb0cf53527fc986c5543ac7"
+  },
+  "silero_vad": {
+    "repository": "https://github.com/snakers4/silero-vad",
+    "commit": "5cd7945676eb32225748052e2e6a0580e4686a08",
+    "archive_sha256": "978357e9d1d651bb3c5f9447554c3f3784fa39d20e3b278ec32e40e4a9bd47cd"
+  },
+  "nltk_punkt_tab": {
+    "official_url": "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/tokenizers/punkt_tab.zip",
+    "sha256": "e57f64187974277726a3417ca6f181ec5403676c717672eef6a748a7b20e0106"
+  },
+  "arcface_buffalo_l": {
+    "official_url": "https://github.com/deepinsight/insightface/releases/download/v0.7/buffalo_l.zip",
+    "archive_sha256": "80ffe37d8a5940d59a7384c201a2a38d4741f2f3c51eef46ebb28218a7b0ca2f",
+    "w600k_r50_sha256": "4c06341c33c2ca1f86781dab0e829f88ad5b64be9fba56e56bc9ebdefc619e43"
+  },
+  "talknet": {
+    "repository": "https://github.com/TaoRuijie/TalkNet-ASD",
+    "official_google_drive_file_id": "1AbN9fCf9IexMxEKXLQY2KYBlb-IhSEea",
+    "path": "models/auto_resolution/manual_upload/pretrain_TalkSet.model",
+    "bytes": 63227827,
+    "sha256": "d985ddd07dca08864a28337726f5b7d91b6426bebc7327f0e9b21cf9ff1cc937",
+    "checkpoint_keys": 487,
+    "missing_keys": 0,
+    "unexpected_keys": 0,
+    "shape_mismatches": 0
+  }
+}

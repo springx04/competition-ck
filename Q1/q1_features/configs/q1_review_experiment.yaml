@@ -1,0 +1,107 @@
+experiment:
+  id: q1_data_quality_review_20260924
+  baseline_run: runs/q1_full_20260924
+  source_revision: da6c8e5bd553d0480ca941384ae20f279929872f
+  sample_count: 100
+  video_group_count: 37
+  objective: evidence_bound_data_quality_review
+
+human_review:
+  reviewer_count: 2
+  adjudicator_count: 1
+  reviewer_a_order_seed: 2026
+  reviewer_b_order_seed: 2027
+  blind_fields:
+    - sentiment_label
+    - paired_use
+    - pairing_status
+    - automatic_issues
+    - auxiliary_scores
+  transcript_statuses: [match, mismatch, unverifiable]
+  visual_statuses:
+    - active_face_identified
+    - no_visible_target
+    - multiple_ambiguous
+    - unverifiable
+  confidence_scale:
+    1: low
+    2: medium
+    3: high
+  agreement_threshold: 0.80
+  segment_endpoint_tolerance_s: 0.20
+  segment_tiou_threshold: 0.80
+  visual_segment_labels:
+    - active_speaking
+    - visible_not_speaking
+    - no_visible_target
+    - multiple_ambiguous
+    - unverifiable
+  anchor_words:
+    existing_text_alert_samples: 23
+    clean_control_samples: 10
+    clean_risk_quintiles: 5
+    controls_per_quintile: 2
+    selection_seed: 2026
+    target_relative_positions: [0.10, 0.30, 0.50, 0.70, 0.90]
+    maximum_per_sample: 5
+    blank_time_rule: confidence_1_and_evidence_contains_unverifiable
+  bootstrap:
+    group_key: video_id
+    iterations: 10000
+    confidence_level: 0.95
+    seed: 2026
+  forced_adjudication:
+    - reviewer_disagreement
+    - low_confidence
+    - unverifiable
+    - automatic_zero_face
+
+audio_text_auxiliary:
+  baseline: existing_ctc
+  risk_formula:
+    - percentile_diagnostic_wer
+    - percentile_one_minus_aligned_word_fraction
+    - percentile_whisperx_wer
+  aggregation: arithmetic_mean_of_available_components
+  whisperx:
+    status: unavailable_not_installed
+    intended_release: 3.8.6
+    source: https://github.com/m-bain/whisperX/releases/tag/v3.8.6
+    model: large-v2
+    alignment_model: WAV2VEC2_ASR_LARGE_LV60K_960H
+    model_sha256: null
+    rule: diagnostic_only_never_confirm
+
+visual_auxiliary:
+  talknet:
+    status: source_frozen_weight_unavailable
+    source_archive: third_party/review_aux/TalkNet-ASD-main.tar.gz
+    source_archive_sha256: 7ba19f3dd877c8839445d5278130cabccd839df9f6a18f83b157219bdfbe029a
+    source: https://github.com/TaoRuijie/TalkNet_ASD
+    intended_weight: pretrain_TalkSet.model
+    official_google_drive_id: 1AbN9fCf9IexMxEKXLQY2KYBlb-IhSEea
+    score_type: class_1_logit
+    display_threshold: 0.0
+    threshold_basis: official_demoTalkNet.py
+    weight_sha256: null
+    rule: candidate_ranking_only_never_confirm
+  arcface:
+    status: unavailable_not_installed
+    implementation: insightface
+    model_pack: buffalo_l
+    source: https://github.com/deepinsight/insightface/releases/tag/model-zoo
+    weight_sha256: null
+    license_note: non-commercial-research-only
+    primary_cosine_threshold: 0.60
+    sensitivity_cosine_thresholds: [0.50, 0.70]
+    rule: within_sample_identity_linking_only_never_confirm
+
+safety:
+  false_release_target: 0
+  auxiliary_can_confirm: false
+  unresolved_paired_use: false
+  no_visible_target_paired_use: false
+  never_overwrite_production_configs: true
+  production_write_requires_adjudicated_100_row_file: true
+  auxiliary_unlock_requires_gold_lock_sha256: true
+
