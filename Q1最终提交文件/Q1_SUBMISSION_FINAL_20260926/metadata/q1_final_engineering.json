@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "pytest": "99 passed",
+  "pytest_log": "<PROJECT_ROOT>/runs/q1_final_20260926/pytest_final.log",
+  "pip_check": "No broken requirements found.",
+  "pip_check_log": "<PROJECT_ROOT>/runs/q1_final_20260926/pip_check_final.log",
+  "finalization_tests": "6 passed",
+  "new_models_run": false,
+  "sentiment_labels_used": false,
+  "automatic_clip_swap": false
+}

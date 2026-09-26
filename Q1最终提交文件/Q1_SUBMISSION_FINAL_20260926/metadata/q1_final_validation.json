@@ -1,0 +1,58 @@
+{
+  "ok": true,
+  "errors": [],
+  "checks": {
+    "sample_count": 100,
+    "unique_sample_count": 100,
+    "word_count": 1932,
+    "resolution_status_counts": {
+      "RESOLVED_VALID": 57,
+      "UNRESOLVED": 15,
+      "RESOLVED_PARTIAL": 19,
+      "RESOLVED_MISSING": 4,
+      "RESOLVED_CONFLICT": 5
+    },
+    "paired_use_count": 68,
+    "word_shapes": {
+      "text": [
+        1932,
+        768
+      ],
+      "audio": [
+        1932,
+        25
+      ],
+      "vision": [
+        1932,
+        22
+      ]
+    },
+    "compact_shapes": {
+      "text": [
+        100,
+        50,
+        768
+      ],
+      "audio": [
+        100,
+        50,
+        25
+      ],
+      "vision": [
+        100,
+        50,
+        22
+      ]
+    },
+    "stage3_traceable_visual_references": 2808,
+    "official_mapping_unchanged": true,
+    "frozen_hashes": {
+      "ok": true,
+      "file_count": 772,
+      "changed": []
+    },
+    "sentiment_labels_used": false,
+    "new_models_run": false,
+    "automatic_clip_swap": false
+  }
+}

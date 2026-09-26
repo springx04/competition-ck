@@ -1,0 +1,17 @@
+{
+  "modalities": [
+    "text",
+    "audio",
+    "vision"
+  ],
+  "text_dim": 768,
+  "audio_dim": 25,
+  "vision_dim": 22,
+  "vision_angles": [
+    17,
+    18,
+    19,
+    20,
+    21
+  ]
+}

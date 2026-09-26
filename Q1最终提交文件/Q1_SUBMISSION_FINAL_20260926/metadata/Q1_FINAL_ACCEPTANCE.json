@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "q1_closed": true,
+  "conditions": {
+    "sample_count_100": true,
+    "resolution_counts_fixed": true,
+    "paired_use_68": true,
+    "official_mapping_unchanged": true,
+    "word_final_validation": true,
+    "compact_final_validation": true,
+    "source_mapping_valid": true,
+    "frozen_inputs_unchanged": true,
+    "no_sentiment_labels": true,
+    "no_new_models": true,
+    "no_threshold_optimization": true,
+    "no_automatic_clip_swap": true,
+    "minimal_package_generated": true,
+    "minimal_package_under_50_mib": true,
+    "full_pytest_passed": true,
+    "pip_check_passed": true
+  },
+  "sample_count": 100,
+  "resolution_status_counts": {
+    "RESOLVED_VALID": 57,
+    "UNRESOLVED": 15,
+    "RESOLVED_PARTIAL": 19,
+    "RESOLVED_MISSING": 4,
+    "RESOLVED_CONFLICT": 5
+  },
+  "paired_use": 68,
+  "final_run": "<PROJECT_ROOT>/runs/q1_final_20260926",
+  "minimal_package": {
+    "ok": true,
+    "zip_path": "<PROJECT_ROOT>/runs/q1_final_20260926/Q1_SUBMISSION_MINIMAL_20260926.zip",
+    "bytes": 5947444,
+    "mib": 5.671924591064453,
+    "sha256": "5dce03b5758ca631759f02afacf5e1bc84a9440da4019969a78f0eeb521dcb12",
+    "file_count": 13,
+    "under_10_mib": true,
+    "under_50_mib": true,
+    "compact50_included": false,
+    "labels_included": false,
+    "weights_included": false
+  },
+  "unresolved_policy": "preserve sample; mask unsafe modality; no further automatic recovery"
+}

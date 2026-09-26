@@ -1,0 +1,4 @@
+﻿scope,source,coverage_type,text,audio,vision,trimodal,accuracy_metric
+all100,formal,raw_observed_coverage,0.6256,0.995,0.5746,0.3906,0
+all100,stage2,verified_usable_coverage,0.6256,0.7828,0.701,0.4916,0
+all100,stage3,verified_usable_coverage,0.6256,0.7828,0.7604,0.5214,0

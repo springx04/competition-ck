@@ -1,0 +1,69 @@
+schema_version: 1
+policy_name: q1-production-freeze-20260926
+formal_run: runs/q1_full_20260924
+stage2_run: runs/q1_alignment_repair_stage2
+stage3_run: runs/q1_alignment_repair_stage3
+output_run: runs/q1_final_20260926
+
+experiment_constraints:
+  use_sentiment_labels: false
+  run_new_models: false
+  tune_thresholds: false
+  human_gold: false
+  automatic_clip_swap: false
+  preserve_all_samples: true
+
+expected_counts:
+  sample_count: 100
+  word_count: 1932
+  paired_use: 68
+  resolution_status:
+    RESOLVED_VALID: 57
+    RESOLVED_PARTIAL: 19
+    RESOLVED_CONFLICT: 5
+    RESOLVED_MISSING: 4
+    UNRESOLVED: 15
+
+status_policy:
+  RESOLVED_VALID:
+    source: stage3_candidate
+    paired_use: stage3_proposed_paired_use
+    preserve_stage3_masks: true
+  RESOLVED_PARTIAL:
+    source: stage3_candidate
+    paired_use: stage3_proposed_paired_use
+    preserve_stage3_masks: true
+    uncertain_positions_masked: true
+  RESOLVED_CONFLICT:
+    preserve_official_mapping: true
+    paired_use: false
+    safe_mask: true
+  RESOLVED_MISSING:
+    preserve_natural_missing: true
+    paired_use: false
+    interpolate: false
+    borrow_identity_or_clip: false
+  UNRESOLVED:
+    preserve_sample: true
+    paired_use: false
+    unsafe_modalities_masked: true
+    run_additional_recovery: false
+
+mapping_policy:
+  preserve_official_sample_video_clip_mapping: true
+  apply_proposed_mapping_correction: false
+  strong_mapping_action: RESOLVED_CONFLICT_SAFE_MASK
+
+visual_continuity:
+  max_identity_gap_seconds: 1.0
+  sensitivity_seconds: [0.5, 1.0, 1.5]
+  threshold_selected_by_coverage: false
+
+coverage_terms:
+  raw_observed_coverage: tool-extractable feature coverage before semantic and identity quality control
+  verified_usable_coverage: coverage permitted by frozen cross-modal quality masks
+  accuracy_claim_allowed: false
+
+primary_artifact: q1_word_aligned_final.npz
+auxiliary_artifact: q1_compact50_final.npz
+q1_closed_after_acceptance: true

@@ -1,0 +1,49 @@
+experiment:
+  name: q1_alignment_repair_stage3
+  candidate_only: true
+  production_write: false
+  use_sentiment_labels: false
+  automatic_clip_swap: false
+
+inputs:
+  formal_run: runs/q1_full_20260924
+  stage2_run: runs/q1_alignment_repair_stage2
+  output_run: runs/q1_alignment_repair_stage3
+
+mapping:
+  metrics:
+    - whisper_token
+    - whisper_char
+    - ctc_token
+    - ctc_char
+  strong_vote_min: 3
+  strong_advantage_min: 0.10
+  strong_token_score_min: 0.35
+  weak_vote_min: 2
+  weak_advantage_min: 0.05
+  weak_absolute_score_min: 0.35
+  auto_apply: false
+
+visual_continuity:
+  talknet_logit_threshold: 0.0
+  window_seconds: 0.50
+  stride_seconds: 0.25
+  anchor_min_positive_windows: 2
+  anchor_neighbor_gap_seconds: 0.50
+  max_identity_gap_seconds: 1.0
+  sensitivity_gap_seconds: [0.5, 1.0, 1.5]
+  openface_confidence_min: 0.80
+  arcface_primary_threshold: 0.60
+  av_sync_role: auxiliary_only
+
+visual_sample_status:
+  fully_verified_usable_min: 0.80
+  fully_verified_ambiguous_max: 0.10
+  fully_verified_unresolved_max: 0.10
+
+validation:
+  preserve_stage2_hashes: true
+  preserve_formal_hashes: true
+  require_source_mapping: true
+  require_binary_masks: true
+  require_finite_arrays: true

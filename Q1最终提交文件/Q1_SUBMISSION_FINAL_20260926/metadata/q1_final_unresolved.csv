@@ -1,0 +1,16 @@
+﻿sample_id,category,reason,sample_preserved,unsafe_modality_masked,automatic_recovery_attempted,forced_repair
+-9y-fZ3swSY$_$8,visual identity unresolved,target_visual_identity_remains_unresolved,1,1,1,0
+-HwX2H8Z4hY$_$2,visual identity unresolved,target_visual_identity_remains_unresolved,1,1,1,0
+-HwX2H8Z4hY$_$5,visual identity unresolved,target_visual_identity_remains_unresolved,1,1,1,0
+-HwX2H8Z4hY$_$6,visual identity unresolved,target_visual_identity_remains_unresolved,1,1,1,0
+-hnBHBN8p5A$_$6,visual identity unresolved,target_visual_identity_remains_unresolved,1,1,1,0
+-hnBHBN8p5A$_$7,visual identity unresolved,target_visual_identity_remains_unresolved,1,1,1,0
+-iRBcNs9oI8$_$3,mapping unstable,clip_mapping_evidence_is_not_stable_enough,1,1,1,0
+-iRBcNs9oI8$_$9,visual identity unresolved,target_visual_identity_remains_unresolved,1,1,1,0
+-mJ2ud6oKI8$_$6,semantic pairing unresolved,semantic_pairing_remains_unresolved,1,1,1,0
+-mJ2ud6oKI8$_$8,semantic pairing unresolved,semantic_pairing_remains_unresolved,1,1,1,0
+-mJ2ud6oKI8$_$9,visual identity unresolved,target_visual_identity_remains_unresolved,1,1,1,0
+-ri04Z7vwnc$_$2,mapping unstable,clip_mapping_evidence_is_not_stable_enough,1,1,1,0
+-s9qJ7ATP7w$_$0,visual identity unresolved,target_visual_identity_remains_unresolved,1,1,1,0
+-s9qJ7ATP7w$_$7,visual identity unresolved,target_visual_identity_remains_unresolved,1,1,1,0
+-vxjVxOeScU$_$4,semantic pairing unresolved,semantic_pairing_remains_unresolved,1,1,1,0

@@ -1,0 +1,58 @@
+{
+  "sample_count": 100,
+  "word_count": 1932,
+  "resolution_status": {
+    "RESOLVED_VALID": 57,
+    "UNRESOLVED": 15,
+    "RESOLVED_PARTIAL": 19,
+    "RESOLVED_MISSING": 4,
+    "RESOLVED_CONFLICT": 5
+  },
+  "paired_use": 68,
+  "unresolved_categories": {
+    "visual identity unresolved": 10,
+    "mapping unstable": 2,
+    "semantic pairing unresolved": 3
+  },
+  "paper_assets": {
+    "typical_sample_id": "-a55Q6RWvTA$_$3",
+    "typical_word_count": 8,
+    "abnormal_sample_id": "-NFrJFQijFE$_$1",
+    "selection_uses_sentiment_label": false
+  },
+  "coverage_rows": [
+    {
+      "scope": "all100",
+      "source": "formal",
+      "coverage_type": "raw_observed_coverage",
+      "text": "0.6256",
+      "audio": "0.995",
+      "vision": "0.5746",
+      "trimodal": "0.3906",
+      "accuracy_metric": 0
+    },
+    {
+      "scope": "all100",
+      "source": "stage2",
+      "coverage_type": "verified_usable_coverage",
+      "text": "0.6256",
+      "audio": "0.7828",
+      "vision": "0.701",
+      "trimodal": "0.4916",
+      "accuracy_metric": 0
+    },
+    {
+      "scope": "all100",
+      "source": "stage3",
+      "coverage_type": "verified_usable_coverage",
+      "text": "0.6256",
+      "audio": "0.7828",
+      "vision": "0.7604",
+      "trimodal": "0.5214",
+      "accuracy_metric": 0
+    }
+  ],
+  "new_model_run": false,
+  "sentiment_labels_used": false,
+  "clip_swap": false
+}

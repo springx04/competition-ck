@@ -1,0 +1,139 @@
+{
+  "source_revision": "da6c8e5bd553d0480ca941384ae20f279929872f",
+  "formal_environment": {
+    "python": "3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]",
+    "platform": "Linux-5.15.0-191-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "packages": {
+      "torch": "2.5.1",
+      "torchaudio": "2.5.1",
+      "numpy": "1.23.5",
+      "transformers": "4.38.2",
+      "espnet": "202402",
+      "ctc-segmentation": "1.7.4",
+      "opensmile": "2.5.1",
+      "av": "12.3.0",
+      "openpyxl": "3.1.5",
+      "PyYAML": "6.0.2"
+    },
+    "ffmpeg": "ffmpeg version 6.1.1 Copyright (c) 2000-2023 the FFmpeg developers\nbuilt with gcc 12.4.0 (conda-forge gcc 12.4.0-0)\nconfiguration: --prefix=<PROJECT_ROOT>/env/python --cc=<CONDA_BUILD_ROOT>/build_artifacts/ffmpeg_1722545947306/_build_env/bin/x86_64-conda-linux-gnu-cc --cxx=<CONDA_BUILD_ROOT>/build_artifacts/ffmpeg_1722545947306/_build_env/bin/x86_64-conda-linux-gnu-c++ --nm=<CONDA_BUILD_ROOT>/build_artifacts/ffmpeg_1722545947306/_build_env/bin/x86_64-conda-linux-gnu-nm --ar=<CONDA_BUILD_ROOT>/build_artifacts/ffmpeg_1722545947306/_build_env/bin/x86_64-conda-linux-gnu-ar --disable-doc --disable-openssl --enable-demuxer=dash --enable-hardcoded-tables --enable-libfreetype --enable-libharfbuzz --enable-libfontconfig --enable-libopenh264 --enable-libdav1d --enable-gnutls --enable-libmp3lame --enable-libvpx --enable-libass --enable-pthreads --enable-vaapi --enable-libopenvino --enable-gpl --enable-libx264 --enable-libx265 --enable-libaom --enable-libsvtav1 --enable-libxml2 --enable-pic --enable-shared --disable-static --enable-version3 --enable-zlib --enable-libopus --pkg-config=<CONDA_BUILD_ROOT>/build_artifacts/ffmpeg_1722545947306/_build_env/bin/pkg-config\nlibavutil      58. 29.100 / 58. 29.100\nlibavcodec     60. 31.102 / 60. 31.102\nlibavformat    60. 16.100 / 60. 16.100\nlibavdevice    60.  3.100 / 60.  3.100\nlibavfilter     9. 12.100 /  9. 12.100\nlibswscale      7.  5.100 /  7.  5.100\nlibswresample   4. 12.100 /  4. 12.100\nlibpostproc    57.  3.100 / 57.  3.100",
+    "nvidia_smi": "NVIDIA GeForce RTX 4090, 580.178.04, 24564 MiB",
+    "mmsa_revision": "f8fbd2d88d4f77580ea1ded0b3469073488c5c19",
+    "openface_revision": null,
+    "model_download_record": [
+      {
+        "repo_id": "google-bert/bert-base-uncased",
+        "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+        "local_dir": "models/bert"
+      },
+      {
+        "repo_id": "espnet/kamo-naoyuki_librispeech_asr_train_asr_conformer5_raw_bpe5000_schedule-truncated-c8e5f9",
+        "revision": "e6a0f274799b5a4c157d1d5bc20de4c569e25f7e",
+        "local_dir": "models/ctc"
+      }
+    ],
+    "seed": 2026,
+    "argv": [
+      "<PROJECT_ROOT>/src/q1_features/__main__.py",
+      "prepare",
+      "--config",
+      "configs/q1.yaml",
+      "--data-root",
+      "<DATA_ROOT>",
+      "--run-dir",
+      "runs/q1_full_20260924"
+    ],
+    "code_state": {
+      "git_head": "da6c8e5bd553d0480ca941384ae20f279929872f",
+      "dirty": false,
+      "source": "git-archive-export",
+      "git_probe_error": "CalledProcessError(128, ['git', '-C', '<PROJECT_ROOT>', 'rev-parse', 'HEAD'])"
+    },
+    "bert_device": {
+      "requested": "cuda:0",
+      "actual": "cuda:0",
+      "gpu_name": "NVIDIA GeForce RTX 4090",
+      "probe": 64.0
+    },
+    "ctc_device": {
+      "requested": "cuda:0",
+      "actual": "cuda:0",
+      "gpu_name": "NVIDIA GeForce RTX 4090",
+      "probe": 64.0
+    }
+  },
+  "stage1_model_provenance": {
+    "candidate_only": true,
+    "production_models_modified": false,
+    "faster_whisper_large_v2": {
+      "repository": "Systran/faster-whisper-large-v2",
+      "commit": "f0fe81560cb8b68660e564f55dd99207059c092e",
+      "model_path": "models/auto_resolution/manual_upload/faster-whisper-large-v2-f0fe8156-model.bin",
+      "bytes": 3086912962,
+      "sha256": "bf2a9746382e1aa7ffff6b3a0d137ed9edbd9670c3b87e5d35f5e85e70d0333a"
+    },
+    "wav2vec2_alignment": {
+      "bundle": "torchaudio.pipelines.WAV2VEC2_ASR_LARGE_LV60K_960H",
+      "official_url": "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_large_lv60k_asr_ls960.pth",
+      "path": "models/auto_resolution/manual_upload/wav2vec2_fairseq_large_lv60k_asr_ls960.pth",
+      "bytes": 1262046195,
+      "sha256": "7a88965716fbd598a595209bf45c1210a18a6935cfb0cf53527fc986c5543ac7"
+    },
+    "silero_vad": {
+      "repository": "https://github.com/snakers4/silero-vad",
+      "commit": "5cd7945676eb32225748052e2e6a0580e4686a08",
+      "archive_sha256": "978357e9d1d651bb3c5f9447554c3f3784fa39d20e3b278ec32e40e4a9bd47cd"
+    },
+    "nltk_punkt_tab": {
+      "official_url": "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/tokenizers/punkt_tab.zip",
+      "sha256": "e57f64187974277726a3417ca6f181ec5403676c717672eef6a748a7b20e0106"
+    },
+    "arcface_buffalo_l": {
+      "official_url": "https://github.com/deepinsight/insightface/releases/download/v0.7/buffalo_l.zip",
+      "archive_sha256": "80ffe37d8a5940d59a7384c201a2a38d4741f2f3c51eef46ebb28218a7b0ca2f",
+      "w600k_r50_sha256": "4c06341c33c2ca1f86781dab0e829f88ad5b64be9fba56e56bc9ebdefc619e43"
+    },
+    "talknet": {
+      "repository": "https://github.com/TaoRuijie/TalkNet-ASD",
+      "official_google_drive_file_id": "1AbN9fCf9IexMxEKXLQY2KYBlb-IhSEea",
+      "path": "models/auto_resolution/manual_upload/pretrain_TalkSet.model",
+      "bytes": 63227827,
+      "sha256": "d985ddd07dca08864a28337726f5b7d91b6426bebc7327f0e9b21cf9ff1cc937",
+      "checkpoint_keys": 487,
+      "missing_keys": 0,
+      "unexpected_keys": 0,
+      "shape_mismatches": 0
+    }
+  },
+  "stage3_acceptance": {
+    "ok": true,
+    "sample_count": 100,
+    "resolution_status_counts": {
+      "RESOLVED_VALID": 57,
+      "UNRESOLVED": 15,
+      "RESOLVED_PARTIAL": 19,
+      "RESOLVED_MISSING": 4,
+      "RESOLVED_CONFLICT": 5
+    },
+    "mapping_status_counts": {
+      "MAPPING_WEAK": 1,
+      "MAPPING_STRONG": 1,
+      "MAPPING_UNRESOLVED": 2
+    },
+    "visual_status_original37": {
+      "UNRESOLVED": 10,
+      "PARTIALLY_VERIFIED": 6,
+      "FULLY_VERIFIED": 16,
+      "AMBIGUOUS": 5
+    },
+    "word_candidate_ok": true,
+    "compact_candidate_ok": true,
+    "frozen_inputs_unchanged": true,
+    "engineering_verification_ok": true,
+    "pytest": "93 passed",
+    "pip_check": "No broken requirements found.",
+    "candidate_only": true,
+    "production_write": false
+  },
+  "new_models_run_in_stage4": false
+}
