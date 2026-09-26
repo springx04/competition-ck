@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="814.79952pt" height="346.79952pt" viewBox="0 0 814.79952 346.79952" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-27T02:46:20.543037</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 346.79952
+L 814.79952 346.79952
+L 814.79952 0
+L 0 0
+z
+" style="fill: #fffefb"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 22.621555 149.134595
+L 397.608834 149.134595
+Q 405.725441 149.134595 405.725441 142.486605
+L 405.725441 97.945069
+Q 405.725441 91.297079 397.608834 91.297079
+L 22.621555 91.297079
+Q 14.504947 91.297079 14.504947 97.945069
+L 14.504947 142.486605
+Q 14.504947 149.134595 22.621555 149.134595
+z
+" clip-path="url(#p9681fad35f)" style="fill: #d9f2fd; stroke: #388ee8; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 22.621555 222.262489
+L 397.608834 222.262489
+Q 405.725441 222.262489 405.725441 215.614499
+L 405.725441 171.072963
+Q 405.725441 164.424973 397.608834 164.424973
+L 22.621555 164.424973
+Q 14.504947 164.424973 14.504947 171.072963
+L 14.504947 215.614499
+Q 14.504947 222.262489 22.621555 222.262489
+z
+" clip-path="url(#p9681fad35f)" style="fill: #c6f5c0; stroke: #54b95a; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 22.621555 295.390384
+L 397.608834 295.390384
+Q 405.725441 295.390384 405.725441 288.742393
+L 405.725441 244.200858
+Q 405.725441 237.552867 397.608834 237.552867
+L 22.621555 237.552867
+Q 14.504947 237.552867 14.504947 244.200858
+L 14.504947 288.742393
+Q 14.504947 295.390384 22.621555 295.390384
+z
+" clip-path="url(#p9681fad35f)" style="fill: #fff2d7; stroke: #d29c39; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #26364d; font: 700 14px 'Noto Sans SC'; text-anchor: start" x="19.374912" y="27.143971" transform="rotate(-0 19.374912 27.143971)">最终特征维度契约</text>
+   </g>
+   <g id="text_2">
+    <text style="fill: #388ee8; font: 700 12px 'Noto Sans SC'; text-anchor: start" x="39.666431" y="123.713649" transform="rotate(-0 39.666431 123.713649)">Text</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #26364d; font: 700 13px 'Noto Sans SC'; text-anchor: middle" x="230.406714" y="124.005134" transform="rotate(-0 230.406714 124.005134)">768 dimensions</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #54b95a; font: 700 12px 'Noto Sans SC'; text-anchor: start" x="39.666431" y="196.841544" transform="rotate(-0 39.666431 196.841544)">Audio</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #26364d; font: 700 13px 'Noto Sans SC'; text-anchor: middle" x="230.406714" y="197.133028" transform="rotate(-0 230.406714 197.133028)">25 dimensions</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #d29c39; font: 700 12px 'Noto Sans SC'; text-anchor: start" x="39.666431" y="269.969438" transform="rotate(-0 39.666431 269.969438)">Vision</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #26364d; font: 700 13px 'Noto Sans SC'; text-anchor: middle" x="230.406714" y="270.260922" transform="rotate(-0 230.406714 270.260922)">22 dimensions</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #6888ac; font: 10px 'Noto Sans SC'; text-anchor: start" x="19.374912" y="313.007558" transform="rotate(-0 19.374912 313.007558)">Word: [1932, D]   |   Compact50: [100, 50, D]</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_5">
+    <path d="M 435.781583 160.768578
+L 792.912325 160.768578
+Q 800.642428 160.768578 800.642428 154.120588
+L 800.642428 92.959076
+Q 800.642428 86.311086 792.912325 86.311086
+L 435.781583 86.311086
+Q 428.051481 86.311086 428.051481 92.959076
+L 428.051481 154.120588
+Q 428.051481 160.768578 435.781583 160.768578
+z
+" clip-path="url(#p747a468fdb)" style="fill: #d9f2fd; stroke: #3d547b; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 435.781583 253.840444
+L 792.912325 253.840444
+Q 800.642428 253.840444 800.642428 247.192453
+L 800.642428 186.030942
+Q 800.642428 179.382951 792.912325 179.382951
+L 435.781583 179.382951
+Q 428.051481 179.382951 428.051481 186.030942
+L 428.051481 247.192453
+Q 428.051481 253.840444 435.781583 253.840444
+z
+" clip-path="url(#p747a468fdb)" style="fill: #ecdcfd; stroke: #7a4bc7; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_9">
+    <text style="fill: #26364d; font: 700 14px 'Noto Sans SC'; text-anchor: start" x="432.689542" y="27.143971" transform="rotate(-0 432.689542 27.143971)">两种输出表示的规模</text>
+   </g>
+   <g id="text_10">
+    <text style="fill: #3d547b; font: 700 12px 'Noto Sans SC'; text-anchor: start" x="452.014799" y="111.905849" transform="rotate(-0 452.014799 111.905849)">Word aligned</text>
+   </g>
+   <g id="text_11">
+    <text style="fill: #26364d; font: 10px 'Noto Sans SC'; text-anchor: start" x="452.014799" y="133.511818" transform="rotate(-0 452.014799 133.511818)">1,932 words</text>
+   </g>
+   <g id="text_12">
+    <text style="fill: #6888ac; font: 9px 'Noto Sans SC'; text-anchor: start" x="637.537262" y="133.511818" transform="rotate(-0 637.537262 133.511818)">CSR source traceability</text>
+   </g>
+   <g id="text_13">
+    <text style="fill: #7a4bc7; font: 700 12px 'Noto Sans SC'; text-anchor: start" x="452.014799" y="204.977714" transform="rotate(-0 452.014799 204.977714)">Compact50</text>
+   </g>
+   <g id="text_14">
+    <text style="fill: #26364d; font: 10px 'Noto Sans SC'; text-anchor: start" x="452.014799" y="226.583683" transform="rotate(-0 452.014799 226.583683)">100 samples × 50 windows</text>
+   </g>
+   <g id="text_15">
+    <text style="fill: #6888ac; font: 9px 'Noto Sans SC'; text-anchor: start" x="637.537262" y="226.583683" transform="rotate(-0 637.537262 226.583683)">observed_mask + coverage</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p9681fad35f">
+   <rect x="7.2" y="7.2" width="405.830388" height="332.39952"/>
+  </clipPath>
+  <clipPath id="p747a468fdb">
+   <rect x="421.094388" y="7.2" width="386.505132" height="332.39952"/>
+  </clipPath>
+ </defs>
+</svg>

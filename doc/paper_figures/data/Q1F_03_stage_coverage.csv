@@ -1,0 +1,13 @@
+﻿scope,source,coverage_type,accuracy_metric,modality,coverage
+all100,formal,raw_observed_coverage,0,text,0.6256
+all100,stage2,verified_usable_coverage,0,text,0.6256
+all100,stage3,verified_usable_coverage,0,text,0.6256
+all100,formal,raw_observed_coverage,0,audio,0.995
+all100,stage2,verified_usable_coverage,0,audio,0.7828
+all100,stage3,verified_usable_coverage,0,audio,0.7828
+all100,formal,raw_observed_coverage,0,vision,0.5746
+all100,stage2,verified_usable_coverage,0,vision,0.701
+all100,stage3,verified_usable_coverage,0,vision,0.7604
+all100,formal,raw_observed_coverage,0,trimodal,0.3906
+all100,stage2,verified_usable_coverage,0,trimodal,0.4916
+all100,stage3,verified_usable_coverage,0,trimodal,0.5214

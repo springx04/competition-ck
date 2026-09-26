@@ -1,0 +1,3 @@
+﻿representation,samples,time_units,text_dim,audio_dim,vision_dim,granularity
+Word aligned,1932,1932,768,25,22,word
+Compact50,100,50,768,25,22,relative window

@@ -1,0 +1,13 @@
+﻿sample_id,resolution_status,word_id,word,start,end,text_mask,audio_mask,vision_mask,audio_coverage,vision_coverage,reason
+-NFrJFQijFE$_$1,RESOLVED_MISSING,0,Structural,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,1,mounts,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,2,inside,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,3,have,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,4,to,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,5,be,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,6,properly,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,7,stress,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,8,analyzed,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,9,so,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,10,we,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing
+-NFrJFQijFE$_$1,RESOLVED_MISSING,11,make,0.0,0.0,1,0,0,0.0,0.0,visual_modality_is_confirmed_naturally_missing

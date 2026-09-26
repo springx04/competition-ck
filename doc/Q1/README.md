@@ -39,3 +39,5 @@ Stage 3 候选可复核入口：
 ## 论文图目录
 
 论文图统一位于 `doc/paper_figures/figures/` 下的 `Q1/`、`Q2/`、`Q3/` 子目录。Q1_01–Q1_10 保留为 Formal 历史图；Q1_11–Q1_22 为 Stage 2/3 合并后新增的 12 组图，图注应区分候选 coverage、状态和 Formal 生产结果，不能将候选状态写成人工 Gold。
+
+最新最终提交包的精细化图册见 [`doc/paper_figures/Q1_final_README.md`](../paper_figures/Q1_final_README.md)，包含 14 组 Q1F 图、PNG/PDF/SVG 和对应底表。该图册统一以 `Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/` 为数据源，颜色使用参考图像素聚类得到的 RGB 色板。

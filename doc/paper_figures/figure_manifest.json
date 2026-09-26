@@ -800,5 +800,163 @@
       "Q3/runs/special_v2/samples/0019/selections.jsonl"
     ],
     "caption": "仅显示已观测位置，三角标记20% point集合；三模态独立纵轴，峰值超过中位数8倍时使用标明的symlog轴（线性阈值=2×中位数），保留峰值与小效应，禁止跨面板用柱高比较贡献。无观测V省略并在标题标出。所有位置为官方索引，不是秒数；单点D之和不等于联合D。"
+  },
+  {
+    "id": "Q1F_01_sample_overview",
+    "title": "100条样本结构与最终状态",
+    "rows": 100,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/metadata/summary_q1_final.csv"
+    ],
+    "caption": "点大小表示三模态共同可用比例，颜色表示最终状态；状态是自动证据规则结果，不是人工准确率。",
+    "path": "figures/Q1_final/Q1F_01_sample_overview.png",
+    "data": "data/Q1F_01_sample_overview.csv"
+  },
+  {
+    "id": "Q1F_02_modality_coverage",
+    "title": "样本级模态可用比例分布",
+    "rows": 400,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/metadata/summary_q1_final.csv"
+    ],
+    "caption": "小提琴显示100条样本分布，箱线显示中位数和四分位数；可用比例是流程覆盖指标，不是识别准确率。",
+    "path": "figures/Q1_final/Q1F_02_modality_coverage.png",
+    "data": "data/Q1F_02_modality_coverage.csv"
+  },
+  {
+    "id": "Q1F_03_stage_coverage",
+    "title": "Formal、Stage 2 与 Stage 3 覆盖率",
+    "rows": 12,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/metadata/q1_final_coverage_terms.csv"
+    ],
+    "caption": "Formal为原始观测覆盖，Stage 2/3为固定规则允许使用的覆盖；不同口径不应直接解释为提取器精度。",
+    "path": "figures/Q1_final/Q1F_03_stage_coverage.png",
+    "data": "data/Q1F_03_stage_coverage.csv"
+  },
+  {
+    "id": "Q1F_04_resolution_status",
+    "title": "最终状态与未决原因",
+    "rows": 115,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/metadata/q1_final_status.csv",
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/metadata/q1_final_unresolved.csv"
+    ],
+    "caption": "未决样本全部保留并显式屏蔽不安全模态；未决原因不是人工审计结论。",
+    "path": "figures/Q1_final/Q1F_04_resolution_status.png",
+    "data": "data/Q1F_04_resolution_status.csv"
+  },
+  {
+    "id": "Q1F_05_status_coverage",
+    "title": "最终状态与可用比例关系",
+    "rows": 100,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/metadata/summary_q1_final.csv"
+    ],
+    "caption": "每个点是一条样本；状态分层用于审计覆盖差异，不表示状态标签的准确率。",
+    "path": "figures/Q1_final/Q1F_05_status_coverage.png",
+    "data": "data/Q1F_05_status_coverage.csv"
+  },
+  {
+    "id": "Q1F_06_paired_frontier",
+    "title": "严格配对与模态可用率边界",
+    "rows": 100,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/metadata/summary_q1_final.csv"
+    ],
+    "caption": "圆点为paired_use=1，叉号为paired_use=0，点大小表示三模态共同可用比例。",
+    "path": "figures/Q1_final/Q1F_06_paired_frontier.png",
+    "data": "data/Q1F_06_paired_frontier.csv"
+  },
+  {
+    "id": "Q1F_07_word_coverage",
+    "title": "词级音视频覆盖分布",
+    "rows": 3864,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/features/q1_word_aligned_final.npz"
+    ],
+    "caption": "coverage 是词区间与原生观测区间并集的时间比例，不是对齐正确率。",
+    "path": "figures/Q1_final/Q1F_07_word_coverage.png",
+    "data": "data/Q1F_07_word_coverage.csv"
+  },
+  {
+    "id": "Q1F_08_compact50_profile",
+    "title": "固定50窗口覆盖与观测剖面",
+    "rows": 150,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/features/q1_compact50_final.npz",
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/metadata/summary_q1_final.csv"
+    ],
+    "caption": "曲线带为样本间10%–90%区间；固定窗口是相对时长表示，不是原始帧数。",
+    "path": "figures/Q1_final/Q1F_08_compact50_profile.png",
+    "data": "data/Q1F_08_compact50_profile.csv"
+  },
+  {
+    "id": "Q1F_09_typical_alignment",
+    "title": "典型样本的词级跨模态对齐",
+    "rows": 8,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/examples/q1_typical_alignment.csv"
+    ],
+    "caption": "蓝色为8个词区间，绿色为词区间内全部音频原生帧，金色为视觉原生帧；该样本不使用情感标签。",
+    "path": "figures/Q1_final/Q1F_09_typical_alignment.png",
+    "data": "data/Q1F_09_typical_alignment.csv"
+  },
+  {
+    "id": "Q1F_10_abnormal_mask",
+    "title": "自然缺失样本的模态屏蔽",
+    "rows": 12,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/examples/q1_abnormal_mask_example.csv"
+    ],
+    "caption": "文本保留，音频与视觉被显式 mask=0 且 coverage=0；不插值、不借用其他人物特征。",
+    "path": "figures/Q1_final/Q1F_10_abnormal_mask.png",
+    "data": "data/Q1F_10_abnormal_mask.csv"
+  },
+  {
+    "id": "Q1F_11_source_density",
+    "title": "词级 CSR 来源密度",
+    "rows": 3864,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/features/q1_word_aligned_final.npz"
+    ],
+    "caption": "来源数来自词到原生帧的 CSR indptr，不等于独立观测样本数。",
+    "path": "figures/Q1_final/Q1F_11_source_density.png",
+    "data": "data/Q1F_11_source_density.csv"
+  },
+  {
+    "id": "Q1F_12_quality_axes",
+    "title": "语义、时间、视觉与映射质量轴",
+    "rows": 16,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/metadata/q1_final_status.csv"
+    ],
+    "caption": "各证据轴独立统计；状态分布不等同于人工精度或情感分类性能。",
+    "path": "figures/Q1_final/Q1F_12_quality_axes.png",
+    "data": "data/Q1F_12_quality_axes.csv"
+  },
+  {
+    "id": "Q1F_13_window_status",
+    "title": "固定窗口可用率与最终状态",
+    "rows": 300,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/features/q1_compact50_final.npz",
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/metadata/summary_q1_final.csv"
+    ],
+    "caption": "每个点对应一条样本—模态组合；散点颜色表示最终状态。",
+    "path": "figures/Q1_final/Q1F_13_window_status.png",
+    "data": "data/Q1F_13_window_status.csv"
+  },
+  {
+    "id": "Q1F_14_feature_contract",
+    "title": "词级与固定窗口特征输出契约",
+    "rows": 2,
+    "sources": [
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/features/q1_word_aligned_final.npz",
+      "Q1/Q1最终提交文件/Q1_SUBMISSION_FINAL_20260926/features/q1_compact50_final.npz"
+    ],
+    "caption": "展示最终冻结接口的维度和规模；不是模型准确率比较。",
+    "path": "figures/Q1_final/Q1F_14_feature_contract.png",
+    "data": "data/Q1F_14_feature_contract.csv"
   }
 ]
