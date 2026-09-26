@@ -383,6 +383,33 @@
     "caption": "固定长度分层的描述性准确率与MAE，各组标签组成可能不同，不能声称长度造成性能变化。点图和明确局部纵轴减少空白；每组分母标出。"
   },
   {
+    "id": "Q2_20_valid_error_flows",
+    "title": "验证集全部误分类流向与置信度",
+    "rows": 728,
+    "sources": [
+      "doc/paper_figures/data/Q2_valid_reloaded_predictions.csv"
+    ],
+    "caption": "左图百分比分母为280条全部误分类，六个非对角流向完整保留，柱色按真实类别区分。右图各正确性组内ECDF；0.8仅为事后诊断参考线，不改变预测或重新选阈值。confidence≥0.8的212条中42条错误。"
+  },
+  {
+    "id": "Q2_21_valid_intensity_bias",
+    "title": "验证集情感强度分层与有符号回归偏差",
+    "rows": 728,
+    "sources": [
+      "doc/paper_figures/data/Q2_valid_reloaded_predictions.csv"
+    ],
+    "caption": "固定分组[-3,-1]、(-1,0)、{0}、(0,1)、[1,3]；不移除大误差。残差为预测减真值。组均值比较可检验幅度收缩现象；不据此断言损失函数、讽刺或模态冲突是已验证原因。每组样本数、MAE、bias见Q2_valid_intensity_bins.csv。"
+  },
+  {
+    "id": "Q2_22_valid_missing_profile",
+    "title": "验证集局部缺失的模态、位置与跨度规律",
+    "rows": 72,
+    "sources": [
+      "Q2/results/final/valid/metrics_per_scenario.csv"
+    ],
+    "caption": "仅使用valid的72个all_samples场景；每场景728条、相同样本复用，不是52416个独立样本。左图每格平均3个位置、色标固定0–1；右图每点平均6种模态组合，纵轴局部放大且标注。跨度是名义ρ，不等于样本实际删除比例。"
+  },
+  {
     "id": "Q3_01_faithfulness",
     "title": "三预算忠实性增益与视频簇区间",
     "rows": 12,

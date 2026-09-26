@@ -37,7 +37,7 @@ valid 的忠实性区间以 `video_id` 为 bootstrap 簇，簇内样本按实际
 - [本轮质量审查与最终方法修订](reports/iteration_v2/Q3_最终方法与质量结论.md)：核验状态、反例和证据边界。
 - [20条预测语义审查](reports/prediction_audit_v3/20条情感预测语义审查.md)及[优化实验记录](reports/prediction_audit_v3/优化实验记录.md)：审查已完成，保留正式v2；候选仅作独立探索，不替换论文的正式指标或归因。
 - [20条专项案例](outputs_v2/index.html)，机器可读结果见 `outputs_v2/`。
-- [统一论文数据图册](../doc/paper_figures/index.html)：Q1/Q2/Q3 共 80 组 PNG/PDF/SVG/CSV；Q3 图号 Q3_01–Q3_19 和 Q3_case_01–Q3_case_20 均已登记。
+- [统一论文数据图册](../doc/paper_figures/index.html)：Q1/Q2/Q3 共 83 组 PNG/PDF/SVG/CSV；Q3 图号 Q3_01–Q3_19 和 Q3_case_01–Q3_case_20 均已登记。
 - 全量明细在服务器 `runs/valid_v2/samples`；本地同步了汇总、逐样本配对表和20条专项明细。交付包不含数据集、Q2权重或CTC权重。
 
 在服务器 Q3 目录执行：

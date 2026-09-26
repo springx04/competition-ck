@@ -50,6 +50,8 @@ v=[z_T;z_A;z_V;g_T;g_A;g_V],\quad
 
 ## 4. valid 结果、错误归因和可视化证据
 
+题目二（4）的完整独立文档见[验证集基础性能、可视化与错误归因](问题二（4）_验证集基础性能、可视化与错误归因.md)，集中提供指标、7组图、错误清单与归因边界。
+
 ### 4.1 clean 与 72 场景主结果
 
 valid clean 的 728 条样本 Accuracy=0.6154、Macro-F1=0.577807、MAE=0.6415、Pearson=0.6082；72 场景等权均值的 Accuracy=0.5796、Macro-F1=0.546551、MAE=0.6666、Pearson=0.5493。clean 与缺失均值之间 Macro-F1 差 0.0313，MAE 增加约0.0250，说明局部缺失训练带来一定保持能力，但没有消除退化。
@@ -66,7 +68,7 @@ valid clean 每类结果为：Negative Precision/Recall/F1=`0.6495/0.6117/0.6300
 \begin{bmatrix}126&31&49\\31&65&88\\37&44&257\end{bmatrix}.
 \]
 
-因此 Negative、Neutral、Positive 的召回率分别为 `126/206=0.6117`、`65/184=0.3533`、`257/338=0.7604`；Neutral 的 184 条样本中 31 条被判为 Negative、88 条被判为 Positive。逐样本回归残差的 MAE 按真实类为 Negative=`0.8294`、Neutral=`0.4629`、Positive=`0.6243`，预测为 Neutral 的 140 条样本的预测分数绝对值均值为 `0.2038`，低于真实 Neutral 的 `0.4629`。这支持“中性类分类边界偏向两端、回归分数向零收缩”的数据描述，但不构成因果解释。
+因此 Negative、Neutral、Positive 的召回率分别为 `126/206=0.6117`、`65/184=0.3533`、`257/338=0.7604`；Neutral 的 184 条样本中 31 条被判为 Negative、88 条被判为 Positive。逐样本回归残差的 MAE 按真实类为 Negative=`0.8294`、Neutral=`0.4629`、Positive=`0.6243`，预测为 Neutral 的 140 条样本的预测分数绝对值均值为 `0.2038`，低于真实 Neutral 的 `0.4629`。这两个人群不同，绝对分数均值不能直接证明向零收缩；独立文档进一步按真实类别与强度分层，以同组真值和预测均值验证幅度偏差。中性误分类流向可由上述混淆矩阵直接判断。
 
 ### 4.3 valid 缺失规律
 
@@ -83,7 +85,7 @@ valid clean 每类结果为：Negative Precision/Recall/F1=`0.6495/0.6117/0.6300
 
 观察支持文本缺失和长跨度缺失更困难，rear 也比 front/middle 低。对实际删除率配对后，T_vs_A 在 `(0.4,0.6]` 的 Macro-F1 为 T=0.3783、A=0.4965，在 `(0.8,1.0]` 为 T=0.1105、A=0.6458；这支持“文本更敏感”的具体数据结论，但不能扩展为“文本唯一重要”。A/V 在相同实际率下接近，说明简单的名义ρ比较可能掩盖样本选择差异。
 
-valid 双模态同时受损的 TA/TV/AV Macro-F1 为 0.5199/0.5174/0.5711；说明保留 A+V 比涉及文本的组合更稳。8 个压力场景如下，整模态删除不并入72场景均值：
+valid 双模态同时受损的 TA/TV/AV Macro-F1 为 0.5199/0.5174/0.5711；其中TA/TV/AV表示被删除的模态，AV删除仍保留文本；因此不涉及文本删除的AV场景更稳，不能写成“保留A+V更稳”。8 个压力场景如下，整模态删除不并入72场景均值：
 
 | 场景 | Macro-F1 | MAE | 解释 |
 |---|---:|---:|---|
@@ -96,7 +98,7 @@ valid 双模态同时受损的 TA/TV/AV Macro-F1 为 0.5199/0.5174/0.5711；说�
 | TAV_middle_0.4 | 0.5491 | 0.6605 | 三路同时局部损坏。 |
 | TAV_middle_0.8 | 0.4655 | 0.7180 | 更长三路缺失进一步退化。 |
 
-valid 的基础错误归因来自 `metrics.json`：clean 中 Neutral support=184、recall=0.3533；真实 Neutral 的 score 绝对值均值为 0.4629，而预测为 Neutral 的样本均值为 0.2038（n=140），说明回归头趋向把真实中性附近的连续强度压向较小值，分类头仍大量把它们归到两端。对于局部缺失，Neutral F1 从 0.4012 降至 0.4000，Negative/Positive F1分别从0.6300/0.7022降至0.5652/0.6744；因此退化不仅是样本总数或类别比例造成的。
+valid 的基础错误归因来自 `metrics.json`：clean 中 Neutral support=184、recall=0.3533；真实 Neutral 的 score 绝对值均值为 0.4629，而预测为 Neutral 的样本均值为 0.2038（n=140），两组对象不同，不能据此认定中性分数被压缩；同一真实中性组的预测均值为+0.1730，另由混淆矩阵可见分类头常将其判向正类。对于局部缺失，Neutral F1 从 0.4012 降至 0.4000，Negative/Positive F1分别从0.6300/0.7022降至0.5652/0.6744；因此退化不仅是样本总数或类别比例造成的。
 
 valid/test 的模态、位置、跨度图已有 `Q2/results/final/figures/valid_test_modal_position_rho.png` 和 `.svg`；更细训练曲线、分布、小提琴图和错误分层图的统一绘图入口暂记为 `../paper_figures/README.md`。这些图应标记 valid/test、场景共享样本和 test 自适应边界，不把注意力权重解释成因果贡献。
 
@@ -209,7 +211,7 @@ test 72 场景分组为：单 T/A/V=0.5403/0.6099/0.6154，双 TA/TV/AV=0.5369/0
 - `experiment_ledger.json` 的 history：每轮 loss、clean/corrupt loss、学习率和 valid 检查点；这些数据用于训练曲线、收敛速度、过拟合拐点图，不能把最后一轮当作最佳轮。
 - `attachment3_availability.json`、`q2_special_state.csv`：30 条专项的当前可用位置和缺口形态；它支撑专项链路图和缺口分布图，不能计算性能。
 
-论文数据图与 CSV 已集中在 [`doc/paper_figures/README.md`](../paper_figures/README.md)，图册入口为 [`index.html`](../paper_figures/index.html)，当前包含 80 组图；valid 重载诊断对应 Q2_16–Q2_19。建议图至少覆盖：valid/test clean 与72场景 Macro-F1 对照；模态×位置×跨度热图；共同样本的实际删除率分层小提琴图；每类 F1/recall 和 Neutral score 误差分布；训练每轮 clean/corrupt loss、学习率和 valid 选择点；消融 M/C 点图及 seed 波动；压力测试退化瀑布图；附件3 30条观测计数与预测置信度图。每张图应保留原始坐标含义、样本数和 valid/test 标识，不能通过删掉低分区间或重标坐标制造优势。
+论文数据图与 CSV 已集中在 [`doc/paper_figures/README.md`](../paper_figures/README.md)，图册入口为 [`index.html`](../paper_figures/index.html)，当前包含 83 组图；valid 重载诊断对应 Q2_16–Q2_19。建议图至少覆盖：valid/test clean 与72场景 Macro-F1 对照；模态×位置×跨度热图；共同样本的实际删除率分层小提琴图；每类 F1/recall 和 Neutral score 误差分布；训练每轮 clean/corrupt loss、学习率和 valid 选择点；消融 M/C 点图及 seed 波动；压力测试退化瀑布图；附件3 30条观测计数与预测置信度图。每张图应保留原始坐标含义、样本数和 valid/test 标识，不能通过删掉低分区间或重标坐标制造优势。
 
 ## 8. 导出、复现和资源
 

@@ -518,6 +518,8 @@ if __name__=='__main__':
         ENTRIES.sort(key=lambda e: e['id'])
     from build_q1_repair_figures import build as build_q1_repair
     build_q1_repair(sys.modules[__name__])
+    from build_q2_validation_section import build as build_q2_validation
+    build_q2_validation(sys.modules[__name__])
     ENTRIES.sort(key=lambda e: e['id'])
     index()
     print(f'Completed {len(ENTRIES)} figure groups.',flush=True)

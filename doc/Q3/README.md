@@ -10,7 +10,7 @@ Q3 项目代码、配置、案例和实验材料位于 [`Q3/`](../../Q3/)。本�
 - [20 条专项案例索引](../../Q3/outputs_v2/index.html)：机器可读 JSON/HTML 位于 `Q3/outputs_v2/`。
 - [20条预测语义审查与处置](../../Q3/reports/prediction_audit_v3/20条情感预测语义审查.md)：13条基本合理、3条文本语义冲突、4条可疑；不是准确率。独立优化实验已归档，正式方法继续采用固定Q2预测器。
 
-论文数据图统一从 [`doc/paper_figures/index.html`](../paper_figures/index.html) 进入，图意、数据来源和 80 组 PNG/PDF/SVG/CSV 清单见 [`doc/paper_figures/README.md`](../paper_figures/README.md)。
+论文数据图统一从 [`doc/paper_figures/index.html`](../paper_figures/index.html) 进入，图意、数据来源和 83 组 PNG/PDF/SVG/CSV 清单见 [`doc/paper_figures/README.md`](../paper_figures/README.md)。
 
 ## 历史审核与实现材料
 

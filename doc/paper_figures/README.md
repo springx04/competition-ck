@@ -1,6 +1,6 @@
 # 论文数据图与可复算材料
 
-本目录包含 **80组数据图**，每组同时提供220 dpi PNG、矢量PDF和可编辑SVG，以及对应CSV。全部来自保存的实际结果，不生成流程图或方法主图。
+本目录包含 **83组数据图**，每组同时提供220 dpi PNG、矢量PDF和可编辑SVG，以及对应CSV。全部来自保存的实际结果，不生成流程图或方法主图。
 
 打开 [图册](index.html) 可按问题筛选和查看大图；论文排版优先使用PDF，修改标签使用SVG。图内使用简短英文，以下提供中文图意与可用结论。
 
@@ -15,7 +15,7 @@
 
 ## 建议论文选图
 
-正文优先：Q1_02、Q1_03、Q1_11、Q1_13、Q1_15；Q2_01、Q2_04、Q2_06、Q2_07、Q2_12、Q2_14；Q3_01、Q3_02、Q3_06、Q3_10，以及01/14/18号局部解释。其余图用于补充实验和错误归因；不要将几十张图全部挤入正文。
+正文优先：Q1_02、Q1_03；Q2_01、Q2_04、Q2_06、Q2_07、Q2_12、Q2_14；Q3_01、Q3_02、Q3_06、Q3_10，以及01/14/18号局部解释。其余图用于补充实验和错误归因；不要将几十张图全部挤入正文。
 
 ## 图表清单
 
@@ -62,6 +62,9 @@
 | Q2_17_valid_residuals | 验证集分情感类别残差与误差分布 | 728 | [PNG](figures/Q2/Q2_17_valid_residuals.png) · [PDF](figures/Q2/Q2_17_valid_residuals.pdf) · [SVG](figures/Q2/Q2_17_valid_residuals.svg) · [CSV](data/Q2_17_valid_residuals.csv) |
 | Q2_18_valid_confidence | 验证集置信度与错误关系 | 728 | [PNG](figures/Q2/Q2_18_valid_confidence.png) · [PDF](figures/Q2/Q2_18_valid_confidence.pdf) · [SVG](figures/Q2/Q2_18_valid_confidence.svg) · [CSV](data/Q2_18_valid_confidence.csv) |
 | Q2_19_valid_groups | 验证集按有效文本长度分层 | 4 | [PNG](figures/Q2/Q2_19_valid_groups.png) · [PDF](figures/Q2/Q2_19_valid_groups.pdf) · [SVG](figures/Q2/Q2_19_valid_groups.svg) · [CSV](data/Q2_19_valid_groups.csv) |
+| Q2_20_valid_error_flows | 验证集全部误分类流向与置信度 | 728 | [PNG](figures/Q2/Q2_20_valid_error_flows.png) · [PDF](figures/Q2/Q2_20_valid_error_flows.pdf) · [SVG](figures/Q2/Q2_20_valid_error_flows.svg) · [CSV](data/Q2_20_valid_error_flows.csv) |
+| Q2_21_valid_intensity_bias | 验证集情感强度分层与有符号回归偏差 | 728 | [PNG](figures/Q2/Q2_21_valid_intensity_bias.png) · [PDF](figures/Q2/Q2_21_valid_intensity_bias.pdf) · [SVG](figures/Q2/Q2_21_valid_intensity_bias.svg) · [CSV](data/Q2_21_valid_intensity_bias.csv) |
+| Q2_22_valid_missing_profile | 验证集局部缺失的模态、位置与跨度规律 | 72 | [PNG](figures/Q2/Q2_22_valid_missing_profile.png) · [PDF](figures/Q2/Q2_22_valid_missing_profile.pdf) · [SVG](figures/Q2/Q2_22_valid_missing_profile.svg) · [CSV](data/Q2_22_valid_missing_profile.csv) |
 | Q3_01_faithfulness | 三预算忠实性增益与视频簇区间 | 12 | [PNG](figures/Q3/Q3_01_faithfulness.png) · [PDF](figures/Q3/Q3_01_faithfulness.pdf) · [SVG](figures/Q3/Q3_01_faithfulness.svg) · [CSV](data/Q3_01_faithfulness.csv) |
 | Q3_02_gain_violin | 20%预算逐样本忠实性增益分布 | 2868 | [PNG](figures/Q3/Q3_02_gain_violin.png) · [PDF](figures/Q3/Q3_02_gain_violin.pdf) · [SVG](figures/Q3/Q3_02_gain_violin.svg) · [CSV](data/Q3_02_gain_violin.csv) |
 | Q3_03_gain_ecdf | 忠实性增益累计分布与负增益比例 | 2868 | [PNG](figures/Q3/Q3_03_gain_ecdf.png) · [PDF](figures/Q3/Q3_03_gain_ecdf.pdf) · [SVG](figures/Q3/Q3_03_gain_ecdf.svg) · [CSV](data/Q3_03_gain_ecdf.csv) |
@@ -347,6 +350,24 @@ F/M/R为前/中/后，20–80为名义区间比例，两个面板共享色标。
 固定长度分层的描述性准确率与MAE，各组标签组成可能不同，不能声称长度造成性能变化。点图和明确局部纵轴减少空白；每组分母标出。
 
 来源：[doc/paper_figures/data/Q2_valid_reloaded_predictions.csv](../../doc/paper_figures/data/Q2_valid_reloaded_predictions.csv)。
+
+## Q2_20_valid_error_flows 验证集全部误分类流向与置信度
+
+左图百分比分母为280条全部误分类，六个非对角流向完整保留，柱色按真实类别区分。右图各正确性组内ECDF；0.8仅为事后诊断参考线，不改变预测或重新选阈值。confidence≥0.8的212条中42条错误。
+
+来源：[doc/paper_figures/data/Q2_valid_reloaded_predictions.csv](../../doc/paper_figures/data/Q2_valid_reloaded_predictions.csv)。
+
+## Q2_21_valid_intensity_bias 验证集情感强度分层与有符号回归偏差
+
+固定分组[-3,-1]、(-1,0)、{0}、(0,1)、[1,3]；不移除大误差。残差为预测减真值。组均值比较可检验幅度收缩现象；不据此断言损失函数、讽刺或模态冲突是已验证原因。每组样本数、MAE、bias见Q2_valid_intensity_bins.csv。
+
+来源：[doc/paper_figures/data/Q2_valid_reloaded_predictions.csv](../../doc/paper_figures/data/Q2_valid_reloaded_predictions.csv)。
+
+## Q2_22_valid_missing_profile 验证集局部缺失的模态、位置与跨度规律
+
+仅使用valid的72个all_samples场景；每场景728条、相同样本复用，不是52416个独立样本。左图每格平均3个位置、色标固定0–1；右图每点平均6种模态组合，纵轴局部放大且标注。跨度是名义ρ，不等于样本实际删除比例。
+
+来源：[Q2/results/final/valid/metrics_per_scenario.csv](../../Q2/results/final/valid/metrics_per_scenario.csv)。
 
 ## Q3_01_faithfulness 三预算忠实性增益与视频簇区间
 
