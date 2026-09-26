@@ -1,0 +1,10 @@
+{
+  "q3_zip_bytes": 9052016,
+  "archive": "q3_submission_v2.zip",
+  "full_competition_total_bytes": null,
+  "reason": "Q1 final combined delivery not supplied; Q2 model is a shared external dependency",
+  "includes_current_cases": 20,
+  "includes_source_videos": false,
+  "includes_ctc_weights": false,
+  "material_status": "partial_until_word_review_and_AV_provenance"
+}

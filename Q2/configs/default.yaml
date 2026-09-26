@@ -1,6 +1,6 @@
 project:
   name: q2_sentiment
-  data_root: /root/gpufree-data/shuomo_E/data
+  data_root: /home/jqy/shumo/E题数据
   output_root: .
 data:
   feature_version: aligned
@@ -16,6 +16,7 @@ text:
   model_dir: models/text_encoder
   model_id: google/bert_uncased_L-4_H-256_A-4
   frozen: true
+  cls_context: false
   compute_dtype: float32
   stored_dtype: float16
   attention_implementation: eager

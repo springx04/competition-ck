@@ -1,21 +1,21 @@
 # Q2：模态局部缺失鲁棒情感预测
 
-本目录是 Q2 的独立 Python 项目。实现先在本地完成代码和语义测试，再上传到 Linux/RTX 4090 服务器完成环境安装、数据核对、验证、30 个训练 run、评估、专项预测和推理包导出。实现边界、固定超参数、输入语义、变体及结果判定以 `doc/Q2/E题_Q2_服务器具体实现说明_v1_Agent执行版.md` 为准；方法解释参考 `doc/Q2/E题_Q2_模态局部缺失鲁棒情感预测方法_v2_审核稿.md`。
+本目录是 Q2 的独立 Python 项目。实现先在本地完成代码和语义测试，再上传到 Linux/RTX 4090 服务器完成环境安装、数据核对、验证、30 个训练 run、评估、专项预测和推理包导出。实现边界、固定超参数、输入语义、变体及结果判定以 `docs/E题_Q2_服务器具体实现说明_v1_Agent执行版.md` 为准；方法解释参考 `docs/E题_Q2_模态局部缺失鲁棒情感预测方法_v2_审核稿.md`。
 
 ## 目录与磁盘规划
 
-服务器系统盘只有约 30 GB、数据盘约 50 GB 时，把本项目根目录 `Q2_ROOT` 放在数据盘挂载点，并把已解压的只读 `E题数据` 也放在数据盘。项目代码、`.venv`、Hugging Face/Pip 缓存、预处理数据、训练 run、报告和交付包都置于 `Q2_ROOT`；系统盘只保留操作系统和必要的 SSH/Python 工具。训练完成后可清理缓存，但不要删除尚未归档的 run、best checkpoint 或报告。
+项目代码、`.venv`、Hugging Face/Pip 缓存、预处理数据、训练 run、报告和交付包都置于 `Q2_ROOT`；题目原始数据只读引用，不复制到 Q2。
 
 当前服务器路径：
 
 ```bash
-export Q2_ROOT=/root/gpufree-data/shuomo_E/Q2
-export Q2_DATA_ROOT=/root/gpufree-data/shuomo_E/data
+export Q2_ROOT=/home/jqy/shumo/Q2
+export Q2_DATA_ROOT=/home/jqy/shumo/E题数据
 mkdir -p "$Q2_ROOT"
 cd "$Q2_ROOT"
 ```
 
-`configs/default.yaml` 的 `project.data_root` 已填写上述服务器数据目录。不要把本地 Windows 路径写入配置，也不要改动原始题目数据。
+`configs/default.yaml` 的 `project.data_root` 已指向新服务器的数据目录。不要把本地 Windows 路径写入配置，也不要改动原始题目数据。
 
 ## 本地阶段
 
@@ -32,22 +32,22 @@ python -m pytest -q
 
 ## 服务器环境
 
-服务器默认 SSH 别名是 `e-question-server`。在 Q2 根目录创建专用环境，不修改系统 Python：
+服务器为 Ubuntu 22.04、RTX 4090，已有 `shumo` Conda 环境提供 Python 3.10.21 和 PyTorch 2.5.1+cu121。Q2 从该解释器创建自己的 `.venv`；Q2 的 Python 依赖安装在 `.venv`，仅 PyTorch 通过系统包路径读取现有可用版本：
 
 ```bash
-ssh e-question-server
+ssh -p 22001 jqy@192.168.3.28
 cd "$Q2_ROOT"
-.python311/bin/python -m venv --prompt Q2 .venv
+conda run -n shumo python -m venv --system-site-packages --prompt Q2 .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
 python -m pip install -r requirements.txt
 python -m pip install -e . --no-deps
 python -m pip check
+python -c 'import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available())'
 nvidia-smi
 ```
 
-若没有 `python3.11` 但已有 conda，按方案在 Q2 数据盘目录建立 `.python311`，再用它创建同一个 `.venv`。若驱动不能运行 cu124，只改用同一 torch 版本的 cu118 轮子并在 `reports/environment.txt` 记录原因和实测 CUDA；不要静默改为 CPU 完成正式训练。正式运行前记录 Python、直接依赖、torch/CUDA、GPU 显存、驱动、CPU、内存和磁盘余量，并保存 `pip freeze`。
+此服务器的 Q2 环境使用 Python 3.10.21、PyTorch 2.5.1+cu121；驱动为 580.178.04，支持 CUDA 12.1。安装官方规定的依赖时，保留这台服务器现有的 CUDA 组合。正式运行前记录 Python、直接依赖、torch/CUDA、GPU 显存、驱动、CPU、内存和磁盘余量，并保存 `pip freeze`。
 
 下载 EBMC 和指定 BERT 的目录、文件范围及许可证记录见 `THIRD_PARTY.md`。模型下载/整理由 `prepare-model` 完成，正式文本模型是 `models/text_encoder/` 中 FP16 存储、FP32 计算的冻结小型 BERT。
 
@@ -118,6 +118,8 @@ python -m q2 train --config configs/default.yaml --variant full --seed 1111 --re
 - `reports/report.md`、`reports/paper_q2_results.md`：技术报告和论文结果材料。
 
 ## 基线审核后的优化 profile
+
+2026-09-24 后续优化以 [方法 v3](docs/E题_Q2_优化方案_v3_实验中.md) 和 [优化实现说明 v2](docs/E题_Q2_优化实现说明_v2_实验中.md) 为准。当前支持端到端微调 BERT、轻量晚融合及随训练长度缩放的缺失课程；尚在验证，目标为原三分类缺失网格平均 Macro-F1 至少 0.60，并继续争取更高的可靠性能。下述冻结类别校正是较早的探索方案，不代表最终选定方法。
 
 `OPTIMIZATION_PLAN_20260924.md` records the baseline split/metric audit and
 the evidence-led exploratory profile `late_balanced`. It is deliberately kept
