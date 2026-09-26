@@ -1,0 +1,12 @@
+{
+  "q3_samples": 728,
+  "q1_samples": 100,
+  "max_original_score_difference": 1.7421302795916915e-06,
+  "prediction_classes_match": true,
+  "observation_counts_match": true,
+  "q1_diagnostic_wer_matches": true,
+  "word_records": 1932,
+  "accepted_words": 1793,
+  "source_root": "/root/gpufree-data/shuomo_E",
+  "date": "2026-09-26"
+}

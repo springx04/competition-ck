@@ -1,0 +1,101 @@
+{
+  "source": "Q2/delivery/q2_final",
+  "split": "valid",
+  "n": 728,
+  "device": "cuda:0",
+  "torch": "2.8.0+cu128",
+  "python": "3.9.25 (main, Nov  3 2025, 22:44:01) [MSC v.1929 64 bit (AMD64)]",
+  "postponed_annotations": true,
+  "metrics": {
+    "n": 728,
+    "class_order": [
+      "Negative",
+      "Neutral",
+      "Positive"
+    ],
+    "accuracy": 0.6153846153846154,
+    "macro_f1": 0.5778067867503204,
+    "weighted_f1": 0.6056949976758721,
+    "per_class": {
+      "Negative": {
+        "precision": 0.6494845360824743,
+        "recall": 0.6116504854368932,
+        "f1": 0.63,
+        "support": 206
+      },
+      "Neutral": {
+        "precision": 0.4642857142857143,
+        "recall": 0.3532608695652174,
+        "f1": 0.4012345679012346,
+        "support": 184
+      },
+      "Positive": {
+        "precision": 0.6522842639593909,
+        "recall": 0.7603550295857988,
+        "f1": 0.7021857923497268,
+        "support": 338
+      }
+    },
+    "missing_classes": [],
+    "missing_class_names": [],
+    "mae": 0.6415312518647125,
+    "pearson": 0.6082430924719077,
+    "pearson_reason": null,
+    "symbol_inconsistency_count": 309,
+    "symbol_inconsistency_rate": 0.42445054945054944,
+    "symbol_inconsistency_by_class": {
+      "Negative": {
+        "n": 206,
+        "inconsistent": 72,
+        "rate": 0.34951456310679613
+      },
+      "Neutral": {
+        "n": 184,
+        "inconsistent": 184,
+        "rate": 1.0
+      },
+      "Positive": {
+        "n": 338,
+        "inconsistent": 53,
+        "rate": 0.15680473372781065
+      }
+    },
+    "neutral_score": {
+      "n": 184,
+      "abs_mean": 0.4629086382970538,
+      "abs_quantiles": {
+        "q50": 0.3672320693731308,
+        "q90": 0.9207715868949891,
+        "q95": 1.2029323160648346
+      }
+    },
+    "neutral_abs_score_mean": 0.4629086382970538,
+    "neutral_abs_score_quantiles": {
+      "q50": 0.3672320693731308,
+      "q90": 0.9207715868949891,
+      "q95": 1.2029323160648346
+    },
+    "predicted_neutral_score": {
+      "n": 140,
+      "abs_mean": 0.2037596009671688,
+      "abs_quantiles": {
+        "q50": 0.17093811929225922,
+        "q90": 0.4358671724796296,
+        "q95": 0.515296697616577
+      }
+    },
+    "predicted_neutral_abs_score_mean": 0.2037596009671688,
+    "predicted_neutral_abs_score_quantiles": {
+      "q50": 0.17093811929225922,
+      "q90": 0.4358671724796296,
+      "q95": 0.515296697616577
+    }
+  },
+  "difference_from_saved_q3_valid": {
+    "accuracy": 0.0,
+    "macro_f1": 0.0,
+    "mae": 3.039591245368456e-09,
+    "pearson": -9.909477904912478e-09
+  },
+  "note": "Independent local forward pass; original experimental reports remain authoritative. No retraining or checkpoint selection. Python 3.9 postpones q2 type annotations in memory only; computation source is unchanged."
+}

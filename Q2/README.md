@@ -88,6 +88,17 @@ python -m q2 verify-export --config configs/default.yaml
 python -m q2 report --config configs/default.yaml
 ```
 
+当前最终导出使用 `configs/final_selection.json` 的 `members` 格式，最终复核从 Q2 根目录执行：
+
+```bash
+python scripts/finalize_q2.py prepare --selection configs/final_selection.json
+python scripts/finalize_q2.py assess --selection configs/final_selection.json
+python scripts/finalize_q2.py verify --selection configs/final_selection.json
+python scripts/finalize_q2.py analyze --selection configs/final_selection.json
+```
+
+上面的 `python -m q2 evaluate-test ...`、`predict-special`、`export` 和 `verify-export` 命令属于旧的通用 suite/`reports/selection.json` 流程，不能替代这组 `members` selection 的最终复核入口。
+
 单个 run 的调试或续训：
 
 ```bash
