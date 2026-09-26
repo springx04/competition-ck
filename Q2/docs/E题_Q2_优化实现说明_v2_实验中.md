@@ -202,3 +202,5 @@ export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 CUBLAS_WORKSPACE_CONFIG=:4096:8
 辅助0.2三种子集成计算脚本只在服务器交互命令中完成，读取各自test `predictions.csv`和valid最佳checkpoint的原始logits，按`scenario,sample_id`对齐；未平均概率，未把偏置加到全空样本。旧偏置和重新valid集成偏置两组读数均保留在方案第18节，尚未写入正式selection。单模型test结果仍以各自summary为准。
 
 新增`--text-model-dir`、`--text-model-id`只允许两个已核对的256维Google BERT标识；`load_checkpoint_text_encoder`从checkpoint保存的text目录恢复，避免把8层checkpoint误读成4层。8层权重不进入现有`models/text_encoder`正式目录，训练和评估日志记录独立路径`models/text_encoder_8`。服务器测试仍108项通过；8层模型只做探索，不改变默认配置和导出路径。
+
+`train.grid_mix_probability`是可选的0–1数值；只有`grid_mix=true`时生效，缺省仍为0.5。`sample_train_descriptor`为每个样本使用独立可复现随机流选择公开72场景，不改变原课程的另一分支；预热期始终返回无损坏描述符。命令行`--grid-mix-probability`会自动开启网格混合并把值写入resolved config。seed1111的0.75/1.0读数和固定多种子计划见方案第19节。

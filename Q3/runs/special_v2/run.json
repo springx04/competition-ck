@@ -1,0 +1,7 @@
+{
+  "implementation_version": 2,
+  "split": "special",
+  "expected_samples": 20,
+  "source_run": "/root/gpufree-data/shuomo_E/Q3/runs/special_main",
+  "evaluation_role": "unlabeled_cases"
+}
