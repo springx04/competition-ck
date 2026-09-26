@@ -1,0 +1,213 @@
+{
+  "sample_index": 18,
+  "sample_id": "-I_e4mIh0yE$_$3",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "It's perceived that you have actually learned something, over the course of your carreer, and that you won't make the mistake twice.",
+  "duration": 9.133333333333333,
+  "word_count": 22,
+  "timed_word_count": 22,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "It's",
+      "start": 0.61,
+      "end": 0.732,
+      "score": 0.848,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "perceived",
+      "start": 0.915,
+      "end": 1.485,
+      "score": 0.922,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "that",
+      "start": 1.566,
+      "end": 1.688,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "you",
+      "start": 1.729,
+      "end": 1.892,
+      "score": 0.741,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "have",
+      "start": 2.014,
+      "end": 3.417,
+      "score": 0.501,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "actually",
+      "start": 3.478,
+      "end": 3.763,
+      "score": 0.939,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "learned",
+      "start": 3.865,
+      "end": 4.17,
+      "score": 0.861,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "something,",
+      "start": 4.312,
+      "end": 4.801,
+      "score": 0.98,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "over",
+      "start": 5.574,
+      "end": 5.716,
+      "score": 0.866,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "the",
+      "start": 5.736,
+      "end": 5.797,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "course",
+      "start": 5.838,
+      "end": 6.041,
+      "score": 0.894,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "of",
+      "start": 6.062,
+      "end": 6.102,
+      "score": 0.978,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "your",
+      "start": 6.143,
+      "end": 6.265,
+      "score": 0.875,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "carreer,",
+      "start": 6.306,
+      "end": 6.55,
+      "score": 0.692,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "and",
+      "start": 6.57,
+      "end": 6.652,
+      "score": 0.908,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "that",
+      "start": 6.672,
+      "end": 6.774,
+      "score": 0.948,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "you",
+      "start": 6.814,
+      "end": 6.916,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "won't",
+      "start": 6.957,
+      "end": 7.16,
+      "score": 0.915,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "make",
+      "start": 7.465,
+      "end": 7.628,
+      "score": 0.901,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "the",
+      "start": 7.669,
+      "end": 7.75,
+      "score": 0.79,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "mistake",
+      "start": 7.77,
+      "end": 8.116,
+      "score": 0.953,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "twice.",
+      "start": 8.198,
+      "end": 8.543,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

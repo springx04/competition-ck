@@ -1,0 +1,339 @@
+{
+  "sample_index": 41,
+  "sample_id": "-dxfTGcXJoc$_$1",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "For the 10th straight year, some of Kentucky’s best and most innovative biotech companies and technologies were on display at the annual BIO International Convention, which I and other state officials attended this week in Chicago.",
+  "duration": 16.133333333333333,
+  "word_count": 36,
+  "timed_word_count": 36,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "For",
+      "start": 0.504,
+      "end": 0.625,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "the",
+      "start": 0.665,
+      "end": 0.746,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "10th",
+      "start": 0.807,
+      "end": 1.049,
+      "score": 0.853,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "straight",
+      "start": 1.129,
+      "end": 1.452,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "year,",
+      "start": 1.492,
+      "end": 1.754,
+      "score": 0.947,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "some",
+      "start": 2.259,
+      "end": 2.581,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "of",
+      "start": 2.662,
+      "end": 2.723,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "Kentucky’s",
+      "start": 2.783,
+      "end": 3.287,
+      "score": 0.903,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "best",
+      "start": 3.449,
+      "end": 3.771,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "and",
+      "start": 3.933,
+      "end": 4.033,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "most",
+      "start": 4.094,
+      "end": 4.316,
+      "score": 0.918,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "innovative",
+      "start": 4.477,
+      "end": 4.961,
+      "score": 0.766,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "biotech",
+      "start": 5.001,
+      "end": 5.586,
+      "score": 0.751,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "companies",
+      "start": 5.627,
+      "end": 6.05,
+      "score": 0.997,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "and",
+      "start": 6.111,
+      "end": 6.211,
+      "score": 0.911,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "technologies",
+      "start": 6.272,
+      "end": 6.998,
+      "score": 0.907,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "were",
+      "start": 7.381,
+      "end": 7.542,
+      "score": 0.953,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "on",
+      "start": 7.744,
+      "end": 7.825,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "display",
+      "start": 7.885,
+      "end": 8.51,
+      "score": 0.953,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "at",
+      "start": 8.732,
+      "end": 8.813,
+      "score": 0.75,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "the",
+      "start": 8.853,
+      "end": 8.974,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "annual",
+      "start": 9.156,
+      "end": 9.498,
+      "score": 0.959,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "BIO",
+      "start": 9.72,
+      "end": 10.204,
+      "score": 0.905,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "International",
+      "start": 10.325,
+      "end": 10.87,
+      "score": 0.965,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "Convention,",
+      "start": 10.91,
+      "end": 11.414,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "which",
+      "start": 11.979,
+      "end": 12.14,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "I",
+      "start": 12.463,
+      "end": 12.564,
+      "score": 0.799,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "and",
+      "start": 12.705,
+      "end": 12.786,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "other",
+      "start": 12.907,
+      "end": 13.068,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "state",
+      "start": 13.108,
+      "end": 13.31,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "officials",
+      "start": 13.35,
+      "end": 13.794,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 31,
+      "raw_word": "attended",
+      "start": 13.875,
+      "end": 14.258,
+      "score": 0.938,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 32,
+      "raw_word": "this",
+      "start": 14.298,
+      "end": 14.46,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 33,
+      "raw_word": "week",
+      "start": 14.54,
+      "end": 14.742,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 34,
+      "raw_word": "in",
+      "start": 14.984,
+      "end": 15.044,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 35,
+      "raw_word": "Chicago.",
+      "start": 15.085,
+      "end": 15.609,
+      "score": 0.958,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,132 @@
+{
+  "sample_index": 53,
+  "sample_id": "-hnBHBN8p5A$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Discussion, how to discuss ideas and opinions more effectively than a native speaker",
+  "duration": 6.381377777777778,
+  "word_count": 13,
+  "timed_word_count": 13,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Discussion,",
+      "start": 0.323,
+      "end": 0.646,
+      "score": 0.331,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "how",
+      "start": 0.687,
+      "end": 0.868,
+      "score": 0.822,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "to",
+      "start": 0.909,
+      "end": 0.99,
+      "score": 0.332,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "discuss",
+      "start": 1.01,
+      "end": 1.272,
+      "score": 0.4,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "ideas",
+      "start": 1.636,
+      "end": 1.757,
+      "score": 0.274,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "and",
+      "start": 1.777,
+      "end": 1.838,
+      "score": 0.002,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "opinions",
+      "start": 1.858,
+      "end": 2.221,
+      "score": 0.661,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "more",
+      "start": 3.978,
+      "end": 4.12,
+      "score": 0.532,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "effectively",
+      "start": 4.18,
+      "end": 4.624,
+      "score": 0.402,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "than",
+      "start": 4.685,
+      "end": 4.988,
+      "score": 0.503,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "a",
+      "start": 5.776,
+      "end": 5.836,
+      "score": 0.866,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "native",
+      "start": 5.917,
+      "end": 6.22,
+      "score": 0.602,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "speaker",
+      "start": 6.24,
+      "end": 6.381,
+      "score": 0.001,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

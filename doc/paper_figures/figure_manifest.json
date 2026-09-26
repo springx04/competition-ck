@@ -90,6 +90,122 @@
     "caption": "独立诊断转写的替换/删除/插入数按规范化参考词数归一化，三者相加等于WER。WER可超过1；它不是CTC时间对齐准确率，更不是情感分类误差。"
   },
   {
+    "id": "Q1_11_stage_coverage",
+    "title": "正式提取与两阶段候选覆盖变化",
+    "rows": 21,
+    "sources": [
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/coverage_comparison_stage3.csv"
+    ],
+    "caption": "各组按50-bin的observed_mask计数；Formal是原始保留观测，修复后是质量控制后的可用观测。全100条Vision为57.46%→70.10%→76.04%，音频99.50%→78.28%→78.28%；音频下降来自主动隔离，不是提取器退化。分组重叠，不能相加。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_12_paired_coverage",
+    "title": "全部样本覆盖变化分布",
+    "rows": 300,
+    "sources": [
+      "Q1/q1_features/runs/q1_full_20260924/features/q1_compact50.npz",
+      "Q1/q1_features/runs/q1_alignment_repair_stage2/reports/q1_compact50_repair_candidate.npz",
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/q1_compact50_stage3_candidate.npz"
+    ],
+    "caption": "同一sample_index逐样本配对，保留零变化和负变化。左图跨质量口径描述变化，不能解释为准确率增益；右图仅比较同属候选流程的Stage 2/3视觉mask。pp为百分点。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_13_visual_composition",
+    "title": "视觉身份风险样本的可用与隔离成分",
+    "rows": 37,
+    "sources": [
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/vision_summary_stage3.csv",
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv"
+    ],
+    "caption": "37条原视觉风险全部保留。直接TalkNet确认平均33.55%，ArcFace连续性新增17.89%，合计51.44%；歧义、自然缺失与未决均显示。S编号对应CSV的零基sample_index；右图按样本等权，不是按总时长加权。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_14_visual_transitions",
+    "title": "视觉风险样本状态转移",
+    "rows": 37,
+    "sources": [
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/vision_summary_stage3.csv",
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv"
+    ],
+    "caption": "Stage 2为8/14/15条full/partial/unresolved；Stage 3为16/6/5/10条full/partial/ambiguous/unresolved。状态来自自动规则，full不代表人工Gold，ambiguous不并入成功。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_15_gap_sensitivity",
+    "title": "视觉身份连续间隔敏感性",
+    "rows": 3,
+    "sources": [
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/visual_gap_sensitivity_stage3.csv"
+    ],
+    "caption": "0.5/1.0/1.5秒平均可用比例50.25%/51.44%/51.44%，37条状态计数相同。主配置1.0秒固定，不据此宣称最优；增加间隔并不必然增加恢复率。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_16_mapping_evidence",
+    "title": "四条映射疑点的交叉证据",
+    "rows": 4,
+    "sources": [
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/mapping_validation_stage3.csv"
+    ],
+    "caption": "显示原官方与候选的文本重合得分及四指标分配一致率。只有iRB/6达到MAPPING_STRONG；ri04/2虽100%一致但绝对分数低，仍未决。所有官方mapping保留，没有自动交换clip。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_17_alignment_agreement",
+    "title": "CTC与官方文本强制对齐的一致性",
+    "rows": 100,
+    "sources": [
+      "Q1/q1_features/runs/q1_alignment_repair_stage2/reports/ctc_vs_official_forced_alignment.csv"
+    ],
+    "caption": "100条原始记录随CSV保留；ECDF和散点只使用对应字段非空的样本，不用零填补未适用记录。两个自动对齐器的一致性不是人工时间准确率，低共同词比例也不能因小时间差被忽略。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_18_alignment_thresholds",
+    "title": "时间一致性阈值敏感性",
+    "rows": 18,
+    "sources": [
+      "Q1/q1_features/runs/q1_alignment_repair_stage2/reports/alignment_threshold_sensitivity.csv"
+    ],
+    "caption": "红框为固定主阈值median≤0.3秒、P90≤0.6秒。全100条71 verified、10 partial、19 not-applicable；原23条风险仅1 verified。分面色标分别以各自总数为上限，不能跨面板按深浅比较比例，也不根据最大通过数选阈值。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_19_resolution_axes",
+    "title": "最终候选状态与独立语义轴",
+    "rows": 100,
+    "sources": [
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv"
+    ],
+    "caption": "五状态计数57/19/5/4/15。交叉表保留总状态可能遮蔽的语义冲突：UNRESOLVED并不等于只有一种问题；Conflict表示安全mask方案明确，而非原内容被修好。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_20_semantic_masking",
+    "title": "语义冲突与未决音频的安全屏蔽",
+    "rows": 300,
+    "sources": [
+      "Q1/q1_features/runs/q1_full_20260924/features/q1_compact50.npz",
+      "Q1/q1_features/runs/q1_alignment_repair_stage2/reports/q1_compact50_repair_candidate.npz",
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/q1_compact50_stage3_candidate.npz",
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv"
+    ],
+    "caption": "逐样本音频50-bin观测率按最终语义状态分组；Formal与候选的质量口径不同。Conflict/Unresolved组主动屏蔽音频，表明覆盖率下降可能是安全处理结果，不能把它包装成提取失败或隐去。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_21_word_sources",
+    "title": "词级候选CSR来源与覆盖分布",
+    "rows": 3864,
+    "sources": [
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/q1_word_aligned_stage3_candidate.npz"
+    ],
+    "caption": "每个词的音频/视觉源行数量由CSR indptr相邻差计算，所有1932条均保留，包括零来源和mask词。可用词覆盖ECDF条件于mask=1。Stage 3词级NPZ自带CSR，不能与仍缺失的Formal样本级map_*.npz混为一谈；来源数量多不等于质量高。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
+    "id": "Q1_22_visual_timelines",
+    "title": "受影响样本的视觉状态时间分布",
+    "rows": 1243,
+    "sources": [
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/vision_segment_stage3.csv",
+      "Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv"
+    ],
+    "caption": "全部41条受影响样本，包括37条身份风险与4条no-face。颜色表示真实时间段状态；横轴按各clip时长归一化用于比较结构，原始start/end秒数保留在CSV中。传播未跨越歧义或自然缺失，不把mask补成平滑连续数据。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。"
+  },
+  {
     "id": "Q2_01_training",
     "title": "最终模型训练损失与验证曲线",
     "rows": 20,

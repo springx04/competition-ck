@@ -1,0 +1,456 @@
+{
+  "sample_index": 97,
+  "sample_id": "-yRb-Jum7EQ$_$1",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "it comes with the assistance and agitation of states and regimes, Yesterday Iran announced that it will finance the families of the terrorists and murderers this shows that Iran, even after the nuclear agreement, is continuing to aid terrorism, including Palestinian terrorism, Hezbollah terrorism and its assistance to Hamas.",
+  "duration": 29.266666666666666,
+  "word_count": 49,
+  "timed_word_count": 49,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "it",
+      "start": 1.026,
+      "end": 1.167,
+      "score": 0.636,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "comes",
+      "start": 2.233,
+      "end": 3.399,
+      "score": 0.807,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "with",
+      "start": 3.5,
+      "end": 3.681,
+      "score": 0.355,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "the",
+      "start": 4.546,
+      "end": 4.848,
+      "score": 0.846,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "assistance",
+      "start": 5.19,
+      "end": 5.753,
+      "score": 0.618,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "and",
+      "start": 6.658,
+      "end": 6.819,
+      "score": 0.554,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "agitation",
+      "start": 7.0,
+      "end": 8.086,
+      "score": 0.646,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "of",
+      "start": 8.106,
+      "end": 8.167,
+      "score": 0.636,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "states",
+      "start": 8.187,
+      "end": 8.488,
+      "score": 0.345,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "and",
+      "start": 8.508,
+      "end": 8.649,
+      "score": 0.274,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "regimes,",
+      "start": 8.669,
+      "end": 8.911,
+      "score": 0.507,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "Yesterday",
+      "start": 9.353,
+      "end": 9.796,
+      "score": 0.491,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "Iran",
+      "start": 9.816,
+      "end": 10.359,
+      "score": 0.665,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "announced",
+      "start": 11.023,
+      "end": 11.948,
+      "score": 0.517,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "that",
+      "start": 12.129,
+      "end": 12.25,
+      "score": 0.267,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "it",
+      "start": 12.27,
+      "end": 12.37,
+      "score": 0.744,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "will",
+      "start": 12.391,
+      "end": 12.511,
+      "score": 0.254,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "finance",
+      "start": 12.531,
+      "end": 12.954,
+      "score": 0.583,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "the",
+      "start": 13.859,
+      "end": 14.181,
+      "score": 0.896,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "families",
+      "start": 14.301,
+      "end": 14.643,
+      "score": 0.488,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "of",
+      "start": 14.905,
+      "end": 15.126,
+      "score": 0.726,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "the",
+      "start": 15.347,
+      "end": 15.508,
+      "score": 0.68,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "terrorists",
+      "start": 15.649,
+      "end": 16.172,
+      "score": 0.522,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "and",
+      "start": 16.232,
+      "end": 16.293,
+      "score": 0.349,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "murderers",
+      "start": 16.313,
+      "end": 16.615,
+      "score": 0.438,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "this",
+      "start": 16.635,
+      "end": 16.896,
+      "score": 0.468,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "shows",
+      "start": 17.661,
+      "end": 17.781,
+      "score": 0.1,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "that",
+      "start": 17.801,
+      "end": 17.902,
+      "score": 0.294,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "Iran,",
+      "start": 17.962,
+      "end": 18.204,
+      "score": 0.618,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "even",
+      "start": 18.264,
+      "end": 18.646,
+      "score": 0.737,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "after",
+      "start": 18.666,
+      "end": 18.988,
+      "score": 0.589,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 31,
+      "raw_word": "the",
+      "start": 19.069,
+      "end": 19.189,
+      "score": 0.26,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 32,
+      "raw_word": "nuclear",
+      "start": 19.209,
+      "end": 19.451,
+      "score": 0.381,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 33,
+      "raw_word": "agreement,",
+      "start": 19.491,
+      "end": 20.456,
+      "score": 0.726,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 34,
+      "raw_word": "is",
+      "start": 20.477,
+      "end": 20.577,
+      "score": 0.217,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 35,
+      "raw_word": "continuing",
+      "start": 20.658,
+      "end": 21.945,
+      "score": 0.485,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 36,
+      "raw_word": "to",
+      "start": 21.965,
+      "end": 22.086,
+      "score": 0.311,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 37,
+      "raw_word": "aid",
+      "start": 22.146,
+      "end": 22.206,
+      "score": 0.269,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 38,
+      "raw_word": "terrorism,",
+      "start": 22.227,
+      "end": 23.092,
+      "score": 0.688,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 39,
+      "raw_word": "including",
+      "start": 23.172,
+      "end": 24.198,
+      "score": 0.558,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 40,
+      "raw_word": "Palestinian",
+      "start": 24.238,
+      "end": 25.103,
+      "score": 0.672,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 41,
+      "raw_word": "terrorism,",
+      "start": 25.123,
+      "end": 25.646,
+      "score": 0.587,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 42,
+      "raw_word": "Hezbollah",
+      "start": 25.666,
+      "end": 26.249,
+      "score": 0.613,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 43,
+      "raw_word": "terrorism",
+      "start": 26.974,
+      "end": 27.416,
+      "score": 0.408,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 44,
+      "raw_word": "and",
+      "start": 27.517,
+      "end": 27.678,
+      "score": 0.668,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 45,
+      "raw_word": "its",
+      "start": 27.738,
+      "end": 27.859,
+      "score": 0.372,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 46,
+      "raw_word": "assistance",
+      "start": 27.999,
+      "end": 28.341,
+      "score": 0.229,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 47,
+      "raw_word": "to",
+      "start": 28.362,
+      "end": 28.462,
+      "score": 0.258,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 48,
+      "raw_word": "Hamas.",
+      "start": 28.482,
+      "end": 28.844,
+      "score": 0.86,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

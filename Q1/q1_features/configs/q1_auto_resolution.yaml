@@ -75,9 +75,14 @@ av_sync:
 
 talknet:
   official_weight: pretrain_TalkSet.model
+  official_repository: https://github.com/TaoRuijie/TalkNet-ASD
+  official_google_drive_file_id: 1AbN9fCf9IexMxEKXLQY2KYBlb-IhSEea
   official_only: true
   score_type: class_1_logit
   primary_threshold: 0.0
+  inference_fps: 25.0
+  duration_ensemble_s: [1, 2, 3, 4, 5, 6]
+  openface_episode_crops: true
   optional_nonblocking: true
 
 candidate_status:

@@ -1,0 +1,258 @@
+{
+  "sample_index": 34,
+  "sample_id": "-UuX1xuaiiE$_$1",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "^And all of them are really being able to explore ^these different areas in depth ^in a way that really wasn't available ^before the center was here",
+  "duration": 10.333333333333334,
+  "word_count": 27,
+  "timed_word_count": 27,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "^And",
+      "start": 0.262,
+      "end": 0.584,
+      "score": 0.853,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "all",
+      "start": 0.685,
+      "end": 0.826,
+      "score": 0.789,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "of",
+      "start": 0.846,
+      "end": 0.906,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "them",
+      "start": 0.947,
+      "end": 1.088,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "are",
+      "start": 1.209,
+      "end": 1.289,
+      "score": 0.942,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "really",
+      "start": 1.39,
+      "end": 1.652,
+      "score": 0.867,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "being",
+      "start": 1.692,
+      "end": 1.914,
+      "score": 0.879,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "able",
+      "start": 2.578,
+      "end": 2.76,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "to",
+      "start": 2.8,
+      "end": 2.901,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "explore",
+      "start": 2.961,
+      "end": 3.585,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "^these",
+      "start": 3.606,
+      "end": 4.25,
+      "score": 0.916,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "different",
+      "start": 4.552,
+      "end": 4.834,
+      "score": 0.913,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "areas",
+      "start": 4.935,
+      "end": 5.217,
+      "score": 0.901,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "in",
+      "start": 5.58,
+      "end": 6.003,
+      "score": 0.836,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "depth",
+      "start": 6.103,
+      "end": 6.405,
+      "score": 0.92,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "^in",
+      "start": 6.426,
+      "end": 6.667,
+      "score": 0.912,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "a",
+      "start": 6.708,
+      "end": 6.728,
+      "score": 0.991,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "way",
+      "start": 6.788,
+      "end": 6.99,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "that",
+      "start": 7.09,
+      "end": 7.231,
+      "score": 0.874,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "really",
+      "start": 7.352,
+      "end": 7.574,
+      "score": 0.918,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "wasn't",
+      "start": 7.614,
+      "end": 7.856,
+      "score": 0.909,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "available",
+      "start": 7.896,
+      "end": 8.339,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "^before",
+      "start": 8.359,
+      "end": 8.742,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "the",
+      "start": 8.782,
+      "end": 8.863,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "center",
+      "start": 8.903,
+      "end": 9.246,
+      "score": 0.776,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "was",
+      "start": 9.286,
+      "end": 9.427,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "here",
+      "start": 9.507,
+      "end": 9.729,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

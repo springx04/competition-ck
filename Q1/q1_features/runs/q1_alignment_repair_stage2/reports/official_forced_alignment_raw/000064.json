@@ -1,0 +1,60 @@
+{
+  "sample_index": 64,
+  "sample_id": "-mJ2ud6oKI8$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "They are all very safe",
+  "duration": 2.2355666666666667,
+  "word_count": 5,
+  "timed_word_count": 5,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "They",
+      "start": 0.02,
+      "end": 0.181,
+      "score": 0.672,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "are",
+      "start": 0.201,
+      "end": 0.423,
+      "score": 0.85,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "all",
+      "start": 0.584,
+      "end": 0.725,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "very",
+      "start": 0.806,
+      "end": 0.906,
+      "score": 0.125,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "safe",
+      "start": 0.926,
+      "end": 1.007,
+      "score": 0.002,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

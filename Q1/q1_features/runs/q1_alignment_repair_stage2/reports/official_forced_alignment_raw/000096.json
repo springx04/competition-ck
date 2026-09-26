@@ -1,0 +1,195 @@
+{
+  "sample_index": 96,
+  "sample_id": "-wny0OAz3g8$_$9",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "He explores why Black and White Americans tend to have such different outcomes in terms of income, education, and more",
+  "duration": 6.2,
+  "word_count": 20,
+  "timed_word_count": 20,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "He",
+      "start": 0.536,
+      "end": 0.618,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "explores",
+      "start": 0.659,
+      "end": 1.03,
+      "score": 0.879,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "why",
+      "start": 1.05,
+      "end": 1.174,
+      "score": 0.722,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "Black",
+      "start": 1.215,
+      "end": 1.401,
+      "score": 0.86,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "and",
+      "start": 1.421,
+      "end": 1.504,
+      "score": 0.894,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "White",
+      "start": 1.524,
+      "end": 1.648,
+      "score": 0.987,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "Americans",
+      "start": 1.668,
+      "end": 2.101,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "tend",
+      "start": 2.163,
+      "end": 2.328,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "to",
+      "start": 2.369,
+      "end": 2.431,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "have",
+      "start": 2.472,
+      "end": 2.616,
+      "score": 0.976,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "such",
+      "start": 2.657,
+      "end": 2.822,
+      "score": 0.876,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "different",
+      "start": 2.925,
+      "end": 3.213,
+      "score": 0.937,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "outcomes",
+      "start": 3.316,
+      "end": 3.749,
+      "score": 0.972,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "in",
+      "start": 3.811,
+      "end": 3.872,
+      "score": 0.956,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "terms",
+      "start": 3.893,
+      "end": 4.099,
+      "score": 0.873,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "of",
+      "start": 4.12,
+      "end": 4.181,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "income,",
+      "start": 4.284,
+      "end": 4.655,
+      "score": 0.992,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "education,",
+      "start": 4.758,
+      "end": 5.294,
+      "score": 0.989,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "and",
+      "start": 5.335,
+      "end": 5.417,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "more",
+      "start": 5.458,
+      "end": 5.664,
+      "score": 0.98,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

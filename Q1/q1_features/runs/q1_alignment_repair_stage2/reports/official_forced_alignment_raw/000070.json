@@ -1,0 +1,159 @@
+{
+  "sample_index": 70,
+  "sample_id": "-ri04Z7vwnc$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "most people think it'll sort itself out, \"we'll discuss it later,\" it's not something too important",
+  "duration": 6.006,
+  "word_count": 16,
+  "timed_word_count": 16,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "most",
+      "start": 0.143,
+      "end": 0.366,
+      "score": 0.601,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "people",
+      "start": 0.387,
+      "end": 0.55,
+      "score": 0.142,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "think",
+      "start": 0.57,
+      "end": 0.713,
+      "score": 0.184,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "it'll",
+      "start": 0.733,
+      "end": 0.896,
+      "score": 0.243,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "sort",
+      "start": 0.916,
+      "end": 1.059,
+      "score": 0.202,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "itself",
+      "start": 1.079,
+      "end": 1.222,
+      "score": 0.079,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "out,",
+      "start": 1.262,
+      "end": 1.405,
+      "score": 0.287,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "\"we'll",
+      "start": 1.425,
+      "end": 1.547,
+      "score": 0.014,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "discuss",
+      "start": 1.568,
+      "end": 1.792,
+      "score": 0.169,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "it",
+      "start": 1.832,
+      "end": 1.893,
+      "score": 0.237,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "later,\"",
+      "start": 1.934,
+      "end": 2.28,
+      "score": 0.352,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "it's",
+      "start": 2.341,
+      "end": 2.443,
+      "score": 0.142,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "not",
+      "start": 2.484,
+      "end": 2.728,
+      "score": 0.529,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "something",
+      "start": 2.749,
+      "end": 3.074,
+      "score": 0.239,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "too",
+      "start": 3.095,
+      "end": 3.156,
+      "score": 0.007,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "important",
+      "start": 3.176,
+      "end": 3.97,
+      "score": 0.333,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

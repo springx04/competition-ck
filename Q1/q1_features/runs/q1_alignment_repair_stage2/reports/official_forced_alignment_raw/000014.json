@@ -1,0 +1,105 @@
+{
+  "sample_index": 14,
+  "sample_id": "-HwX2H8Z4hY$_$5",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "\" President Ronald Reagan blamed the professional bureaucracy of education",
+  "duration": 5.633333333333333,
+  "word_count": 10,
+  "timed_word_count": 10,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "\"",
+      "start": 0.592,
+      "end": 0.674,
+      "score": 0.744,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "President",
+      "start": 0.776,
+      "end": 1.265,
+      "score": 0.948,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "Ronald",
+      "start": 1.347,
+      "end": 1.653,
+      "score": 0.919,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "Reagan",
+      "start": 1.714,
+      "end": 2.143,
+      "score": 0.91,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "blamed",
+      "start": 2.225,
+      "end": 2.613,
+      "score": 0.877,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "the",
+      "start": 2.674,
+      "end": 2.776,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "professional",
+      "start": 2.837,
+      "end": 3.47,
+      "score": 0.931,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "bureaucracy",
+      "start": 3.511,
+      "end": 4.245,
+      "score": 0.824,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "of",
+      "start": 4.388,
+      "end": 4.45,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "education",
+      "start": 4.531,
+      "end": 5.082,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

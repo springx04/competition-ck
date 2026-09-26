@@ -1,0 +1,13 @@
+{
+  "sample_count": 100,
+  "whisperx_ok": 100,
+  "whisperx_failed": 0,
+  "word_comparison_rows": 1583,
+  "negative_count": 20,
+  "ta_levels": {
+    "TA_STRONG": 75,
+    "TA_CONFLICT": 20,
+    "TA_SEMANTIC_ONLY": 5
+  },
+  "failures": []
+}

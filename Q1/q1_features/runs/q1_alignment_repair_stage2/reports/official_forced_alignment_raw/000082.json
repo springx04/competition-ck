@@ -1,0 +1,123 @@
+{
+  "sample_index": 82,
+  "sample_id": "-tPCytz4rww$_$10",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Say twenty percent so if you've got a thousand square foot condo.",
+  "duration": 4.766666666666667,
+  "word_count": 12,
+  "timed_word_count": 12,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Say",
+      "start": 0.593,
+      "end": 0.757,
+      "score": 0.814,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "twenty",
+      "start": 0.798,
+      "end": 1.064,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "percent",
+      "start": 1.105,
+      "end": 1.493,
+      "score": 0.821,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "so",
+      "start": 1.596,
+      "end": 1.841,
+      "score": 0.9,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "if",
+      "start": 1.984,
+      "end": 2.046,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "you've",
+      "start": 2.087,
+      "end": 2.25,
+      "score": 0.931,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "got",
+      "start": 2.271,
+      "end": 2.394,
+      "score": 0.865,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "a",
+      "start": 2.414,
+      "end": 2.455,
+      "score": 0.491,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "thousand",
+      "start": 2.496,
+      "end": 2.844,
+      "score": 0.94,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "square",
+      "start": 2.864,
+      "end": 3.11,
+      "score": 0.86,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "foot",
+      "start": 3.171,
+      "end": 3.376,
+      "score": 0.988,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "condo.",
+      "start": 3.744,
+      "end": 4.194,
+      "score": 0.984,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

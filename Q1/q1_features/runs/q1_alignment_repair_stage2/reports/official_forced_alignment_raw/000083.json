@@ -1,0 +1,168 @@
+{
+  "sample_index": 83,
+  "sample_id": "-tPCytz4rww$_$11",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Make sure that your using comps that are not larger, no larger than twelve hundred square feet.",
+  "duration": 5.466666666666667,
+  "word_count": 17,
+  "timed_word_count": 17,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Make",
+      "start": 0.51,
+      "end": 0.673,
+      "score": 0.991,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "sure",
+      "start": 0.714,
+      "end": 0.877,
+      "score": 0.876,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "that",
+      "start": 0.918,
+      "end": 1.02,
+      "score": 0.948,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "your",
+      "start": 1.04,
+      "end": 1.244,
+      "score": 0.708,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "using",
+      "start": 1.326,
+      "end": 1.53,
+      "score": 0.954,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "comps",
+      "start": 1.571,
+      "end": 1.917,
+      "score": 0.925,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "that",
+      "start": 1.958,
+      "end": 2.081,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "are",
+      "start": 2.121,
+      "end": 2.223,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "not",
+      "start": 2.264,
+      "end": 2.387,
+      "score": 0.667,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "larger,",
+      "start": 2.468,
+      "end": 2.876,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "no",
+      "start": 3.304,
+      "end": 3.406,
+      "score": 0.992,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "larger",
+      "start": 3.447,
+      "end": 3.774,
+      "score": 0.967,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "than",
+      "start": 3.814,
+      "end": 3.957,
+      "score": 0.916,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "twelve",
+      "start": 3.998,
+      "end": 4.243,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "hundred",
+      "start": 4.284,
+      "end": 4.467,
+      "score": 0.86,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "square",
+      "start": 4.508,
+      "end": 4.732,
+      "score": 0.905,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "feet.",
+      "start": 4.773,
+      "end": 4.936,
+      "score": 0.984,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "errors": [],
+  "counts": {
+    "partition": {
+      "identity_only": 28,
+      "identity_and_text_audio": 9,
+      "vision_no_face_and_text_audio": 4,
+      "text_audio_only_single_episode": 10
+    },
+    "whisperx": 100,
+    "permutation": 100,
+    "arcface_primary": 100,
+    "av_sync": 137,
+    "av_sync_null": 3041,
+    "talknet_episodes": 191,
+    "talknet_frames": 19067,
+    "candidates": 51,
+    "new_text_audio_risks": 2
+  },
+  "candidate_only": true,
+  "production_write": false
+}

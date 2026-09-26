@@ -1,0 +1,29 @@
+{
+  "sample_count": 100,
+  "mapping_suspected_count": 4,
+  "mapping_suspected_ids": [
+    "-iRBcNs9oI8$_$3",
+    "-iRBcNs9oI8$_$6",
+    "-mJ2ud6oKI8$_$1",
+    "-ri04Z7vwnc$_$2"
+  ],
+  "semantic": {
+    "MATCH_STRONG": 78,
+    "CONFLICT": 12,
+    "UNRESOLVED": 7,
+    "MATCH_WEAK": 3
+  },
+  "temporal": {
+    "VERIFIED": 71,
+    "PARTIAL": 10,
+    "NOT_APPLICABLE": 19
+  },
+  "original_37_visual_risk": {
+    "unresolved": 15,
+    "partially_verified": 14,
+    "fully_verified": 8
+  },
+  "no_face_count": 4,
+  "stage2_consistency_ok": true,
+  "inconsistencies": []
+}

@@ -1,0 +1,195 @@
+{
+  "sample_index": 44,
+  "sample_id": "-egA8-b7-3M$_$1",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "I started a successful Legal Nurse Consulting Business in 1989. I mentor nurses who want to become Legal Nurse Consultants.",
+  "duration": 10.233333333333333,
+  "word_count": 20,
+  "timed_word_count": 20,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "I",
+      "start": 0.626,
+      "end": 0.949,
+      "score": 0.647,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "started",
+      "start": 1.292,
+      "end": 1.695,
+      "score": 0.929,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "a",
+      "start": 1.756,
+      "end": 1.796,
+      "score": 0.5,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "successful",
+      "start": 1.857,
+      "end": 2.462,
+      "score": 0.962,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "Legal",
+      "start": 2.523,
+      "end": 2.745,
+      "score": 0.961,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "Nurse",
+      "start": 2.806,
+      "end": 3.007,
+      "score": 0.877,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "Consulting",
+      "start": 3.048,
+      "end": 3.573,
+      "score": 0.951,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "Business",
+      "start": 3.613,
+      "end": 4.017,
+      "score": 0.896,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "in",
+      "start": 4.804,
+      "end": 5.147,
+      "score": 0.81,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "1989.",
+      "start": 5.248,
+      "end": 5.47,
+      "score": 0.768,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "I",
+      "start": 5.712,
+      "end": 5.793,
+      "score": 0.251,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "mentor",
+      "start": 6.58,
+      "end": 6.964,
+      "score": 0.802,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "nurses",
+      "start": 7.024,
+      "end": 7.387,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "who",
+      "start": 7.448,
+      "end": 7.569,
+      "score": 0.889,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "want",
+      "start": 7.63,
+      "end": 7.872,
+      "score": 0.918,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "to",
+      "start": 7.912,
+      "end": 7.993,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "become",
+      "start": 8.033,
+      "end": 8.336,
+      "score": 0.926,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "Legal",
+      "start": 8.397,
+      "end": 8.619,
+      "score": 0.979,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "Nurse",
+      "start": 8.679,
+      "end": 8.881,
+      "score": 0.886,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "Consultants.",
+      "start": 8.921,
+      "end": 9.567,
+      "score": 0.958,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

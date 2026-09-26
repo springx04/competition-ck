@@ -42,7 +42,9 @@ def save(fig, name, title, data, sources, caption):
         data = pd.DataFrame(data)
     data.to_csv(OUT / 'data' / f'{name}.csv', index=False, encoding='utf-8-sig')
     for ext in ('png', 'pdf', 'svg'):
-        fig.savefig(OUT / 'figures' / f'{name}.{ext}', dpi=220, bbox_inches='tight', pad_inches=.08)
+        figure_dir = OUT / 'figures' / name[:2]
+        figure_dir.mkdir(parents=True, exist_ok=True)
+        fig.savefig(figure_dir / f'{name}.{ext}', dpi=220, bbox_inches='tight', pad_inches=.08)
     plt.close(fig)
     ENTRIES.append(dict(id=name, title=title, rows=len(data), sources=sources, caption=caption))
     print(name, flush=True)
@@ -483,7 +485,7 @@ def index():
            '', '## 建议论文选图','',
            '正文优先：Q1_02、Q1_03；Q2_01、Q2_04、Q2_06、Q2_07、Q2_12、Q2_14；Q3_01、Q3_02、Q3_06、Q3_10，以及01/14/18号局部解释。其余图用于补充实验和错误归因；不要将几十张图全部挤入正文。','',
            '## 图表清单','', '| 图号 | 内容 | 数据行数 | 图与数据 |','|---|---|---:|---|']
-    for e in ENTRIES: lines.append(f"| {e['id']} | {e['title']} | {e['rows']} | [PNG](figures/{e['id']}.png) · [PDF](figures/{e['id']}.pdf) · [SVG](figures/{e['id']}.svg) · [CSV](data/{e['id']}.csv) |")
+    for e in ENTRIES: lines.append(f"| {e['id']} | {e['title']} | {e['rows']} | [PNG](figures/{e['id'][:2]}/{e['id']}.png) · [PDF](figures/{e['id'][:2]}/{e['id']}.pdf) · [SVG](figures/{e['id'][:2]}/{e['id']}.svg) · [CSV](data/{e['id']}.csv) |")
     for e in ENTRIES:
         links=[]
         for s in e['sources']:
@@ -494,24 +496,28 @@ def index():
         lines.extend(['', '服务器补查新增Q1_09–Q1_10与Q3_17–Q3_19；来源核对、同成本子集结论及缺失记录见[服务器补查与新增图说明](服务器补查与新增图说明.md)。'])
     lines.extend(['','## 复算','', '`python scripts/build_paper_figures.py`','', '依赖：Python、numpy、pandas、matplotlib、seaborn、Pillow。源码相对自身定位仓库；全量重绘需要本地已有Q1/Q2/Q3运行数据，其中Q3专项samples原始归档未随图册上传，须先恢复到所列路径。图册内CSV及现成图可直接使用，服务器新增5组可单独从已提交CSV重绘。不会重新训练或更改任何实验值。'])
     (OUT/'README.md').write_text('\n'.join(lines)+'\n','utf-8')
-    cards=''.join(f'<article data-q="{e["id"][:2]}"><h2>{e["id"]} · {html.escape(e["title"])}</h2><a href="figures/{e["id"]}.png"><img loading="lazy" src="figures/{e["id"]}.png"></a><p>{html.escape(e["caption"])}</p><nav><a href="figures/{e["id"]}.pdf">PDF</a><a href="figures/{e["id"]}.svg">SVG</a><a href="data/{e["id"]}.csv">CSV</a></nav></article>' for e in ENTRIES)
+    cards=''.join(f'<article data-q="{e["id"][:2]}"><h2>{e["id"]} · {html.escape(e["title"])}</h2><a href="figures/{e["id"][:2]}/{e["id"]}.png"><img loading="lazy" src="figures/{e["id"][:2]}/{e["id"]}.png"></a><p>{html.escape(e["caption"])}</p><nav><a href="figures/{e["id"][:2]}/{e["id"]}.pdf">PDF</a><a href="figures/{e["id"][:2]}/{e["id"]}.svg">SVG</a><a href="data/{e["id"]}.csv">CSV</a></nav></article>' for e in ENTRIES)
     page='''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>论文数据图册</title><style>body{font:15px/1.6 system-ui;background:#eef2f6;color:#26374a;margin:0}header{padding:28px 5vw;background:#19334b;color:white}main{max-width:1250px;margin:24px auto;padding:0 18px}article{background:white;padding:20px;margin:24px 0;border-radius:12px;box-shadow:0 3px 18px #1d344512}h2{font-size:19px}img{width:100%;height:auto}p{color:#536578}nav a,button{display:inline-block;margin-right:14px;padding:6px 14px;border-radius:6px;background:#e5eef5;color:#1c597e;border:0;cursor:pointer;text-decoration:none}.filters{position:sticky;top:0;background:#eef2f6ef;padding:12px;z-index:3}</style><header><h1>Q1 · Q2 · Q3 论文数据图册</h1><p style="color:#dce7f0">实际实验数据 · 可追溯CSV · PNG / PDF / SVG · 不含流程图</p></header><main><div class="filters"><button onclick="filter('all')">全部</button><button onclick="filter('Q1')">Q1 特征质量</button><button onclick="filter('Q2')">Q2 鲁棒预测</button><button onclick="filter('Q3')">Q3 可解释性</button></div>'''+cards+'''</main><script>function filter(q){document.querySelectorAll('article').forEach(a=>a.hidden=q!=='all'&&a.dataset.q!==q)}</script></html>'''
     (OUT/'index.html').write_text(page,'utf-8')
     from PIL import Image,ImageOps,ImageDraw
     for start in range(0,len(ENTRIES),12):
         entries=ENTRIES[start:start+12]; board=Image.new('RGB',(1500,330*((len(entries)+2)//3)), '#e8eef3'); draw=ImageDraw.Draw(board)
         for k,e in enumerate(entries):
-            im=Image.open(OUT/'figures'/f'{e["id"]}.png').convert('RGB'); im.thumbnail((480,285))
+            im=Image.open(OUT/'figures'/e['id'][:2]/f'{e["id"]}.png').convert('RGB'); im.thumbnail((480,285))
             x=(k%3)*500+(500-im.width)//2; y=(k//3)*330+30
             board.paste(im,(x,y)); draw.text(((k%3)*500+15,(k//3)*330+8),e['id'],fill='#142a40')
         board.save(OUT/'previews'/f'contact_{start//12+1}.jpg',quality=90)
 
 if __name__=='__main__':
+    import sys
     q1_figures(); q2_figures(); q3_figures()
     if (OUT/'data/server_Q3_local.csv').exists():
         import sys
         from build_server_supplement_figures import build
         build(sys.modules[__name__])
         ENTRIES.sort(key=lambda e: e['id'])
+    from build_q1_repair_figures import build as build_q1_repair
+    build_q1_repair(sys.modules[__name__])
+    ENTRIES.sort(key=lambda e: e['id'])
     index()
     print(f'Completed {len(ENTRIES)} figure groups.',flush=True)

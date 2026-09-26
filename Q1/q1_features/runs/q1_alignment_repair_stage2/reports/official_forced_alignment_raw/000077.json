@@ -1,0 +1,267 @@
+{
+  "sample_index": 77,
+  "sample_id": "-s9qJ7ATP7w$_$7",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "I used to work for Warren Avis, the guy who started Avis Rent a Car, and he said to me one day, \"Robert, \"what's the purpose of business",
+  "duration": 6.933333333333333,
+  "word_count": 28,
+  "timed_word_count": 28,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "I",
+      "start": 0.59,
+      "end": 0.63,
+      "score": 0.909,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "used",
+      "start": 0.671,
+      "end": 0.793,
+      "score": 0.885,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "to",
+      "start": 0.813,
+      "end": 0.854,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "work",
+      "start": 0.895,
+      "end": 1.017,
+      "score": 0.88,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "for",
+      "start": 1.057,
+      "end": 1.139,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "Warren",
+      "start": 1.179,
+      "end": 1.423,
+      "score": 0.927,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "Avis,",
+      "start": 1.484,
+      "end": 1.728,
+      "score": 0.967,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "the",
+      "start": 1.932,
+      "end": 2.013,
+      "score": 0.952,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "guy",
+      "start": 2.033,
+      "end": 2.176,
+      "score": 0.477,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "who",
+      "start": 2.196,
+      "end": 2.277,
+      "score": 0.157,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "started",
+      "start": 2.298,
+      "end": 2.562,
+      "score": 0.547,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "Avis",
+      "start": 2.603,
+      "end": 2.806,
+      "score": 0.88,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "Rent",
+      "start": 2.847,
+      "end": 2.989,
+      "score": 0.599,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "a",
+      "start": 3.009,
+      "end": 3.05,
+      "score": 0.643,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "Car,",
+      "start": 3.07,
+      "end": 3.233,
+      "score": 0.78,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "and",
+      "start": 3.274,
+      "end": 3.335,
+      "score": 0.959,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "he",
+      "start": 3.375,
+      "end": 3.436,
+      "score": 0.78,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "said",
+      "start": 3.477,
+      "end": 3.639,
+      "score": 0.955,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "to",
+      "start": 3.66,
+      "end": 3.721,
+      "score": 0.989,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "me",
+      "start": 3.761,
+      "end": 3.843,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "one",
+      "start": 3.965,
+      "end": 4.046,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "day,",
+      "start": 4.087,
+      "end": 4.31,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "\"Robert,",
+      "start": 4.331,
+      "end": 5.205,
+      "score": 0.866,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "\"what's",
+      "start": 5.225,
+      "end": 5.429,
+      "score": 0.793,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "the",
+      "start": 5.449,
+      "end": 5.53,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "purpose",
+      "start": 5.591,
+      "end": 5.896,
+      "score": 0.972,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "of",
+      "start": 5.937,
+      "end": 5.998,
+      "score": 0.856,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "business",
+      "start": 6.039,
+      "end": 6.384,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,177 @@
+{
+  "sample_index": 38,
+  "sample_id": "-aNfi7CP8vM$_$7",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Maybe they have no political party affiliation, they're not interested in politics, they could care less about politics.",
+  "duration": 8.666666666666666,
+  "word_count": 18,
+  "timed_word_count": 18,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Maybe",
+      "start": 0.549,
+      "end": 1.587,
+      "score": 0.744,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "they",
+      "start": 1.607,
+      "end": 1.77,
+      "score": 0.934,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "have",
+      "start": 1.811,
+      "end": 1.933,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "no",
+      "start": 2.014,
+      "end": 2.156,
+      "score": 0.884,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "political",
+      "start": 2.218,
+      "end": 2.665,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "party",
+      "start": 2.726,
+      "end": 3.052,
+      "score": 0.937,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "affiliation,",
+      "start": 3.092,
+      "end": 3.947,
+      "score": 0.986,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "they're",
+      "start": 4.333,
+      "end": 4.537,
+      "score": 0.87,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "not",
+      "start": 4.577,
+      "end": 4.72,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "interested",
+      "start": 4.862,
+      "end": 5.269,
+      "score": 0.952,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "in",
+      "start": 5.33,
+      "end": 5.371,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "politics,",
+      "start": 5.432,
+      "end": 6.042,
+      "score": 0.945,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "they",
+      "start": 6.103,
+      "end": 6.225,
+      "score": 0.992,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "could",
+      "start": 6.246,
+      "end": 6.408,
+      "score": 0.912,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "care",
+      "start": 6.449,
+      "end": 6.632,
+      "score": 0.875,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "less",
+      "start": 6.714,
+      "end": 6.937,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "about",
+      "start": 6.998,
+      "end": 7.243,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "politics.",
+      "start": 7.304,
+      "end": 7.975,
+      "score": 0.957,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

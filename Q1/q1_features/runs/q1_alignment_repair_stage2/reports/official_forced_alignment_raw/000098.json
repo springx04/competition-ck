@@ -1,0 +1,240 @@
+{
+  "sample_index": 98,
+  "sample_id": "-yRb-Jum7EQ$_$5",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Yesterday Eliav Gelman lost his life in another terrorist attack, not by the students of terrorism, but by those who teach terrorism, a Palestinian teacher.",
+  "duration": 13.166666666666666,
+  "word_count": 25,
+  "timed_word_count": 25,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Yesterday",
+      "start": 0.121,
+      "end": 0.566,
+      "score": 0.459,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "Eliav",
+      "start": 0.647,
+      "end": 0.991,
+      "score": 0.788,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "Gelman",
+      "start": 1.011,
+      "end": 1.456,
+      "score": 0.761,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "lost",
+      "start": 1.476,
+      "end": 2.892,
+      "score": 0.77,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "his",
+      "start": 2.933,
+      "end": 3.175,
+      "score": 0.559,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "life",
+      "start": 3.196,
+      "end": 3.459,
+      "score": 0.695,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "in",
+      "start": 3.56,
+      "end": 3.681,
+      "score": 0.558,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "another",
+      "start": 3.742,
+      "end": 4.086,
+      "score": 0.492,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "terrorist",
+      "start": 4.106,
+      "end": 5.097,
+      "score": 0.699,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "attack,",
+      "start": 5.238,
+      "end": 5.582,
+      "score": 0.498,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "not",
+      "start": 5.602,
+      "end": 5.663,
+      "score": 0.001,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "by",
+      "start": 5.683,
+      "end": 5.825,
+      "score": 0.29,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "the",
+      "start": 5.845,
+      "end": 5.946,
+      "score": 0.341,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "students",
+      "start": 5.966,
+      "end": 6.553,
+      "score": 0.615,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "of",
+      "start": 6.614,
+      "end": 6.917,
+      "score": 0.647,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "terrorism,",
+      "start": 7.504,
+      "end": 8.009,
+      "score": 0.511,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "but",
+      "start": 8.05,
+      "end": 8.232,
+      "score": 0.435,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "by",
+      "start": 8.272,
+      "end": 8.434,
+      "score": 0.536,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "those",
+      "start": 8.495,
+      "end": 8.677,
+      "score": 0.376,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "who",
+      "start": 8.717,
+      "end": 8.838,
+      "score": 0.366,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "teach",
+      "start": 8.879,
+      "end": 9.122,
+      "score": 0.443,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "terrorism,",
+      "start": 9.142,
+      "end": 9.627,
+      "score": 0.46,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "a",
+      "start": 9.647,
+      "end": 9.688,
+      "score": 0.578,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "Palestinian",
+      "start": 9.728,
+      "end": 10.254,
+      "score": 0.4,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "teacher.",
+      "start": 10.274,
+      "end": 10.8,
+      "score": 0.629,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

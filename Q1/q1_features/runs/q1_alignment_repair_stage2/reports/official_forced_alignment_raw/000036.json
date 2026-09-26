@@ -1,0 +1,213 @@
+{
+  "sample_index": 36,
+  "sample_id": "-UuX1xuaiiE$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "I ended up going to work for the US government as an intelligence analyst, specializing in war crimes and human rights issues",
+  "duration": 8.1,
+  "word_count": 22,
+  "timed_word_count": 22,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "I",
+      "start": 0.573,
+      "end": 0.614,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "ended",
+      "start": 0.655,
+      "end": 0.818,
+      "score": 0.959,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "up",
+      "start": 0.859,
+      "end": 0.92,
+      "score": 0.923,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "going",
+      "start": 0.961,
+      "end": 1.145,
+      "score": 0.908,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "to",
+      "start": 1.186,
+      "end": 1.248,
+      "score": 0.957,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "work",
+      "start": 1.289,
+      "end": 1.493,
+      "score": 0.931,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "for",
+      "start": 1.595,
+      "end": 1.861,
+      "score": 0.915,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "the",
+      "start": 1.902,
+      "end": 1.964,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "US",
+      "start": 2.045,
+      "end": 2.25,
+      "score": 0.806,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "government",
+      "start": 2.311,
+      "end": 2.741,
+      "score": 0.876,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "as",
+      "start": 2.905,
+      "end": 3.007,
+      "score": 0.851,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "an",
+      "start": 3.048,
+      "end": 3.089,
+      "score": 0.976,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "intelligence",
+      "start": 3.13,
+      "end": 3.559,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "analyst,",
+      "start": 3.641,
+      "end": 4.97,
+      "score": 0.848,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "specializing",
+      "start": 5.114,
+      "end": 5.748,
+      "score": 0.989,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "in",
+      "start": 5.809,
+      "end": 6.034,
+      "score": 0.666,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "war",
+      "start": 6.055,
+      "end": 6.218,
+      "score": 0.95,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "crimes",
+      "start": 6.259,
+      "end": 6.525,
+      "score": 0.854,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "and",
+      "start": 6.566,
+      "end": 6.627,
+      "score": 0.33,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "human",
+      "start": 6.668,
+      "end": 6.852,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "rights",
+      "start": 6.873,
+      "end": 7.057,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "issues",
+      "start": 7.118,
+      "end": 7.466,
+      "score": 0.959,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

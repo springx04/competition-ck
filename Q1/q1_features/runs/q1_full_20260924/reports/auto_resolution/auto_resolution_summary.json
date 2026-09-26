@@ -1,0 +1,292 @@
+{
+  "candidate_only": true,
+  "production_write": false,
+  "partition": {
+    "identity_only": 28,
+    "identity_and_text_audio": 9,
+    "vision_no_face_and_text_audio": 4,
+    "text_audio_only_single_episode": 10
+  },
+  "whisperx_completion": {
+    "ok": 100,
+    "total": 100
+  },
+  "ta_alert_evidence_distribution": {
+    "TA_STRONG": 0,
+    "TA_SEMANTIC_ONLY": 4,
+    "TA_CONFLICT": 19
+  },
+  "original_paired_49_ta_distribution": {
+    "TA_STRONG": 47,
+    "TA_SEMANTIC_ONLY": 1,
+    "TA_CONFLICT": 1
+  },
+  "new_text_audio_risk_candidate_count": 2,
+  "new_text_audio_risk_candidate_ids": [
+    "-I_e4mIh0yE$_$3",
+    "-vxjVxOeScU$_$4"
+  ],
+  "identity_risk_cluster_distribution_0_60": {
+    "1": 15,
+    "2": 14,
+    "3": 3,
+    "4": 3,
+    "5": 1,
+    "9": 1
+  },
+  "vision_evidence_distribution_all_51": {
+    "V_UNCERTAIN": 27,
+    "V_PARTIAL": 8,
+    "V_MISSING": 4,
+    "V_STRONG": 12
+  },
+  "trimodal_candidate_distribution": {
+    "uncertain": 39,
+    "partial": 10,
+    "verified": 2
+  },
+  "group_trimodal_distribution": {
+    "identity_and_text_audio": {
+      "uncertain": 8,
+      "partial": 1
+    },
+    "identity_only": {
+      "uncertain": 19,
+      "partial": 7,
+      "verified": 2
+    },
+    "text_audio_only_single_episode": {
+      "partial": 2,
+      "uncertain": 8
+    },
+    "vision_no_face_and_text_audio": {
+      "uncertain": 4
+    }
+  },
+  "ctc_whisperx_median_midpoint_difference_s": {
+    "n": 89,
+    "median": 0.1940763888888888,
+    "p90": 0.30153878562071945
+  },
+  "av_sync": {
+    "real_n": 118,
+    "real_p25": 0.05156818786663622,
+    "real_median": 0.17854709119155487,
+    "real_p75": 0.31017727236535486,
+    "null_n": 3041,
+    "null_p25": 0.04348198548556362,
+    "null_median": 0.13994401633362205,
+    "null_p75": 0.2581033856662031,
+    "real_minus_null_median": 0.03860307485793282,
+    "empirical_percentile_median": 0.5769230769230769,
+    "empirical_percentile_ge_0_80": 38,
+    "empirical_percentile_ge_0_95": 17
+  },
+  "talknet": {
+    "status": "completed_with_explicit_short_episode_gaps",
+    "source_repository": "https://github.com/TaoRuijie/TalkNet-ASD",
+    "official_weight_name": "pretrain_TalkSet.model",
+    "official_google_drive_id": "1AbN9fCf9IexMxEKXLQY2KYBlb-IhSEea",
+    "weight_path": "/home/jqy/shumo/q1_features/models/auto_resolution/manual_upload/pretrain_TalkSet.model",
+    "weight_bytes": 63227827,
+    "weight_sha256": "d985ddd07dca08864a28337726f5b7d91b6426bebc7327f0e9b21cf9ff1cc937",
+    "checkpoint_structure_validation": {
+      "keys": 487,
+      "missing": 0,
+      "unexpected": 0,
+      "shape_mismatch": 0
+    },
+    "inference_executed": true,
+    "samples_in_manifest": 100,
+    "samples_with_openface_episodes": 96,
+    "samples_with_any_valid_logit": 96,
+    "episode_count": 191,
+    "ok_episode_count": 165,
+    "failed_episode_count": 26,
+    "frame_logit_count": 19067,
+    "threshold": "class-1 logit >= 0",
+    "failure_reasons": {
+      "ValueError: episode too short for synchronized MFCC and video": 24,
+      "IndexError: index 0 is out of bounds for axis 0 with size 0": 2
+    },
+    "candidate_only": true,
+    "production_write": false,
+    "note": "Official repository file ID; user-supplied checkpoint was hashed, structurally matched to the official 15.01M-parameter network, and executed. Short fragments without one synchronized TalkNet frame retain no fabricated score."
+  },
+  "talknet_episode_results": {
+    "total": 191,
+    "ok": 165,
+    "failed": 26,
+    "frames": 19067
+  },
+  "mfa": {
+    "status": "skipped_optional_high_cost",
+    "executed": false,
+    "reason": "No MFA executable, English acoustic model, or pronunciation dictionary is installed. Preparing an isolated MFA environment and locked models is materially costly; the user explicitly allows MFA to be skipped when preparation cost is high.",
+    "scope_if_resumed": "TA_CONFLICT plus original 23 text-audio alerts with clear CTC/WhisperX disagreement",
+    "production_ctc_replaced": false,
+    "safe_next_step": "Install a locked Montreal Forced Aligner environment and English acoustic/dictionary models, then run only the recorded conflict scope."
+  },
+  "word_aligned_validation": {
+    "ok": true,
+    "errors": [],
+    "path": "/home/jqy/shumo/q1_features/runs/q1_full_20260924/reports/auto_resolution/q1_word_aligned_candidate.npz",
+    "sample_count": 100,
+    "word_count": 1932,
+    "aligned_word_count": 1793,
+    "text_observed": 1932,
+    "audio_observed": 1793,
+    "vision_observed": 1070,
+    "arrays": {
+      "sample_indptr": {
+        "shape": [
+          101
+        ],
+        "dtype": "int64"
+      },
+      "sample_id": {
+        "shape": [
+          1932
+        ],
+        "dtype": "<U16"
+      },
+      "sample_index": {
+        "shape": [
+          1932
+        ],
+        "dtype": "int64"
+      },
+      "word_id": {
+        "shape": [
+          1932
+        ],
+        "dtype": "int64"
+      },
+      "raw_word": {
+        "shape": [
+          1932
+        ],
+        "dtype": "<U15"
+      },
+      "start": {
+        "shape": [
+          1932
+        ],
+        "dtype": "float64"
+      },
+      "end": {
+        "shape": [
+          1932
+        ],
+        "dtype": "float64"
+      },
+      "text": {
+        "shape": [
+          1932,
+          768
+        ],
+        "dtype": "float32"
+      },
+      "audio": {
+        "shape": [
+          1932,
+          25
+        ],
+        "dtype": "float32"
+      },
+      "vision": {
+        "shape": [
+          1932,
+          22
+        ],
+        "dtype": "float32"
+      },
+      "masks": {
+        "shape": [
+          1932,
+          4
+        ],
+        "dtype": "uint8"
+      },
+      "coverage": {
+        "shape": [
+          1932,
+          3
+        ],
+        "dtype": "float32"
+      },
+      "alignment_status": {
+        "shape": [
+          1932
+        ],
+        "dtype": "<U8"
+      },
+      "alignment_reason": {
+        "shape": [
+          1932
+        ],
+        "dtype": "<U43"
+      },
+      "audio_indptr": {
+        "shape": [
+          1933
+        ],
+        "dtype": "int64"
+      },
+      "audio_source_ids": {
+        "shape": [
+          58976
+        ],
+        "dtype": "int64"
+      },
+      "audio_source_sample_index": {
+        "shape": [
+          58976
+        ],
+        "dtype": "int64"
+      },
+      "audio_overlap_s": {
+        "shape": [
+          58976
+        ],
+        "dtype": "float64"
+      },
+      "audio_weights": {
+        "shape": [
+          58976
+        ],
+        "dtype": "float64"
+      },
+      "vision_indptr": {
+        "shape": [
+          1933
+        ],
+        "dtype": "int64"
+      },
+      "vision_source_ids": {
+        "shape": [
+          9492
+        ],
+        "dtype": "int64"
+      },
+      "vision_source_sample_index": {
+        "shape": [
+          9492
+        ],
+        "dtype": "int64"
+      },
+      "vision_overlap_s": {
+        "shape": [
+          9492
+        ],
+        "dtype": "float64"
+      },
+      "vision_weights": {
+        "shape": [
+          9492
+        ],
+        "dtype": "float64"
+      }
+    }
+  }
+}

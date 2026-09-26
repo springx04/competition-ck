@@ -1,0 +1,600 @@
+{
+  "sample_index": 37,
+  "sample_id": "-a55Q6RWvTA$_$3",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "And if you clip coupons, if you don't go out for dinner and movies and things of that nature and try to take up things in life that, well, they always say, \"the best things in life are free\". Reading a book, going for a nice walk, and, of course, combining exercise and various things of that nature where you're not spending money per se.",
+  "duration": 22.133333333333333,
+  "word_count": 65,
+  "timed_word_count": 65,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "And",
+      "start": 0.763,
+      "end": 0.903,
+      "score": 0.839,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "if",
+      "start": 0.923,
+      "end": 1.084,
+      "score": 0.346,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "you",
+      "start": 1.144,
+      "end": 1.365,
+      "score": 0.464,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "clip",
+      "start": 1.425,
+      "end": 1.706,
+      "score": 0.982,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "coupons,",
+      "start": 1.746,
+      "end": 2.589,
+      "score": 0.913,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "if",
+      "start": 2.689,
+      "end": 2.769,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "you",
+      "start": 2.809,
+      "end": 2.95,
+      "score": 0.98,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "don't",
+      "start": 3.05,
+      "end": 3.291,
+      "score": 0.927,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "go",
+      "start": 3.351,
+      "end": 3.472,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "out",
+      "start": 3.572,
+      "end": 3.692,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "for",
+      "start": 3.732,
+      "end": 3.873,
+      "score": 0.959,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "dinner",
+      "start": 3.933,
+      "end": 4.354,
+      "score": 0.82,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "and",
+      "start": 4.455,
+      "end": 4.555,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "movies",
+      "start": 4.675,
+      "end": 5.177,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "and",
+      "start": 5.237,
+      "end": 5.338,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "things",
+      "start": 5.378,
+      "end": 5.578,
+      "score": 0.918,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "of",
+      "start": 5.619,
+      "end": 5.659,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "that",
+      "start": 5.699,
+      "end": 5.839,
+      "score": 0.807,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "nature",
+      "start": 5.9,
+      "end": 6.341,
+      "score": 0.831,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "and",
+      "start": 6.963,
+      "end": 7.063,
+      "score": 0.971,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "try",
+      "start": 7.184,
+      "end": 7.364,
+      "score": 0.82,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "to",
+      "start": 7.384,
+      "end": 7.465,
+      "score": 0.752,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "take",
+      "start": 7.505,
+      "end": 7.706,
+      "score": 0.816,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "up",
+      "start": 7.766,
+      "end": 7.866,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "things",
+      "start": 7.966,
+      "end": 8.308,
+      "score": 0.868,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "in",
+      "start": 8.388,
+      "end": 8.468,
+      "score": 0.828,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "life",
+      "start": 8.548,
+      "end": 8.809,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "that,",
+      "start": 8.869,
+      "end": 9.05,
+      "score": 0.95,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "well,",
+      "start": 9.11,
+      "end": 9.391,
+      "score": 0.902,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "they",
+      "start": 9.491,
+      "end": 9.652,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "always",
+      "start": 9.692,
+      "end": 9.933,
+      "score": 0.838,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 31,
+      "raw_word": "say,",
+      "start": 9.973,
+      "end": 10.194,
+      "score": 0.992,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 32,
+      "raw_word": "\"the",
+      "start": 10.214,
+      "end": 10.334,
+      "score": 0.846,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 33,
+      "raw_word": "best",
+      "start": 10.374,
+      "end": 10.575,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 34,
+      "raw_word": "things",
+      "start": 10.615,
+      "end": 10.816,
+      "score": 0.918,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 35,
+      "raw_word": "in",
+      "start": 10.876,
+      "end": 10.936,
+      "score": 0.844,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 36,
+      "raw_word": "life",
+      "start": 10.996,
+      "end": 11.217,
+      "score": 0.752,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 37,
+      "raw_word": "are",
+      "start": 11.277,
+      "end": 11.378,
+      "score": 0.672,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 38,
+      "raw_word": "free\".",
+      "start": 11.438,
+      "end": 12.441,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 39,
+      "raw_word": "Reading",
+      "start": 12.461,
+      "end": 12.762,
+      "score": 0.798,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 40,
+      "raw_word": "a",
+      "start": 12.802,
+      "end": 12.843,
+      "score": 0.877,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 41,
+      "raw_word": "book,",
+      "start": 12.923,
+      "end": 14.207,
+      "score": 0.933,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 42,
+      "raw_word": "going",
+      "start": 14.428,
+      "end": 14.669,
+      "score": 0.908,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 43,
+      "raw_word": "for",
+      "start": 14.689,
+      "end": 14.809,
+      "score": 0.809,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 44,
+      "raw_word": "a",
+      "start": 14.829,
+      "end": 14.849,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 45,
+      "raw_word": "nice",
+      "start": 14.909,
+      "end": 15.13,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 46,
+      "raw_word": "walk,",
+      "start": 15.23,
+      "end": 15.552,
+      "score": 0.903,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 47,
+      "raw_word": "and,",
+      "start": 15.592,
+      "end": 15.672,
+      "score": 0.905,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 48,
+      "raw_word": "of",
+      "start": 15.692,
+      "end": 15.732,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 49,
+      "raw_word": "course,",
+      "start": 15.752,
+      "end": 15.973,
+      "score": 0.719,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 50,
+      "raw_word": "combining",
+      "start": 16.013,
+      "end": 16.575,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 51,
+      "raw_word": "exercise",
+      "start": 16.675,
+      "end": 17.257,
+      "score": 0.922,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 52,
+      "raw_word": "and",
+      "start": 17.297,
+      "end": 17.358,
+      "score": 0.968,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 53,
+      "raw_word": "various",
+      "start": 17.398,
+      "end": 17.699,
+      "score": 0.924,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 54,
+      "raw_word": "things",
+      "start": 17.719,
+      "end": 17.899,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 55,
+      "raw_word": "of",
+      "start": 17.939,
+      "end": 18.0,
+      "score": 0.742,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 56,
+      "raw_word": "that",
+      "start": 18.02,
+      "end": 18.16,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 57,
+      "raw_word": "nature",
+      "start": 18.22,
+      "end": 18.622,
+      "score": 0.94,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 58,
+      "raw_word": "where",
+      "start": 18.963,
+      "end": 19.103,
+      "score": 0.929,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 59,
+      "raw_word": "you're",
+      "start": 19.123,
+      "end": 19.304,
+      "score": 0.741,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 60,
+      "raw_word": "not",
+      "start": 19.344,
+      "end": 19.485,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 61,
+      "raw_word": "spending",
+      "start": 19.605,
+      "end": 20.107,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 62,
+      "raw_word": "money",
+      "start": 20.307,
+      "end": 20.668,
+      "score": 0.849,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 63,
+      "raw_word": "per",
+      "start": 20.889,
+      "end": 21.17,
+      "score": 0.809,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 64,
+      "raw_word": "se.",
+      "start": 21.25,
+      "end": 21.592,
+      "score": 0.877,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

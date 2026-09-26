@@ -1,0 +1,856 @@
+【Q1 Stage 3：剩余异常收敛、视觉连续性修复与最终候选方案】
+
+一、总体目标
+
+Stage 2 已完成：
+- 100/100 数据链审计通过；
+- semantic pairing 与 temporal alignment 已拆分；
+- official-text forced alignment 已完成；
+- 原23条音文风险已重新分类；
+- ArcFace + TalkNet 已实现局部视觉身份判定；
+- q1_word_aligned_repair_candidate.npz 和 q1_compact50_repair_candidate.npz 已生成并通过验证；
+- 正式基线未修改。
+
+Stage 3 不再追求“所有100条全部三模态有效”。
+
+本阶段只解决三个问题：
+
+1. 对4条 mapping_suspected 做独立自动核验，判断是否存在足够强的 clip 映射异常证据；
+2. 对视觉风险样本引入“TalkNet锁定目标身份 + ArcFace轨迹连续传播”，减少因为静音窗口导致的不必要视觉 mask；
+3. 重新定义最终状态统计，将 CONFLICT / MISSING 与真正 UNRESOLVED 分开，形成可以进入正式生产写回前审核的最终候选方案。
+
+本阶段仍然：
+- 不使用人工审核；
+- 不使用情感标签；
+- 不删除样本；
+- 不自动交换 clip；
+- 不为了提高覆盖率调最优阈值；
+- 不覆盖正式 Q1 产物；
+- 完成后停止并汇报结果。
+
+==================================================
+二、冻结 Stage 2 基线
+==================================================
+
+新建独立目录：
+
+runs/q1_alignment_repair_stage3/
+
+记录 Stage 2 关键文件 SHA256：
+
+- alignment_repair_status.csv
+- semantic_pairing_status.csv
+- official_text_forced_alignment.jsonl
+- vision_sample_summary.csv
+- vision_segment_candidates.csv
+- talknet_identity_timeline.csv
+- q1_word_aligned_repair_candidate.npz
+- q1_compact50_repair_candidate.npz
+- 正式 q1_compact50.npz
+- 正式 alignment / vision 配置
+
+输出：
+
+stage3_baseline_hashes.json
+
+本阶段结束后再次核对。
+
+==================================================
+三、先重新确认当前异常数量
+==================================================
+
+不要直接硬编码报告中的数量。
+
+从 Stage 2 CSV 自动统计：
+
+1. mapping_suspected 样本数；
+2. semantic：
+   MATCH_STRONG
+   MATCH_WEAK
+   CONFLICT
+   UNRESOLVED；
+3. temporal：
+   VERIFIED
+   PARTIAL
+   FAILED
+   NOT_APPLICABLE；
+4. 原37条视觉风险：
+   fully_verified
+   partially_verified
+   unresolved；
+5. no_face 数量。
+
+生成：
+
+stage3_input_state_summary.json
+
+如果与 Stage 2 报告存在明显不一致：
+停止并报告，不继续后续实验。
+
+==================================================
+四、专门处理4条 mapping_suspected
+==================================================
+
+目的不是自动交换 clip，而是回答：
+
+“是否存在足够强、独立且一致的证据证明当前官方文本更匹配同 video_id 的另一个 clip？”
+
+对每个 mapping_suspected 样本同时使用以下证据：
+
+A. Official ↔ WhisperX-ASR
+B. Official ↔ CTC diagnostic ASR
+C. WhisperX-ASR ↔ CTC-ASR
+D. 同 video_id 全部 clip 的文本匹配矩阵
+E. 全100条 global retrieval 排名
+F. 不同相似度指标：
+   - token F1
+   - 1-WER
+   - CER similarity
+   - character similarity
+
+禁止只依据单一相似度决定映射。
+
+==================================================
+五、增加“映射稳定性”判断
+==================================================
+
+对每个相关 video_id 分别构建多个相似度矩阵：
+
+S_whisper_token
+S_whisper_char
+S_ctc_token
+S_ctc_char
+
+分别运行 Hungarian matching。
+
+比较不同矩阵得到的 permutation。
+
+定义候选证据等级：
+
+MAPPING_STRONG：
+- 多种独立矩阵支持同一个 off-diagonal 映射；
+- WhisperX 与 CTC-ASR 都支持；
+- 原 diagonal 明显弱于候选；
+- global retrieval 不产生明显矛盾。
+
+MAPPING_WEAK：
+- 存在 off-diagonal 优势；
+- 但不同指标 / ASR 给出的最佳映射不完全一致。
+
+MAPPING_UNRESOLVED：
+- 各种匹配结果不稳定；
+- 或所有绝对文本相似度都较低。
+
+输出：
+
+mapping_validation_stage3.csv
+
+字段至少包含：
+
+sample_id
+video_id
+official_clip_id
+candidate_clip_id
+whisper_token_original_score
+whisper_token_candidate_score
+ctc_token_original_score
+ctc_token_candidate_score
+character_original_score
+character_candidate_score
+hungarian_whisper_candidate
+hungarian_ctc_candidate
+cross_metric_agreement
+global_true_rank
+global_candidate_rank
+mapping_status
+reason
+
+==================================================
+六、禁止自动交换4条clip
+==================================================
+
+即使得到 MAPPING_STRONG：
+
+也只能输出：
+
+proposed_mapping_correction.csv
+
+不得修改：
+
+- manifest
+- label-100.xlsx
+- 正式 sample_id
+- mp4 / wav 配对
+- 正式 alignment
+- 正式特征
+
+Stage 3 报告必须分别统计：
+
+MAPPING_STRONG
+MAPPING_WEAK
+MAPPING_UNRESOLVED
+
+如果不能形成稳定一致证据，则正式处理建议仍然保持：
+
+semantic conflict / unresolved
++
+对应跨模态位置 mask。
+
+==================================================
+七、视觉 Stage 3 的核心修改：TalkNet 只负责“锁定目标身份”
+==================================================
+
+当前问题：
+
+部分视频中人物身份已经可以通过 ArcFace 连续追踪，
+但 TalkNet 在静音、停顿、低语音活动窗口没有唯一 active identity，
+导致这些时间全部被 mask。
+
+这对于情感视觉特征过于保守。
+
+新的职责：
+
+ArcFace：
+- 判断是不是同一个人；
+- 负责 identity continuity。
+
+TalkNet：
+- 提供 active-speaker anchor；
+- 用于确认哪个 ArcFace identity 是目标说话者。
+
+AV-sync：
+- 继续只作为辅助证据；
+- 不作为硬否决条件。
+
+==================================================
+八、建立 TalkNet speaker anchor
+==================================================
+
+沿用 Stage 2：
+
+window = 0.5 s
+stride = 0.25 s
+
+TalkNet logit >= 0 作为 active evidence。
+
+但不要单窗口就永久锁定人物。
+
+对每个 identity cluster：
+
+统计：
+
+positive_window_count
+positive_duration
+median_positive_logit
+max_logit
+positive_window_fraction
+
+建立 speaker anchor。
+
+主规则固定：
+
+若某一连续时间段内：
+
+1. 同一 identity cluster 至少有连续/邻近的 TalkNet positive windows；
+2. 没有另一个 identity cluster 同时形成同等级 active evidence；
+
+则该 identity 可以成为该连续视觉轨迹段的：
+
+target_identity_anchor
+
+不要根据本数据搜索最优 logit 阈值；
+仍使用官方约定 logit >= 0。
+
+==================================================
+九、ArcFace身份连续传播
+==================================================
+
+这是 Stage 3 的重点。
+
+当某 identity 已被 TalkNet 锁定为 target_identity 后：
+
+即使后续某些窗口：
+
+TalkNet < 0
+或
+没有有效语音活动，
+
+只要满足：
+
+1. ArcFace identity 仍是同一个 target identity；
+2. OpenFace轨迹时间连续；
+3. 当前窗口没有身份跳转；
+4. 没有另一个身份出现明确 TalkNet active evidence；
+5. 当前目标脸仍具有有效 OpenFace 特征；
+
+则允许视觉身份沿轨迹传播：
+
+TalkNet anchor
+→ ArcFace identity continuity
+→ silent / pause visual window 保留
+
+不要要求每一个视觉窗口都必须“正在发声”。
+
+==================================================
+十、严格限制传播，避免错误身份扩散
+==================================================
+
+遇到以下任一情况立即停止传播：
+
+- target identity 不再可见；
+- ArcFace identity 发生跳变；
+- 出现新的 identity 且 TalkNet 明确支持其为 active speaker；
+- identity clustering 本身不稳定；
+- OpenFace confidence / success 无法满足原有效性要求；
+- 出现长时间轨迹断裂；
+- no-face。
+
+轨迹断裂传播主参数固定：
+
+max_identity_gap = 1.0 s
+
+只做敏感性分析：
+
+0.5 s
+1.0 s
+1.5 s
+
+主结果固定使用 1.0 s，
+禁止选择“coverage最高”的参数。
+
+==================================================
+十一、多人物同时出现时保持保守
+==================================================
+
+如果窗口中：
+
+- 多个 identity 同时可见；
+- TalkNet 无法唯一确定 active identity；
+- 且没有可以从前后 speaker anchor 连续推断的稳定目标身份；
+
+则：
+
+visual_status = ambiguous
+vision_mask = 0
+
+不得使用：
+
+- 最大脸；
+- 最中心脸；
+- 最长track；
+- face_id最小；
+- confidence最高；
+
+作为唯一目标人物选择依据。
+
+==================================================
+十二、重新生成视觉 segment 状态
+==================================================
+
+生成：
+
+vision_segment_stage3.csv
+
+每个时间窗至少保存：
+
+sample_id
+start
+end
+visible_identity_clusters
+talknet_active_clusters
+anchor_identity
+propagated_identity
+propagation_source_time
+arcface_continuity
+av_sync_flag
+segment_status
+
+segment_status：
+
+VERIFIED_ACTIVE
+VERIFIED_CONTINUITY
+AMBIGUOUS
+MISSING
+UNRESOLVED
+
+其中：
+
+VERIFIED_ACTIVE：
+TalkNet直接确认目标身份。
+
+VERIFIED_CONTINUITY：
+TalkNet没有直接确认当前窗口，
+但通过已锁定身份 + ArcFace轨迹连续性可靠传播。
+
+AMBIGUOUS：
+多身份无法可靠确定。
+
+MISSING：
+无有效人脸。
+
+UNRESOLVED：
+数据或身份链本身无法确定。
+
+==================================================
+十三、视觉状态重新统计
+==================================================
+
+不要只统计样本级状态。
+
+同时统计时间比例：
+
+direct_talknet_verified_fraction
+continuity_recovered_fraction
+ambiguous_fraction
+missing_fraction
+unresolved_fraction
+total_usable_visual_fraction
+
+重点针对原37条视觉风险输出：
+
+Stage2 usable fraction
+Stage3 usable fraction
+新增 continuity 恢复比例
+
+并分类：
+
+FULLY_VERIFIED
+PARTIALLY_VERIFIED
+AMBIGUOUS
+MISSING
+
+==================================================
+十四、不要把 no-active-speaker 自动等同于视觉无效
+==================================================
+
+新增测试保证：
+
+如果：
+
+- target identity 已经通过 TalkNet 在前后时间锁定；
+- 中间是短暂停顿；
+- ArcFace identity 连续；
+- 没有竞争身份；
+
+则中间静音窗口：
+
+vision_mask 必须允许 = 1。
+
+这项测试是 Stage 3 最关键测试之一。
+
+==================================================
+十五、重新定义最终“异常状态”
+==================================================
+
+当前报告不要再把以下全部统称为 unresolved：
+
+CONFLICT
+MISSING
+PARTIAL
+UNRESOLVED
+
+它们语义不同。
+
+最终增加：
+
+resolution_status：
+
+RESOLVED_VALID
+RESOLVED_PARTIAL
+RESOLVED_CONFLICT
+RESOLVED_MISSING
+UNRESOLVED
+
+解释：
+
+RESOLVED_VALID：
+证据足够，正常使用。
+
+RESOLVED_PARTIAL：
+部分时间/模态可靠，按mask使用。
+
+RESOLVED_CONFLICT：
+已经有充分证据确认跨模态语义冲突，
+处理方案明确为安全mask。
+这不是“算法没解决”。
+
+RESOLVED_MISSING：
+明确真实缺失，例如 no_face。
+处理方案明确为missing/mask。
+这也不是“算法没解决”。
+
+UNRESOLVED：
+证据之间仍然冲突，
+无法确定应该使用还是mask。
+
+==================================================
+十六、重新统计真正的未解决样本
+==================================================
+
+输出：
+
+final_resolution_status_stage3.csv
+
+每条至少包含：
+
+sample_id
+semantic_status
+temporal_status
+visual_status
+mapping_status
+resolution_status
+usable_text
+usable_audio_fraction
+usable_visual_fraction
+usable_trimodal_fraction
+reason
+
+最终报告必须区分：
+
+“有异常但处理方式已明确”
+
+和
+
+“真正无法确定如何处理”。
+
+不要再使用类似：
+
+38条存在未决状态
+
+这种把 CONFLICT / MISSING / ambiguous 全混在一起的口径。
+
+==================================================
+十七、生成 Stage 3 词级候选特征
+==================================================
+
+基于：
+
+Stage2 semantic/timing
++
+Stage3 visual continuity mask
+
+生成：
+
+q1_word_aligned_stage3_candidate.npz
+alignment_stage3_candidate.jsonl
+
+禁止修改 Stage 2 和正式产物。
+
+每个词继续保留：
+
+word
+start/end
+
+text[768]
+audio[25]
+vision[22]
+
+text_mask
+audio_mask
+vision_mask
+
+audio_coverage
+vision_coverage
+
+semantic_status
+temporal_status
+visual_status
+resolution_status
+
+audio_source_ids
+vision_source_ids
+reason
+
+规则：
+
+semantic CONFLICT：
+- text保留；
+- 不伪造word-audio关系；
+- audio mask=0。
+
+temporal PARTIAL：
+- 只保留可靠词时间。
+
+visual VERIFIED_ACTIVE / VERIFIED_CONTINUITY：
+- vision可用。
+
+visual AMBIGUOUS / MISSING / UNRESOLVED：
+- 对应位置vision mask=0。
+
+==================================================
+十八、生成 Stage 3 50-bin 候选
+==================================================
+
+生成：
+
+q1_compact50_stage3_candidate.npz
+
+并与：
+
+正式 baseline
+Stage2 candidate
+Stage3 candidate
+
+三者比较。
+
+统计：
+
+text coverage
+audio coverage
+vision coverage
+trimodal coverage
+
+分别报告：
+
+全100条
+原51条隔离
+原37条视觉风险
+原23条音文风险
+semantic conflict
+semantic unresolved
+mapping suspected
+
+==================================================
+十九、覆盖率不是唯一评价指标
+==================================================
+
+Stage 3 不允许把：
+
+“Stage3 coverage > Stage2 coverage”
+
+直接解释为方案更正确。
+
+必须同时报告：
+
+- continuity恢复的视觉时间；
+- 因竞争身份而新增mask的时间；
+- missing时间；
+- unresolved时间；
+- semantic conflict audio mask比例。
+
+核心原则：
+
+只允许通过明确身份连续性恢复视觉，
+禁止通过放松身份规则单纯提升coverage。
+
+==================================================
+二十、MFA本阶段默认不运行
+==================================================
+
+Stage 2 已经实现 official-text forced alignment。
+
+MFA只保留为可选第三层诊断。
+
+本阶段不因为：
+PARTIAL
+NOT_APPLICABLE
+CONFLICT
+
+而大规模运行MFA。
+
+只有发现：
+
+semantic=MATCH_STRONG
+且
+两套时间结果严重冲突
+且
+该样本会影响最终产物
+
+才记录：
+
+mfa_recommended=true
+
+本阶段无需因此阻塞。
+
+==================================================
+二十一、必须新增回归测试
+==================================================
+
+至少新增：
+
+1.
+TalkNet已经锁定目标identity，
+短暂停顿期间ArcFace identity连续，
+则视觉不能因为TalkNet<0直接全部mask。
+
+2.
+出现竞争active identity时，
+身份传播必须停止。
+
+3.
+ArcFace identity跳变时，
+传播必须停止。
+
+4.
+no-face永远保持MISSING。
+
+5.
+传播不能跨越超过max_identity_gap的轨迹断裂。
+
+6.
+MAPPING_STRONG也不能自动修改clip映射。
+
+7.
+semantic CONFLICT必须保持audio mask。
+
+8.
+RESOLVED_CONFLICT不能被统计成UNRESOLVED。
+
+9.
+RESOLVED_MISSING不能被统计成UNRESOLVED。
+
+10.
+正式baseline所有hash必须保持不变。
+
+11.
+Stage2候选文件不得被覆盖。
+
+12.
+Stage3候选source_id必须可以追踪回原始OpenFace/audio来源。
+
+==================================================
+二十二、Stage 3 最终报告
+==================================================
+
+生成：
+
+Q1_ALIGNMENT_REPAIR_STAGE3_REPORT.md
+
+必须回答：
+
+A. 4条mapping suspected：
+
+每条最终：
+MAPPING_STRONG
+MAPPING_WEAK
+MAPPING_UNRESOLVED
+
+分别是什么。
+
+不同ASR、不同相似度指标和Hungarian结果是否一致。
+
+禁止只给最终标签，要列核心证据。
+
+B. 原37条视觉风险：
+
+Stage2：
+fully / partial / unresolved
+
+Stage3：
+fully / partial / ambiguous / missing / unresolved
+
+以及：
+
+TalkNet直接确认视觉时长比例
+continuity新增恢复比例
+ambiguous比例
+missing比例
+
+C. 最终状态：
+
+RESOLVED_VALID
+RESOLVED_PARTIAL
+RESOLVED_CONFLICT
+RESOLVED_MISSING
+UNRESOLVED
+
+各多少条。
+
+必须给真正UNRESOLVED的sample_id和原因。
+
+D. Coverage：
+
+Baseline
+Stage2
+Stage3
+
+三者对比。
+
+特别给：
+
+vision coverage
+trimodal coverage
+
+但明确：
+coverage只是可用性指标，不是准确率。
+
+E. 工程验证：
+
+pytest
+pip check
+candidate validation
+source mapping validation
+baseline hash verification
+
+==================================================
+二十三、额外生成“生产写回建议”，但禁止执行
+==================================================
+
+生成：
+
+production_writeback_proposal_stage3.csv
+
+每条列：
+
+sample_id
+recommended_semantic_status
+recommended_temporal_status
+recommended_visual_segments
+recommended_masks
+recommended_resolution_status
+writeback_recommended
+reason
+
+其中：
+
+writeback_recommended=true
+
+只代表：
+
+“当前自动证据足够形成生产候选”
+
+不代表允许本阶段执行写回。
+
+禁止修改：
+
+alignment_review.csv
+target_face_segments.csv
+正式 q1_compact50.npz
+正式 q1 word features
+manifest
+原始数据
+
+==================================================
+二十四、Stage 3 停止条件
+==================================================
+
+满足以下条件后停止：
+
+1. 4条mapping suspected完成多证据稳定性验证；
+2. 没有自动交换任何clip；
+3. TalkNet anchor + ArcFace continuity 已实现；
+4. 静音但身份连续的视觉区间可局部恢复；
+5. 多身份冲突仍然安全mask；
+6. no-face仍保持missing；
+7. 最终状态已区分VALID/PARTIAL/CONFLICT/MISSING/UNRESOLVED；
+8. 真正UNRESOLVED数量及原因已明确；
+9. q1_word_aligned_stage3_candidate.npz验证通过；
+10. q1_compact50_stage3_candidate.npz验证通过；
+11. source mapping验证通过；
+12. 全部测试通过；
+13. 正式基线hash完全不变；
+14. 未执行正式生产写回。
+
+完成以后停止并只向我汇报：
+
+1. 4条mapping suspected逐条结论；
+2. Stage2→Stage3视觉状态变化；
+3. continuity恢复了多少视觉时长；
+4. 原37条视觉风险最终full/partial/unresolved数量；
+5. RESOLVED_VALID / PARTIAL / CONFLICT / MISSING / UNRESOLVED数量；
+6. 真正仍UNRESOLVED的sample_id和原因；
+7. Baseline / Stage2 / Stage3 coverage对比；
+8. pytest与全部validation结果；
+9. production_writeback_proposal_stage3.csv是否成功生成。
+
+不要自动执行正式写回。

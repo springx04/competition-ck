@@ -1,0 +1,96 @@
+{
+  "sample_index": 35,
+  "sample_id": "-UuX1xuaiiE$_$3",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "My goal is to become a human rights lawyer",
+  "duration": 4.1,
+  "word_count": 9,
+  "timed_word_count": 9,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "My",
+      "start": 0.571,
+      "end": 0.673,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "goal",
+      "start": 0.714,
+      "end": 1.02,
+      "score": 0.859,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "is",
+      "start": 1.244,
+      "end": 1.367,
+      "score": 0.854,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "to",
+      "start": 1.469,
+      "end": 1.693,
+      "score": 0.937,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "become",
+      "start": 1.754,
+      "end": 2.101,
+      "score": 0.958,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "a",
+      "start": 2.652,
+      "end": 2.693,
+      "score": 0.978,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "human",
+      "start": 2.754,
+      "end": 2.978,
+      "score": 0.903,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "rights",
+      "start": 2.999,
+      "end": 3.243,
+      "score": 0.741,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "lawyer",
+      "start": 3.325,
+      "end": 3.59,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

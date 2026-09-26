@@ -1,0 +1,213 @@
+{
+  "sample_index": 48,
+  "sample_id": "-egA8-b7-3M$_$18",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "It becomes easier at each one of these conferences to connect with people that you've met or that you're doing business with.",
+  "duration": 8.366666666666667,
+  "word_count": 22,
+  "timed_word_count": 22,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "It",
+      "start": 0.587,
+      "end": 0.669,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "becomes",
+      "start": 0.709,
+      "end": 1.134,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "easier",
+      "start": 1.398,
+      "end": 1.844,
+      "score": 0.848,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "at",
+      "start": 1.985,
+      "end": 2.066,
+      "score": 0.85,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "each",
+      "start": 2.188,
+      "end": 2.35,
+      "score": 0.836,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "one",
+      "start": 2.512,
+      "end": 2.613,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "of",
+      "start": 2.654,
+      "end": 2.694,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "these",
+      "start": 2.735,
+      "end": 2.897,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "conferences",
+      "start": 2.958,
+      "end": 3.606,
+      "score": 0.979,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "to",
+      "start": 4.153,
+      "end": 4.254,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "connect",
+      "start": 4.315,
+      "end": 4.659,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "with",
+      "start": 4.72,
+      "end": 4.862,
+      "score": 0.904,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "people",
+      "start": 4.923,
+      "end": 5.267,
+      "score": 0.944,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "that",
+      "start": 5.308,
+      "end": 5.409,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "you've",
+      "start": 5.449,
+      "end": 5.672,
+      "score": 0.881,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "met",
+      "start": 5.753,
+      "end": 5.976,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "or",
+      "start": 6.523,
+      "end": 6.604,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "that",
+      "start": 6.645,
+      "end": 6.746,
+      "score": 0.986,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "you're",
+      "start": 6.766,
+      "end": 6.969,
+      "score": 0.881,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "doing",
+      "start": 6.989,
+      "end": 7.212,
+      "score": 0.9,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "business",
+      "start": 7.252,
+      "end": 7.658,
+      "score": 0.903,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "with.",
+      "start": 7.718,
+      "end": 7.941,
+      "score": 0.898,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

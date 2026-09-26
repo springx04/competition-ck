@@ -1,0 +1,11 @@
+{
+  "status": "not_run_optional",
+  "reason": "Only frozen-rule MATCH_STRONG plus PARTIAL cases with midpoint P90 > 0.60s are recommended; MFA remains an optional third-layer diagnostic",
+  "mfa_recommended_sample_ids": [
+    "-I_e4mIh0yE$_$3",
+    "-aqamKhZ1Ec$_$0",
+    "-yRb-Jum7EQ$_$6"
+  ],
+  "mfa_recommended_count": 3,
+  "production_alignment_replaced": false
+}

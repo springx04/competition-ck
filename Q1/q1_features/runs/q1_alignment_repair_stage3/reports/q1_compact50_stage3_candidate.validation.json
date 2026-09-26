@@ -1,0 +1,136 @@
+{
+  "ok": true,
+  "errors": [],
+  "path": "/home/jqy/shumo/q1_features/runs/q1_alignment_repair_stage3/reports/q1_compact50_stage3_candidate.npz",
+  "sample_count": 100,
+  "formal_paired_use_count": 49,
+  "stage2_candidate_paired_use_count": 68,
+  "stage3_candidate_paired_use_count": 68,
+  "text_unchanged_from_stage2": true,
+  "audio_unchanged_from_stage2": true,
+  "arrays": {
+    "text": {
+      "shape": [
+        100,
+        50,
+        768
+      ],
+      "dtype": "float32"
+    },
+    "audio": {
+      "shape": [
+        100,
+        50,
+        25
+      ],
+      "dtype": "float32"
+    },
+    "vision": {
+      "shape": [
+        100,
+        50,
+        22
+      ],
+      "dtype": "float32"
+    },
+    "valid_mask": {
+      "shape": [
+        100,
+        50
+      ],
+      "dtype": "uint8"
+    },
+    "observed_mask": {
+      "shape": [
+        100,
+        50,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    "perturb_mask": {
+      "shape": [
+        100,
+        50,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    "coverage": {
+      "shape": [
+        100,
+        50,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "time_intervals": {
+      "shape": [
+        100,
+        50,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "duration": {
+      "shape": [
+        100
+      ],
+      "dtype": "float64"
+    },
+    "valid_length": {
+      "shape": [
+        100
+      ],
+      "dtype": "int64"
+    },
+    "sample_index": {
+      "shape": [
+        100
+      ],
+      "dtype": "int64"
+    },
+    "formal_paired_use": {
+      "shape": [
+        100
+      ],
+      "dtype": "uint8"
+    },
+    "semantic_status": {
+      "shape": [
+        100
+      ],
+      "dtype": "<U12"
+    },
+    "temporal_status": {
+      "shape": [
+        100
+      ],
+      "dtype": "<U14"
+    },
+    "stage2_candidate_paired_use": {
+      "shape": [
+        100
+      ],
+      "dtype": "uint8"
+    },
+    "stage3_candidate_paired_use": {
+      "shape": [
+        100
+      ],
+      "dtype": "uint8"
+    },
+    "visual_status": {
+      "shape": [
+        100
+      ],
+      "dtype": "<U18"
+    },
+    "resolution_status": {
+      "shape": [
+        100
+      ],
+      "dtype": "<U17"
+    }
+  }
+}

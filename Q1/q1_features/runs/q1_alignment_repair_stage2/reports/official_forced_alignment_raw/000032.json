@@ -1,0 +1,141 @@
+{
+  "sample_index": 32,
+  "sample_id": "-UacrmKiTn4$_$4",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Just given to their own devices they are not going to read the textbook.",
+  "duration": 4.733333333333333,
+  "word_count": 14,
+  "timed_word_count": 14,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Just",
+      "start": 0.528,
+      "end": 0.731,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "given",
+      "start": 0.772,
+      "end": 0.995,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "to",
+      "start": 1.036,
+      "end": 1.117,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "their",
+      "start": 1.158,
+      "end": 1.3,
+      "score": 0.914,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "own",
+      "start": 1.402,
+      "end": 1.524,
+      "score": 0.89,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "devices",
+      "start": 1.564,
+      "end": 2.133,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "they",
+      "start": 2.214,
+      "end": 2.336,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "are",
+      "start": 2.397,
+      "end": 2.478,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "not",
+      "start": 2.56,
+      "end": 2.722,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "going",
+      "start": 2.803,
+      "end": 3.068,
+      "score": 0.901,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "to",
+      "start": 3.108,
+      "end": 3.189,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "read",
+      "start": 3.25,
+      "end": 3.454,
+      "score": 0.938,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "the",
+      "start": 3.494,
+      "end": 3.575,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "textbook.",
+      "start": 3.616,
+      "end": 4.205,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

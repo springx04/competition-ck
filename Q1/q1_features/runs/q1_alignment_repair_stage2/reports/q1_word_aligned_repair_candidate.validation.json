@@ -1,0 +1,199 @@
+{
+  "ok": true,
+  "errors": [],
+  "path": "/home/jqy/shumo/q1_features/runs/q1_alignment_repair_stage2/reports/q1_word_aligned_repair_candidate.npz",
+  "sample_count": 100,
+  "word_count": 1932,
+  "timed_word_count": 1700,
+  "text_observed": 1932,
+  "audio_observed": 1700,
+  "vision_observed": 1351,
+  "raw_vision_source_rows": 7657,
+  "identity_vision_source_references": 2006,
+  "arrays": {
+    "sample_indptr": {
+      "shape": [
+        101
+      ],
+      "dtype": "int64"
+    },
+    "sample_id": {
+      "shape": [
+        1932
+      ],
+      "dtype": "<U16"
+    },
+    "sample_index": {
+      "shape": [
+        1932
+      ],
+      "dtype": "int64"
+    },
+    "word_id": {
+      "shape": [
+        1932
+      ],
+      "dtype": "int64"
+    },
+    "raw_word": {
+      "shape": [
+        1932
+      ],
+      "dtype": "<U15"
+    },
+    "start": {
+      "shape": [
+        1932
+      ],
+      "dtype": "float64"
+    },
+    "end": {
+      "shape": [
+        1932
+      ],
+      "dtype": "float64"
+    },
+    "text": {
+      "shape": [
+        1932,
+        768
+      ],
+      "dtype": "float32"
+    },
+    "audio": {
+      "shape": [
+        1932,
+        25
+      ],
+      "dtype": "float32"
+    },
+    "vision": {
+      "shape": [
+        1932,
+        22
+      ],
+      "dtype": "float32"
+    },
+    "text_mask": {
+      "shape": [
+        1932
+      ],
+      "dtype": "uint8"
+    },
+    "audio_mask": {
+      "shape": [
+        1932
+      ],
+      "dtype": "uint8"
+    },
+    "vision_mask": {
+      "shape": [
+        1932
+      ],
+      "dtype": "uint8"
+    },
+    "masks": {
+      "shape": [
+        1932,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    "audio_coverage": {
+      "shape": [
+        1932
+      ],
+      "dtype": "float32"
+    },
+    "vision_coverage": {
+      "shape": [
+        1932
+      ],
+      "dtype": "float32"
+    },
+    "semantic_status": {
+      "shape": [
+        1932
+      ],
+      "dtype": "<U12"
+    },
+    "temporal_status": {
+      "shape": [
+        1932
+      ],
+      "dtype": "<U14"
+    },
+    "visual_status": {
+      "shape": [
+        1932
+      ],
+      "dtype": "<U10"
+    },
+    "reason": {
+      "shape": [
+        1932
+      ],
+      "dtype": "<U56"
+    },
+    "audio_indptr": {
+      "shape": [
+        1933
+      ],
+      "dtype": "int64"
+    },
+    "audio_source_ids": {
+      "shape": [
+        44683
+      ],
+      "dtype": "int64"
+    },
+    "audio_source_sample_index": {
+      "shape": [
+        44683
+      ],
+      "dtype": "int64"
+    },
+    "audio_overlap_s": {
+      "shape": [
+        44683
+      ],
+      "dtype": "float64"
+    },
+    "audio_weights": {
+      "shape": [
+        44683
+      ],
+      "dtype": "float64"
+    },
+    "vision_indptr": {
+      "shape": [
+        1933
+      ],
+      "dtype": "int64"
+    },
+    "vision_source_ids": {
+      "shape": [
+        9181
+      ],
+      "dtype": "int64"
+    },
+    "vision_source_sample_index": {
+      "shape": [
+        9181
+      ],
+      "dtype": "int64"
+    },
+    "vision_overlap_s": {
+      "shape": [
+        9181
+      ],
+      "dtype": "float64"
+    },
+    "vision_weights": {
+      "shape": [
+        9181
+      ],
+      "dtype": "float64"
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "sample_index": 60,
+  "sample_id": "-lzEya4AM_4$_$5",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "If it falls into oh any of those three categories, inducing nausea and vomiting would be your next step.",
+  "duration": 7.666666666666666,
+  "word_count": 19,
+  "timed_word_count": 19,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "If",
+      "start": 0.527,
+      "end": 0.608,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "it",
+      "start": 0.669,
+      "end": 0.71,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "falls",
+      "start": 0.771,
+      "end": 1.014,
+      "score": 0.958,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "into",
+      "start": 1.095,
+      "end": 1.298,
+      "score": 0.98,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "oh",
+      "start": 1.318,
+      "end": 1.46,
+      "score": 0.416,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "any",
+      "start": 1.643,
+      "end": 1.785,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "of",
+      "start": 1.825,
+      "end": 1.886,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "those",
+      "start": 1.927,
+      "end": 2.109,
+      "score": 0.9,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "three",
+      "start": 2.13,
+      "end": 2.312,
+      "score": 0.844,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "categories,",
+      "start": 2.353,
+      "end": 2.921,
+      "score": 0.99,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "inducing",
+      "start": 3.712,
+      "end": 4.3,
+      "score": 0.941,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "nausea",
+      "start": 5.131,
+      "end": 5.537,
+      "score": 0.96,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "and",
+      "start": 5.557,
+      "end": 5.638,
+      "score": 0.899,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "vomiting",
+      "start": 5.679,
+      "end": 6.085,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "would",
+      "start": 6.308,
+      "end": 6.47,
+      "score": 0.888,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "be",
+      "start": 6.49,
+      "end": 6.551,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "your",
+      "start": 6.592,
+      "end": 6.693,
+      "score": 0.979,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "next",
+      "start": 6.734,
+      "end": 6.896,
+      "score": 0.972,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "step.",
+      "start": 6.916,
+      "end": 7.16,
+      "score": 0.892,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,96 @@
+{
+  "sample_index": 57,
+  "sample_id": "-iRBcNs9oI8$_$7",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Well, for starters, let's look at the word \"power\"",
+  "duration": 4.070733333333334,
+  "word_count": 9,
+  "timed_word_count": 9,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Well,",
+      "start": 0.041,
+      "end": 0.244,
+      "score": 0.73,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "for",
+      "start": 0.265,
+      "end": 0.407,
+      "score": 0.445,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "starters,",
+      "start": 0.427,
+      "end": 1.811,
+      "score": 0.777,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "let's",
+      "start": 1.852,
+      "end": 2.483,
+      "score": 0.791,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "look",
+      "start": 2.504,
+      "end": 2.605,
+      "score": 0.375,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "at",
+      "start": 2.687,
+      "end": 2.911,
+      "score": 0.65,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "the",
+      "start": 2.931,
+      "end": 3.175,
+      "score": 0.707,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "word",
+      "start": 3.236,
+      "end": 3.379,
+      "score": 0.542,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "\"power\"",
+      "start": 3.643,
+      "end": 4.05,
+      "score": 0.521,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

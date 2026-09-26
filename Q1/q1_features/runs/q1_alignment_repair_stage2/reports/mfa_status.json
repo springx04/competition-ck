@@ -1,0 +1,15 @@
+{
+  "status": "unavailable_optional_fallback",
+  "reason": "No locked MFA environment, English acoustic model, and dictionary are installed; Stage 2 official-text alignment completed and MFA remains non-blocking.",
+  "eligible_sample_ids": [
+    "-AUZQgSxyPQ$_$2",
+    "-HeZS2-Prhc$_$2",
+    "-I_e4mIh0yE$_$3",
+    "-aqamKhZ1Ec$_$0",
+    "-egA8-b7-3M$_$17",
+    "-mqbVkbCndg$_$0",
+    "-s9qJ7ATP7w$_$5",
+    "-yRb-Jum7EQ$_$6"
+  ],
+  "production_ctc_replaced": false
+}

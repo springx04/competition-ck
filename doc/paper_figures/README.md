@@ -1,6 +1,6 @@
 # 论文数据图与可复算材料
 
-本目录包含 **68组数据图**，每组同时提供220 dpi PNG、矢量PDF和可编辑SVG，以及对应CSV。全部来自保存的实际结果，不生成流程图或方法主图。
+本目录包含 **80组数据图**，每组同时提供220 dpi PNG、矢量PDF和可编辑SVG，以及对应CSV。全部来自保存的实际结果，不生成流程图或方法主图。
 
 打开 [图册](index.html) 可按问题筛选和查看大图；论文排版优先使用PDF，修改标签使用SVG。图内使用简短英文，以下提供中文图意与可用结论。
 
@@ -15,80 +15,92 @@
 
 ## 建议论文选图
 
-正文优先：Q1_02、Q1_03；Q2_01、Q2_04、Q2_06、Q2_07、Q2_12、Q2_14；Q3_01、Q3_02、Q3_06、Q3_10，以及01/14/18号局部解释。其余图用于补充实验和错误归因；不要将几十张图全部挤入正文。
+正文优先：Q1_02、Q1_03、Q1_11、Q1_13、Q1_15；Q2_01、Q2_04、Q2_06、Q2_07、Q2_12、Q2_14；Q3_01、Q3_02、Q3_06、Q3_10，以及01/14/18号局部解释。其余图用于补充实验和错误归因；不要将几十张图全部挤入正文。
 
 ## 图表清单
 
 | 图号 | 内容 | 数据行数 | 图与数据 |
 |---|---|---:|---|
-| Q1_01_duration | 原始样本长度与可配对状态 | 100 | [PNG](figures/Q1_01_duration.png) · [PDF](figures/Q1_01_duration.pdf) · [SVG](figures/Q1_01_duration.svg) · [CSV](data/Q1_01_duration.csv) |
-| Q1_02_coverage | 文本定位与视觉有效覆盖率 | 100 | [PNG](figures/Q1_02_coverage.png) · [PDF](figures/Q1_02_coverage.pdf) · [SVG](figures/Q1_02_coverage.svg) · [CSV](data/Q1_02_coverage.csv) |
-| Q1_03_clock | 声画时钟起点与终点差异 | 100 | [PNG](figures/Q1_03_clock.png) · [PDF](figures/Q1_03_clock.pdf) · [SVG](figures/Q1_03_clock.svg) · [CSV](data/Q1_03_clock.csv) |
-| Q1_04_quality_rank | 逐样本质量差异与视觉片段数 | 100 | [PNG](figures/Q1_04_quality_rank.png) · [PDF](figures/Q1_04_quality_rank.pdf) · [SVG](figures/Q1_04_quality_rank.svg) · [CSV](data/Q1_04_quality_rank.csv) |
-| Q1_05_problem_partition | 自动补查样本的问题分区 | 4 | [PNG](figures/Q1_05_problem_partition.png) · [PDF](figures/Q1_05_problem_partition.pdf) · [SVG](figures/Q1_05_problem_partition.svg) · [CSV](data/Q1_05_problem_partition.csv) |
-| Q1_06_identity_similarity | 人脸片段身份相似度与嵌入离散程度 | 236 | [PNG](figures/Q1_06_identity_similarity.png) · [PDF](figures/Q1_06_identity_similarity.pdf) · [SVG](figures/Q1_06_identity_similarity.svg) · [CSV](data/Q1_06_identity_similarity.csv) |
-| Q1_07_sync_null | 视听同步得分与错位随机参照 | 137 | [PNG](figures/Q1_07_sync_null.png) · [PDF](figures/Q1_07_sync_null.pdf) · [SVG](figures/Q1_07_sync_null.svg) · [CSV](data/Q1_07_sync_null.csv) |
-| Q1_08_identity_quality | 身份嵌入的成功数量与稳定性 | 191 | [PNG](figures/Q1_08_identity_quality.png) · [PDF](figures/Q1_08_identity_quality.pdf) · [SVG](figures/Q1_08_identity_quality.svg) · [CSV](data/Q1_08_identity_quality.csv) |
-| Q1_09_word_alignment | 逐词CTC分数与接受区间时长 | 1932 | [PNG](figures/Q1_09_word_alignment.png) · [PDF](figures/Q1_09_word_alignment.pdf) · [SVG](figures/Q1_09_word_alignment.svg) · [CSV](data/Q1_09_word_alignment.csv) |
-| Q1_10_transcription_errors | 转写误差类型分解 | 300 | [PNG](figures/Q1_10_transcription_errors.png) · [PDF](figures/Q1_10_transcription_errors.pdf) · [SVG](figures/Q1_10_transcription_errors.svg) · [CSV](data/Q1_10_transcription_errors.csv) |
-| Q2_01_training | 最终模型训练损失与验证曲线 | 20 | [PNG](figures/Q2_01_training.png) · [PDF](figures/Q2_01_training.pdf) · [SVG](figures/Q2_01_training.svg) · [CSV](data/Q2_01_training.csv) |
-| Q2_02_seed_training | 固定结构三种子训练波动 | 60 | [PNG](figures/Q2_02_seed_training.png) · [PDF](figures/Q2_02_seed_training.pdf) · [SVG](figures/Q2_02_seed_training.svg) · [CSV](data/Q2_02_seed_training.csv) |
-| Q2_03_schedule | 学习率与延长训练的验证表现 | 80 | [PNG](figures/Q2_03_schedule.png) · [PDF](figures/Q2_03_schedule.pdf) · [SVG](figures/Q2_03_schedule.svg) · [CSV](data/Q2_03_schedule.csv) |
-| Q2_04_ablations | 最终结构的三个直接消融 | 8 | [PNG](figures/Q2_04_ablations.png) · [PDF](figures/Q2_04_ablations.pdf) · [SVG](figures/Q2_04_ablations.svg) · [CSV](data/Q2_04_ablations.csv) |
-| Q2_05_exploration | 保存的无偏置探索结果全景 | 54 | [PNG](figures/Q2_05_exploration.png) · [PDF](figures/Q2_05_exploration.pdf) · [SVG](figures/Q2_05_exploration.svg) · [CSV](data/Q2_05_exploration.csv) |
-| Q2_06_grid | 验证与测试72场景完整热图 | 144 | [PNG](figures/Q2_06_grid.png) · [PDF](figures/Q2_06_grid.pdf) · [SVG](figures/Q2_06_grid.svg) · [CSV](data/Q2_06_grid.csv) |
-| Q2_07_robustness | 按模态分解的缺失强度曲线 | 48 | [PNG](figures/Q2_07_robustness.png) · [PDF](figures/Q2_07_robustness.pdf) · [SVG](figures/Q2_07_robustness.svg) · [CSV](data/Q2_07_robustness.csv) |
-| Q2_08_positions | 缺失位置对分类和回归的影响 | 24 | [PNG](figures/Q2_08_positions.png) · [PDF](figures/Q2_08_positions.pdf) · [SVG](figures/Q2_08_positions.svg) · [CSV](data/Q2_08_positions.csv) |
-| Q2_09_actual_deletion | 名义缺失跨度与真实删除率 | 72 | [PNG](figures/Q2_09_actual_deletion.png) · [PDF](figures/Q2_09_actual_deletion.pdf) · [SVG](figures/Q2_09_actual_deletion.svg) · [CSV](data/Q2_09_actual_deletion.csv) |
-| Q2_10_paired_conditions | 共同受损样本上的配对条件比较 | 216 | [PNG](figures/Q2_10_paired_conditions.png) · [PDF](figures/Q2_10_paired_conditions.pdf) · [SVG](figures/Q2_10_paired_conditions.svg) · [CSV](data/Q2_10_paired_conditions.csv) |
-| Q2_11_stress | 整模态与多模态压力场景 | 16 | [PNG](figures/Q2_11_stress.png) · [PDF](figures/Q2_11_stress.pdf) · [SVG](figures/Q2_11_stress.svg) · [CSV](data/Q2_11_stress.csv) |
-| Q2_12_class_metrics | 验证与测试类别瓶颈 | 6 | [PNG](figures/Q2_12_class_metrics.png) · [PDF](figures/Q2_12_class_metrics.pdf) · [SVG](figures/Q2_12_class_metrics.svg) · [CSV](data/Q2_12_class_metrics.csv) |
-| Q2_13_error_distribution | 回归残差小提琴与绝对误差分布 | 727 | [PNG](figures/Q2_13_error_distribution.png) · [PDF](figures/Q2_13_error_distribution.pdf) · [SVG](figures/Q2_13_error_distribution.svg) · [CSV](data/Q2_13_error_distribution.csv) |
-| Q2_14_prediction_diagnostics | 测试混淆矩阵与回归密度 | 727 | [PNG](figures/Q2_14_prediction_diagnostics.png) · [PDF](figures/Q2_14_prediction_diagnostics.pdf) · [SVG](figures/Q2_14_prediction_diagnostics.svg) · [CSV](data/Q2_14_prediction_diagnostics.csv) |
-| Q2_15_special_availability | 附件3全部样本的当前可观测状态 | 30 | [PNG](figures/Q2_15_special_availability.png) · [PDF](figures/Q2_15_special_availability.pdf) · [SVG](figures/Q2_15_special_availability.svg) · [CSV](data/Q2_15_special_availability.csv) |
-| Q2_16_valid_diagnostics | 验证集真实重载的混淆与回归密度 | 728 | [PNG](figures/Q2_16_valid_diagnostics.png) · [PDF](figures/Q2_16_valid_diagnostics.pdf) · [SVG](figures/Q2_16_valid_diagnostics.svg) · [CSV](data/Q2_16_valid_diagnostics.csv) |
-| Q2_17_valid_residuals | 验证集分情感类别残差与误差分布 | 728 | [PNG](figures/Q2_17_valid_residuals.png) · [PDF](figures/Q2_17_valid_residuals.pdf) · [SVG](figures/Q2_17_valid_residuals.svg) · [CSV](data/Q2_17_valid_residuals.csv) |
-| Q2_18_valid_confidence | 验证集置信度与错误关系 | 728 | [PNG](figures/Q2_18_valid_confidence.png) · [PDF](figures/Q2_18_valid_confidence.pdf) · [SVG](figures/Q2_18_valid_confidence.svg) · [CSV](data/Q2_18_valid_confidence.csv) |
-| Q2_19_valid_groups | 验证集按有效文本长度分层 | 4 | [PNG](figures/Q2_19_valid_groups.png) · [PDF](figures/Q2_19_valid_groups.pdf) · [SVG](figures/Q2_19_valid_groups.svg) · [CSV](data/Q2_19_valid_groups.csv) |
-| Q3_01_faithfulness | 三预算忠实性增益与视频簇区间 | 12 | [PNG](figures/Q3_01_faithfulness.png) · [PDF](figures/Q3_01_faithfulness.pdf) · [SVG](figures/Q3_01_faithfulness.svg) · [CSV](data/Q3_01_faithfulness.csv) |
-| Q3_02_gain_violin | 20%预算逐样本忠实性增益分布 | 2868 | [PNG](figures/Q3_02_gain_violin.png) · [PDF](figures/Q3_02_gain_violin.pdf) · [SVG](figures/Q3_02_gain_violin.svg) · [CSV](data/Q3_02_gain_violin.csv) |
-| Q3_03_gain_ecdf | 忠实性增益累计分布与负增益比例 | 2868 | [PNG](figures/Q3_03_gain_ecdf.png) · [PDF](figures/Q3_03_gain_ecdf.pdf) · [SVG](figures/Q3_03_gain_ecdf.svg) · [CSV](data/Q3_03_gain_ecdf.csv) |
-| Q3_04_control_coverage | 严格随机对照的可比较覆盖率 | 12 | [PNG](figures/Q3_04_control_coverage.png) · [PDF](figures/Q3_04_control_coverage.pdf) · [SVG](figures/Q3_04_control_coverage.svg) · [CSV](data/Q3_04_control_coverage.csv) |
-| Q3_05_random_counts | 逐样本严格随机集合数量 | 2868 | [PNG](figures/Q3_05_random_counts.png) · [PDF](figures/Q3_05_random_counts.pdf) · [SVG](figures/Q3_05_random_counts.svg) · [CSV](data/Q3_05_random_counts.csv) |
-| Q3_06_keep | 保留实验的配对增益与反例 | 8 | [PNG](figures/Q3_06_keep.png) · [PDF](figures/Q3_06_keep.pdf) · [SVG](figures/Q3_06_keep.svg) · [CSV](data/Q3_06_keep.csv) |
-| Q3_07_granularity | 整词和分块选择的粒度敏感性 | 4 | [PNG](figures/Q3_07_granularity.png) · [PDF](figures/Q3_07_granularity.pdf) · [SVG](figures/Q3_07_granularity.svg) · [CSV](data/Q3_07_granularity.csv) |
-| Q3_08_modality_shapley | 全验证集整模态影响与双输出Shapley | 2184 | [PNG](figures/Q3_08_modality_shapley.png) · [PDF](figures/Q3_08_modality_shapley.pdf) · [SVG](figures/Q3_08_modality_shapley.svg) · [CSV](data/Q3_08_modality_shapley.csv) |
-| Q3_09_modality_ecdf | 整模态影响全范围分布 | 2184 | [PNG](figures/Q3_09_modality_ecdf.png) · [PDF](figures/Q3_09_modality_ecdf.pdf) · [SVG](figures/Q3_09_modality_ecdf.svg) · [CSV](data/Q3_09_modality_ecdf.csv) |
-| Q3_10_special_modality | 附件4全部20条模态作用与双输出贡献 | 60 | [PNG](figures/Q3_10_special_modality.png) · [PDF](figures/Q3_10_special_modality.pdf) · [SVG](figures/Q3_10_special_modality.svg) · [CSV](data/Q3_10_special_modality.csv) |
-| Q3_11_direction_failures | 方向重测的全部验证集失败样本 | 9 | [PNG](figures/Q3_11_direction_failures.png) · [PDF](figures/Q3_11_direction_failures.pdf) · [SVG](figures/Q3_11_direction_failures.svg) · [CSV](data/Q3_11_direction_failures.csv) |
-| Q3_12_low_impact | 关键集合与低影响集合对照 | 9 | [PNG](figures/Q3_12_low_impact.png) · [PDF](figures/Q3_12_low_impact.pdf) · [SVG](figures/Q3_12_low_impact.svg) · [CSV](data/Q3_12_low_impact.csv) |
-| Q3_13_stratification | 正确错误与中性类分层忠实性 | 15 | [PNG](figures/Q3_13_stratification.png) · [PDF](figures/Q3_13_stratification.pdf) · [SVG](figures/Q3_13_stratification.svg) · [CSV](data/Q3_13_stratification.csv) |
-| Q3_14_task_after_deletion | 关键删除与随机删除后的任务表现 | 15 | [PNG](figures/Q3_14_task_after_deletion.png) · [PDF](figures/Q3_14_task_after_deletion.pdf) · [SVG](figures/Q3_14_task_after_deletion.svg) · [CSV](data/Q3_14_task_after_deletion.csv) |
-| Q3_15_subset_predictions | 20条样本八个模态保留子集的实际输出 | 160 | [PNG](figures/Q3_15_subset_predictions.png) · [PDF](figures/Q3_15_subset_predictions.pdf) · [SVG](figures/Q3_15_subset_predictions.svg) · [CSV](data/Q3_15_subset_predictions.csv) |
-| Q3_16_budget_geometry | 实际预算可达性与连续片段数 | 80 | [PNG](figures/Q3_16_budget_geometry.png) · [PDF](figures/Q3_16_budget_geometry.pdf) · [SVG](figures/Q3_16_budget_geometry.svg) · [CSV](data/Q3_16_budget_geometry.csv) |
-| Q3_17_local_concentration | 验证集逐位置影响集中度 | 2169 | [PNG](figures/Q3_17_local_concentration.png) · [PDF](figures/Q3_17_local_concentration.pdf) · [SVG](figures/Q3_17_local_concentration.svg) · [CSV](data/Q3_17_local_concentration.csv) |
-| Q3_18_signed_local | 验证集正负单位置影响 | 2169 | [PNG](figures/Q3_18_signed_local.png) · [PDF](figures/Q3_18_signed_local.pdf) · [SVG](figures/Q3_18_signed_local.svg) · [CSV](data/Q3_18_signed_local.csv) |
-| Q3_19_equal_cost_granularity | 排除成本不一致后的粒度敏感性 | 8 | [PNG](figures/Q3_19_equal_cost_granularity.png) · [PDF](figures/Q3_19_equal_cost_granularity.pdf) · [SVG](figures/Q3_19_equal_cost_granularity.svg) · [CSV](data/Q3_19_equal_cost_granularity.csv) |
-| Q3_case_01 | 附件4样本01的三模态逐位置重要性 | 66 | [PNG](figures/Q3_case_01.png) · [PDF](figures/Q3_case_01.pdf) · [SVG](figures/Q3_case_01.svg) · [CSV](data/Q3_case_01.csv) |
-| Q3_case_02 | 附件4样本02的三模态逐位置重要性 | 57 | [PNG](figures/Q3_case_02.png) · [PDF](figures/Q3_case_02.pdf) · [SVG](figures/Q3_case_02.svg) · [CSV](data/Q3_case_02.csv) |
-| Q3_case_03 | 附件4样本03的三模态逐位置重要性 | 99 | [PNG](figures/Q3_case_03.png) · [PDF](figures/Q3_case_03.pdf) · [SVG](figures/Q3_case_03.svg) · [CSV](data/Q3_case_03.csv) |
-| Q3_case_04 | 附件4样本04的三模态逐位置重要性 | 78 | [PNG](figures/Q3_case_04.png) · [PDF](figures/Q3_case_04.pdf) · [SVG](figures/Q3_case_04.svg) · [CSV](data/Q3_case_04.csv) |
-| Q3_case_05 | 附件4样本05的三模态逐位置重要性 | 45 | [PNG](figures/Q3_case_05.png) · [PDF](figures/Q3_case_05.pdf) · [SVG](figures/Q3_case_05.svg) · [CSV](data/Q3_case_05.csv) |
-| Q3_case_06 | 附件4样本06的三模态逐位置重要性 | 105 | [PNG](figures/Q3_case_06.png) · [PDF](figures/Q3_case_06.pdf) · [SVG](figures/Q3_case_06.svg) · [CSV](data/Q3_case_06.csv) |
-| Q3_case_07 | 附件4样本07的三模态逐位置重要性 | 144 | [PNG](figures/Q3_case_07.png) · [PDF](figures/Q3_case_07.pdf) · [SVG](figures/Q3_case_07.svg) · [CSV](data/Q3_case_07.csv) |
-| Q3_case_08 | 附件4样本08的三模态逐位置重要性 | 33 | [PNG](figures/Q3_case_08.png) · [PDF](figures/Q3_case_08.pdf) · [SVG](figures/Q3_case_08.svg) · [CSV](data/Q3_case_08.csv) |
-| Q3_case_09 | 附件4样本09的三模态逐位置重要性 | 54 | [PNG](figures/Q3_case_09.png) · [PDF](figures/Q3_case_09.pdf) · [SVG](figures/Q3_case_09.svg) · [CSV](data/Q3_case_09.csv) |
-| Q3_case_10 | 附件4样本10的三模态逐位置重要性 | 90 | [PNG](figures/Q3_case_10.png) · [PDF](figures/Q3_case_10.pdf) · [SVG](figures/Q3_case_10.svg) · [CSV](data/Q3_case_10.csv) |
-| Q3_case_11 | 附件4样本11的三模态逐位置重要性 | 42 | [PNG](figures/Q3_case_11.png) · [PDF](figures/Q3_case_11.pdf) · [SVG](figures/Q3_case_11.svg) · [CSV](data/Q3_case_11.csv) |
-| Q3_case_12 | 附件4样本12的三模态逐位置重要性 | 126 | [PNG](figures/Q3_case_12.png) · [PDF](figures/Q3_case_12.pdf) · [SVG](figures/Q3_case_12.svg) · [CSV](data/Q3_case_12.csv) |
-| Q3_case_13 | 附件4样本13的三模态逐位置重要性 | 60 | [PNG](figures/Q3_case_13.png) · [PDF](figures/Q3_case_13.pdf) · [SVG](figures/Q3_case_13.svg) · [CSV](data/Q3_case_13.csv) |
-| Q3_case_14 | 附件4样本14的三模态逐位置重要性 | 105 | [PNG](figures/Q3_case_14.png) · [PDF](figures/Q3_case_14.pdf) · [SVG](figures/Q3_case_14.svg) · [CSV](data/Q3_case_14.csv) |
-| Q3_case_15 | 附件4样本15的三模态逐位置重要性 | 63 | [PNG](figures/Q3_case_15.png) · [PDF](figures/Q3_case_15.pdf) · [SVG](figures/Q3_case_15.svg) · [CSV](data/Q3_case_15.csv) |
-| Q3_case_16 | 附件4样本16的三模态逐位置重要性 | 33 | [PNG](figures/Q3_case_16.png) · [PDF](figures/Q3_case_16.pdf) · [SVG](figures/Q3_case_16.svg) · [CSV](data/Q3_case_16.csv) |
-| Q3_case_17 | 附件4样本17的三模态逐位置重要性 | 72 | [PNG](figures/Q3_case_17.png) · [PDF](figures/Q3_case_17.pdf) · [SVG](figures/Q3_case_17.svg) · [CSV](data/Q3_case_17.csv) |
-| Q3_case_18 | 附件4样本18的三模态逐位置重要性 | 144 | [PNG](figures/Q3_case_18.png) · [PDF](figures/Q3_case_18.pdf) · [SVG](figures/Q3_case_18.svg) · [CSV](data/Q3_case_18.csv) |
-| Q3_case_19 | 附件4样本19的三模态逐位置重要性 | 117 | [PNG](figures/Q3_case_19.png) · [PDF](figures/Q3_case_19.pdf) · [SVG](figures/Q3_case_19.svg) · [CSV](data/Q3_case_19.csv) |
-| Q3_case_20 | 附件4样本20的三模态逐位置重要性 | 129 | [PNG](figures/Q3_case_20.png) · [PDF](figures/Q3_case_20.pdf) · [SVG](figures/Q3_case_20.svg) · [CSV](data/Q3_case_20.csv) |
+| Q1_01_duration | 原始样本长度与可配对状态 | 100 | [PNG](figures/Q1/Q1_01_duration.png) · [PDF](figures/Q1/Q1_01_duration.pdf) · [SVG](figures/Q1/Q1_01_duration.svg) · [CSV](data/Q1_01_duration.csv) |
+| Q1_02_coverage | 文本定位与视觉有效覆盖率 | 100 | [PNG](figures/Q1/Q1_02_coverage.png) · [PDF](figures/Q1/Q1_02_coverage.pdf) · [SVG](figures/Q1/Q1_02_coverage.svg) · [CSV](data/Q1_02_coverage.csv) |
+| Q1_03_clock | 声画时钟起点与终点差异 | 100 | [PNG](figures/Q1/Q1_03_clock.png) · [PDF](figures/Q1/Q1_03_clock.pdf) · [SVG](figures/Q1/Q1_03_clock.svg) · [CSV](data/Q1_03_clock.csv) |
+| Q1_04_quality_rank | 逐样本质量差异与视觉片段数 | 100 | [PNG](figures/Q1/Q1_04_quality_rank.png) · [PDF](figures/Q1/Q1_04_quality_rank.pdf) · [SVG](figures/Q1/Q1_04_quality_rank.svg) · [CSV](data/Q1_04_quality_rank.csv) |
+| Q1_05_problem_partition | 自动补查样本的问题分区 | 4 | [PNG](figures/Q1/Q1_05_problem_partition.png) · [PDF](figures/Q1/Q1_05_problem_partition.pdf) · [SVG](figures/Q1/Q1_05_problem_partition.svg) · [CSV](data/Q1_05_problem_partition.csv) |
+| Q1_06_identity_similarity | 人脸片段身份相似度与嵌入离散程度 | 236 | [PNG](figures/Q1/Q1_06_identity_similarity.png) · [PDF](figures/Q1/Q1_06_identity_similarity.pdf) · [SVG](figures/Q1/Q1_06_identity_similarity.svg) · [CSV](data/Q1_06_identity_similarity.csv) |
+| Q1_07_sync_null | 视听同步得分与错位随机参照 | 137 | [PNG](figures/Q1/Q1_07_sync_null.png) · [PDF](figures/Q1/Q1_07_sync_null.pdf) · [SVG](figures/Q1/Q1_07_sync_null.svg) · [CSV](data/Q1_07_sync_null.csv) |
+| Q1_08_identity_quality | 身份嵌入的成功数量与稳定性 | 191 | [PNG](figures/Q1/Q1_08_identity_quality.png) · [PDF](figures/Q1/Q1_08_identity_quality.pdf) · [SVG](figures/Q1/Q1_08_identity_quality.svg) · [CSV](data/Q1_08_identity_quality.csv) |
+| Q1_09_word_alignment | 逐词CTC分数与接受区间时长 | 1932 | [PNG](figures/Q1/Q1_09_word_alignment.png) · [PDF](figures/Q1/Q1_09_word_alignment.pdf) · [SVG](figures/Q1/Q1_09_word_alignment.svg) · [CSV](data/Q1_09_word_alignment.csv) |
+| Q1_10_transcription_errors | 转写误差类型分解 | 300 | [PNG](figures/Q1/Q1_10_transcription_errors.png) · [PDF](figures/Q1/Q1_10_transcription_errors.pdf) · [SVG](figures/Q1/Q1_10_transcription_errors.svg) · [CSV](data/Q1_10_transcription_errors.csv) |
+| Q1_11_stage_coverage | 正式提取与两阶段候选覆盖变化 | 21 | [PNG](figures/Q1/Q1_11_stage_coverage.png) · [PDF](figures/Q1/Q1_11_stage_coverage.pdf) · [SVG](figures/Q1/Q1_11_stage_coverage.svg) · [CSV](data/Q1_11_stage_coverage.csv) |
+| Q1_12_paired_coverage | 全部样本覆盖变化分布 | 300 | [PNG](figures/Q1/Q1_12_paired_coverage.png) · [PDF](figures/Q1/Q1_12_paired_coverage.pdf) · [SVG](figures/Q1/Q1_12_paired_coverage.svg) · [CSV](data/Q1_12_paired_coverage.csv) |
+| Q1_13_visual_composition | 视觉身份风险样本的可用与隔离成分 | 37 | [PNG](figures/Q1/Q1_13_visual_composition.png) · [PDF](figures/Q1/Q1_13_visual_composition.pdf) · [SVG](figures/Q1/Q1_13_visual_composition.svg) · [CSV](data/Q1_13_visual_composition.csv) |
+| Q1_14_visual_transitions | 视觉风险样本状态转移 | 37 | [PNG](figures/Q1/Q1_14_visual_transitions.png) · [PDF](figures/Q1/Q1_14_visual_transitions.pdf) · [SVG](figures/Q1/Q1_14_visual_transitions.svg) · [CSV](data/Q1_14_visual_transitions.csv) |
+| Q1_15_gap_sensitivity | 视觉身份连续间隔敏感性 | 3 | [PNG](figures/Q1/Q1_15_gap_sensitivity.png) · [PDF](figures/Q1/Q1_15_gap_sensitivity.pdf) · [SVG](figures/Q1/Q1_15_gap_sensitivity.svg) · [CSV](data/Q1_15_gap_sensitivity.csv) |
+| Q1_16_mapping_evidence | 四条映射疑点的交叉证据 | 4 | [PNG](figures/Q1/Q1_16_mapping_evidence.png) · [PDF](figures/Q1/Q1_16_mapping_evidence.pdf) · [SVG](figures/Q1/Q1_16_mapping_evidence.svg) · [CSV](data/Q1_16_mapping_evidence.csv) |
+| Q1_17_alignment_agreement | CTC与官方文本强制对齐的一致性 | 100 | [PNG](figures/Q1/Q1_17_alignment_agreement.png) · [PDF](figures/Q1/Q1_17_alignment_agreement.pdf) · [SVG](figures/Q1/Q1_17_alignment_agreement.svg) · [CSV](data/Q1_17_alignment_agreement.csv) |
+| Q1_18_alignment_thresholds | 时间一致性阈值敏感性 | 18 | [PNG](figures/Q1/Q1_18_alignment_thresholds.png) · [PDF](figures/Q1/Q1_18_alignment_thresholds.pdf) · [SVG](figures/Q1/Q1_18_alignment_thresholds.svg) · [CSV](data/Q1_18_alignment_thresholds.csv) |
+| Q1_19_resolution_axes | 最终候选状态与独立语义轴 | 100 | [PNG](figures/Q1/Q1_19_resolution_axes.png) · [PDF](figures/Q1/Q1_19_resolution_axes.pdf) · [SVG](figures/Q1/Q1_19_resolution_axes.svg) · [CSV](data/Q1_19_resolution_axes.csv) |
+| Q1_20_semantic_masking | 语义冲突与未决音频的安全屏蔽 | 300 | [PNG](figures/Q1/Q1_20_semantic_masking.png) · [PDF](figures/Q1/Q1_20_semantic_masking.pdf) · [SVG](figures/Q1/Q1_20_semantic_masking.svg) · [CSV](data/Q1_20_semantic_masking.csv) |
+| Q1_21_word_sources | 词级候选CSR来源与覆盖分布 | 3864 | [PNG](figures/Q1/Q1_21_word_sources.png) · [PDF](figures/Q1/Q1_21_word_sources.pdf) · [SVG](figures/Q1/Q1_21_word_sources.svg) · [CSV](data/Q1_21_word_sources.csv) |
+| Q1_22_visual_timelines | 受影响样本的视觉状态时间分布 | 1243 | [PNG](figures/Q1/Q1_22_visual_timelines.png) · [PDF](figures/Q1/Q1_22_visual_timelines.pdf) · [SVG](figures/Q1/Q1_22_visual_timelines.svg) · [CSV](data/Q1_22_visual_timelines.csv) |
+| Q2_01_training | 最终模型训练损失与验证曲线 | 20 | [PNG](figures/Q2/Q2_01_training.png) · [PDF](figures/Q2/Q2_01_training.pdf) · [SVG](figures/Q2/Q2_01_training.svg) · [CSV](data/Q2_01_training.csv) |
+| Q2_02_seed_training | 固定结构三种子训练波动 | 60 | [PNG](figures/Q2/Q2_02_seed_training.png) · [PDF](figures/Q2/Q2_02_seed_training.pdf) · [SVG](figures/Q2/Q2_02_seed_training.svg) · [CSV](data/Q2_02_seed_training.csv) |
+| Q2_03_schedule | 学习率与延长训练的验证表现 | 80 | [PNG](figures/Q2/Q2_03_schedule.png) · [PDF](figures/Q2/Q2_03_schedule.pdf) · [SVG](figures/Q2/Q2_03_schedule.svg) · [CSV](data/Q2_03_schedule.csv) |
+| Q2_04_ablations | 最终结构的三个直接消融 | 8 | [PNG](figures/Q2/Q2_04_ablations.png) · [PDF](figures/Q2/Q2_04_ablations.pdf) · [SVG](figures/Q2/Q2_04_ablations.svg) · [CSV](data/Q2_04_ablations.csv) |
+| Q2_05_exploration | 保存的无偏置探索结果全景 | 54 | [PNG](figures/Q2/Q2_05_exploration.png) · [PDF](figures/Q2/Q2_05_exploration.pdf) · [SVG](figures/Q2/Q2_05_exploration.svg) · [CSV](data/Q2_05_exploration.csv) |
+| Q2_06_grid | 验证与测试72场景完整热图 | 144 | [PNG](figures/Q2/Q2_06_grid.png) · [PDF](figures/Q2/Q2_06_grid.pdf) · [SVG](figures/Q2/Q2_06_grid.svg) · [CSV](data/Q2_06_grid.csv) |
+| Q2_07_robustness | 按模态分解的缺失强度曲线 | 48 | [PNG](figures/Q2/Q2_07_robustness.png) · [PDF](figures/Q2/Q2_07_robustness.pdf) · [SVG](figures/Q2/Q2_07_robustness.svg) · [CSV](data/Q2_07_robustness.csv) |
+| Q2_08_positions | 缺失位置对分类和回归的影响 | 24 | [PNG](figures/Q2/Q2_08_positions.png) · [PDF](figures/Q2/Q2_08_positions.pdf) · [SVG](figures/Q2/Q2_08_positions.svg) · [CSV](data/Q2_08_positions.csv) |
+| Q2_09_actual_deletion | 名义缺失跨度与真实删除率 | 72 | [PNG](figures/Q2/Q2_09_actual_deletion.png) · [PDF](figures/Q2/Q2_09_actual_deletion.pdf) · [SVG](figures/Q2/Q2_09_actual_deletion.svg) · [CSV](data/Q2_09_actual_deletion.csv) |
+| Q2_10_paired_conditions | 共同受损样本上的配对条件比较 | 216 | [PNG](figures/Q2/Q2_10_paired_conditions.png) · [PDF](figures/Q2/Q2_10_paired_conditions.pdf) · [SVG](figures/Q2/Q2_10_paired_conditions.svg) · [CSV](data/Q2_10_paired_conditions.csv) |
+| Q2_11_stress | 整模态与多模态压力场景 | 16 | [PNG](figures/Q2/Q2_11_stress.png) · [PDF](figures/Q2/Q2_11_stress.pdf) · [SVG](figures/Q2/Q2_11_stress.svg) · [CSV](data/Q2_11_stress.csv) |
+| Q2_12_class_metrics | 验证与测试类别瓶颈 | 6 | [PNG](figures/Q2/Q2_12_class_metrics.png) · [PDF](figures/Q2/Q2_12_class_metrics.pdf) · [SVG](figures/Q2/Q2_12_class_metrics.svg) · [CSV](data/Q2_12_class_metrics.csv) |
+| Q2_13_error_distribution | 回归残差小提琴与绝对误差分布 | 727 | [PNG](figures/Q2/Q2_13_error_distribution.png) · [PDF](figures/Q2/Q2_13_error_distribution.pdf) · [SVG](figures/Q2/Q2_13_error_distribution.svg) · [CSV](data/Q2_13_error_distribution.csv) |
+| Q2_14_prediction_diagnostics | 测试混淆矩阵与回归密度 | 727 | [PNG](figures/Q2/Q2_14_prediction_diagnostics.png) · [PDF](figures/Q2/Q2_14_prediction_diagnostics.pdf) · [SVG](figures/Q2/Q2_14_prediction_diagnostics.svg) · [CSV](data/Q2_14_prediction_diagnostics.csv) |
+| Q2_15_special_availability | 附件3全部样本的当前可观测状态 | 30 | [PNG](figures/Q2/Q2_15_special_availability.png) · [PDF](figures/Q2/Q2_15_special_availability.pdf) · [SVG](figures/Q2/Q2_15_special_availability.svg) · [CSV](data/Q2_15_special_availability.csv) |
+| Q2_16_valid_diagnostics | 验证集真实重载的混淆与回归密度 | 728 | [PNG](figures/Q2/Q2_16_valid_diagnostics.png) · [PDF](figures/Q2/Q2_16_valid_diagnostics.pdf) · [SVG](figures/Q2/Q2_16_valid_diagnostics.svg) · [CSV](data/Q2_16_valid_diagnostics.csv) |
+| Q2_17_valid_residuals | 验证集分情感类别残差与误差分布 | 728 | [PNG](figures/Q2/Q2_17_valid_residuals.png) · [PDF](figures/Q2/Q2_17_valid_residuals.pdf) · [SVG](figures/Q2/Q2_17_valid_residuals.svg) · [CSV](data/Q2_17_valid_residuals.csv) |
+| Q2_18_valid_confidence | 验证集置信度与错误关系 | 728 | [PNG](figures/Q2/Q2_18_valid_confidence.png) · [PDF](figures/Q2/Q2_18_valid_confidence.pdf) · [SVG](figures/Q2/Q2_18_valid_confidence.svg) · [CSV](data/Q2_18_valid_confidence.csv) |
+| Q2_19_valid_groups | 验证集按有效文本长度分层 | 4 | [PNG](figures/Q2/Q2_19_valid_groups.png) · [PDF](figures/Q2/Q2_19_valid_groups.pdf) · [SVG](figures/Q2/Q2_19_valid_groups.svg) · [CSV](data/Q2_19_valid_groups.csv) |
+| Q3_01_faithfulness | 三预算忠实性增益与视频簇区间 | 12 | [PNG](figures/Q3/Q3_01_faithfulness.png) · [PDF](figures/Q3/Q3_01_faithfulness.pdf) · [SVG](figures/Q3/Q3_01_faithfulness.svg) · [CSV](data/Q3_01_faithfulness.csv) |
+| Q3_02_gain_violin | 20%预算逐样本忠实性增益分布 | 2868 | [PNG](figures/Q3/Q3_02_gain_violin.png) · [PDF](figures/Q3/Q3_02_gain_violin.pdf) · [SVG](figures/Q3/Q3_02_gain_violin.svg) · [CSV](data/Q3_02_gain_violin.csv) |
+| Q3_03_gain_ecdf | 忠实性增益累计分布与负增益比例 | 2868 | [PNG](figures/Q3/Q3_03_gain_ecdf.png) · [PDF](figures/Q3/Q3_03_gain_ecdf.pdf) · [SVG](figures/Q3/Q3_03_gain_ecdf.svg) · [CSV](data/Q3_03_gain_ecdf.csv) |
+| Q3_04_control_coverage | 严格随机对照的可比较覆盖率 | 12 | [PNG](figures/Q3/Q3_04_control_coverage.png) · [PDF](figures/Q3/Q3_04_control_coverage.pdf) · [SVG](figures/Q3/Q3_04_control_coverage.svg) · [CSV](data/Q3_04_control_coverage.csv) |
+| Q3_05_random_counts | 逐样本严格随机集合数量 | 2868 | [PNG](figures/Q3/Q3_05_random_counts.png) · [PDF](figures/Q3/Q3_05_random_counts.pdf) · [SVG](figures/Q3/Q3_05_random_counts.svg) · [CSV](data/Q3_05_random_counts.csv) |
+| Q3_06_keep | 保留实验的配对增益与反例 | 8 | [PNG](figures/Q3/Q3_06_keep.png) · [PDF](figures/Q3/Q3_06_keep.pdf) · [SVG](figures/Q3/Q3_06_keep.svg) · [CSV](data/Q3_06_keep.csv) |
+| Q3_07_granularity | 整词和分块选择的粒度敏感性 | 4 | [PNG](figures/Q3/Q3_07_granularity.png) · [PDF](figures/Q3/Q3_07_granularity.pdf) · [SVG](figures/Q3/Q3_07_granularity.svg) · [CSV](data/Q3_07_granularity.csv) |
+| Q3_08_modality_shapley | 全验证集整模态影响与双输出Shapley | 2184 | [PNG](figures/Q3/Q3_08_modality_shapley.png) · [PDF](figures/Q3/Q3_08_modality_shapley.pdf) · [SVG](figures/Q3/Q3_08_modality_shapley.svg) · [CSV](data/Q3_08_modality_shapley.csv) |
+| Q3_09_modality_ecdf | 整模态影响全范围分布 | 2184 | [PNG](figures/Q3/Q3_09_modality_ecdf.png) · [PDF](figures/Q3/Q3_09_modality_ecdf.pdf) · [SVG](figures/Q3/Q3_09_modality_ecdf.svg) · [CSV](data/Q3_09_modality_ecdf.csv) |
+| Q3_10_special_modality | 附件4全部20条模态作用与双输出贡献 | 60 | [PNG](figures/Q3/Q3_10_special_modality.png) · [PDF](figures/Q3/Q3_10_special_modality.pdf) · [SVG](figures/Q3/Q3_10_special_modality.svg) · [CSV](data/Q3_10_special_modality.csv) |
+| Q3_11_direction_failures | 方向重测的全部验证集失败样本 | 9 | [PNG](figures/Q3/Q3_11_direction_failures.png) · [PDF](figures/Q3/Q3_11_direction_failures.pdf) · [SVG](figures/Q3/Q3_11_direction_failures.svg) · [CSV](data/Q3_11_direction_failures.csv) |
+| Q3_12_low_impact | 关键集合与低影响集合对照 | 9 | [PNG](figures/Q3/Q3_12_low_impact.png) · [PDF](figures/Q3/Q3_12_low_impact.pdf) · [SVG](figures/Q3/Q3_12_low_impact.svg) · [CSV](data/Q3_12_low_impact.csv) |
+| Q3_13_stratification | 正确错误与中性类分层忠实性 | 15 | [PNG](figures/Q3/Q3_13_stratification.png) · [PDF](figures/Q3/Q3_13_stratification.pdf) · [SVG](figures/Q3/Q3_13_stratification.svg) · [CSV](data/Q3_13_stratification.csv) |
+| Q3_14_task_after_deletion | 关键删除与随机删除后的任务表现 | 15 | [PNG](figures/Q3/Q3_14_task_after_deletion.png) · [PDF](figures/Q3/Q3_14_task_after_deletion.pdf) · [SVG](figures/Q3/Q3_14_task_after_deletion.svg) · [CSV](data/Q3_14_task_after_deletion.csv) |
+| Q3_15_subset_predictions | 20条样本八个模态保留子集的实际输出 | 160 | [PNG](figures/Q3/Q3_15_subset_predictions.png) · [PDF](figures/Q3/Q3_15_subset_predictions.pdf) · [SVG](figures/Q3/Q3_15_subset_predictions.svg) · [CSV](data/Q3_15_subset_predictions.csv) |
+| Q3_16_budget_geometry | 实际预算可达性与连续片段数 | 80 | [PNG](figures/Q3/Q3_16_budget_geometry.png) · [PDF](figures/Q3/Q3_16_budget_geometry.pdf) · [SVG](figures/Q3/Q3_16_budget_geometry.svg) · [CSV](data/Q3_16_budget_geometry.csv) |
+| Q3_17_local_concentration | 验证集逐位置影响集中度 | 2169 | [PNG](figures/Q3/Q3_17_local_concentration.png) · [PDF](figures/Q3/Q3_17_local_concentration.pdf) · [SVG](figures/Q3/Q3_17_local_concentration.svg) · [CSV](data/Q3_17_local_concentration.csv) |
+| Q3_18_signed_local | 验证集正负单位置影响 | 2169 | [PNG](figures/Q3/Q3_18_signed_local.png) · [PDF](figures/Q3/Q3_18_signed_local.pdf) · [SVG](figures/Q3/Q3_18_signed_local.svg) · [CSV](data/Q3_18_signed_local.csv) |
+| Q3_19_equal_cost_granularity | 排除成本不一致后的粒度敏感性 | 8 | [PNG](figures/Q3/Q3_19_equal_cost_granularity.png) · [PDF](figures/Q3/Q3_19_equal_cost_granularity.pdf) · [SVG](figures/Q3/Q3_19_equal_cost_granularity.svg) · [CSV](data/Q3_19_equal_cost_granularity.csv) |
+| Q3_case_01 | 附件4样本01的三模态逐位置重要性 | 66 | [PNG](figures/Q3/Q3_case_01.png) · [PDF](figures/Q3/Q3_case_01.pdf) · [SVG](figures/Q3/Q3_case_01.svg) · [CSV](data/Q3_case_01.csv) |
+| Q3_case_02 | 附件4样本02的三模态逐位置重要性 | 57 | [PNG](figures/Q3/Q3_case_02.png) · [PDF](figures/Q3/Q3_case_02.pdf) · [SVG](figures/Q3/Q3_case_02.svg) · [CSV](data/Q3_case_02.csv) |
+| Q3_case_03 | 附件4样本03的三模态逐位置重要性 | 99 | [PNG](figures/Q3/Q3_case_03.png) · [PDF](figures/Q3/Q3_case_03.pdf) · [SVG](figures/Q3/Q3_case_03.svg) · [CSV](data/Q3_case_03.csv) |
+| Q3_case_04 | 附件4样本04的三模态逐位置重要性 | 78 | [PNG](figures/Q3/Q3_case_04.png) · [PDF](figures/Q3/Q3_case_04.pdf) · [SVG](figures/Q3/Q3_case_04.svg) · [CSV](data/Q3_case_04.csv) |
+| Q3_case_05 | 附件4样本05的三模态逐位置重要性 | 45 | [PNG](figures/Q3/Q3_case_05.png) · [PDF](figures/Q3/Q3_case_05.pdf) · [SVG](figures/Q3/Q3_case_05.svg) · [CSV](data/Q3_case_05.csv) |
+| Q3_case_06 | 附件4样本06的三模态逐位置重要性 | 105 | [PNG](figures/Q3/Q3_case_06.png) · [PDF](figures/Q3/Q3_case_06.pdf) · [SVG](figures/Q3/Q3_case_06.svg) · [CSV](data/Q3_case_06.csv) |
+| Q3_case_07 | 附件4样本07的三模态逐位置重要性 | 144 | [PNG](figures/Q3/Q3_case_07.png) · [PDF](figures/Q3/Q3_case_07.pdf) · [SVG](figures/Q3/Q3_case_07.svg) · [CSV](data/Q3_case_07.csv) |
+| Q3_case_08 | 附件4样本08的三模态逐位置重要性 | 33 | [PNG](figures/Q3/Q3_case_08.png) · [PDF](figures/Q3/Q3_case_08.pdf) · [SVG](figures/Q3/Q3_case_08.svg) · [CSV](data/Q3_case_08.csv) |
+| Q3_case_09 | 附件4样本09的三模态逐位置重要性 | 54 | [PNG](figures/Q3/Q3_case_09.png) · [PDF](figures/Q3/Q3_case_09.pdf) · [SVG](figures/Q3/Q3_case_09.svg) · [CSV](data/Q3_case_09.csv) |
+| Q3_case_10 | 附件4样本10的三模态逐位置重要性 | 90 | [PNG](figures/Q3/Q3_case_10.png) · [PDF](figures/Q3/Q3_case_10.pdf) · [SVG](figures/Q3/Q3_case_10.svg) · [CSV](data/Q3_case_10.csv) |
+| Q3_case_11 | 附件4样本11的三模态逐位置重要性 | 42 | [PNG](figures/Q3/Q3_case_11.png) · [PDF](figures/Q3/Q3_case_11.pdf) · [SVG](figures/Q3/Q3_case_11.svg) · [CSV](data/Q3_case_11.csv) |
+| Q3_case_12 | 附件4样本12的三模态逐位置重要性 | 126 | [PNG](figures/Q3/Q3_case_12.png) · [PDF](figures/Q3/Q3_case_12.pdf) · [SVG](figures/Q3/Q3_case_12.svg) · [CSV](data/Q3_case_12.csv) |
+| Q3_case_13 | 附件4样本13的三模态逐位置重要性 | 60 | [PNG](figures/Q3/Q3_case_13.png) · [PDF](figures/Q3/Q3_case_13.pdf) · [SVG](figures/Q3/Q3_case_13.svg) · [CSV](data/Q3_case_13.csv) |
+| Q3_case_14 | 附件4样本14的三模态逐位置重要性 | 105 | [PNG](figures/Q3/Q3_case_14.png) · [PDF](figures/Q3/Q3_case_14.pdf) · [SVG](figures/Q3/Q3_case_14.svg) · [CSV](data/Q3_case_14.csv) |
+| Q3_case_15 | 附件4样本15的三模态逐位置重要性 | 63 | [PNG](figures/Q3/Q3_case_15.png) · [PDF](figures/Q3/Q3_case_15.pdf) · [SVG](figures/Q3/Q3_case_15.svg) · [CSV](data/Q3_case_15.csv) |
+| Q3_case_16 | 附件4样本16的三模态逐位置重要性 | 33 | [PNG](figures/Q3/Q3_case_16.png) · [PDF](figures/Q3/Q3_case_16.pdf) · [SVG](figures/Q3/Q3_case_16.svg) · [CSV](data/Q3_case_16.csv) |
+| Q3_case_17 | 附件4样本17的三模态逐位置重要性 | 72 | [PNG](figures/Q3/Q3_case_17.png) · [PDF](figures/Q3/Q3_case_17.pdf) · [SVG](figures/Q3/Q3_case_17.svg) · [CSV](data/Q3_case_17.csv) |
+| Q3_case_18 | 附件4样本18的三模态逐位置重要性 | 144 | [PNG](figures/Q3/Q3_case_18.png) · [PDF](figures/Q3/Q3_case_18.pdf) · [SVG](figures/Q3/Q3_case_18.svg) · [CSV](data/Q3_case_18.csv) |
+| Q3_case_19 | 附件4样本19的三模态逐位置重要性 | 117 | [PNG](figures/Q3/Q3_case_19.png) · [PDF](figures/Q3/Q3_case_19.pdf) · [SVG](figures/Q3/Q3_case_19.svg) · [CSV](data/Q3_case_19.csv) |
+| Q3_case_20 | 附件4样本20的三模态逐位置重要性 | 129 | [PNG](figures/Q3/Q3_case_20.png) · [PDF](figures/Q3/Q3_case_20.pdf) · [SVG](figures/Q3/Q3_case_20.svg) · [CSV](data/Q3_case_20.csv) |
 
 ## Q1_01_duration 原始样本长度与可配对状态
 
@@ -149,6 +161,78 @@
 独立诊断转写的替换/删除/插入数按规范化参考词数归一化，三者相加等于WER。WER可超过1；它不是CTC时间对齐准确率，更不是情感分类误差。
 
 来源：[doc/paper_figures/data/server_Q1_diagnostics.csv](../../doc/paper_figures/data/server_Q1_diagnostics.csv)。
+
+## Q1_11_stage_coverage 正式提取与两阶段候选覆盖变化
+
+各组按50-bin的observed_mask计数；Formal是原始保留观测，修复后是质量控制后的可用观测。全100条Vision为57.46%→70.10%→76.04%，音频99.50%→78.28%→78.28%；音频下降来自主动隔离，不是提取器退化。分组重叠，不能相加。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/coverage_comparison_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/coverage_comparison_stage3.csv)。
+
+## Q1_12_paired_coverage 全部样本覆盖变化分布
+
+同一sample_index逐样本配对，保留零变化和负变化。左图跨质量口径描述变化，不能解释为准确率增益；右图仅比较同属候选流程的Stage 2/3视觉mask。pp为百分点。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_full_20260924/features/q1_compact50.npz](../../Q1/q1_features/runs/q1_full_20260924/features/q1_compact50.npz)；[Q1/q1_features/runs/q1_alignment_repair_stage2/reports/q1_compact50_repair_candidate.npz](../../Q1/q1_features/runs/q1_alignment_repair_stage2/reports/q1_compact50_repair_candidate.npz)；[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/q1_compact50_stage3_candidate.npz](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/q1_compact50_stage3_candidate.npz)。
+
+## Q1_13_visual_composition 视觉身份风险样本的可用与隔离成分
+
+37条原视觉风险全部保留。直接TalkNet确认平均33.55%，ArcFace连续性新增17.89%，合计51.44%；歧义、自然缺失与未决均显示。S编号对应CSV的零基sample_index；右图按样本等权，不是按总时长加权。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/vision_summary_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/vision_summary_stage3.csv)；[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv)。
+
+## Q1_14_visual_transitions 视觉风险样本状态转移
+
+Stage 2为8/14/15条full/partial/unresolved；Stage 3为16/6/5/10条full/partial/ambiguous/unresolved。状态来自自动规则，full不代表人工Gold，ambiguous不并入成功。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/vision_summary_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/vision_summary_stage3.csv)；[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv)。
+
+## Q1_15_gap_sensitivity 视觉身份连续间隔敏感性
+
+0.5/1.0/1.5秒平均可用比例50.25%/51.44%/51.44%，37条状态计数相同。主配置1.0秒固定，不据此宣称最优；增加间隔并不必然增加恢复率。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/visual_gap_sensitivity_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/visual_gap_sensitivity_stage3.csv)。
+
+## Q1_16_mapping_evidence 四条映射疑点的交叉证据
+
+显示原官方与候选的文本重合得分及四指标分配一致率。只有iRB/6达到MAPPING_STRONG；ri04/2虽100%一致但绝对分数低，仍未决。所有官方mapping保留，没有自动交换clip。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/mapping_validation_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/mapping_validation_stage3.csv)。
+
+## Q1_17_alignment_agreement CTC与官方文本强制对齐的一致性
+
+100条原始记录随CSV保留；ECDF和散点只使用对应字段非空的样本，不用零填补未适用记录。两个自动对齐器的一致性不是人工时间准确率，低共同词比例也不能因小时间差被忽略。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_alignment_repair_stage2/reports/ctc_vs_official_forced_alignment.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage2/reports/ctc_vs_official_forced_alignment.csv)。
+
+## Q1_18_alignment_thresholds 时间一致性阈值敏感性
+
+红框为固定主阈值median≤0.3秒、P90≤0.6秒。全100条71 verified、10 partial、19 not-applicable；原23条风险仅1 verified。分面色标分别以各自总数为上限，不能跨面板按深浅比较比例，也不根据最大通过数选阈值。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_alignment_repair_stage2/reports/alignment_threshold_sensitivity.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage2/reports/alignment_threshold_sensitivity.csv)。
+
+## Q1_19_resolution_axes 最终候选状态与独立语义轴
+
+五状态计数57/19/5/4/15。交叉表保留总状态可能遮蔽的语义冲突：UNRESOLVED并不等于只有一种问题；Conflict表示安全mask方案明确，而非原内容被修好。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv)。
+
+## Q1_20_semantic_masking 语义冲突与未决音频的安全屏蔽
+
+逐样本音频50-bin观测率按最终语义状态分组；Formal与候选的质量口径不同。Conflict/Unresolved组主动屏蔽音频，表明覆盖率下降可能是安全处理结果，不能把它包装成提取失败或隐去。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_full_20260924/features/q1_compact50.npz](../../Q1/q1_features/runs/q1_full_20260924/features/q1_compact50.npz)；[Q1/q1_features/runs/q1_alignment_repair_stage2/reports/q1_compact50_repair_candidate.npz](../../Q1/q1_features/runs/q1_alignment_repair_stage2/reports/q1_compact50_repair_candidate.npz)；[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/q1_compact50_stage3_candidate.npz](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/q1_compact50_stage3_candidate.npz)；[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv)。
+
+## Q1_21_word_sources 词级候选CSR来源与覆盖分布
+
+每个词的音频/视觉源行数量由CSR indptr相邻差计算，所有1932条均保留，包括零来源和mask词。可用词覆盖ECDF条件于mask=1。Stage 3词级NPZ自带CSR，不能与仍缺失的Formal样本级map_*.npz混为一谈；来源数量多不等于质量高。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/q1_word_aligned_stage3_candidate.npz](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/q1_word_aligned_stage3_candidate.npz)。
+
+## Q1_22_visual_timelines 受影响样本的视觉状态时间分布
+
+全部41条受影响样本，包括37条身份风险与4条no-face。颜色表示真实时间段状态；横轴按各clip时长归一化用于比较结构，原始start/end秒数保留在CSV中。传播未跨越歧义或自然缺失，不把mask补成平滑连续数据。 Stage 2/3为随新版提供的自动候选；Stage 4仅有报告，未据此伪造最终数组。
+
+来源：[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/vision_segment_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/vision_segment_stage3.csv)；[Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv](../../Q1/q1_features/runs/q1_alignment_repair_stage3/reports/final_resolution_status_stage3.csv)。
 
 ## Q2_01_training 最终模型训练损失与验证曲线
 

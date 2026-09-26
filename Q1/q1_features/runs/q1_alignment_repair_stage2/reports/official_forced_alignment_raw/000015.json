@@ -1,0 +1,78 @@
+{
+  "sample_index": 15,
+  "sample_id": "-HwX2H8Z4hY$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "And in part, Al Shanker did too",
+  "duration": 3.333333333333333,
+  "word_count": 7,
+  "timed_word_count": 7,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "And",
+      "start": 0.576,
+      "end": 0.658,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "in",
+      "start": 0.72,
+      "end": 0.782,
+      "score": 0.75,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "part,",
+      "start": 0.844,
+      "end": 1.214,
+      "score": 0.841,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "Al",
+      "start": 1.584,
+      "end": 1.708,
+      "score": 0.891,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "Shanker",
+      "start": 1.749,
+      "end": 2.222,
+      "score": 0.803,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "did",
+      "start": 2.325,
+      "end": 2.49,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "too",
+      "start": 2.572,
+      "end": 2.778,
+      "score": 0.931,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

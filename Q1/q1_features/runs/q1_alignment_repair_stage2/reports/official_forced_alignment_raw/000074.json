@@ -1,0 +1,96 @@
+{
+  "sample_index": 74,
+  "sample_id": "-s9qJ7ATP7w$_$4",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "I have lost at everything you can imagine, seriously",
+  "duration": 4.3999999999999995,
+  "word_count": 9,
+  "timed_word_count": 9,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "I",
+      "start": 0.664,
+      "end": 0.706,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "have",
+      "start": 0.747,
+      "end": 0.872,
+      "score": 0.882,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "lost",
+      "start": 0.934,
+      "end": 1.245,
+      "score": 0.968,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "at",
+      "start": 1.349,
+      "end": 1.432,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "everything",
+      "start": 1.743,
+      "end": 2.179,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "you",
+      "start": 2.221,
+      "end": 2.325,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "can",
+      "start": 2.366,
+      "end": 2.491,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "imagine,",
+      "start": 2.553,
+      "end": 2.968,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "seriously",
+      "start": 3.072,
+      "end": 3.466,
+      "score": 0.335,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

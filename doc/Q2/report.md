@@ -209,7 +209,7 @@ test 72 场景分组为：单 T/A/V=0.5403/0.6099/0.6154，双 TA/TV/AV=0.5369/0
 - `experiment_ledger.json` 的 history：每轮 loss、clean/corrupt loss、学习率和 valid 检查点；这些数据用于训练曲线、收敛速度、过拟合拐点图，不能把最后一轮当作最佳轮。
 - `attachment3_availability.json`、`q2_special_state.csv`：30 条专项的当前可用位置和缺口形态；它支撑专项链路图和缺口分布图，不能计算性能。
 
-论文数据图与 CSV 已集中在 [`doc/paper_figures/README.md`](../paper_figures/README.md)，图册入口为 [`index.html`](../paper_figures/index.html)，当前包含 68 组图；valid 重载诊断对应 Q2_16–Q2_19。建议图至少覆盖：valid/test clean 与72场景 Macro-F1 对照；模态×位置×跨度热图；共同样本的实际删除率分层小提琴图；每类 F1/recall 和 Neutral score 误差分布；训练每轮 clean/corrupt loss、学习率和 valid 选择点；消融 M/C 点图及 seed 波动；压力测试退化瀑布图；附件3 30条观测计数与预测置信度图。每张图应保留原始坐标含义、样本数和 valid/test 标识，不能通过删掉低分区间或重标坐标制造优势。
+论文数据图与 CSV 已集中在 [`doc/paper_figures/README.md`](../paper_figures/README.md)，图册入口为 [`index.html`](../paper_figures/index.html)，当前包含 80 组图；valid 重载诊断对应 Q2_16–Q2_19。建议图至少覆盖：valid/test clean 与72场景 Macro-F1 对照；模态×位置×跨度热图；共同样本的实际删除率分层小提琴图；每类 F1/recall 和 Neutral score 误差分布；训练每轮 clean/corrupt loss、学习率和 valid 选择点；消融 M/C 点图及 seed 波动；压力测试退化瀑布图；附件3 30条观测计数与预测置信度图。每张图应保留原始坐标含义、样本数和 valid/test 标识，不能通过删掉低分区间或重标坐标制造优势。
 
 ## 8. 导出、复现和资源
 

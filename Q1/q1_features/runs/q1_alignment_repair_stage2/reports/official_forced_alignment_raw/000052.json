@@ -1,0 +1,105 @@
+{
+  "sample_index": 52,
+  "sample_id": "-egA8-b7-3M$_$9",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Secondly, another goal of exhibiting  is building your company image.",
+  "duration": 5.066666666666666,
+  "word_count": 10,
+  "timed_word_count": 10,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Secondly,",
+      "start": 0.556,
+      "end": 1.112,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "another",
+      "start": 1.277,
+      "end": 1.668,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "goal",
+      "start": 1.709,
+      "end": 1.977,
+      "score": 0.856,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "of",
+      "start": 2.018,
+      "end": 2.08,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "exhibiting",
+      "start": 2.142,
+      "end": 2.657,
+      "score": 0.95,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "is",
+      "start": 2.801,
+      "end": 2.883,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "building",
+      "start": 3.007,
+      "end": 3.378,
+      "score": 0.835,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "your",
+      "start": 3.419,
+      "end": 3.563,
+      "score": 0.875,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "company",
+      "start": 3.604,
+      "end": 4.037,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "image.",
+      "start": 4.16,
+      "end": 4.49,
+      "score": 0.979,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

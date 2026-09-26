@@ -1,0 +1,159 @@
+{
+  "sample_index": 12,
+  "sample_id": "-HeZS2-Prhc$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "The August jobs report is out and it was seen overall as solid but not great.",
+  "duration": 8.233333333333333,
+  "word_count": 16,
+  "timed_word_count": 16,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "The",
+      "start": 1.74,
+      "end": 1.861,
+      "score": 0.906,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "August",
+      "start": 1.962,
+      "end": 2.245,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "jobs",
+      "start": 2.347,
+      "end": 2.67,
+      "score": 0.791,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "report",
+      "start": 2.711,
+      "end": 3.055,
+      "score": 0.958,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "is",
+      "start": 3.095,
+      "end": 3.196,
+      "score": 0.752,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "out",
+      "start": 3.358,
+      "end": 3.5,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "and",
+      "start": 3.924,
+      "end": 4.066,
+      "score": 0.847,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "it",
+      "start": 4.248,
+      "end": 4.309,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "was",
+      "start": 4.349,
+      "end": 4.471,
+      "score": 0.993,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "seen",
+      "start": 4.531,
+      "end": 4.855,
+      "score": 0.892,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "overall",
+      "start": 5.3,
+      "end": 5.786,
+      "score": 0.964,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "as",
+      "start": 6.251,
+      "end": 6.352,
+      "score": 0.969,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "solid",
+      "start": 6.453,
+      "end": 6.817,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "but",
+      "start": 6.878,
+      "end": 7.02,
+      "score": 0.847,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "not",
+      "start": 7.1,
+      "end": 7.303,
+      "score": 0.913,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "great.",
+      "start": 7.384,
+      "end": 7.748,
+      "score": 0.807,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

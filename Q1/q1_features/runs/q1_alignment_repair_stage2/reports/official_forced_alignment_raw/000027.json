@@ -1,0 +1,366 @@
+{
+  "sample_index": 27,
+  "sample_id": "-THoVjtIkeU$_$12",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "What ever we turn our attention to is what grows and so if we believe that anything is possible, if we believe that social justice can be achieved and if we believe in youth, they will believe in themselves.",
+  "duration": 14.866666666666667,
+  "word_count": 39,
+  "timed_word_count": 39,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "What",
+      "start": 1.647,
+      "end": 1.788,
+      "score": 0.922,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "ever",
+      "start": 1.808,
+      "end": 1.969,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "we",
+      "start": 2.009,
+      "end": 2.109,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "turn",
+      "start": 2.15,
+      "end": 2.33,
+      "score": 0.754,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "our",
+      "start": 2.371,
+      "end": 2.451,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "attention",
+      "start": 2.471,
+      "end": 2.873,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "to",
+      "start": 2.933,
+      "end": 3.134,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "is",
+      "start": 3.255,
+      "end": 3.315,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "what",
+      "start": 3.375,
+      "end": 3.496,
+      "score": 0.848,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "grows",
+      "start": 3.536,
+      "end": 3.877,
+      "score": 0.939,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "and",
+      "start": 4.4,
+      "end": 4.48,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "so",
+      "start": 4.54,
+      "end": 4.701,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "if",
+      "start": 4.761,
+      "end": 4.822,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "we",
+      "start": 4.882,
+      "end": 5.023,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "believe",
+      "start": 5.063,
+      "end": 5.565,
+      "score": 0.811,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "that",
+      "start": 5.665,
+      "end": 5.786,
+      "score": 0.976,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "anything",
+      "start": 5.866,
+      "end": 6.168,
+      "score": 0.937,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "is",
+      "start": 6.208,
+      "end": 6.268,
+      "score": 0.752,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "possible,",
+      "start": 6.308,
+      "end": 6.75,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "if",
+      "start": 6.79,
+      "end": 6.851,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "we",
+      "start": 6.931,
+      "end": 7.132,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "believe",
+      "start": 7.594,
+      "end": 8.136,
+      "score": 0.928,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "that",
+      "start": 8.578,
+      "end": 9.282,
+      "score": 0.964,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "social",
+      "start": 9.503,
+      "end": 9.784,
+      "score": 0.89,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "justice",
+      "start": 9.804,
+      "end": 10.166,
+      "score": 0.929,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "can",
+      "start": 10.226,
+      "end": 10.407,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "be",
+      "start": 10.467,
+      "end": 10.547,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "achieved",
+      "start": 10.587,
+      "end": 10.989,
+      "score": 0.976,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "and",
+      "start": 11.029,
+      "end": 11.09,
+      "score": 0.996,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "if",
+      "start": 11.13,
+      "end": 11.19,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "we",
+      "start": 11.23,
+      "end": 11.331,
+      "score": 0.843,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 31,
+      "raw_word": "believe",
+      "start": 11.371,
+      "end": 11.853,
+      "score": 0.778,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 32,
+      "raw_word": "in",
+      "start": 12.014,
+      "end": 12.094,
+      "score": 0.832,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 33,
+      "raw_word": "youth,",
+      "start": 12.175,
+      "end": 12.436,
+      "score": 0.936,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 34,
+      "raw_word": "they",
+      "start": 13.159,
+      "end": 13.259,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 35,
+      "raw_word": "will",
+      "start": 13.28,
+      "end": 13.42,
+      "score": 0.872,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 36,
+      "raw_word": "believe",
+      "start": 13.44,
+      "end": 13.641,
+      "score": 0.93,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 37,
+      "raw_word": "in",
+      "start": 13.661,
+      "end": 13.701,
+      "score": 0.979,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 38,
+      "raw_word": "themselves.",
+      "start": 13.742,
+      "end": 14.204,
+      "score": 0.91,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

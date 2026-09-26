@@ -1,0 +1,123 @@
+{
+  "sample_index": 51,
+  "sample_id": "-egA8-b7-3M$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "First exhibiting is a wonderful opportunity to network with other legal vendors.",
+  "duration": 6.233333333333333,
+  "word_count": 12,
+  "timed_word_count": 12,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "First",
+      "start": 0.526,
+      "end": 0.85,
+      "score": 0.933,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "exhibiting",
+      "start": 1.052,
+      "end": 1.599,
+      "score": 0.963,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "is",
+      "start": 1.66,
+      "end": 1.761,
+      "score": 0.574,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "a",
+      "start": 1.801,
+      "end": 1.821,
+      "score": 0.6,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "wonderful",
+      "start": 1.963,
+      "end": 2.469,
+      "score": 0.921,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "opportunity",
+      "start": 2.57,
+      "end": 3.218,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "to",
+      "start": 3.299,
+      "end": 3.4,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "network",
+      "start": 3.501,
+      "end": 3.946,
+      "score": 0.931,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "with",
+      "start": 4.007,
+      "end": 4.149,
+      "score": 0.902,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "other",
+      "start": 4.311,
+      "end": 4.513,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "legal",
+      "start": 4.635,
+      "end": 4.938,
+      "score": 0.933,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "vendors.",
+      "start": 5.019,
+      "end": 5.464,
+      "score": 0.917,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

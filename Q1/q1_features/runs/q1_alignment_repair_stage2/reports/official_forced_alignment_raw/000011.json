@@ -1,0 +1,384 @@
+{
+  "sample_index": 11,
+  "sample_id": "-AUZQgSxyPQ$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "The perfect soul mate to the Clarisonic Spot Therapy Brush, this gentle, Ph balanced and hydrating exfoliant containing jojoba and acai fruit oils and bamboo and prickly bear extracts deliver intense healing, while smooth granules buff away dead, dry skin cells.",
+  "duration": 22.5,
+  "word_count": 41,
+  "timed_word_count": 41,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "The",
+      "start": 0.483,
+      "end": 0.583,
+      "score": 0.974,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "perfect",
+      "start": 0.643,
+      "end": 0.985,
+      "score": 0.984,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "soul",
+      "start": 1.025,
+      "end": 1.287,
+      "score": 0.867,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "mate",
+      "start": 1.327,
+      "end": 1.568,
+      "score": 0.7,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "to",
+      "start": 1.609,
+      "end": 1.709,
+      "score": 0.95,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "the",
+      "start": 1.729,
+      "end": 1.79,
+      "score": 0.956,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "Clarisonic",
+      "start": 1.85,
+      "end": 2.574,
+      "score": 0.846,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "Spot",
+      "start": 3.097,
+      "end": 3.458,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "Therapy",
+      "start": 3.559,
+      "end": 4.001,
+      "score": 0.782,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "Brush,",
+      "start": 4.042,
+      "end": 4.383,
+      "score": 0.947,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "this",
+      "start": 4.966,
+      "end": 5.127,
+      "score": 0.918,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "gentle,",
+      "start": 5.188,
+      "end": 5.63,
+      "score": 0.949,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "Ph",
+      "start": 5.771,
+      "end": 6.153,
+      "score": 0.771,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "balanced",
+      "start": 6.193,
+      "end": 6.635,
+      "score": 0.912,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "and",
+      "start": 6.776,
+      "end": 6.857,
+      "score": 0.918,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "hydrating",
+      "start": 6.957,
+      "end": 7.52,
+      "score": 0.99,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "exfoliant",
+      "start": 7.661,
+      "end": 8.345,
+      "score": 0.846,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "containing",
+      "start": 8.807,
+      "end": 9.249,
+      "score": 0.698,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "jojoba",
+      "start": 9.39,
+      "end": 9.953,
+      "score": 0.875,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "and",
+      "start": 10.355,
+      "end": 10.416,
+      "score": 0.797,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "acai",
+      "start": 10.496,
+      "end": 10.979,
+      "score": 0.858,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "fruit",
+      "start": 11.18,
+      "end": 11.421,
+      "score": 0.816,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "oils",
+      "start": 11.542,
+      "end": 11.743,
+      "score": 0.811,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "and",
+      "start": 12.527,
+      "end": 12.647,
+      "score": 0.199,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "bamboo",
+      "start": 12.748,
+      "end": 13.251,
+      "score": 0.992,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "and",
+      "start": 13.633,
+      "end": 13.713,
+      "score": 0.797,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "prickly",
+      "start": 13.773,
+      "end": 14.155,
+      "score": 0.903,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "bear",
+      "start": 14.196,
+      "end": 14.517,
+      "score": 0.72,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "extracts",
+      "start": 14.698,
+      "end": 15.945,
+      "score": 0.826,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "deliver",
+      "start": 16.005,
+      "end": 16.408,
+      "score": 0.881,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "intense",
+      "start": 16.588,
+      "end": 16.95,
+      "score": 0.94,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 31,
+      "raw_word": "healing,",
+      "start": 17.051,
+      "end": 17.433,
+      "score": 0.894,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 32,
+      "raw_word": "while",
+      "start": 17.936,
+      "end": 18.137,
+      "score": 0.933,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 33,
+      "raw_word": "smooth",
+      "start": 18.197,
+      "end": 18.499,
+      "score": 0.867,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 34,
+      "raw_word": "granules",
+      "start": 18.539,
+      "end": 19.021,
+      "score": 0.804,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 35,
+      "raw_word": "buff",
+      "start": 19.142,
+      "end": 19.424,
+      "score": 0.923,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 36,
+      "raw_word": "away",
+      "start": 19.444,
+      "end": 19.765,
+      "score": 0.936,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 37,
+      "raw_word": "dead,",
+      "start": 20.228,
+      "end": 20.469,
+      "score": 0.777,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 38,
+      "raw_word": "dry",
+      "start": 20.791,
+      "end": 21.193,
+      "score": 0.864,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 39,
+      "raw_word": "skin",
+      "start": 21.294,
+      "end": 21.575,
+      "score": 0.924,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 40,
+      "raw_word": "cells.",
+      "start": 21.595,
+      "end": 21.977,
+      "score": 0.765,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

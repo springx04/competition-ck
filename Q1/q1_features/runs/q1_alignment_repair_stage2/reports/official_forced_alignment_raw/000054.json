@@ -1,0 +1,132 @@
+{
+  "sample_index": 54,
+  "sample_id": "-hnBHBN8p5A$_$7",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Picture this, before we actually start hacking, we’re in a room formal setting",
+  "duration": 7.3406666666666665,
+  "word_count": 13,
+  "timed_word_count": 13,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Picture",
+      "start": 0.0,
+      "end": 0.221,
+      "score": 0.435,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "this,",
+      "start": 0.261,
+      "end": 0.442,
+      "score": 0.45,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "before",
+      "start": 0.463,
+      "end": 0.704,
+      "score": 0.444,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "we",
+      "start": 0.724,
+      "end": 0.865,
+      "score": 0.65,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "actually",
+      "start": 0.885,
+      "end": 1.046,
+      "score": 0.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "start",
+      "start": 1.066,
+      "end": 1.166,
+      "score": 0.2,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "hacking,",
+      "start": 1.187,
+      "end": 1.388,
+      "score": 0.25,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "we’re",
+      "start": 1.408,
+      "end": 1.85,
+      "score": 0.783,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "in",
+      "start": 1.87,
+      "end": 2.011,
+      "score": 0.916,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "a",
+      "start": 2.112,
+      "end": 2.132,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "room",
+      "start": 2.192,
+      "end": 2.413,
+      "score": 0.771,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "formal",
+      "start": 3.519,
+      "end": 4.002,
+      "score": 0.729,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "setting",
+      "start": 4.063,
+      "end": 4.304,
+      "score": 0.453,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,97 @@
+{
+  "source_revision": "da6c8e5bd553d0480ca941384ae20f279929872f",
+  "candidate_only": true,
+  "production_write": false,
+  "implementation_files": [
+    {
+      "path": "configs/q1_auto_resolution.yaml",
+      "bytes": 3024,
+      "sha256": "a3f7562467834dec19f883e4dc22f8ad1f99d6bfd73ac937735c0ed5b3cb7a8d"
+    },
+    {
+      "path": "src/q1_features/auto_resolution.py",
+      "bytes": 15184,
+      "sha256": "ff8c04711bc772f3ad8920f8c7ba764ffbcfd02d23dca9623e8d53d522ab45ca"
+    },
+    {
+      "path": "src/q1_features/auto_vision.py",
+      "bytes": 8588,
+      "sha256": "ec1005b9468d8b088634b1caf50d8d350a4ffba6f698006af460765f976136eb"
+    },
+    {
+      "path": "src/q1_features/word_aligned_candidate.py",
+      "bytes": 10860,
+      "sha256": "abcaccb9365bdc2c9a6645cde71a31d60fd622b96b5810616a3956a4e81a2e12"
+    },
+    {
+      "path": "scripts/run_whisperx_auto_resolution.py",
+      "bytes": 5318,
+      "sha256": "1a867983cf4770954492d80d5ba9657539f18216bc21a755ab581742897a30a0"
+    },
+    {
+      "path": "scripts/analyze_auto_resolution.py",
+      "bytes": 6064,
+      "sha256": "d6f12f4c55da515fb81d5d1f576fa8063326b134f95e4775c6acf56f53984fa9"
+    },
+    {
+      "path": "scripts/run_arcface_auto_resolution.py",
+      "bytes": 12767,
+      "sha256": "0df1785a4ad74f8206007db5874c26e40a3570a3cdcba889f262472b3afaa097"
+    },
+    {
+      "path": "scripts/run_av_sync_auto_resolution.py",
+      "bytes": 12168,
+      "sha256": "516a96efae0e82fa0b771f1b71715f8895bf3d90adbafc04e023286b648b73e4"
+    },
+    {
+      "path": "scripts/run_talknet_auto_resolution.py",
+      "bytes": 11187,
+      "sha256": "d51919275463d6355a9096389eb5192d8dc2646be3d521004efd2be97c122f79"
+    },
+    {
+      "path": "scripts/build_word_aligned_candidate.py",
+      "bytes": 832,
+      "sha256": "cd6e9b587b85f6f2af3913f80435b979b032d035e0267307560d3485751c057f"
+    },
+    {
+      "path": "scripts/finalize_auto_resolution.py",
+      "bytes": 22061,
+      "sha256": "2815602b3735c4fcc9dcbb1ae46e3b91a67fa4e2c4897bf2022bff7daa135796"
+    },
+    {
+      "path": "scripts/verify_auto_resolution_baseline.py",
+      "bytes": 1468,
+      "sha256": "059ce5f038a910dc48eca61caa5930d1fd493d28e5b2246c17dce1bd87a4f1c4"
+    },
+    {
+      "path": "scripts/validate_auto_resolution_stage1.py",
+      "bytes": 6654,
+      "sha256": "d7f8c533a3a39a765445f5e816348c1da868687264f32c5ff79b4a234d81d2ac"
+    },
+    {
+      "path": "tests/test_auto_resolution.py",
+      "bytes": 3263,
+      "sha256": "2f8aff5f8361c43f123978b82174603ca55b39d531fc6f4ff974bcdbf890e168"
+    }
+  ],
+  "isolated_environment_patches": [
+    {
+      "path": "env/auto_resolution/whisperx/lib/python3.10/site-packages/whisperx/vads/__init__.py",
+      "bytes": 423,
+      "sha256": "16ea846c886e3e16940c78dfa84fd95b98f4d2314fa63599492365b33b4d2b34"
+    },
+    {
+      "path": "env/auto_resolution/whisperx/lib/python3.10/site-packages/whisperx/vads/silero.py",
+      "bytes": 3169,
+      "sha256": "1bb801210980360ae8cc64a3f92cc449b7fccc2f93698e72513d4d3b6c4d910b"
+    },
+    {
+      "path": "env/auto_resolution/whisperx/lib/python3.10/site-packages/whisperx/vads/vad.py",
+      "bytes": 1508,
+      "sha256": "648f0bf1e64566f286a38cc7a97d6d85c5dc2cb92518ff2d143756875c4be44d"
+    }
+  ],
+  "tests": "63 passed",
+  "pip_check": "No broken requirements found.",
+  "frozen_baseline_verification": "runs/q1_full_20260924/reports/auto_resolution/frozen_baseline_verification.json"
+}

@@ -1,0 +1,5 @@
+﻿sample_id,proposed_audio_sample_id,mapping_status,proposal_only,manifest_modified,reason
+-iRBcNs9oI8$_$3,,MAPPING_WEAK,1,0,ASR_token_assignments_disagree
+-iRBcNs9oI8$_$6,-iRBcNs9oI8$_$9,MAPPING_STRONG,1,0,independent_ASRs_and_metrics_support_same_off_diagonal_mapping
+-mJ2ud6oKI8$_$1,,MAPPING_UNRESOLVED,1,0,assignments_unstable_or_absolute_similarity_too_low
+-ri04Z7vwnc$_$2,,MAPPING_UNRESOLVED,1,0,assignments_unstable_or_absolute_similarity_too_low

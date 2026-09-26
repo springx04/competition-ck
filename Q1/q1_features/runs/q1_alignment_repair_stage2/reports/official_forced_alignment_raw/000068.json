@@ -1,0 +1,159 @@
+{
+  "sample_index": 68,
+  "sample_id": "-qDkUB0GgYY$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "We always love to hear what you say, and like and share this video as well.",
+  "duration": 4.666666666666666,
+  "word_count": 16,
+  "timed_word_count": 16,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "We",
+      "start": 0.507,
+      "end": 0.609,
+      "score": 0.856,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "always",
+      "start": 0.649,
+      "end": 0.893,
+      "score": 0.951,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "love",
+      "start": 0.994,
+      "end": 1.177,
+      "score": 0.984,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "to",
+      "start": 1.217,
+      "end": 1.278,
+      "score": 0.756,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "hear",
+      "start": 1.299,
+      "end": 1.441,
+      "score": 0.879,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "what",
+      "start": 1.461,
+      "end": 1.562,
+      "score": 0.88,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "you",
+      "start": 1.583,
+      "end": 1.806,
+      "score": 0.714,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "say,",
+      "start": 1.948,
+      "end": 2.475,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "and",
+      "start": 2.617,
+      "end": 2.719,
+      "score": 0.714,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "like",
+      "start": 2.759,
+      "end": 2.942,
+      "score": 0.895,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "and",
+      "start": 2.983,
+      "end": 3.043,
+      "score": 0.671,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "share",
+      "start": 3.064,
+      "end": 3.206,
+      "score": 0.314,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "this",
+      "start": 3.226,
+      "end": 3.348,
+      "score": 0.152,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "video",
+      "start": 3.368,
+      "end": 3.612,
+      "score": 0.429,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "as",
+      "start": 3.672,
+      "end": 3.754,
+      "score": 0.774,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "well.",
+      "start": 3.835,
+      "end": 4.099,
+      "score": 0.971,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

@@ -1,0 +1,24 @@
+{
+  "sample_count": 100,
+  "data_chain_ok": 100,
+  "mapping_suspected": 4,
+  "semantic_status_all100": {
+    "MATCH_STRONG": 78,
+    "CONFLICT": 12,
+    "UNRESOLVED": 7,
+    "MATCH_WEAK": 3
+  },
+  "original_19_conflict_causes": {
+    "two_ASRs_agree_but_both_conflict_with_official": 8,
+    "clip_mapping_suspected": 4,
+    "unresolved_algorithmic_or_content_conflict": 2,
+    "ASR_unstable": 5
+  },
+  "frozen_baseline": {
+    "file_count": 610,
+    "combined_sha256": "cc7d00ccb7c67b75a33a8bffb751977241bee60b221383ebfa7a3f2f615bae0d",
+    "production_write": false
+  },
+  "candidate_only": true,
+  "production_write": false
+}

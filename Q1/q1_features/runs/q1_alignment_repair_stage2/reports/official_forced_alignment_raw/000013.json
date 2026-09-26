@@ -1,0 +1,87 @@
+{
+  "sample_index": 13,
+  "sample_id": "-HwX2H8Z4hY$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "” [President Ronald Reagan:] \"Look at the record",
+  "duration": 3.9666666666666663,
+  "word_count": 8,
+  "timed_word_count": 8,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "”",
+      "start": 0.102,
+      "end": 0.224,
+      "score": 0.731,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "[President",
+      "start": 0.427,
+      "end": 0.814,
+      "score": 0.43,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "Ronald",
+      "start": 1.139,
+      "end": 1.485,
+      "score": 0.152,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "Reagan:]",
+      "start": 1.688,
+      "end": 1.912,
+      "score": 0.189,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "\"Look",
+      "start": 1.932,
+      "end": 2.889,
+      "score": 0.995,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "at",
+      "start": 2.929,
+      "end": 2.97,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "the",
+      "start": 2.99,
+      "end": 3.072,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "record",
+      "start": 3.112,
+      "end": 3.397,
+      "score": 0.96,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

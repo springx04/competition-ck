@@ -1,0 +1,60 @@
+{
+  "sample_index": 56,
+  "sample_id": "-iRBcNs9oI8$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "What is a power pose",
+  "duration": 2.8695333333333335,
+  "word_count": 5,
+  "timed_word_count": 5,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "What",
+      "start": 0.0,
+      "end": 0.205,
+      "score": 0.625,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "is",
+      "start": 0.246,
+      "end": 0.348,
+      "score": 0.417,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "a",
+      "start": 0.471,
+      "end": 0.533,
+      "score": 0.333,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "power",
+      "start": 0.574,
+      "end": 0.676,
+      "score": 0.2,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "pose",
+      "start": 0.697,
+      "end": 0.799,
+      "score": 0.367,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

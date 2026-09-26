@@ -1,0 +1,60 @@
+{
+  "sample_index": 76,
+  "sample_id": "-s9qJ7ATP7w$_$6",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "But I just kept going",
+  "duration": 2.4666666666666663,
+  "word_count": 5,
+  "timed_word_count": 5,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "But",
+      "start": 0.601,
+      "end": 0.815,
+      "score": 0.978,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "I",
+      "start": 1.308,
+      "end": 1.394,
+      "score": 0.783,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "just",
+      "start": 1.416,
+      "end": 1.544,
+      "score": 0.997,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "kept",
+      "start": 1.587,
+      "end": 1.737,
+      "score": 0.802,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "going",
+      "start": 1.759,
+      "end": 1.973,
+      "score": 0.997,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

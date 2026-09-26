@@ -1,0 +1,123 @@
+{
+  "sample_index": 10,
+  "sample_id": "-9y-fZ3swSY$_$8",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "That’s a more decent and more polite way to call a lady",
+  "duration": 4.966666666666667,
+  "word_count": 12,
+  "timed_word_count": 12,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "That’s",
+      "start": 0.264,
+      "end": 0.466,
+      "score": 0.951,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "a",
+      "start": 0.568,
+      "end": 0.608,
+      "score": 0.976,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "more",
+      "start": 0.973,
+      "end": 1.176,
+      "score": 0.91,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "decent",
+      "start": 1.379,
+      "end": 1.845,
+      "score": 0.973,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "and",
+      "start": 2.129,
+      "end": 2.189,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "more",
+      "start": 2.23,
+      "end": 2.352,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "polite",
+      "start": 2.392,
+      "end": 2.899,
+      "score": 0.916,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "way",
+      "start": 2.96,
+      "end": 3.122,
+      "score": 0.889,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "to",
+      "start": 3.223,
+      "end": 3.325,
+      "score": 0.878,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "call",
+      "start": 3.365,
+      "end": 3.669,
+      "score": 0.878,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "a",
+      "start": 3.69,
+      "end": 3.71,
+      "score": 0.002,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "lady",
+      "start": 4.136,
+      "end": 4.399,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

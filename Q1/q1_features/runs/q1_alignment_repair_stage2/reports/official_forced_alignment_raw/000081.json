@@ -1,0 +1,213 @@
+{
+  "sample_index": 81,
+  "sample_id": "-tANM6ETl_M$_$3",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "The first place is either you have a prospect, or a customer who's never done it before, or they've never tried it.",
+  "duration": 6.733333333333333,
+  "word_count": 22,
+  "timed_word_count": 22,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "The",
+      "start": 0.532,
+      "end": 0.634,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "first",
+      "start": 0.696,
+      "end": 0.982,
+      "score": 0.936,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "place",
+      "start": 1.023,
+      "end": 1.33,
+      "score": 0.94,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "is",
+      "start": 1.412,
+      "end": 1.494,
+      "score": 0.998,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "either",
+      "start": 1.576,
+      "end": 1.801,
+      "score": 0.919,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "you",
+      "start": 1.883,
+      "end": 2.067,
+      "score": 0.932,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "have",
+      "start": 2.108,
+      "end": 2.251,
+      "score": 0.922,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "a",
+      "start": 2.313,
+      "end": 2.333,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "prospect,",
+      "start": 2.415,
+      "end": 2.988,
+      "score": 0.947,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "or",
+      "start": 3.009,
+      "end": 3.09,
+      "score": 0.776,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "a",
+      "start": 3.111,
+      "end": 3.152,
+      "score": 0.494,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "customer",
+      "start": 3.193,
+      "end": 3.602,
+      "score": 0.938,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "who's",
+      "start": 3.622,
+      "end": 3.786,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "never",
+      "start": 3.97,
+      "end": 4.277,
+      "score": 0.868,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "done",
+      "start": 4.38,
+      "end": 4.564,
+      "score": 0.925,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "it",
+      "start": 4.625,
+      "end": 4.687,
+      "score": 0.826,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "before,",
+      "start": 4.748,
+      "end": 5.157,
+      "score": 0.857,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "or",
+      "start": 5.178,
+      "end": 5.219,
+      "score": 0.004,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "they've",
+      "start": 5.239,
+      "end": 5.444,
+      "score": 0.926,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "never",
+      "start": 5.546,
+      "end": 5.771,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "tried",
+      "start": 5.833,
+      "end": 6.119,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "it.",
+      "start": 6.181,
+      "end": 6.242,
+      "score": 0.975,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

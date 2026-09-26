@@ -1,0 +1,141 @@
+{
+  "sample_index": 1,
+  "sample_id": "-3g5yACwYnA$_$2",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Key Polymer brings a technical aspect to our operation that we don't have internally.",
+  "duration": 9.366666666666667,
+  "word_count": 14,
+  "timed_word_count": 14,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Key",
+      "start": 1.869,
+      "end": 2.337,
+      "score": 0.72,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "Polymer",
+      "start": 3.088,
+      "end": 3.434,
+      "score": 0.476,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "brings",
+      "start": 3.454,
+      "end": 3.657,
+      "score": 0.824,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "a",
+      "start": 3.718,
+      "end": 3.759,
+      "score": 0.961,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "technical",
+      "start": 3.799,
+      "end": 4.267,
+      "score": 0.946,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "aspect",
+      "start": 4.45,
+      "end": 4.754,
+      "score": 0.989,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "to",
+      "start": 4.795,
+      "end": 5.019,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "our",
+      "start": 5.953,
+      "end": 6.055,
+      "score": 0.596,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "operation",
+      "start": 6.116,
+      "end": 6.563,
+      "score": 0.891,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "that",
+      "start": 6.603,
+      "end": 6.746,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "we",
+      "start": 6.786,
+      "end": 6.888,
+      "score": 0.834,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "don't",
+      "start": 6.928,
+      "end": 7.132,
+      "score": 0.837,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "have",
+      "start": 7.172,
+      "end": 7.315,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "internally.",
+      "start": 7.375,
+      "end": 7.822,
+      "score": 0.955,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

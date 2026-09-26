@@ -1,0 +1,168 @@
+{
+  "sample_index": 26,
+  "sample_id": "-RfYyzHpjk4$_$8",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "It's pretty, pretty easy to do but you got to set up those numbers ahead of time.",
+  "duration": 4.566666666666666,
+  "word_count": 17,
+  "timed_word_count": 17,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "It's",
+      "start": 0.485,
+      "end": 0.606,
+      "score": 0.778,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "pretty,",
+      "start": 0.707,
+      "end": 0.99,
+      "score": 0.974,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "pretty",
+      "start": 1.031,
+      "end": 1.293,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "easy",
+      "start": 1.354,
+      "end": 1.556,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "to",
+      "start": 1.596,
+      "end": 1.677,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "do",
+      "start": 1.718,
+      "end": 1.859,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "but",
+      "start": 1.94,
+      "end": 2.021,
+      "score": 0.842,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "you",
+      "start": 2.041,
+      "end": 2.203,
+      "score": 0.737,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "got",
+      "start": 2.223,
+      "end": 2.324,
+      "score": 0.813,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "to",
+      "start": 2.344,
+      "end": 2.425,
+      "score": 0.861,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "set",
+      "start": 2.465,
+      "end": 2.667,
+      "score": 0.839,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "up",
+      "start": 2.708,
+      "end": 2.829,
+      "score": 0.62,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "those",
+      "start": 2.849,
+      "end": 3.011,
+      "score": 0.948,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "numbers",
+      "start": 3.071,
+      "end": 3.334,
+      "score": 0.968,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "ahead",
+      "start": 3.395,
+      "end": 3.597,
+      "score": 0.862,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "of",
+      "start": 3.637,
+      "end": 3.698,
+      "score": 0.753,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "time.",
+      "start": 3.738,
+      "end": 4.021,
+      "score": 0.97,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

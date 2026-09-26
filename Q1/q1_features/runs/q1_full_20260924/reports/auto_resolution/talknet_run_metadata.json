@@ -1,0 +1,25 @@
+{
+  "implementation": "official TalkNet checkpoint and model; frozen OpenFace episode crops",
+  "official_repository": "https://github.com/TaoRuijie/TalkNet-ASD",
+  "official_google_drive_file_id": "1AbN9fCf9IexMxEKXLQY2KYBlb-IhSEea",
+  "checkpoint": "/home/jqy/shumo/q1_features/models/auto_resolution/manual_upload/pretrain_TalkSet.model",
+  "checkpoint_bytes": 63227827,
+  "checkpoint_sha256": "d985ddd07dca08864a28337726f5b7d91b6426bebc7327f0e9b21cf9ff1cc937",
+  "source_dir": "/home/jqy/shumo/q1_features/third_party/review_aux/TalkNet-ASD-main",
+  "torch": "2.5.1",
+  "cuda": "NVIDIA GeForce RTX 4090",
+  "durations_s": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "threshold": "class-1 logit >= 0",
+  "sample_count": 100,
+  "episode_count": 191,
+  "ok_episode_count": 165,
+  "failed_episode_count": 26,
+  "frame_count": 19067
+}

@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "sample_count": 100,
+  "resolution_status_counts": {
+    "RESOLVED_VALID": 57,
+    "UNRESOLVED": 15,
+    "RESOLVED_PARTIAL": 19,
+    "RESOLVED_MISSING": 4,
+    "RESOLVED_CONFLICT": 5
+  },
+  "mapping_status_counts": {
+    "MAPPING_WEAK": 1,
+    "MAPPING_STRONG": 1,
+    "MAPPING_UNRESOLVED": 2
+  },
+  "visual_status_original37": {
+    "UNRESOLVED": 10,
+    "PARTIALLY_VERIFIED": 6,
+    "FULLY_VERIFIED": 16,
+    "AMBIGUOUS": 5
+  },
+  "word_candidate_ok": true,
+  "compact_candidate_ok": true,
+  "frozen_inputs_unchanged": true,
+  "engineering_verification_ok": true,
+  "pytest": "93 passed",
+  "pip_check": "No broken requirements found.",
+  "candidate_only": true,
+  "production_write": false
+}

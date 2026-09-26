@@ -1,0 +1,204 @@
+{
+  "sample_index": 88,
+  "sample_id": "-vxjVxOeScU$_$4",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "You're going to talk about their life, their marriage and usually how amazing it is that they've stayed together this long.",
+  "duration": 9.1,
+  "word_count": 21,
+  "timed_word_count": 21,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "You're",
+      "start": 0.484,
+      "end": 0.605,
+      "score": 0.492,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "going",
+      "start": 0.625,
+      "end": 0.726,
+      "score": 0.306,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "to",
+      "start": 0.747,
+      "end": 0.807,
+      "score": 0.76,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "talk",
+      "start": 0.847,
+      "end": 1.11,
+      "score": 0.954,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "about",
+      "start": 1.17,
+      "end": 1.614,
+      "score": 0.946,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "their",
+      "start": 1.876,
+      "end": 2.078,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "life,",
+      "start": 2.199,
+      "end": 2.643,
+      "score": 0.899,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "their",
+      "start": 2.966,
+      "end": 3.148,
+      "score": 0.87,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "marriage",
+      "start": 3.249,
+      "end": 3.814,
+      "score": 0.969,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "and",
+      "start": 4.802,
+      "end": 4.883,
+      "score": 0.619,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "usually",
+      "start": 5.044,
+      "end": 5.549,
+      "score": 0.938,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "how",
+      "start": 5.65,
+      "end": 5.851,
+      "score": 0.887,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "amazing",
+      "start": 5.912,
+      "end": 6.457,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "it",
+      "start": 6.517,
+      "end": 6.578,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "is",
+      "start": 6.699,
+      "end": 6.8,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "that",
+      "start": 6.88,
+      "end": 6.981,
+      "score": 0.994,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "they've",
+      "start": 7.022,
+      "end": 7.224,
+      "score": 0.871,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "stayed",
+      "start": 7.264,
+      "end": 7.546,
+      "score": 0.918,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "together",
+      "start": 7.587,
+      "end": 7.97,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "this",
+      "start": 8.031,
+      "end": 8.192,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "long.",
+      "start": 8.293,
+      "end": 8.596,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

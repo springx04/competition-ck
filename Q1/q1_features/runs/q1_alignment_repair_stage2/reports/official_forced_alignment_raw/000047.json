@@ -1,0 +1,159 @@
+{
+  "sample_index": 47,
+  "sample_id": "-egA8-b7-3M$_$17",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "As you have more experience, you have more times exhibiting, you get to know more people.",
+  "duration": 7.266666666666667,
+  "word_count": 16,
+  "timed_word_count": 16,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "As",
+      "start": 0.657,
+      "end": 0.739,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "you",
+      "start": 0.801,
+      "end": 0.924,
+      "score": 0.833,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "have",
+      "start": 0.985,
+      "end": 1.129,
+      "score": 0.883,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "more",
+      "start": 1.211,
+      "end": 1.396,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "experience,",
+      "start": 1.457,
+      "end": 2.135,
+      "score": 0.949,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "you",
+      "start": 3.305,
+      "end": 3.449,
+      "score": 0.786,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "have",
+      "start": 3.49,
+      "end": 3.613,
+      "score": 0.886,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "more",
+      "start": 3.674,
+      "end": 3.859,
+      "score": 0.759,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "times",
+      "start": 3.921,
+      "end": 4.311,
+      "score": 0.959,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "exhibiting,",
+      "start": 4.393,
+      "end": 5.009,
+      "score": 0.953,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "you",
+      "start": 5.378,
+      "end": 5.501,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "get",
+      "start": 5.542,
+      "end": 5.686,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "to",
+      "start": 5.727,
+      "end": 5.789,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "know",
+      "start": 5.871,
+      "end": 6.035,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "more",
+      "start": 6.076,
+      "end": 6.261,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "people.",
+      "start": 6.322,
+      "end": 6.692,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

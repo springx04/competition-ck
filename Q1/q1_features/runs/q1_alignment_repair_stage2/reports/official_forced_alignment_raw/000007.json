@@ -1,0 +1,321 @@
+{
+  "sample_index": 7,
+  "sample_id": "-6rXp3zJ3kc$_$8",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Many people are not until they get to be a older age and they realize that gosh they wasted a lot of time and money in placing bets on stock that's ultimately lost value.",
+  "duration": 12.799999999999999,
+  "word_count": 34,
+  "timed_word_count": 34,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Many",
+      "start": 0.523,
+      "end": 0.725,
+      "score": 0.935,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "people",
+      "start": 0.765,
+      "end": 1.026,
+      "score": 0.922,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "are",
+      "start": 1.067,
+      "end": 1.147,
+      "score": 0.942,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "not",
+      "start": 1.248,
+      "end": 1.53,
+      "score": 0.993,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "until",
+      "start": 1.59,
+      "end": 1.852,
+      "score": 0.888,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "they",
+      "start": 1.872,
+      "end": 1.992,
+      "score": 0.999,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "get",
+      "start": 2.033,
+      "end": 2.214,
+      "score": 0.785,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "to",
+      "start": 2.254,
+      "end": 2.355,
+      "score": 0.988,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 8,
+      "raw_word": "be",
+      "start": 2.395,
+      "end": 2.576,
+      "score": 0.809,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 9,
+      "raw_word": "a",
+      "start": 2.657,
+      "end": 2.717,
+      "score": 0.675,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 10,
+      "raw_word": "older",
+      "start": 3.341,
+      "end": 3.582,
+      "score": 0.965,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 11,
+      "raw_word": "age",
+      "start": 3.804,
+      "end": 3.965,
+      "score": 0.991,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 12,
+      "raw_word": "and",
+      "start": 4.025,
+      "end": 4.106,
+      "score": 0.882,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 13,
+      "raw_word": "they",
+      "start": 4.146,
+      "end": 4.287,
+      "score": 0.89,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 14,
+      "raw_word": "realize",
+      "start": 4.347,
+      "end": 4.81,
+      "score": 0.868,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 15,
+      "raw_word": "that",
+      "start": 4.83,
+      "end": 4.991,
+      "score": 0.86,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 16,
+      "raw_word": "gosh",
+      "start": 5.092,
+      "end": 5.394,
+      "score": 0.975,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 17,
+      "raw_word": "they",
+      "start": 5.776,
+      "end": 5.977,
+      "score": 0.82,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 18,
+      "raw_word": "wasted",
+      "start": 6.038,
+      "end": 6.36,
+      "score": 0.922,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 19,
+      "raw_word": "a",
+      "start": 6.38,
+      "end": 6.42,
+      "score": 0.499,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 20,
+      "raw_word": "lot",
+      "start": 6.46,
+      "end": 6.621,
+      "score": 0.848,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 21,
+      "raw_word": "of",
+      "start": 6.642,
+      "end": 6.702,
+      "score": 0.747,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 22,
+      "raw_word": "time",
+      "start": 6.762,
+      "end": 7.125,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 23,
+      "raw_word": "and",
+      "start": 7.185,
+      "end": 7.286,
+      "score": 0.331,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 24,
+      "raw_word": "money",
+      "start": 7.366,
+      "end": 7.628,
+      "score": 0.877,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 25,
+      "raw_word": "in",
+      "start": 9.016,
+      "end": 9.117,
+      "score": 0.853,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 26,
+      "raw_word": "placing",
+      "start": 9.338,
+      "end": 9.681,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 27,
+      "raw_word": "bets",
+      "start": 9.741,
+      "end": 10.003,
+      "score": 0.882,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 28,
+      "raw_word": "on",
+      "start": 10.083,
+      "end": 10.164,
+      "score": 0.836,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 29,
+      "raw_word": "stock",
+      "start": 10.224,
+      "end": 10.526,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 30,
+      "raw_word": "that's",
+      "start": 10.566,
+      "end": 10.787,
+      "score": 0.817,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 31,
+      "raw_word": "ultimately",
+      "start": 10.948,
+      "end": 11.431,
+      "score": 0.975,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 32,
+      "raw_word": "lost",
+      "start": 11.512,
+      "end": 11.794,
+      "score": 1.0,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 33,
+      "raw_word": "value.",
+      "start": 11.894,
+      "end": 12.277,
+      "score": 0.966,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

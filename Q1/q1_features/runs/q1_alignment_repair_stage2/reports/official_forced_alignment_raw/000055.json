@@ -1,0 +1,87 @@
+{
+  "sample_index": 55,
+  "sample_id": "-iRBcNs9oI8$_$3",
+  "status": "ok",
+  "transcript_source": "official_manifest_raw_text",
+  "official_text": "Well, it is the secret of power pose",
+  "duration": 5.605600000000001,
+  "word_count": 8,
+  "timed_word_count": 8,
+  "aligned_word_fraction": 1.0,
+  "words": [
+    {
+      "word_id": 0,
+      "raw_word": "Well,",
+      "start": 0.406,
+      "end": 0.528,
+      "score": 0.211,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 1,
+      "raw_word": "it",
+      "start": 0.548,
+      "end": 0.63,
+      "score": 0.334,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 2,
+      "raw_word": "is",
+      "start": 0.67,
+      "end": 0.751,
+      "score": 0.574,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 3,
+      "raw_word": "the",
+      "start": 0.772,
+      "end": 0.853,
+      "score": 0.5,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 4,
+      "raw_word": "secret",
+      "start": 0.914,
+      "end": 1.34,
+      "score": 0.643,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 5,
+      "raw_word": "of",
+      "start": 2.011,
+      "end": 2.092,
+      "score": 0.735,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 6,
+      "raw_word": "power",
+      "start": 2.133,
+      "end": 2.254,
+      "score": 0.345,
+      "aligned": 1,
+      "reason": ""
+    },
+    {
+      "word_id": 7,
+      "raw_word": "pose",
+      "start": 2.275,
+      "end": 2.458,
+      "score": 0.575,
+      "aligned": 1,
+      "reason": ""
+    }
+  ],
+  "error_type": "",
+  "error": ""
+}

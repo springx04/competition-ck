@@ -4,7 +4,7 @@ import argparse
 import csv
 import json
 import math
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import numpy as np
@@ -99,6 +99,11 @@ def main() -> int:
     av_rows = read_csv(output / "av_sync_scores.csv")
     av_top = {row["sample_id"]: row for row in av_rows if str(row["rank_within_sample"]) == "1"}
     talknet = read_json(args.talknet_status, {})
+    talknet_episode_rows = read_csv(output / "talknet_episode_scores.csv") if (output / "talknet_episode_scores.csv").is_file() else []
+    talknet_by_sample_episode = {
+        (row["sample_id"], f"{int(row['face_id'])}:{int(row['episode_id'])}"): row
+        for row in talknet_episode_rows
+    }
     mfa = read_json(output / "mfa_status.json", {})
 
     required_all = [whisper, permutation, text_evidence, clusters]
@@ -129,6 +134,25 @@ def main() -> int:
 
         components = json.loads(c["clusters_json"])
         top_cluster = int(av["cluster_id"]) if av else None
+        selected_talknet = []
+        if top_cluster is not None and 0 <= top_cluster < len(components):
+            selected_talknet = [
+                talknet_by_sample_episode[(sample_id, episode_key)]
+                for episode_key in components[top_cluster]
+                if (sample_id, episode_key) in talknet_by_sample_episode
+                and talknet_by_sample_episode[(sample_id, episode_key)]["status"] == "ok"
+            ]
+        talknet_frames = sum(int(row["talknet_frame_count"]) for row in selected_talknet)
+        talknet_logit = (
+            sum(float(row["mean_class1_logit"]) * int(row["talknet_frame_count"]) for row in selected_talknet)
+            / talknet_frames
+            if talknet_frames else ""
+        )
+        talknet_speaking_fraction = (
+            sum(float(row["speaking_frame_fraction"]) * int(row["talknet_frame_count"]) for row in selected_talknet)
+            / talknet_frames
+            if talknet_frames else ""
+        )
         quality_by_episode = {entry["episode_key"]: entry for entry in json.loads(c["episode_quality_json"])}
         for cluster_id, episode_keys in enumerate(components):
             usable = v_level in {"V_STRONG", "V_PARTIAL"} and cluster_id == top_cluster
@@ -184,7 +208,10 @@ def main() -> int:
             "av_sync_empirical_percentile": av["empirical_percentile"] if av else "",
             "av_sync_top1_top2_margin": av["top1_top2_margin"] if av else "",
             "talknet_status": talknet.get("status", "unavailable"),
-            "talknet_logit": "",
+            "talknet_logit": talknet_logit,
+            "talknet_speaking_frame_fraction": talknet_speaking_fraction,
+            "talknet_selected_valid_episode_count": len(selected_talknet),
+            "talknet_selected_frame_count": talknet_frames,
             "text_audio_candidate_status": ta_status,
             "vision_candidate_status": v_status,
             "trimodal_candidate_status": trimodal,
@@ -206,7 +233,8 @@ def main() -> int:
     identity_cluster_distribution = Counter(
         int(clusters[sample_id]["identity_cluster_count"]) for sample_id in identity_ids
     )
-    ta_distribution = Counter(text_evidence[sample_id]["ta_evidence_level"] for sample_id in ta_alert_ids)
+    ta_distribution = Counter({"TA_STRONG": 0, "TA_SEMANTIC_ONLY": 0, "TA_CONFLICT": 0})
+    ta_distribution.update(text_evidence[sample_id]["ta_evidence_level"] for sample_id in ta_alert_ids)
     v_distribution = Counter(row["vision_evidence_level"] for row in candidates)
     final_distribution = Counter(row["trimodal_candidate_status"] for row in candidates)
     group_distribution = {}
@@ -214,6 +242,31 @@ def main() -> int:
         group_distribution[group] = dict(Counter(
             row["trimodal_candidate_status"] for row in candidates if row["original_group"] == group
         ))
+    paired_49_ids = sorted(sample_id for sample_id, row in quality.items() if int(row["paired_use"]) == 1)
+    if len(paired_49_ids) != 49:
+        raise ValueError(f"expected 49 current paired-use samples, found {len(paired_49_ids)}")
+    paired_49_distribution = Counter({"TA_STRONG": 0, "TA_SEMANTIC_ONLY": 0, "TA_CONFLICT": 0})
+    paired_49_distribution.update(text_evidence[sample_id]["ta_evidence_level"] for sample_id in paired_49_ids)
+    new_ta_risks = []
+    for sample_id in paired_49_ids:
+        evidence = text_evidence[sample_id]
+        if evidence["ta_evidence_level"] == "TA_STRONG":
+            continue
+        w = whisper[sample_id]
+        perm = permutation[sample_id]
+        new_ta_risks.append({
+            "sample_id": sample_id, "current_paired_use": 1,
+            "ta_evidence_level": evidence["ta_evidence_level"],
+            "text_audio_status": evidence["text_audio_status"],
+            "ctc_diagnostic_wer": w["ctc_diagnostic_wer"],
+            "ctc_accepted_word_fraction": w["ctc_accepted_word_fraction"],
+            "whisperx_wer": w["whisperx_wer"],
+            "whisperx_word_overlap_f1": w["word_overlap_f1"],
+            "permutation_true_rank": perm["true_rank"],
+            "permutation_empirical_percentile": perm["empirical_percentile"],
+            "evidence_reason": evidence["evidence_reason"],
+        })
+    write_csv(output / "new_text_audio_risk_candidates.csv", new_ta_risks, list(new_ta_risks[0]) if new_ta_risks else ["sample_id"])
     boundary = [as_float(whisper[sample_id]["median_midpoint_difference_s"]) for sample_id in manifest_by_id]
     boundary = [value for value in boundary if value is not None]
     real_scores = [as_float(row["real_sync_score"]) for row in av_rows]
@@ -221,6 +274,8 @@ def main() -> int:
     null_rows = read_csv(output / "av_sync_null_test.csv")
     null_scores = [as_float(row["sync_score"]) for row in null_rows]
     null_scores = [value for value in null_scores if value is not None]
+    av_empirical = [as_float(row["empirical_percentile"]) for row in av_rows]
+    av_empirical = [value for value in av_empirical if value is not None]
     summary = {
         "candidate_only": True,
         "production_write": False,
@@ -230,6 +285,9 @@ def main() -> int:
             "total": len(manifest_by_id),
         },
         "ta_alert_evidence_distribution": dict(ta_distribution),
+        "original_paired_49_ta_distribution": dict(paired_49_distribution),
+        "new_text_audio_risk_candidate_count": len(new_ta_risks),
+        "new_text_audio_risk_candidate_ids": [row["sample_id"] for row in new_ta_risks],
         "identity_risk_cluster_distribution_0_60": {str(k): v for k, v in sorted(identity_cluster_distribution.items())},
         "vision_evidence_distribution_all_51": dict(v_distribution),
         "trimodal_candidate_distribution": dict(final_distribution),
@@ -239,11 +297,26 @@ def main() -> int:
             "p90": float(np.quantile(boundary, 0.90)) if boundary else None,
         },
         "av_sync": {
-            "real_n": len(real_scores), "real_median": float(np.median(real_scores)) if real_scores else None,
-            "null_n": len(null_scores), "null_median": float(np.median(null_scores)) if null_scores else None,
+            "real_n": len(real_scores),
+            "real_p25": float(np.quantile(real_scores, 0.25)) if real_scores else None,
+            "real_median": float(np.median(real_scores)) if real_scores else None,
+            "real_p75": float(np.quantile(real_scores, 0.75)) if real_scores else None,
+            "null_n": len(null_scores),
+            "null_p25": float(np.quantile(null_scores, 0.25)) if null_scores else None,
+            "null_median": float(np.median(null_scores)) if null_scores else None,
+            "null_p75": float(np.quantile(null_scores, 0.75)) if null_scores else None,
             "real_minus_null_median": (float(np.median(real_scores)) - float(np.median(null_scores))) if real_scores and null_scores else None,
+            "empirical_percentile_median": float(np.median(av_empirical)) if av_empirical else None,
+            "empirical_percentile_ge_0_80": sum(value >= 0.80 for value in av_empirical),
+            "empirical_percentile_ge_0_95": sum(value >= 0.95 for value in av_empirical),
         },
         "talknet": talknet,
+        "talknet_episode_results": {
+            "total": len(talknet_episode_rows),
+            "ok": sum(row["status"] == "ok" for row in talknet_episode_rows),
+            "failed": sum(row["status"] != "ok" for row in talknet_episode_rows),
+            "frames": sum(int(row["talknet_frame_count"]) for row in talknet_episode_rows),
+        },
         "mfa": mfa,
         "word_aligned_validation": read_json(output / "q1_word_aligned_candidate.validation.json", {}),
     }
@@ -258,16 +331,20 @@ def main() -> int:
         "## 2. 文本—音频证据", "",
         f"- WhisperX 完成：{summary['whisperx_completion']['ok']}/{summary['whisperx_completion']['total']}。",
         f"- 原 23 条音文告警的证据等级：`{json.dumps(dict(ta_distribution), ensure_ascii=False)}`。",
+        f"- 原 49 条 paired_use=true 样本：`{json.dumps(dict(paired_49_distribution), ensure_ascii=False)}`；新增自动风险候选 {len(new_ta_risks)} 条：`{json.dumps([row['sample_id'] for row in new_ta_risks], ensure_ascii=False)}`。",
+        "- 新增风险仅写入 `new_text_audio_risk_candidates.csv`，没有修改正式 paired_use。",
         f"- CTC/WhisperX 共同词 midpoint 差：n={summary['ctc_whisperx_median_midpoint_difference_s']['n']}，median={summary['ctc_whisperx_median_midpoint_difference_s']['median']} s，P90={summary['ctc_whisperx_median_midpoint_difference_s']['p90']} s。", "",
         "## 3. 视觉身份与视听同步", "",
         f"- 37 条身份风险样本在 ArcFace 0.60 下的 cluster 数分布：`{json.dumps(summary['identity_risk_cluster_distribution_0_60'], ensure_ascii=False)}`。",
         f"- 51 条候选的视觉等级：`{json.dumps(dict(v_distribution), ensure_ascii=False)}`。",
-        f"- AV-sync real median={summary['av_sync']['real_median']}，null median={summary['av_sync']['null_median']}，差值={summary['av_sync']['real_minus_null_median']}。",
-        f"- TalkNet：{talknet.get('status', 'unavailable')}；未使用不明第三方权重。", "",
+        f"- AV-sync real：n={summary['av_sync']['real_n']}，P25/median/P75={summary['av_sync']['real_p25']}/{summary['av_sync']['real_median']}/{summary['av_sync']['real_p75']}；错位负对照：n={summary['av_sync']['null_n']}，P25/median/P75={summary['av_sync']['null_p25']}/{summary['av_sync']['null_median']}/{summary['av_sync']['null_p75']}；median 差={summary['av_sync']['real_minus_null_median']}。",
+        f"- 每个 cluster 相对自身错位分布的经验 percentile：median={summary['av_sync']['empirical_percentile_median']}，>=0.80 有 {summary['av_sync']['empirical_percentile_ge_0_80']}，>=0.95 有 {summary['av_sync']['empirical_percentile_ge_0_95']}。",
+        f"- TalkNet：{talknet.get('status', 'unavailable')}；episode {summary['talknet_episode_results']['ok']}/{summary['talknet_episode_results']['total']} 可推理，逐帧 logit {summary['talknet_episode_results']['frames']} 条；未使用不明第三方权重。", "",
         "## 4. MFA", "",
         f"- 状态：{mfa.get('status', 'not_run')}。原因：{mfa.get('reason', '')}", "",
         "## 5. 51 条最终候选", "",
         f"- trimodal：`{json.dumps(dict(final_distribution), ensure_ascii=False)}`。",
+        f"- strong candidate（trimodal verified）={final_distribution.get('verified', 0)}，partial={final_distribution.get('partial', 0)}，uncertain={final_distribution.get('uncertain', 0)}。",
         f"- 分组结果：`{json.dumps(group_distribution, ensure_ascii=False)}`。",
         "- 逐条表：`auto_resolution_candidates.csv`。",
         "- 可用/应 mask 的视觉候选区间：`visual_candidate_segments.csv`。", "",

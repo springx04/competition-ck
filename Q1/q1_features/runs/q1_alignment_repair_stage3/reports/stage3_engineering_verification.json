@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "errors": [],
+  "pytest": "93 passed",
+  "pytest_log": "/home/jqy/shumo/q1_features/runs/q1_alignment_repair_stage3/reports/pytest_stage3.log",
+  "pip_check": "No broken requirements found.",
+  "pip_check_log": "/home/jqy/shumo/q1_features/runs/q1_alignment_repair_stage3/reports/pip_check_stage3.log",
+  "formal_validation_ok": true,
+  "formal_validation_errors": [],
+  "mapping_rows": 4,
+  "final_status_rows": 100,
+  "production_proposal_rows": 100,
+  "production_writeback_executed": false,
+  "manifest_modified": false,
+  "word_candidate_ok": true,
+  "compact_candidate_ok": true,
+  "stage3_traceable_visual_references": 2808,
+  "frozen_baseline_ok": true,
+  "frozen_file_count": 11,
+  "stage3_regression_tests": "15 passed"
+}
